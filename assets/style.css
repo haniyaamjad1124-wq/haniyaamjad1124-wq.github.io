@@ -813,3 +813,14 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 :root[data-theme="dark"] .row-preview::before {
   background: radial-gradient(120% 90% at 50% 10%, rgba(255,255,255,.09), transparent 55%);
 }
+
+/* colour for the rest of the site */
+.rainbow-bar {
+  height: 6px; width: 132px; border-radius: 3px; margin: 18px 0 0;
+  background: linear-gradient(90deg, #1e56a0, #16A34A, #D99A00, #E0446D, #6D5BD0);
+}
+.exp-card {
+  background-image: linear-gradient(180deg, color-mix(in srgb, var(--case) 8%, transparent), transparent 46%);
+  border-color: color-mix(in srgb, var(--case) 24%, var(--line-soft));
+}
+.exp-card h4 { display: flex; align-items: center; }
