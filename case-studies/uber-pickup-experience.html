@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Uber India pickup experience: the last 200 meters | Haniya Amjad</title>
+<meta name="description" content="Primary research with 41 riders across Chennai and Bengaluru on why the Uber India pickup experience fails, four behavioural personas, and three research led solutions.">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+</head>
+<body style="--case:#276ef1; --case-soft:rgba(39,110,241,.09); --case-line:rgba(39,110,241,.28);">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">Haniya Amjad <span>· Product</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="nav-links" id="navlinks">
+      <a href="../index.html">Work</a>
+      <a href="../index.html#case-studies" class="is-active">Case Studies</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="case-brand">
+      <span class="co"><span class="logo-mark" aria-hidden="true">U</span>Uber India</span>
+      <span class="tag">Product improvement</span>
+      <span class="tag tag-plain">User research</span>
+    </div>
+    <h1 class="h1">The last 200 meters</h1>
+    <p class="lede">
+      Riders have quietly built a coordination system outside the product. 78% of them phone the
+      driver, because the app cannot reliably close the final stretch between a map pin and a
+      person standing on a street.
+    </p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><span class="num">73%</span><span class="lbl">Face difficulty finding their ride</span><span class="sub">Only 1 of 41 riders said this never happens</span></div>
+      <div class="metric"><span class="num">78%</span><span class="lbl">Phone the driver as fallback navigation</span><span class="sub">A workaround this common is a product gap</span></div>
+      <div class="metric"><span class="num">87%</span><span class="lbl">Report negative emotions at pickup</span><span class="sub">Anxiety, frustration, exhaustion, fear</span></div>
+      <div class="metric"><span class="num">83%</span><span class="lbl">Would accept a suggested pickup spot</span><span class="sub">The fix does not require behaviour change</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-layout">
+  <div class="case-main">
+
+<section class="section-sm" id="question">
+  <div class="prose reveal">
+    <p class="eyebrow">The problem</p>
+    <h2 class="h3" style="margin-bottom:14px">
+      Find a real user problem, then prove with research that it is real.
+    </h2>
+    <p>
+      I chose the pickup moment because it is the one point at which a ride hailing product hands
+      off to the physical world, and handoffs are usually where things go wrong. It is also the
+      rare problem that is entirely controllable. Traffic is not, fuel prices are not, and
+      competitor pricing is not, but the last 200 meters sits fully inside Uber's own product.
+    </p>
+    <p>
+      The commercial case for looking here is straightforward. Uber India completes roughly
+      <strong>62% of bookings</strong> against an industry norm nearer 80%, and
+      <strong>82% of riders had a cancellation in the past year</strong>. A cancellation is not a
+      neutral event, because it costs a fare, wastes a driver trip, and leaves a rider one tap
+      away from an alternative app.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="clarify">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · Clarifying questions</p>
+    <h2 class="h2">Scoping the question</h2>
+    <div class="qa">
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Is this a rider problem or a driver problem?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Both sides lose, although only the rider can churn to another app in the same minute. I scoped the research to riders and treated driver time as a benefit rather than the primary lens.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Which market are we designing for?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Tier 1 India, in which addresses are frequently informal, landmarks matter more than street names, and rider and driver often do not share a first language.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Are we solving navigation or trust?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">The research answered this rather than my assumptions. Navigation is the visible failure, but the loudest complaint turned out to be extra fare demands, which is a trust failure occurring at the same moment.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What counts as success?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">A measurable fall in pickup driven cancellations, since that is the point at which rider frustration becomes lost revenue.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="method">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · Market and user research</p>
+    <h2 class="h2">Two layers, because numbers and stories fail differently</h2>
+    <p>
+      A survey tells you how often something happens, but it cannot tell you how it feels and it
+      cannot surface the thing you forgot to ask about. So the survey ran first in order to
+      establish pattern and scale, and the interviews ran afterwards in order to explain the
+      patterns it found.
+    </p>
+  </div>
+
+  <div class="prose reveal">
+    <div class="note">
+      <span class="note-k">Sample</span>
+      <p>
+        Chennai 66% and Bengaluru 27%. Rapido was the most used app at 46% with Uber second at
+        29%, which matters because most respondents were describing Uber comparatively rather
+        than as loyalists. Autos accounted for 63% of bookings. The mix covered students aged 19
+        to 24 and professionals aged 25 to 35, across both daily commuters and occasional riders.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="behaviour">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · What riders do today</p>
+    <h2 class="h2">Riders built a coordination system outside the product</h2>
+    <p>
+      The most useful question in the survey was not about satisfaction. It was what riders do
+      when the driver cannot find them, because the workaround people invent tells you precisely
+      which job the product failed to complete.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Observed behaviour</p>
+      <h3>The workaround economy, and where it happens</h3>
+      <p>Every bar on the left is a behaviour the product forced into existence. The venues on the right show it is a physical problem, not a random one.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 306" role="img" aria-label="Left panel shows what riders do when the driver cannot find them: 78 percent call the driver, 22 percent walk to the main road, 17 percent cancel and switch app, 10 percent ask a passerby, 5 percent just wait. Right panel ranks the worst pickup venues, led by residential colonies and busy markets.">
+        <text class="dg-t-hd" x="20" y="30">WHEN THE DRIVER CANNOT FIND YOU</text>
+        <text class="dg-t-hd" x="560" y="30">WORST PICKUP VENUES</text>
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 42 H520 M560 42 H880"/>
+
+        <text class="dg-t" x="220" y="76" text-anchor="end" style="font-size:11px">Call the driver</text>
+        <rect class="dg-node-solid" x="230" y="60" width="280" height="24" rx="5"/>
+        <text class="dg-t-hd" x="516" y="76" text-anchor="end" style="fill:#fff">78%</text>
+
+        <text class="dg-t" x="220" y="122" text-anchor="end" style="font-size:11px">Walk to the main road</text>
+        <rect class="dg-node-accent" x="230" y="106" width="79" height="24" rx="5"/>
+        <text class="dg-t-hd" x="317" y="122">22%</text>
+
+        <text class="dg-t" x="220" y="168" text-anchor="end" style="font-size:11px">Cancel and switch app</text>
+        <rect class="dg-node-accent" x="230" y="152" width="61" height="24" rx="5"/>
+        <text class="dg-t-hd" x="299" y="168">17%</text>
+
+        <text class="dg-t" x="220" y="214" text-anchor="end" style="font-size:11px">Ask a passerby</text>
+        <rect class="dg-node" x="230" y="198" width="36" height="24" rx="5"/>
+        <text class="dg-t-hd" x="274" y="214">10%</text>
+
+        <text class="dg-t" x="220" y="260" text-anchor="end" style="font-size:11px">Just wait</text>
+        <rect class="dg-node" x="230" y="244" width="18" height="24" rx="5"/>
+        <text class="dg-t-hd" x="256" y="260">5%</text>
+
+        <!-- venues -->
+        <text class="dg-t" x="726" y="76" text-anchor="end" style="font-size:11px">Residential colony</text>
+        <rect class="dg-node-accent" x="736" y="60" width="112" height="24" rx="5"/>
+        <text class="dg-t-hd" x="856" y="76">8</text>
+
+        <text class="dg-t" x="726" y="122" text-anchor="end" style="font-size:11px">Busy market or street</text>
+        <rect class="dg-node-accent" x="736" y="106" width="112" height="24" rx="5"/>
+        <text class="dg-t-hd" x="856" y="122">8</text>
+
+        <text class="dg-t" x="726" y="168" text-anchor="end" style="font-size:11px">Mall or complex</text>
+        <rect class="dg-node-accent" x="736" y="152" width="98" height="24" rx="5"/>
+        <text class="dg-t-hd" x="842" y="168">7</text>
+
+        <text class="dg-t" x="726" y="214" text-anchor="end" style="font-size:11px">Metro or railway</text>
+        <rect class="dg-node-accent" x="736" y="198" width="98" height="24" rx="5"/>
+        <text class="dg-t-hd" x="842" y="214">7</text>
+
+        <text class="dg-t" x="726" y="260" text-anchor="end" style="font-size:11px">Airport terminal</text>
+        <rect class="dg-node-accent" x="736" y="244" width="84" height="24" rx="5"/>
+        <text class="dg-t-hd" x="828" y="260">6</text>
+
+        <text class="dg-t-sm" x="20" y="294">Riders could select more than one behaviour, so the left column exceeds 100%.</text>
+        <text class="dg-t-sm" x="560" y="294">Counts of 41 respondents.</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      Each venue fails differently. A colony needs a landmark, an airport needs a gate number, and a
+      metro station needs an exit. That is why a single generic map pin is the wrong answer everywhere.
+    </figcaption>
+  </figure>
+
+  <div class="prose reveal">
+    <div class="quote">
+      <p>"I usually cancel and use Rapido. By the time Uber is looking for a driver, Rapido confirms."</p>
+      <cite>Ashley, Chennai</cite>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="findings">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · What the research said</p>
+    <h2 class="h2">Five results that changed what I proposed</h2>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:30%">Finding</th><th>Why it mattered</th></tr></thead>
+        <tbody>
+          <tr class="t-win">
+            <td><strong>Extra fare demands are the top pain</strong><br><span class="xsmall muted">37% named it as the one thing to change</span></td>
+            <td>The loudest complaint is not navigation at all. It is a trust violation occurring at the moment of contact, so any pickup fix that ignores it will feel beside the point to a third of riders.</td>
+          </tr>
+          <tr>
+            <td><strong>73% face pickup difficulty</strong><br><span class="xsmall muted">Only 1 of 41 said never</span></td>
+            <td>This is not an edge case to be handled gracefully. It is the normal experience, which moves it from a support problem to a product problem.</td>
+          </tr>
+          <tr>
+            <td><strong>Phone calls are the universal fallback</strong><br><span class="xsmall muted">78% of riders</span></td>
+            <td>A call needs a shared language and a describable landmark. For the woman commuting in an unfamiliar city, both of those frequently fail at once.</td>
+          </tr>
+          <tr>
+            <td><strong>87% report negative emotions</strong></td>
+            <td>The functional failure is producing an emotional cost, and an emotional cost is not something a lower fare can offset.</td>
+          </tr>
+          <tr>
+            <td><strong>83% would accept a suggested spot</strong><br><span class="xsmall muted">37% yes, 37% conditional, 10% want directions</span></td>
+            <td>The fix does not depend on behaviour change, since 22% already walk to a main road unprompted. It only requires the product to tell them where to stand.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="personas">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · Personas</p>
+    <h2 class="h2">Four personas, clustered from behaviour rather than demography</h2>
+  </div>
+
+  <div class="grid grid-2 reveal" style="margin:22px 0">
+    <div class="card">
+      <p class="eyebrow">About 40%</p>
+      <h4>The budget optimizer</h4>
+      <p style="margin-bottom:10px">Student, 19 to 24, Chennai. Rapido and autos, price first.</p>
+      <p class="xsmall muted"><strong>Primary pain:</strong> extra money demands, and cancellations at peak hours.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">About 30%</p>
+      <h4>The daily commuter</h4>
+      <p style="margin-bottom:10px">IT professional, 24 to 32, Bengaluru. Uber and Rapido, reliability first.</p>
+      <p class="xsmall muted"><strong>Primary pain:</strong> tech park gates, and drivers unfamiliar with campus layouts.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">About 20%</p>
+      <h4>The anxious navigator</h4>
+      <p style="margin-bottom:10px">Woman, 22 to 35, travelling across unfamiliar cities. Uber and Ola, safety first.</p>
+      <p class="xsmall muted"><strong>Primary pain:</strong> language barriers, personal safety, and GPS drift.</p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">About 10%</p>
+      <h4>The resigned accepter</h4>
+      <p style="margin-bottom:10px">Infrequent rider, uses whatever is available, expectations already lowered.</p>
+      <p class="xsmall muted"><strong>Primary pain:</strong> learned helplessness, summarised as "this is just how it is".</p>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <div class="note">
+      <span class="note-k">The one to watch</span>
+      <p>
+        The resigned accepter is the persona that should worry a product manager most. They do not
+        complain, do not churn loudly, and never appear in support tickets. They simply stop
+        expecting better, which means every satisfaction metric reads acceptably right up until
+        the moment they leave.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="solutions">
+  <div class="prose reveal">
+    <p class="eyebrow">The solutions</p>
+    <h2 class="h2">Three proposals, each tied to the finding that justifies it</h2>
+    <p>
+      I held every proposal to one rule, which is that it must cite the specific research finding
+      that makes it necessary. An idea that cannot name its evidence is only a preference.
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:22%">Solution</th><th style="width:34%">What it is</th><th>Evidence</th><th>Estimate</th></tr></thead>
+        <tbody>
+          <tr class="t-win">
+            <td><strong>Smart pickup spots</strong><br><span class="xsmall muted">Identified meeting points</span></td>
+            <td>Optimal pickup points learned per venue type, so gate level at airports and landmark based inside residential colonies.</td>
+            <td>83% acceptance, and 22% already walk to a main road unprompted</td>
+            <td class="t-num">₹50 to 80 Cr</td>
+          </tr>
+          <tr>
+            <td><strong>Visual pickup navigation</strong><br><span class="xsmall muted">AR wayfinding</span></td>
+            <td>A camera based overlay pointing to the driver's exact location, which works without a shared language and removes the phone call.</td>
+            <td>78% call the driver, and 87% report negative emotions</td>
+            <td class="t-num">₹40 Cr</td>
+          </tr>
+          <tr>
+            <td><strong>Fare Shield</strong><br><span class="xsmall muted">Extra demand reporting</span></td>
+            <td>One tap reporting when a driver asks for money outside the app, with an instant penalty and a 30 rupee rider credit.</td>
+            <td>37% named it the single thing to change, and 17% cancel and switch</td>
+            <td class="t-num">₹30 Cr</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="metrics" style="margin-top:24px">
+      <div class="metric"><span class="num">₹28 Cr</span><span class="lbl">Annual value of a single percentage point off the cancellation rate</span></div>
+      <div class="metric"><span class="num">62 → 75%</span><span class="lbl">Target booking completion rate</span></div>
+      <div class="metric"><span class="num">+2</span><span class="lbl">Additional rides per driver per day from time reclaimed at pickup</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="journey">
+  <div class="prose reveal">
+    <p class="eyebrow">The visual · The journey, before and after</p>
+    <h2 class="h2">What the pickup feels like now, and what it could feel like</h2>
+    <p>
+      Placing the findings in sequence shows that the damage is cumulative. No single stage is
+      catastrophic on its own, but confidence falls at every step until the rider arrives at the
+      car already annoyed, which is the state in which a fare dispute turns into a churn event.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · User journey</p>
+      <h3>Five stages, two very different curves</h3>
+      <p>The lower line is the pickup as riders described it. The upper line is the same journey with the three proposed solutions in place.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 372" role="img" aria-label="User journey across five stages from Confirmed to Post ride. The current experience declines from anxiety to anger, reaching its lowest point at Pickup when the driver demands extra fare. The proposed experience stays high across all five stages.">
+        <rect class="dg-node-accent" x="20" y="14" width="168" height="30" rx="7"/>
+        <text class="dg-t" x="104" y="34" text-anchor="middle" style="font-size:11px">1 · CONFIRMED</text>
+        <rect class="dg-node-accent" x="193" y="14" width="168" height="30" rx="7"/>
+        <text class="dg-t" x="277" y="34" text-anchor="middle" style="font-size:11px">2 · WAITING</text>
+        <rect class="dg-node-accent" x="366" y="14" width="168" height="30" rx="7"/>
+        <text class="dg-t" x="450" y="34" text-anchor="middle" style="font-size:11px">3 · COORDINATION</text>
+        <rect class="dg-node-solid" x="539" y="14" width="168" height="30" rx="7"/>
+        <text class="dg-t-inv" x="623" y="34" text-anchor="middle" style="font-size:11px">4 · PICKUP</text>
+        <rect class="dg-node-accent" x="712" y="14" width="168" height="30" rx="7"/>
+        <text class="dg-t" x="796" y="34" text-anchor="middle" style="font-size:11px">5 · POST RIDE</text>
+
+        <!-- today -->
+        <text class="dg-t-hd" x="20" y="66">TODAY</text>
+        <text class="dg-t-sm" x="24" y="88">A pin on a map with</text>
+        <text class="dg-t-sm" x="24" y="102">no venue context.</text>
+        <text class="dg-t-sm" x="197" y="88">Stand at the pin while</text>
+        <text class="dg-t-sm" x="197" y="102">the driver circles.</text>
+        <text class="dg-t-sm" x="370" y="88">Call the driver and hit</text>
+        <text class="dg-t-sm" x="370" y="102">a language barrier.</text>
+        <text class="dg-t-sm" x="543" y="88">The driver asks for an</text>
+        <text class="dg-t-sm" x="543" y="102">extra 50 rupees.</text>
+        <text class="dg-t-sm" x="716" y="88">Rate 3 of 5 and think</text>
+        <text class="dg-t-sm" x="716" y="102">about switching.</text>
+
+        <!-- curves -->
+        <path class="dg-line" fill="none" stroke-width="1" stroke-dasharray="3 4" d="M20 134 H852 M20 179 H852 M20 224 H852"/>
+        <text class="dg-t-sm" x="880" y="138" text-anchor="end" style="font-size:9.5px">High</text>
+        <text class="dg-t-sm" x="880" y="228" text-anchor="end" style="font-size:9.5px">Low</text>
+
+        <polyline fill="none" stroke="var(--case)" stroke-width="2.5" points="104,148 277,145 450,143 623,141 796,138"/>
+        <circle class="dg-node-solid" cx="104" cy="148" r="5"/>
+        <circle class="dg-node-solid" cx="277" cy="145" r="5"/>
+        <circle class="dg-node-solid" cx="450" cy="143" r="5"/>
+        <circle class="dg-node-solid" cx="623" cy="141" r="5"/>
+        <circle class="dg-node-solid" cx="796" cy="138" r="5"/>
+        <text class="dg-t-acc" x="104" y="132" style="font-size:9.5px">WITH THE FIX</text>
+
+        <polyline fill="none" stroke="var(--muted)" stroke-width="2" stroke-dasharray="6 4" points="104,177 277,192 450,202 623,210 796,197"/>
+        <circle class="dg-node" cx="104" cy="177" r="5"/>
+        <circle class="dg-node" cx="277" cy="192" r="5"/>
+        <circle class="dg-node" cx="450" cy="202" r="5"/>
+        <circle class="dg-node" cx="623" cy="210" r="6"/>
+        <circle class="dg-node" cx="796" cy="197" r="5"/>
+        <text class="dg-t-sm" x="623" y="228" text-anchor="middle" style="font-size:9.5px">LOWEST POINT</text>
+
+        <!-- after -->
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 242 H880"/>
+        <text class="dg-t-hd" x="20" y="262">WITH THE FIX</text>
+        <text class="dg-t-sm" x="24" y="284">"Walk to Gate 3" with</text>
+        <text class="dg-t-sm" x="24" y="298">a photo and a walk time.</text>
+        <text class="dg-t-sm" x="197" y="284">Wait at the smart spot</text>
+        <text class="dg-t-sm" x="197" y="298">with AR arrows.</text>
+        <text class="dg-t-sm" x="370" y="284">No call needed. A visual</text>
+        <text class="dg-t-sm" x="370" y="298">reference and pictogram.</text>
+        <text class="dg-t-sm" x="543" y="284">Fare Shield makes the</text>
+        <text class="dg-t-sm" x="543" y="298">demand a penalty.</text>
+        <text class="dg-t-sm" x="716" y="284">Rate 5 of 5. The ride</text>
+        <text class="dg-t-sm" x="716" y="298">simply worked.</text>
+
+        <!-- shift chips -->
+        <rect class="dg-node-accent" x="20" y="320" width="168" height="28" rx="14"/>
+        <text class="dg-t-acc" x="104" y="338" text-anchor="middle" style="font-size:9.5px">ANXIETY TO CLARITY</text>
+        <rect class="dg-node-accent" x="193" y="320" width="168" height="28" rx="14"/>
+        <text class="dg-t-acc" x="277" y="338" text-anchor="middle" style="font-size:9.5px">FRUSTRATION TO CONFIDENCE</text>
+        <rect class="dg-node-accent" x="366" y="320" width="168" height="28" rx="14"/>
+        <text class="dg-t-acc" x="450" y="338" text-anchor="middle" style="font-size:9.5px">STRESS TO EASE</text>
+        <rect class="dg-node-accent" x="539" y="320" width="168" height="28" rx="14"/>
+        <text class="dg-t-acc" x="623" y="338" text-anchor="middle" style="font-size:9.5px">ANGER TO TRUST</text>
+        <rect class="dg-node-accent" x="712" y="320" width="168" height="28" rx="14"/>
+        <text class="dg-t-acc" x="796" y="338" text-anchor="middle" style="font-size:9.5px">INDIFFERENCE TO LOYALTY</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      Stage descriptions come from survey and interview responses. The confidence curves are a
+      qualitative reading of those responses rather than a measured satisfaction score.
+    </figcaption>
+  </figure>
+
+  <div class="prose reveal">
+    <h3 class="h3">The same journey, on the ground</h3>
+    <p>
+      The curve above is the feeling. This is the geometry underneath it. A residential colony is
+      the most cited failure venue in the survey, so it is the one worth drawing.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Street level</p>
+      <h3>Why the driver circles, and what a named spot changes</h3>
+      <p>The rider does not move in either picture. The only thing that changes is whether the product knows where to send the car.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 448" role="img" aria-label="Two street maps side by side. On the left, the driver enters a residential colony, turns three times and dead ends while the rider waits inside with an inaccurate GPS pin. On the right, the rider walks a short distance to a named pickup spot on the main road and the driver approaches directly.">
+
+        <!-- ================= LEFT PANEL : TODAY ================= -->
+        <text class="dg-t-hd" x="20" y="24">TODAY</text>
+        <text class="dg-t-sm" x="88" y="24">a pin, and a guess</text>
+
+        <!-- buildings -->
+        <rect x="60" y="80" width="110" height="54" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="240" y="80" width="130" height="54" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="60" y="186" width="110" height="74" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="240" y="180" width="130" height="92" rx="4" fill="var(--bg-sunken)"/>
+
+        <!-- roads -->
+        <rect x="96" y="150" width="116" height="16" fill="var(--line)"/>
+        <rect x="196" y="150" width="16" height="146" fill="var(--line)"/>
+        <rect x="20" y="296" width="420" height="26" fill="var(--line)"/>
+        <path d="M20 309 H440" stroke="var(--bg)" stroke-width="1.5" stroke-dasharray="10 9" fill="none"/>
+        <text class="dg-t-sm" x="24" y="338" style="font-size:9.5px">MAIN ROAD</text>
+
+        <!-- gps accuracy halo + pin -->
+        <circle cx="215" cy="205" r="40" fill="var(--case-soft)" stroke="var(--case-line)" stroke-dasharray="4 4"/>
+        <path d="M215 205 C207 194 207 185 215 185 C223 185 223 194 215 205 Z" fill="var(--case)"/>
+        <circle cx="215" cy="192" r="2.6" fill="var(--bg)"/>
+        <text class="dg-t-sm" x="215" y="262" text-anchor="middle" style="font-size:9.5px">DROPPED PIN</text>
+
+        <!-- rider -->
+        <g stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round">
+          <circle cx="150" cy="222" r="4.6" fill="var(--text)" stroke="none"/>
+          <path d="M150 228 V242 M142 252 L150 242 L158 252 M142 234 H158"/>
+        </g>
+        <text class="dg-t-sm" x="150" y="270" text-anchor="middle" style="font-size:9.5px">RIDER</text>
+
+        <!-- confused driver path -->
+        <path d="M440 309 H204 V158 H104 V246" fill="none" stroke="var(--case)" stroke-width="2.5"
+              stroke-dasharray="7 6" stroke-linejoin="round"/>
+        <circle cx="204" cy="309" r="9" fill="var(--case)"/>
+        <text x="204" y="313" text-anchor="middle" fill="#fff" font-size="10" font-weight="700"
+              font-family="var(--font-text)">1</text>
+        <circle cx="204" cy="158" r="9" fill="var(--case)"/>
+        <text x="204" y="162" text-anchor="middle" fill="#fff" font-size="10" font-weight="700"
+              font-family="var(--font-text)">2</text>
+        <circle cx="104" cy="158" r="9" fill="var(--case)"/>
+        <text x="104" y="162" text-anchor="middle" fill="#fff" font-size="10" font-weight="700"
+              font-family="var(--font-text)">3</text>
+        <text class="dg-t-hd" x="104" y="266" text-anchor="middle" style="font-size:17px;fill:var(--case)">?</text>
+
+        <!-- car, facing left -->
+        <g transform="translate(310,292)">
+          <rect x="0" y="0" width="36" height="14" rx="4.5" fill="var(--text)"/>
+          <rect x="8" y="-6" width="19" height="8" rx="3" fill="var(--text)"/>
+          <circle cx="9" cy="15.5" r="3.4" fill="var(--text)"/>
+          <circle cx="28" cy="15.5" r="3.4" fill="var(--text)"/>
+        </g>
+
+        <!-- ================= RIGHT PANEL : WITH THE FIX ================= -->
+        <path d="M450 60 V400" stroke="var(--line-soft)" stroke-width="1" fill="none"/>
+        <text class="dg-t-hd" x="460" y="24" style="fill:var(--case)">WITH A NAMED SPOT</text>
+        <text class="dg-t-sm" x="660" y="24">the same colony, one instruction</text>
+
+        <rect x="500" y="80" width="110" height="54" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="680" y="80" width="130" height="54" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="500" y="186" width="110" height="74" rx="4" fill="var(--bg-sunken)"/>
+        <rect x="680" y="180" width="130" height="92" rx="4" fill="var(--bg-sunken)"/>
+
+        <rect x="536" y="150" width="116" height="16" fill="var(--line)"/>
+        <rect x="636" y="150" width="16" height="146" fill="var(--line)"/>
+        <rect x="460" y="296" width="420" height="26" fill="var(--line)"/>
+        <path d="M460 309 H880" stroke="var(--bg)" stroke-width="1.5" stroke-dasharray="10 9" fill="none"/>
+        <text class="dg-t-sm" x="464" y="338" style="font-size:9.5px">MAIN ROAD</text>
+
+        <!-- rider, unchanged position -->
+        <g stroke="var(--text)" stroke-width="1.8" fill="none" stroke-linecap="round">
+          <circle cx="590" cy="222" r="4.6" fill="var(--text)" stroke="none"/>
+          <path d="M590 228 V242 M582 252 L590 242 L598 252 M582 234 H598"/>
+        </g>
+        <text class="dg-t-sm" x="590" y="270" text-anchor="middle" style="font-size:9.5px">RIDER</text>
+
+        <!-- short walk -->
+        <path d="M598 244 L640 276 L664 296" fill="none" stroke="var(--text)" stroke-width="2"
+              stroke-dasharray="2 5" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="616" y="292" style="font-size:9.5px">60 m walk</text>
+
+        <!-- named spot -->
+        <rect x="612" y="212" width="104" height="30" rx="15" fill="var(--case)"/>
+        <text x="664" y="231" text-anchor="middle" fill="#fff" font-size="11" font-weight="700"
+              font-family="var(--font-text)" letter-spacing="0.04em">GATE 3</text>
+        <path d="M664 250 L658 240 H670 Z" fill="var(--case)"/>
+        <circle cx="664" cy="309" r="7" fill="none" stroke="var(--case)" stroke-width="2.5"/>
+        <circle cx="664" cy="309" r="2.5" fill="var(--case)"/>
+
+        <!-- direct approach -->
+        <path d="M880 309 H700" fill="none" stroke="var(--case)" stroke-width="2.5"/>
+        <path d="M700 309 L712 303 L712 315 Z" fill="var(--case)"/>
+
+        <g transform="translate(750,292)">
+          <rect x="0" y="0" width="36" height="14" rx="4.5" fill="var(--case)"/>
+          <rect x="8" y="-6" width="19" height="8" rx="3" fill="var(--case)"/>
+          <circle cx="9" cy="15.5" r="3.4" fill="var(--case)"/>
+          <circle cx="28" cy="15.5" r="3.4" fill="var(--case)"/>
+        </g>
+
+        <!-- ================= OUTCOME ROWS ================= -->
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 358 H440 M460 358 H880"/>
+
+        <text class="dg-t-sm" x="20" y="380">Three turns, one dead end, no rider in sight.</text>
+        <text class="dg-t-sm" x="20" y="398">Two phone calls, neither in a shared language.</text>
+        <text class="dg-t" x="20" y="422" style="font-size:13px">About 6 minutes lost, and a live cancellation risk.</text>
+
+        <text class="dg-t-sm" x="460" y="380">One instruction the rider can act on before the car arrives.</text>
+        <text class="dg-t-sm" x="460" y="398">No call, because the meeting point has a name.</text>
+        <text class="dg-t" x="460" y="422" style="font-size:13px;fill:var(--case)">About 90 seconds, and the driver never stops moving.</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      A residential colony was the joint most cited worst venue in the survey, alongside busy markets.
+      The walking distance and timings shown are illustrative of the mechanism rather than measured values.
+    </figcaption>
+  </figure>
+</section>
+
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <div class="callout">
+      <p class="eyebrow">The thesis</p>
+      <p>
+        Uber India does not have a pricing problem. It has a pickup experience problem that
+        presents itself as a pricing problem.
+      </p>
+    </div>
+    <p>
+      When asked what they would change, a number of riders answered some version of "nothing,
+      just make it cheapest". The easy reading is that this market is purely price sensitive and
+      the product barely matters.
+    </p>
+    <p>
+      I think that reading is wrong. A rider who says "nothing, cheapest" is not stating a price
+      preference, but rather the absence of a reason to pay more. Every premium tier tried in this
+      market has run into that sentence, because the product has never reliably delivered the one
+      thing riders would actually pay for, which is the ride arriving where they are standing.
+    </p>
+
+    <p>The market model behind the ₹165 crore figure is worked through separately in <a href="pickup-market-sizing.html">Sizing the pickup problem</a>.</p>
+
+    <div class="note">
+      <span class="note-k">Where I would push back on myself</span>
+      <p>
+        The sample skews 93% South India and over represents Rapido users, so the competitive
+        dynamics described hold most strongly for Chennai and Bengaluru. Before funding any of
+        this I would want a matched read against internal cancellation logs broken down by venue
+        type, since that is the data most likely to confirm or kill the smart spot proposal quickly.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="pager reveal">
+    <a href="uber-eats-group-order.html"><span class="dir">Previous</span><span class="ttl">Uber Eats: why groups abandon Group Order</span></a>
+    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+  </div>
+</section>
+
+  </div>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-t">On this page</p>
+    <a href="#question">The problem</a>
+    <a href="#clarify">Clarifying questions</a>
+    <a href="#method">Research</a>
+    <a href="#behaviour">What riders do</a>
+    <a href="#findings">What it said</a>
+    <a href="#personas">Personas</a>
+    <a href="#solutions">The solutions</a>
+    <a href="#journey">The journey</a>
+    <a href="#takeaway">Takeaway</a>
+  </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-in">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">Haniya Amjad</p>
+        <p class="muted" style="font-size:13px;margin:0">Product Manager · Chennai, India</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Work</a>
+        <a href="../index.html#case-studies">Case Studies</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Uber is a trademark of Uber Technologies, Inc. This is an independent product research
+      exercise using primary research and public market data. It is not affiliated with, endorsed
+      by, or commissioned by Uber. Revenue figures are directional models rather than company data.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js?v=6"></script>
+</body>
+</html>

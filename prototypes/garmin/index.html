@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garmin Today</title>
+<style>
+*{box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{background:#141416;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:26px 12px;color:#ddd}
+.cap{font-size:13px;color:#9a9aa0;margin-bottom:16px;text-align:center;max-width:430px}
+.phone{width:390px;max-width:100%;background:#000;border-radius:34px;border:9px solid #2a2a2c;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.6);color:#fff}
+.pane{display:none;padding:18px 16px 8px;min-height:560px}
+.pane.on{display:block}
+h1{font-size:20px;margin-bottom:2px}
+.live{font-size:11px;color:#8E8E93;display:flex;align-items:center;gap:6px;margin-bottom:14px}
+.pulse{width:7px;height:7px;border-radius:50%;background:#30D158}
+.sec{font-size:10px;font-weight:800;letter-spacing:.08em;color:#8E8E93;margin:14px 2px 6px}
+.card{background:#1C1C1E;border-radius:12px;padding:13px 14px;margin-bottom:10px}
+.card h3{font-size:13px;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.icon{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.big{font-size:24px;font-weight:800}
+.big small{font-size:12px;color:#8E8E93;font-weight:400}
+.pill{display:inline-block;font-size:10.5px;font-weight:800;border-radius:10px;padding:4px 10px;margin-left:10px;vertical-align:3px}
+.good{background:#0E3B2A;color:#30D158}
+.warn{background:#4A1D05;color:#FF9F0A}
+.exp{font-size:11px;color:#8E8E93;margin-top:6px}
+.zone{display:flex;gap:3px;margin-top:10px}
+.zone div{height:6px;border-radius:3px;flex:1}
+.marker{font-size:10px;color:#8E8E93;display:flex;justify-content:space-between;margin-top:4px}
+.range{position:relative;height:12px;margin-top:10px}
+.range .rl{position:absolute;top:4px;width:100%;height:4px;border-radius:2px;background:#2C2C2E}
+.range .seg{position:absolute;top:4px;height:4px;border-radius:2px;background:#30D158}
+.range .me{position:absolute;top:0;width:12px;height:12px;border-radius:50%;background:#fff;transform:translateX(-50%)}
+.btn{background:#0A84FF;color:#fff;border:0;border-radius:12px;font-weight:800;font-size:12px;padding:8px 16px;cursor:pointer}
+.link{background:none;border:0;color:#0A84FF;font-size:12px;cursor:pointer;padding:0}
+.act .rowa{display:flex;align-items:center;gap:12px}
+.blob{width:34px;height:34px;border-radius:50%;background:#FF9F0A;flex:0 0 auto}
+.blob.walk{background:#30D158}
+.rowa b{display:block;font-size:15px}
+.rowa small{color:#8E8E93;font-size:11px}
+.note{background:#0E2E45;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.note b{color:#0A84FF;font-size:12px;display:block;margin-bottom:3px}
+.note small{color:#8E8E93;font-size:11px;display:block;margin-bottom:8px}
+.chart{display:flex;align-items:flex-end;gap:5px;height:110px;padding:6px 2px 0;border-bottom:1px solid #2C2C2E}
+.chart div{flex:1;background:#0A84FF;border-radius:2px 2px 0 0}
+.chart div.met{background:#30D158}
+.leg{display:flex;gap:16px;font-size:11px;color:#8E8E93;margin-top:8px;align-items:center}
+.dotl{width:9px;height:9px;border-radius:50%;display:inline-block;margin-right:5px;vertical-align:-1px}
+.tabs{display:flex;border-top:1px solid #2C2C2E;background:#0a0a0a}
+.tabs button{flex:1;background:none;border:0;color:#8E8E93;font-size:11.5px;font-weight:600;padding:13px 0;cursor:pointer}
+.tabs button.on{color:#0A84FF}
+.hid{display:none}
+</style>
+</head>
+<body>
+
+<p class="cap">The Garmin Connect daily check in, rebuilt so every number carries its scale. Switch tabs, and try the merge on the Activity tab.</p>
+
+<div class="phone">
+  <div id="today" class="pane on">
+    <h1>Today</h1>
+    <div class="live"><span class="pulse"></span>Live · updated 2 min ago</div>
+
+    <div class="sec">TODAY</div>
+    <div class="card">
+      <h3><span class="icon" style="background:#FF453A"></span>Resting heart rate</h3>
+      <span class="big">70 <small>bpm</small></span><span class="pill good">Good range</span>
+      <div class="exp">Typical for you is 66 to 74. Lower usually means better recovery.</div>
+      <div class="range"><div class="rl"></div><div class="seg" style="left:32%;width:28%"></div><div class="me" style="left:44%"></div></div>
+      <div class="marker"><span>40</span><span>100</span></div>
+    </div>
+
+    <div class="sec">HEALTH</div>
+    <div class="card">
+      <h3><span class="icon" style="background:#FF9F0A"></span>Stress</h3>
+      <span class="big">89 <small>/ 100</small></span><span class="pill warn">High · up 12 today</span>
+      <div class="exp">Above 75 for four hours. A light session is a better idea than intervals.</div>
+      <div class="zone"><div style="background:#30D158"></div><div style="background:#FFD60A"></div><div style="background:#FF9F0A"></div><div style="background:#FF453A"></div></div>
+      <div class="marker"><span>Rest</span><span>Very high</span></div>
+    </div>
+
+    <div class="sec">YOU</div>
+    <div class="card">
+      <h3>Fitness age</h3>
+      <span class="big">23.5</span><span class="pill good">1.5 yrs younger</span>
+      <div class="exp">Your body performs like someone of 23.5, against your real age of 25.</div>
+    </div>
+    <p style="text-align:center;margin:12px 0"><button class="link">See all 14 metrics</button></p>
+  </div>
+
+  <div id="activity" class="pane act">
+    <h1>Today's activity</h1>
+    <div class="live" style="visibility:hidden">.</div>
+
+    <div id="split">
+      <div class="note"><b>Auto detect split your run</b><small>One workout was recorded as three separate entries. The first is at a walking pace.</small><button class="btn" onclick="merge(true)">Merge segments</button></div>
+      <div class="card"><div class="rowa"><span class="blob"></span><span><b>Running · 0.21 km</b><small>3:07 · 14:36 /km</small></span></div></div>
+      <div class="card"><div class="rowa"><span class="blob"></span><span><b>Running · 1.07 km</b><small>14:43 · 13:46 /km</small></span></div></div>
+      <div class="card"><div class="rowa"><span class="blob"></span><span><b>Running · 2.26 km</b><small>25:07 · 11:08 /km</small></span></div></div>
+    </div>
+
+    <div id="merged" class="hid">
+      <div class="card"><div class="rowa"><span class="blob"></span><span><b>Morning run · 3.33 km</b><small>39:50 · 11:58 /km average</small></span></div>
+        <div class="exp" style="margin-top:8px">3 segments merged · <button class="link" onclick="merge(false)">Undo</button></div></div>
+      <div class="card"><div class="rowa"><span class="blob walk"></span><span><b>Warm up walk · 0.21 km</b><small>3:07 · 14:36 /km</small></span></div>
+        <div class="exp" style="margin-top:8px;color:#30D158">Recategorised from Running. That pace is a walk.</div></div>
+      <div class="note"><b>Stop this happening again?</b><small>Merge adjacent segments automatically from now on.</small><button class="btn">Turn on</button></div>
+    </div>
+  </div>
+
+  <div id="sleep" class="pane">
+    <h1>Sleep</h1>
+    <div class="live"><span class="pulse"></span>20 Jul to 16 Aug · up to date as of this morning</div>
+    <div class="card">
+      <span class="big">6h 18m</span><span class="pill warn">42m below goal</span>
+      <div class="exp">Average over the last four weeks. Goal is 7h 00m.</div>
+    </div>
+    <div class="card">
+      <h3>Nightly duration</h3>
+      <div class="chart">
+        <div style="height:62%"></div><div style="height:48%"></div><div style="height:70%"></div><div style="height:34%"></div>
+        <div style="height:55%"></div><div class="met" style="height:92%"></div><div style="height:52%"></div><div style="height:44%"></div>
+        <div style="height:74%"></div><div class="met" style="height:88%"></div><div style="height:38%"></div><div style="height:58%"></div>
+      </div>
+      <div class="leg"><span><span class="dotl" style="background:#0A84FF"></span>Below goal</span><span><span class="dotl" style="background:#30D158"></span>Goal met</span></div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button id="tb-today" class="on" onclick="tab('today')">Today</button>
+    <button id="tb-activity" onclick="tab('activity')">Activity</button>
+    <button id="tb-sleep" onclick="tab('sleep')">Sleep</button>
+  </div>
+</div>
+
+<p class="cap" style="margin-top:16px">Independent concept prototype. Not affiliated with Garmin.</p>
+
+<script>
+function tab(n){
+  var names=['today','activity','sleep'];
+  for(var i=0;i<names.length;i++){
+    document.getElementById(names[i]).classList.toggle('on',names[i]===n);
+    document.getElementById('tb-'+names[i]).classList.toggle('on',names[i]===n);
+  }
+}
+function merge(on){
+  document.getElementById('split').className = on?'hid':'';
+  document.getElementById('merged').className = on?'':'hid';
+}
+</script>
+
+</body>
+</html>

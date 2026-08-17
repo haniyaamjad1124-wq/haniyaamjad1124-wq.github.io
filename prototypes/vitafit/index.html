@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitaFit Coach Connect</title>
+<style>
+*{box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{background:#E4EDEC;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:26px 12px;color:#16201F}
+.cap{font-size:13px;color:#5A6A6A;margin-bottom:16px;text-align:center;max-width:430px}
+.phone{width:390px;max-width:100%;background:#F5F8F8;border-radius:34px;border:9px solid #14201f;overflow:hidden;box-shadow:0 24px 60px rgba(10,60,55,.35)}
+.pane{display:none;min-height:560px}
+.pane.on{display:block}
+.hdr{background:#0D9488;color:#fff;padding:18px 18px 14px}
+.hdr b{font-size:19px;display:block}
+.hdr small{opacity:.85;font-size:11.5px}
+.body{padding:14px 14px 4px}
+.card{background:#fff;border-radius:12px;padding:13px 14px;margin-bottom:11px}
+.warnband{background:#FDEBE8;color:#C0392B;font-size:11px;font-weight:700;border-radius:10px;padding:8px 12px;margin-bottom:11px}
+.sec{font-size:10px;font-weight:800;letter-spacing:.07em;color:#5A6A6A;margin:2px 2px 6px}
+.kv{display:flex;justify-content:space-between;font-size:13px;padding:6px 0}
+.kv b{font-weight:700}
+.tn{border:1.2px solid #0D9488}
+.tn .who{display:flex;align-items:center;gap:9px;margin-bottom:7px}
+.av{width:26px;height:26px;border-radius:50%;background:#0D9488;color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.tn small{font-size:12px;color:#16201F;line-height:1.5;display:block}
+.btn{width:100%;background:#0D9488;color:#fff;border:0;border-radius:18px;font-weight:800;font-size:13.5px;padding:11px 0;cursor:pointer;margin:4px 0 10px}
+.btn.done{background:#0E3B2A;color:#4FD1C5}
+.muted{font-size:11px;color:#5A6A6A;text-align:center;margin-bottom:10px}
+.rowb{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:10px;background:#fff;margin-bottom:8px;font-size:13px}
+.rowb .rk{width:16px;font-weight:800;color:#8A9A99}
+.rowb .avg{width:26px;height:26px;border-radius:50%;background:#DDE8E7;flex:0 0 auto}
+.rowb .nm{flex:1}
+.rowb .nm small{display:block;font-size:10.5px;color:#8A9A99}
+.rowb .xp{font-weight:800;font-size:12.5px}
+.rowb.me{background:#0D9488;color:#fff}
+.rowb.me .rk,.rowb.me .nm small{color:rgba(255,255,255,.8)}
+.gap{border:1.2px solid #0D9488}
+.bar{height:6px;border-radius:3px;background:#DDE8E7;overflow:hidden;margin-top:8px}
+.bar div{height:100%;background:#0D9488;transition:width .4s}
+.ev .top{background:#DCEEEB;margin:-13px -14px 10px;padding:12px 14px;border-radius:12px 12px 0 0}
+.ev .top small{color:#0D9488;font-weight:800;font-size:10px;letter-spacing:.05em;display:block}
+.ev .top b{font-size:16px}
+.ev p{font-size:12px;color:#5A6A6A;margin:3px 0}
+.squad{display:flex;align-items:center;gap:6px;font-size:12px;color:#5A6A6A;margin-top:8px}
+.squad .avg{width:22px;height:22px;margin-left:-6px;border:2px solid #fff}
+.squad .avg:first-child{margin-left:0}
+.safe{background:#FFF6E5;color:#8A6D1F;font-size:11px;border-radius:10px;padding:9px 12px}
+.tabs{display:flex;border-top:1px solid #DDE8E7;background:#fff}
+.tabs button{flex:1;background:none;border:0;color:#8A9A99;font-size:11.5px;font-weight:700;padding:13px 0;cursor:pointer}
+.tabs button.on{color:#0D9488}
+</style>
+</head>
+<body>
+
+<p class="cap">The three surfaces that carry Coach Connect. A passport that follows you between trainers, a leaderboard of genuine peers, and the event your sessions unlock.</p>
+
+<div class="phone">
+  <div id="passport" class="pane on">
+    <div class="hdr"><b>Your passport</b><small>Shared with your trainer</small></div>
+    <div class="body">
+      <div class="warnband">Left knee, ACL 2023 · always visible to your trainer</div>
+      <div class="sec">YOU LOGGED TODAY</div>
+      <div class="card">
+        <div class="kv"><span>Weight</span><b>64.2 kg</b></div>
+        <div class="kv"><span>Energy</span><b style="color:#0D9488">Low</b></div>
+        <div class="kv"><span>Mood</span><b>Flat, slept badly</b></div>
+        <div class="kv" id="extraLog" style="display:none"><span>Water</span><b>2.0 L</b></div>
+      </div>
+      <div class="sec">YOUR TRAINER ADDED</div>
+      <div class="card tn">
+        <div class="who"><span class="av">RK</span><b style="font-size:13px">Rohit K · Tuesday</b></div>
+        <small>Held back on lunges, the knee was talking. Swap to step ups next session and keep the load light until Thursday.</small>
+      </div>
+      <button class="btn" id="logBtn" onclick="log()">Add today's log</button>
+      <p class="muted">You control every field except medical history.</p>
+    </div>
+  </div>
+
+  <div id="board" class="pane">
+    <div class="hdr"><b>This week</b><small>Women 40 to 49 · strength · 60 to 70 kg</small></div>
+    <div class="body">
+      <p class="muted" style="text-align:left;margin:2px 2px 10px">Ranked against 214 genuine peers, never against the whole app.</p>
+      <div class="rowb"><span class="rk">2</span><span class="avg"></span><span class="nm">Meera R<small>5 sessions</small></span><span class="xp">940 XP</span></div>
+      <div class="rowb me"><span class="rk">3</span><span class="avg"></span><span class="nm">You<small>4 sessions · 12 day streak</small></span><span class="xp">880 XP</span></div>
+      <div class="rowb"><span class="rk">4</span><span class="avg"></span><span class="nm">Anjali T<small>4 sessions</small></span><span class="xp">815 XP</span></div>
+      <div class="card gap"><b style="font-size:13px">60 XP from second place</b>
+        <p style="font-size:12px;color:#5A6A6A;margin-top:3px">One more session this week takes it.</p>
+        <div class="bar"><div style="width:82%"></div></div>
+      </div>
+      <div class="safe">Streak freeze available. Miss a day without losing twelve.</div>
+    </div>
+  </div>
+
+  <div id="event" class="pane">
+    <div class="hdr"><b>Unlocked</b><small>You completed 8 online sessions, so a chapter event is open to you</small></div>
+    <div class="body">
+      <div class="card ev">
+        <div class="top"><small>SUNDAY · 6:30 AM</small><b>Cubbon Park 5k</b></div>
+        <p>Led by Rohit K, your trainer</p>
+        <p>Bengaluru chapter · 2.4 km from you</p>
+        <p id="capTxt">18 of 25 places taken</p>
+        <div class="bar"><div id="capBar" style="width:72%"></div></div>
+      </div>
+      <button class="btn" id="rsvp" onclick="reserve()">Reserve my place</button>
+      <div class="card">
+        <b style="font-size:13px">Bring your squad</b>
+        <div class="squad"><span class="avg"></span><span class="avg"></span><span class="avg"></span><span style="margin-left:8px">3 of your squad are going</span></div>
+        <p style="font-size:12px;color:#0D9488;font-weight:700;margin-top:8px">Invite on WhatsApp</p>
+      </div>
+      <div class="safe">Certified trainer, capped capacity, waiver signed once in the app.</div>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <button id="tb-passport" class="on" onclick="tab('passport')">Passport</button>
+    <button id="tb-board" onclick="tab('board')">Leaderboard</button>
+    <button id="tb-event" onclick="tab('event')">Events</button>
+  </div>
+</div>
+
+<p class="cap" style="margin-top:16px">Concept prototype for the VitaFit brief. VitaFit is the platform named in the assignment.</p>
+
+<script>
+function tab(n){
+  var names=['passport','board','event'];
+  for(var i=0;i<names.length;i++){
+    document.getElementById(names[i]).classList.toggle('on',names[i]===n);
+    document.getElementById('tb-'+names[i]).classList.toggle('on',names[i]===n);
+  }
+}
+function log(){
+  document.getElementById('extraLog').style.display='flex';
+  var b=document.getElementById('logBtn'); b.textContent='Logged for today ✓'; b.className='btn done'; b.disabled=true;
+}
+function reserve(){
+  var b=document.getElementById('rsvp'); b.textContent='Reserved · see you Sunday'; b.className='btn done'; b.disabled=true;
+  document.getElementById('capTxt').textContent='19 of 25 places taken';
+  document.getElementById('capBar').style.width='76%';
+}
+</script>
+
+</body>
+</html>

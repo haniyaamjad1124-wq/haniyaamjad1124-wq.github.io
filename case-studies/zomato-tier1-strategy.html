@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zomato: the OKR that survives contact with a funnel | Haniya Amjad</title>
+<meta name="description" content="Per 100 Tier 1 app opens only 12 end in a delivered order. A north star that decomposes into four key results, a funnel holding two different kinds of problem, and six cohorts framed as runnable tests.">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+</head>
+<body style="--case:#e23744; --case-soft:rgba(226,55,68,.09); --case-line:rgba(226,55,68,.28);">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">Haniya Amjad <span>· Product</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="nav-links" id="navlinks">
+      <a href="../index.html">Work</a>
+      <a href="../index.html#case-studies" class="is-active">Case Studies</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="case-brand">
+      <span class="co"><span class="logo-mark" aria-hidden="true">Z</span>Zomato</span>
+      <span class="tag">Metrics</span>
+      <span class="tag tag-plain">OKRs and funnel analysis</span>
+    </div>
+    <h1 class="h1">The OKR that survives contact with a funnel</h1>
+    <p class="lede">
+      Per 100 Tier 1 app opens, only 12 end in a delivered order. The useful discovery is that the
+      leaks above the cart and the leaks below it are different kinds of problem, owned by
+      different teams and fixed by different work.
+    </p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><span class="num">100 → 12</span><span class="lbl">App opens that reach a delivered order</span><span class="sub">Two problem types wearing one funnel</span></div>
+      <div class="metric"><span class="num">WAE</span><span class="lbl">Weekly Active Eaters, the north star</span><span class="sub">It factors cleanly into all four key results</span></div>
+      <div class="metric"><span class="num">6 → 2</span><span class="lbl">Cohorts collapsed into two recurring patterns</span><span class="sub">The synthesis that makes a roadmap possible</span></div>
+      <div class="metric"><span class="num">6</span><span class="lbl">Guardrails built to stop the north star being gamed</span><span class="sub">Margin, spend, riders, partners, trust</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-layout">
+  <div class="case-main">
+
+<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="problem">
+  <div class="prose reveal">
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">Which number should a business at this scale organise a year around?</h2>
+    <p>
+      Zomato is not short of users or awareness. The interesting question is not growth in the
+      abstract. It is which single number the company should point a year at, and whether that
+      number can be moved without quietly breaking something else.
+    </p>
+
+    <div class="qa">
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What counts as an active user?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Only a successfully delivered order. Counting an order that arrived cold or late as engagement rewards exactly the behaviour the strategy is trying to remove.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Why weekly rather than daily or monthly?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Daily over indexes on a power user tail that flatters the number. Monthly hides churn for four weeks at a time. Weekly is where a real habit forms, in which a restaurant becomes a regular and a lunch becomes a routine.</span></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>Become the go to weekly meal companion for Tier 1 urban India, in which users discover effortlessly, order in seconds, and receive on time, every single time.</p>
+      <cite>The CY2026 objective, with every word doing work</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE WORK ============ -->
+<section class="section-sm" id="work">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · The north star and the funnel</p>
+    <h2 class="h2">Three lenses, forced to reconcile</h2>
+    <p>
+      A funnel shows where users leak inside a single session. A cohort shows who leaks over
+      months and why. Neither tells you what to do. Objectives and key results are the operational
+      answer that ties the two together, and the discipline was that every key result had to trace
+      back to a specific funnel leak or a specific cohort drop.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · North star</p>
+      <h3>How the north star decomposes into four key results</h3>
+      <p>If a north star cannot be factored, it cannot be owned. Each factor gets one key result, and retention gets two because habit and quality both feed it.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 322" role="img" aria-label="North star decomposition. Weekly Active Eaters equals reach times engagement depth times retention. Reach is owned by KR3 conversion, engagement depth by KR1 frequency, and retention by KR2 retention and KR4 delivery quality.">
+        <rect class="dg-node-solid" x="270" y="14" width="360" height="54" rx="10"/>
+        <text class="dg-t-inv" x="450" y="38" text-anchor="middle" style="font-size:14px">Weekly Active Eaters</text>
+        <text class="dg-t-inv" x="450" y="56" text-anchor="middle" style="font-weight:400;font-size:11px">unique Tier 1 users with one delivered order in a week</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M450 68 V86 M155 86 H745 M155 86 V104 M450 86 V104 M745 86 V104"/>
+
+        <rect class="dg-node-accent" x="20" y="104" width="270" height="72" rx="10"/>
+        <text class="dg-t-hd" x="34" y="128">REACH</text>
+        <text class="dg-t-sm" x="34" y="148">Sessions that convert into an order</text>
+        <text class="dg-t-sm" x="34" y="164">at all</text>
+
+        <rect class="dg-node-accent" x="315" y="104" width="270" height="72" rx="10"/>
+        <text class="dg-t-hd" x="329" y="128">ENGAGEMENT DEPTH</text>
+        <text class="dg-t-sm" x="329" y="148">Orders per active user per month,</text>
+        <text class="dg-t-sm" x="329" y="164">meaning how often the habit fires</text>
+
+        <rect class="dg-node-accent" x="610" y="104" width="270" height="72" rx="10"/>
+        <text class="dg-t-hd" x="624" y="128">RETENTION</text>
+        <text class="dg-t-sm" x="624" y="148">Users who come back, driven by</text>
+        <text class="dg-t-sm" x="624" y="164">habit and by delivery quality</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M155 176 V192 M120 192 H155 M120 192 V210"/>
+        <path class="dg-line" fill="none" stroke-width="1" d="M450 176 V192 M340 192 H450 M340 192 V210"/>
+        <path class="dg-line" fill="none" stroke-width="1" d="M745 176 V192 M560 192 H780 M560 192 V210 M780 192 V210"/>
+
+        <rect class="dg-node" x="20" y="210" width="200" height="86" rx="10"/>
+        <text class="dg-t-acc" x="34" y="230">KR3 · CONVERSION</text>
+        <text class="dg-t" x="34" y="252" style="font-size:14px">18% → 30%</text>
+        <text class="dg-t-sm" x="34" y="270">app open to order placed</text>
+        <text class="dg-t-sm" x="34" y="286">up 12 points</text>
+
+        <rect class="dg-node" x="240" y="210" width="200" height="86" rx="10"/>
+        <text class="dg-t-acc" x="254" y="230">KR1 · FREQUENCY</text>
+        <text class="dg-t" x="254" y="252" style="font-size:14px">3.2 → 5.0</text>
+        <text class="dg-t-sm" x="254" y="270">orders per Tier 1 user, monthly</text>
+        <text class="dg-t-sm" x="254" y="286">up 56%</text>
+
+        <rect class="dg-node" x="460" y="210" width="200" height="86" rx="10"/>
+        <text class="dg-t-acc" x="474" y="230">KR2 · RETENTION</text>
+        <text class="dg-t" x="474" y="252" style="font-size:14px">28% → 45%</text>
+        <text class="dg-t-sm" x="474" y="270">week 4 retention, new users</text>
+        <text class="dg-t-sm" x="474" y="286">the product market fit signal</text>
+
+        <rect class="dg-node" x="680" y="210" width="200" height="86" rx="10"/>
+        <text class="dg-t-acc" x="694" y="230">KR4 · DELIVERY</text>
+        <text class="dg-t" x="694" y="252" style="font-size:14px">12% → under 5%</text>
+        <text class="dg-t-sm" x="694" y="270">bad delivery rate</text>
+        <text class="dg-t-sm" x="694" y="286">down 7 points</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      Every target carries its own segment definition and baseline source, which is what stops round number
+      ambition from passing itself off as analysis.
+    </figcaption>
+  </figure>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Funnel</p>
+      <h3>Two problems wearing one funnel</h3>
+      <p>Above the line, users are not failing to transact. They are failing to decide. Below it, they have already decided and the job is not to ruin it.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 392" role="img" aria-label="Funnel from 100 app opens to 12 delivered orders. The largest leaks are discovery to menu view at minus 30 and menu view to cart at minus 23, both in the decision making half above the cart.">
+        <text class="dg-t" x="140" y="55" text-anchor="end">App open</text>
+        <rect class="dg-node-accent" x="150" y="30" width="560" height="40" rx="6"/>
+        <text class="dg-t-hd" x="694" y="55" text-anchor="end">100</text>
+
+        <text class="dg-t" x="140" y="103" text-anchor="end">Restaurant discovery</text>
+        <rect class="dg-node-accent" x="150" y="78" width="420" height="40" rx="6"/>
+        <text class="dg-t-hd" x="554" y="103" text-anchor="end">75</text>
+        <text class="dg-t-sm" x="725" y="103">down 25</text>
+
+        <text class="dg-t" x="140" y="151" text-anchor="end">Menu view</text>
+        <rect class="dg-node-accent" x="150" y="126" width="252" height="40" rx="6"/>
+        <text class="dg-t-hd" x="386" y="151" text-anchor="end">45</text>
+        <text class="dg-t-acc" x="725" y="151">DOWN 30 · LARGEST</text>
+
+        <text class="dg-t" x="140" y="199" text-anchor="end">Cart created</text>
+        <rect class="dg-node-accent" x="150" y="174" width="123" height="40" rx="6"/>
+        <text class="dg-t-hd" x="290" y="199">22</text>
+        <text class="dg-t-acc" x="725" y="199">DOWN 23 · SECOND</text>
+
+        <path class="dg-line" fill="none" stroke-width="1.5" stroke-dasharray="5 5" d="M20 224 H880"/>
+
+        <text class="dg-t" x="140" y="257" text-anchor="end">Checkout initiated</text>
+        <rect class="dg-node" x="150" y="232" width="101" height="40" rx="6"/>
+        <text class="dg-t-hd" x="268" y="257">18</text>
+        <text class="dg-t-sm" x="725" y="257">down 4</text>
+
+        <text class="dg-t" x="140" y="305" text-anchor="end">Order placed</text>
+        <rect class="dg-node" x="150" y="280" width="78" height="40" rx="6"/>
+        <text class="dg-t-hd" x="245" y="305">14</text>
+        <text class="dg-t-sm" x="725" y="305">down 4</text>
+
+        <text class="dg-t" x="140" y="353" text-anchor="end">Order delivered</text>
+        <rect class="dg-node-solid" x="150" y="328" width="67" height="40" rx="6"/>
+        <text class="dg-t-hd" x="234" y="353">12</text>
+        <text class="dg-t-sm" x="725" y="353">down 2</text>
+
+        <text class="dg-t-acc" x="380" y="18">DECISION MAKING · fix with personalisation and decision reducers</text>
+        <text class="dg-t-acc" x="380" y="219">FRICTION AND QUALITY · fix with engineering, operations and standards</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<!-- ============ EXPERIMENTS ============ -->
+<section class="section-sm" id="experiments">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · Experiment design</p>
+    <h2 class="h2">Each leak gets one isolated experiment</h2>
+    <p>
+      Bundled interventions produce results nobody can attribute. Every stage above the cart gets a
+      single change tested against a named control, and the delivery stage gets three separate
+      experiments rather than one.
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th>Stage</th><th style="width:32%">What changes</th><th>Primary metric</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td class="t-num">1 to 2</td><td>Personalised top three picks above the fold, against a generic restaurant list</td><td>Sessions engaging discovery within 10 seconds</td><td class="t-num">75 → 85%</td></tr>
+          <tr><td class="t-num">2 to 3</td><td>A contextual cue on the top three to five cards only, against standard cards</td><td>Card to menu click through</td><td class="t-num">60 → 75%</td></tr>
+          <tr class="t-win"><td class="t-num">3 to 4</td><td>A most ordered here carousel pinned above the category list</td><td>Add to cart conversion</td><td class="t-num">49 → 62%</td></tr>
+          <tr><td class="t-num">4 to 5</td><td>All in pricing from the first item with the best coupon applied visibly</td><td>Carts reaching checkout</td><td class="t-num">82 → 92%</td></tr>
+          <tr><td class="t-num">5 to 6</td><td>Single screen checkout with a context aware address prefilled</td><td>Checkout completion and time to order</td><td class="t-num">78 → 90%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="h3">The delivery stage is three experiments, not one</h3>
+    <div class="grid grid-3" style="margin:22px 0">
+      <div class="card">
+        <p class="eyebrow">Test A</p>
+        <h4>Predictive arrival time</h4>
+        <p style="margin-bottom:10px">A user level trial at 10%. A learned estimate using traffic, kitchen load and rider availability, against the current heuristic.</p>
+        <p class="xsmall muted">Orders within five minutes of the promise. Guardrails on refund cost and satisfaction.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Test B</p>
+        <h4>Insulated delivery</h4>
+        <p style="margin-bottom:10px">A <strong>geographic cluster trial</strong> in two pilot zones, because equipping riders is a rider level change rather than a user level one.</p>
+        <p class="xsmall muted">Cold food complaints per thousand orders. Guardrails on equipment cost and compliance.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Test C</p>
+        <h4>Refund before the complaint</h4>
+        <p style="margin-bottom:10px">An order level trial at 20%. An automatic refund when a delay beyond ten minutes is predicted, rather than waiting to be asked.</p>
+        <p class="xsmall muted">Issues resolved before the user reports them. Guardrails on refund cost and net promoter score.</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="note-k">Why test B is designed differently</span>
+      <p>
+        A rider carries orders for many users, so randomising insulated bags per user leaks the
+        treatment into the control group and the result means nothing. Cluster randomisation by
+        geography is the only design that gives a clean read. Getting this wrong is one of the more
+        common ways an experiment programme produces confident nonsense.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COHORTS ============ -->
+<section class="section-sm" id="cohorts">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · Cohorts</p>
+    <h2 class="h2">Read the curve shape before proposing anything</h2>
+    <p>
+      The funnel says nothing about who leaks over months. Before writing a single cohort
+      intervention I classified each retention curve by shape, because the shape decides whether the
+      right move is to fix onboarding, invest in winning people back, or stop spending on that
+      group entirely.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Curve shapes</p>
+      <h3>Four shapes, four different licences to act</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 238" role="img" aria-label="Four retention curve shapes. Flat horizontal means product market fit achieved. A steep cliff into a stable tail means a niche loyal core. A drop then flat then upturn means re engagement works. A constant downward slope means no product market fit.">
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 40 V150 H220"/>
+        <polyline fill="none" stroke="var(--case)" stroke-width="2" points="20,58 45,96 75,106 220,109"/>
+        <text class="dg-t-hd" x="20" y="178">Flat horizontal</text>
+        <text class="dg-t-sm" x="20" y="196">Drops, then holds its level</text>
+        <text class="dg-t-acc" x="20" y="216">FIT ACHIEVED</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M240 40 V150 H440"/>
+        <polyline fill="none" stroke="var(--case)" stroke-width="2" points="240,52 262,118 288,131 440,133"/>
+        <text class="dg-t-hd" x="240" y="178">Cliff into a tail</text>
+        <text class="dg-t-sm" x="240" y="196">Most leave fast, the rest never do</text>
+        <text class="dg-t-acc" x="240" y="216">NICHE, LOYAL CORE</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M460 40 V150 H660"/>
+        <polyline fill="none" stroke="var(--case)" stroke-width="2" points="460,56 488,110 550,118 600,110 660,88"/>
+        <text class="dg-t-hd" x="460" y="178">Drop, flat, upturn</text>
+        <text class="dg-t-sm" x="460" y="196">Lapsed users can be brought back</text>
+        <text class="dg-t-acc" x="460" y="216">WINNING BACK WORKS</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M680 40 V150 H880"/>
+        <polyline fill="none" stroke="var(--case)" stroke-width="2" points="680,52 880,143"/>
+        <text class="dg-t-hd" x="680" y="178">Constant downward</text>
+        <text class="dg-t-sm" x="680" y="196">No plateau ever forms</text>
+        <text class="dg-t-acc" x="680" y="216">STOP INVESTING</text>
+
+        <text class="dg-t-sm" x="20" y="20">Retention</text>
+        <text class="dg-t-sm" x="880" y="20" text-anchor="end">Time</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <h3 class="h3">Six cohorts collapse into two patterns</h3>
+    <p>
+      Six separate cohort programmes is a roadmap nobody can staff. Collapsing them produced
+      something more useful than any single intervention, which is that retention here is not a
+      discount problem at all.
+    </p>
+
+    <div class="grid grid-2" style="margin:22px 0">
+      <div class="card">
+        <p class="eyebrow">Pattern 1</p>
+        <h4>Make the use case explicit</h4>
+        <p style="margin-bottom:12px">
+          Low frequency, single orderer and dinner dominant users churn because the app hands them
+          a generic experience built for the median customer.
+        </p>
+        <p style="margin-bottom:12px"><strong>Fix:</strong> named, occasion anchored experiences. Weekday lunch, made for one, Friday night, Sunday treat.</p>
+        <p class="xsmall muted">People hire this product for a job, and "feed me on a busy weekday" is a different job from "treat me on Friday". One generic feed serves neither.</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Pattern 2</p>
+        <h4>Turn episodic into durable</h4>
+        <p style="margin-bottom:12px">
+          New users, discount driven users and subscribers all churn at transition moments. The end
+          of the honeymoon, the end of the promotion, the renewal date.
+        </p>
+        <p style="margin-bottom:12px"><strong>Fix:</strong> replace the episodic high with a durable reason. Habit, everyday value, visible ongoing value.</p>
+        <p class="xsmall muted">Episodic engagement is sugar. It spikes and then crashes. A no surge lunch at a fair price is durable. A flash sale is not.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROTOTYPE ============ -->
+<section class="section-sm" id="prototype">
+  <div class="prose reveal">
+    <p class="eyebrow">The solutions · The fixes on screen</p>
+    <h2 class="h2">What the two largest leaks look like once they are fixed</h2>
+    <p>
+      Both of the biggest drops happen before anyone reaches a cart, which means they are decision
+      problems. These are the screens that carry the fixes, plus the delivery moment that turns a
+      complaint into a resolved issue.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Prototype · Screen flow</p>
+      <h3>Discovery, the menu, and the delivery nobody had to complain about</h3>
+      <p>The first two screens are the same user at the same moment on a Tuesday at one o'clock.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 546" role="img" aria-label="Four Zomato app screens. The home screen today shows a generic restaurant list. The redesigned home leads with an occasion header and three personalised picks. The menu screen pins a most ordered here carousel above the categories. The order tracking screen issues a refund before the user complains.">
+        <defs>
+          <clipPath id="zm1"><rect x="20" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="zm2"><rect x="233" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="zm3"><rect x="446" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="zm4"><rect x="659" y="44" width="200" height="410" rx="22"/></clipPath>
+        </defs>
+
+        <!-- ===== 1 : HOME TODAY ===== -->
+        <text class="dg-t-hd" x="120" y="30" text-anchor="middle">HOME, TODAY</text>
+        <g clip-path="url(#zm1)">
+          <rect x="20" y="44" width="200" height="410" fill="#FFFFFF"/>
+          <text x="34" y="72" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Koramangala</text>
+          <text x="34" y="86" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">Bengaluru 560034</text>
+          <rect x="30" y="96" width="180" height="24" rx="12" fill="#F4F4F5"/>
+          <text x="42" y="112" fill="#9A9A9A" font-size="8" font-family="var(--font-text)">Search for restaurant or dish</text>
+
+          <rect x="30" y="130" width="180" height="70" rx="10" fill="#F4F4F5"/>
+          <text x="40" y="152" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Punjabi Rasoi</text>
+          <rect x="176" y="142" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="189" y="152" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.1</text>
+          <text x="40" y="166" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">North Indian, Biryani</text>
+          <text x="40" y="180" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">38 min · ₹250 for one</text>
+
+          <rect x="30" y="210" width="180" height="70" rx="10" fill="#F4F4F5"/>
+          <text x="40" y="232" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Sultan's Kitchen</text>
+          <rect x="176" y="222" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="189" y="232" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">3.9</text>
+          <text x="40" y="246" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">Mughlai, Kebabs</text>
+          <text x="40" y="260" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">45 min · ₹400 for one</text>
+
+          <rect x="30" y="290" width="180" height="70" rx="10" fill="#F4F4F5"/>
+          <text x="40" y="312" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Green Bowl Co</text>
+          <rect x="176" y="302" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="189" y="312" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.3</text>
+          <text x="40" y="326" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">Salads, Healthy</text>
+          <text x="40" y="340" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">32 min · ₹300 for one</text>
+
+          <text x="120" y="392" text-anchor="middle" fill="#E23744" font-size="8" font-family="var(--font-text)">The same list at 1 pm on a Tuesday</text>
+          <text x="120" y="406" text-anchor="middle" fill="#E23744" font-size="8" font-family="var(--font-text)">as at 11 pm on a Saturday.</text>
+        </g>
+        <rect x="20" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+        <!-- ===== 2 : HOME REDESIGNED ===== -->
+        <text class="dg-t-hd" x="333" y="30" text-anchor="middle" style="fill:var(--case)">HOME, REDESIGNED</text>
+        <g clip-path="url(#zm2)">
+          <rect x="233" y="44" width="200" height="410" fill="#FFFFFF"/>
+          <text x="247" y="72" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Koramangala</text>
+          <text x="247" y="86" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">Bengaluru 560034</text>
+
+          <rect x="243" y="96" width="180" height="34" rx="10" fill="#FDECEC"/>
+          <text x="253" y="112" fill="#E23744" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.05em">RIGHT NOW · QUICK LUNCH</text>
+          <text x="253" y="124" fill="#8A5A5A" font-size="7" font-family="var(--font-text)">Under 30 minutes, back before your 2 pm</text>
+
+          <text x="247" y="150" fill="#1C1C1C" font-size="9" font-weight="700" font-family="var(--font-text)">Top 3 for you</text>
+          <text x="419" y="150" text-anchor="end" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">why these?</text>
+
+          <rect x="243" y="158" width="180" height="58" rx="10" fill="#FFFFFF" stroke="#E8E8EA" stroke-width="1"/>
+          <rect x="251" y="166" width="42" height="42" rx="8" fill="#F4F4F5"/>
+          <text x="301" y="180" fill="#1C1C1C" font-size="8.5" font-weight="700" font-family="var(--font-text)">Green Bowl Co</text>
+          <rect x="389" y="170" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="402" y="180" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.3</text>
+          <text x="301" y="193" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">24 min · you ordered twice</text>
+          <text x="301" y="205" fill="#267E3E" font-size="7" font-weight="700" font-family="var(--font-text)">Your usual: Quinoa bowl ₹280</text>
+
+          <rect x="243" y="222" width="180" height="52" rx="10" fill="#FFFFFF" stroke="#E8E8EA" stroke-width="1"/>
+          <rect x="251" y="230" width="36" height="36" rx="8" fill="#F4F4F5"/>
+          <text x="295" y="244" fill="#1C1C1C" font-size="8.5" font-weight="700" font-family="var(--font-text)">Rice Bowl Express</text>
+          <rect x="389" y="234" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="402" y="244" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.2</text>
+          <text x="295" y="258" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">19 min · popular at lunch nearby</text>
+
+          <rect x="243" y="280" width="180" height="52" rx="10" fill="#FFFFFF" stroke="#E8E8EA" stroke-width="1"/>
+          <rect x="251" y="288" width="36" height="36" rx="8" fill="#F4F4F5"/>
+          <text x="295" y="302" fill="#1C1C1C" font-size="8.5" font-weight="700" font-family="var(--font-text)">Tiffin Room</text>
+          <rect x="389" y="292" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="402" y="302" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.4</text>
+          <text x="295" y="316" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">27 min · new, matches your taste</text>
+
+          <text x="333" y="356" text-anchor="middle" fill="#8A8A8A" font-size="7.5" font-family="var(--font-text)">Browse everything</text>
+
+          <text x="333" y="392" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">Three choices instead of three hundred,</text>
+          <text x="333" y="406" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">and a reason attached to each one.</text>
+        </g>
+        <rect x="233" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 3 : MENU ===== -->
+        <text class="dg-t-hd" x="546" y="30" text-anchor="middle" style="fill:var(--case)">MENU, REDESIGNED</text>
+        <g clip-path="url(#zm3)">
+          <rect x="446" y="44" width="200" height="410" fill="#FFFFFF"/>
+          <text x="460" y="72" fill="#1C1C1C" font-size="11" font-weight="700" font-family="var(--font-text)">Green Bowl Co</text>
+          <rect x="460" y="80" width="26" height="14" rx="4" fill="#267E3E"/>
+          <text x="473" y="90" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">4.3</text>
+          <text x="492" y="90" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">24 min · Salads, Healthy</text>
+
+          <rect x="456" y="106" width="180" height="128" rx="10" fill="#FDECEC"/>
+          <text x="466" y="124" fill="#E23744" font-size="7.5" font-weight="700" font-family="var(--font-text)" letter-spacing="0.05em">MOST ORDERED HERE</text>
+          <text x="466" y="136" fill="#8A5A5A" font-size="7" font-family="var(--font-text)">What people actually get, not the full list</text>
+
+          <rect x="464" y="144" width="164" height="38" rx="8" fill="#FFFFFF"/>
+          <rect x="470" y="150" width="26" height="26" rx="6" fill="#F0F0F2"/>
+          <text x="504" y="160" fill="#1C1C1C" font-size="8" font-weight="700" font-family="var(--font-text)">Quinoa power bowl</text>
+          <text x="504" y="172" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">₹280 · 412 this week</text>
+          <rect x="596" y="155" width="26" height="16" rx="8" fill="#FFFFFF" stroke="#E23744" stroke-width="1"/>
+          <text x="609" y="166" text-anchor="middle" fill="#E23744" font-size="7" font-weight="700" font-family="var(--font-text)">ADD</text>
+
+          <rect x="464" y="188" width="164" height="38" rx="8" fill="#FFFFFF"/>
+          <rect x="470" y="194" width="26" height="26" rx="6" fill="#F0F0F2"/>
+          <text x="504" y="204" fill="#1C1C1C" font-size="8" font-weight="700" font-family="var(--font-text)">Grilled paneer salad</text>
+          <text x="504" y="216" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">₹240 · 287 this week</text>
+          <rect x="596" y="199" width="26" height="16" rx="8" fill="#FFFFFF" stroke="#E23744" stroke-width="1"/>
+          <text x="609" y="210" text-anchor="middle" fill="#E23744" font-size="7" font-weight="700" font-family="var(--font-text)">ADD</text>
+
+          <text x="460" y="256" fill="#8A8A8A" font-size="7.5" font-weight="700" font-family="var(--font-text)">FULL MENU</text>
+          <text x="460" y="276" fill="#1C1C1C" font-size="8.5" font-family="var(--font-text)">Salads</text>
+          <text x="632" y="276" text-anchor="end" fill="#8A8A8A" font-size="8">14</text>
+          <path d="M460 286 H632" stroke="#EFEFF1" stroke-width="1"/>
+          <text x="460" y="304" fill="#1C1C1C" font-size="8.5" font-family="var(--font-text)">Bowls</text>
+          <text x="632" y="304" text-anchor="end" fill="#8A8A8A" font-size="8">11</text>
+          <path d="M460 314 H632" stroke="#EFEFF1" stroke-width="1"/>
+          <text x="460" y="332" fill="#1C1C1C" font-size="8.5" font-family="var(--font-text)">Wraps</text>
+          <text x="632" y="332" text-anchor="end" fill="#8A8A8A" font-size="8">9</text>
+          <path d="M460 342 H632" stroke="#EFEFF1" stroke-width="1"/>
+          <text x="460" y="360" fill="#1C1C1C" font-size="8.5" font-family="var(--font-text)">Sides and drinks</text>
+          <text x="632" y="360" text-anchor="end" fill="#8A8A8A" font-size="8">23</text>
+
+          <text x="546" y="392" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">The largest single leak in the funnel</text>
+          <text x="546" y="406" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">sits between this screen and the cart.</text>
+        </g>
+        <rect x="446" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 4 : DELIVERY ===== -->
+        <text class="dg-t-hd" x="759" y="30" text-anchor="middle" style="fill:var(--case)">DELIVERY, REDESIGNED</text>
+        <g clip-path="url(#zm4)">
+          <rect x="659" y="44" width="200" height="410" fill="#FFFFFF"/>
+          <rect x="659" y="44" width="200" height="86" fill="#1C1C1C"/>
+          <text x="673" y="74" fill="#FFFFFF" font-size="10" font-weight="700" font-family="var(--font-text)">Arriving in 6 minutes</text>
+          <text x="673" y="90" fill="#B5B5B5" font-size="7.5" font-family="var(--font-text)">Ravi is 1.2 km away</text>
+          <rect x="673" y="102" width="172" height="5" rx="2.5" fill="#3A3A3A"/>
+          <rect x="673" y="102" width="126" height="5" rx="2.5" fill="#267E3E"/>
+          <text x="673" y="122" fill="#B5B5B5" font-size="7" font-family="var(--font-text)">Picked up 12 minutes ago</text>
+
+          <rect x="669" y="146" width="180" height="94" rx="10" fill="#FDECEC" stroke="#E23744" stroke-width="1"/>
+          <text x="679" y="166" fill="#E23744" font-size="8.5" font-weight="700" font-family="var(--font-text)">Running later than promised</text>
+          <text x="679" y="182" fill="#8A5A5A" font-size="7.5" font-family="var(--font-text)">We said 25 minutes. Traffic near Sony</text>
+          <text x="679" y="194" fill="#8A5A5A" font-size="7.5" font-family="var(--font-text)">Signal means it will be closer to 38.</text>
+          <rect x="679" y="204" width="160" height="26" rx="8" fill="#FFFFFF"/>
+          <text x="689" y="215" fill="#1C1C1C" font-size="7.5" font-weight="700" font-family="var(--font-text)">₹60 refunded already</text>
+          <text x="689" y="225" fill="#8A8A8A" font-size="6.5" font-family="var(--font-text)">Back on your card in 3 working days</text>
+
+          <rect x="669" y="252" width="180" height="52" rx="10" fill="#F4F4F5"/>
+          <text x="679" y="270" fill="#1C1C1C" font-size="8" font-weight="700" font-family="var(--font-text)">You did not have to ask</text>
+          <text x="679" y="284" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">We saw the delay before you did and</text>
+          <text x="679" y="294" fill="#8A8A8A" font-size="7" font-family="var(--font-text)">handled it. No chat, no ticket, no queue.</text>
+
+          <rect x="669" y="316" width="86" height="26" rx="13" fill="#FFFFFF" stroke="#D8D8DA" stroke-width="1"/>
+          <text x="712" y="333" text-anchor="middle" fill="#1C1C1C" font-size="7.5" font-family="var(--font-text)">Track live</text>
+          <rect x="763" y="316" width="86" height="26" rx="13" fill="#FFFFFF" stroke="#D8D8DA" stroke-width="1"/>
+          <text x="806" y="333" text-anchor="middle" fill="#1C1C1C" font-size="7.5" font-family="var(--font-text)">Call Ravi</text>
+
+          <text x="759" y="392" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">A complaint that never becomes</text>
+          <text x="759" y="406" text-anchor="middle" fill="#267E3E" font-size="8" font-family="var(--font-text)">a support ticket or a lost customer.</text>
+        </g>
+        <rect x="659" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 490 H880"/>
+        <text class="dg-t-sm" x="450" y="516" text-anchor="middle">Interface proposals drawn to show the mechanics. Every one of them maps to a numbered stage in the funnel above.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <div class="btn-row">
+      <a class="btn" href="https://haniyaamjad1124-wq.github.io/product-prototypes/zomato/" target="_blank" rel="noopener">Open prototype</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ GUARDRAILS ============ -->
+<section class="section-sm" id="guardrails">
+  <div class="prose reveal">
+    <p class="eyebrow">Guardrails</p>
+    <h2 class="h2">Hitting the north star through unhealthy means is failure</h2>
+    <p>
+      Weekly Active Eaters is gameable. You can buy it with discounts, buy it with advertising, or
+      extract it from riders and restaurant partners. Each of those wins the metric and loses the
+      business, so each one gets a named threshold agreed before anything ships. The six cover contribution margin per order, acquisition cost, rider earnings per hour, restaurant partner churn, push notification opt outs, and app store trust.
+    </p>
+
+    <div class="note">
+      <span class="note-k">The one worth arguing hardest for</span>
+      <p>
+        Notification hygiene. Three of the twelve initiatives ship into the same push channel, and
+        individually each looks reasonable. Together they can drive an opt out cascade that
+        permanently removes a surface the company cannot buy back. That risk is invisible unless
+        somebody looks across initiatives rather than down at one.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <div class="callout">
+      <p>
+        A funnel exposes where users leak in the moment. A cohort exposes who leaks over months and
+        why. Objectives and key results are the operational answer to both. Every key result here
+        traces back to a named leak or a named drop, every initiative is measured as an outcome
+        rather than an activity count, and every hypothesis is written as an experiment somebody
+        could actually run on Monday.
+      </p>
+    </div>
+    <div class="note">
+      <span class="note-k">Stated assumptions</span>
+      <p>
+        Every baseline is an illustrative public benchmark drawn from investor disclosures, the
+        annual report and published industry estimates, pending replacement with internal data on
+        the first day of execution. Tier 1 is treated as a single market, although Bangalore,
+        Mumbai and Delhi differ materially in density and competitive intensity and a real
+        programme would separate them. Sample sizes would be set from observed variance rather than
+        assumed.
+      </p>
+    </div>
+    <p>
+      I would rather present a strategy that names what it does not know than one that quietly
+      launders industry estimates into the language of internal truth.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="pager reveal">
+    <a href="vitafit-prd.html"><span class="dir">Previous</span><span class="ttl">VitaFit: the long game</span></a>
+    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+  </div>
+</section>
+
+  </div>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-t">On this page</p>
+    <a href="#problem">The problem</a>
+    <a href="#work">The work</a>
+    <a href="#experiments">The tests</a>
+    <a href="#cohorts">Cohorts</a>
+    <a href="#prototype">The prototype</a>
+    <a href="#guardrails">Guardrails</a>
+    <a href="#takeaway">Takeaway</a>
+  </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-in">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">Haniya Amjad</p>
+        <p class="muted" style="font-size:13px;margin:0">Product Manager · Chennai, India</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Work</a>
+        <a href="../index.html#case-studies">Case Studies</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Zomato is a trademark of Eternal Ltd. This is an independent product strategy exercise using
+      publicly available information. It is not affiliated with, endorsed by, or commissioned by
+      Zomato. All baselines are labelled industry estimates rather than company data.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js?v=6"></script>
+</body>
+</html>

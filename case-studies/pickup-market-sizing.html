@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sizing the pickup problem | Haniya Amjad</title>
+<meta name="description" content="How much revenue is actually at stake in ride hailing pickup friction in India. A market sizing built two ways, cross checked against each other, and stress tested against its own assumptions.">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+</head>
+<body style="--case:#6d5bd0; --case-soft:rgba(109,91,208,.10); --case-line:rgba(109,91,208,.30);">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">Haniya Amjad <span>· Product</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="nav-links" id="navlinks">
+      <a href="../index.html">Work</a>
+      <a href="../index.html#case-studies" class="is-active">Case Studies</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="case-brand">
+      <span class="co"><span class="logo-mark" aria-hidden="true">U</span>Uber India</span>
+      <span class="tag">Guesstimates</span>
+      <span class="tag tag-plain">Market sizing</span>
+    </div>
+    <h1 class="h1">Sizing the pickup problem</h1>
+    <p class="lede">
+      Every product proposal eventually meets the question of whether it is worth doing. This is
+      the arithmetic behind a claim of ₹165 crore a year, built two separate ways so the two can
+      be checked against each other.
+    </p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><span class="num">₹12,400 Cr</span><span class="lbl">Total market affected by pickup friction</span><span class="sub">All ride hailing in India, per year</span></div>
+      <div class="metric"><span class="num">₹3,720 Cr</span><span class="lbl">The share of that sitting inside one operator</span><span class="sub">Serviceable available market</span></div>
+      <div class="metric"><span class="num">₹165 Cr</span><span class="lbl">Realistically recoverable in twelve months</span><span class="sub">Six Tier 1 cities</span></div>
+      <div class="metric"><span class="num">₹69 to ₹345 Cr</span><span class="lbl">The honest range once assumptions are stressed</span><span class="sub">A factor of five, which is worth saying out loud</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-layout">
+  <div class="case-main">
+
+<!-- ============ QUESTION ============ -->
+<section class="section-sm" id="question">
+  <div class="prose reveal">
+    <p class="eyebrow">The question</p>
+    <h2 class="h3" style="margin-bottom:14px">
+      How much money is actually at stake in fixing ride hailing pickup in India?
+    </h2>
+    <p>
+      This estimate sits underneath a research led product case, in which 73% of riders reported
+      difficulty finding their driver and 17% said they cancel and switch app when it happens. The
+      research established that the problem is real. This is the separate question of whether it is
+      large enough to fund.
+    </p>
+
+    <div class="qa">
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What exactly are we sizing?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Revenue at risk rather than total revenue. A ride that completes despite a painful pickup still earns money today, so counting the whole market would be dishonest. The relevant number is the share of bookings that are lost or degraded because of pickup.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Over what period?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Annual, and recoverable within twelve months of shipping. A number that only arrives in year four cannot be used to argue for headcount now.</span></div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Top down or bottom up?</span></div>
+        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Both, deliberately. A single chain of multiplications is impossible to sanity check, because there is nothing to compare the answer against. Two independent routes give you one.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ASSUMPTIONS ============ -->
+<section class="section-sm" id="assumptions">
+  <div class="prose reveal">
+    <p class="eyebrow">Assumptions</p>
+    <h2 class="h2">Stated first, so they can be attacked</h2>
+    <p>
+      The estimate is only as good as these five inputs, and the honest thing is to list them
+      before the arithmetic rather than bury them in a footnote.
+    </p>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:32%">Input</th><th>Value used</th><th style="width:34%">Where it comes from</th></tr></thead>
+        <tbody>
+          <tr><td><strong>India ride hailing market</strong></td><td class="t-num">8.28 billion dollars</td><td>Published market estimate, 11.3% compound growth, 19.2% penetration</td></tr>
+          <tr><td><strong>Exchange rate</strong></td><td class="t-num">₹84 to the dollar</td><td>Assumed. Moves the whole answer proportionally</td></tr>
+          <tr class="t-win"><td><strong>Share of bookings affected</strong></td><td class="t-num">18%</td><td>Anchored on the 17% of surveyed riders who cancel and switch, rounded up slightly for rides that complete but degrade</td></tr>
+          <tr><td><strong>Operator market share</strong></td><td class="t-num">30%</td><td>Assumed for the operator in question</td></tr>
+          <tr><td><strong>Six Tier 1 cities</strong></td><td class="t-num">55% of bookings</td><td>Assumed concentration of demand in the largest metros</td></tr>
+          <tr><td><strong>Recoverable in year one</strong></td><td class="t-num">8%</td><td>The weakest assumption in the chain, and the one the sensitivity below leans on hardest</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROUTE 1 ============ -->
+<section class="section-sm" id="topdown">
+  <div class="prose reveal">
+    <p class="eyebrow">Route one</p>
+    <h2 class="h2">Top down, from the market inwards</h2>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · The chain</p>
+      <h3>Five steps from a market to a number you could fund</h3>
+      <p>Each step narrows by one stated assumption. Bar widths use a square root scale so the smaller figures stay visible.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 388" role="img" aria-label="Top down market sizing chain. The India ride hailing market of 69600 crore rupees narrows by 18 percent affected to 12400 crore, by 30 percent operator share to 3720 crore, by 55 percent Tier 1 concentration to 2050 crore, and by 8 percent recoverable in year one to 165 crore.">
+        <text class="dg-t" x="20" y="46" style="font-size:12px">India ride hailing market</text>
+        <text class="dg-t-sm" x="20" y="62" style="font-size:9.5px">8.28 billion dollars at ₹84</text>
+        <rect class="dg-node-accent" x="330" y="34" width="380" height="34" rx="6"/>
+        <text class="dg-t-hd" x="880" y="57" text-anchor="end" style="font-size:15px">₹69,600 Cr</text>
+        <text class="dg-t-acc" x="330" y="86" style="font-size:10px">× 18% AFFECTED BY PICKUP FRICTION</text>
+
+        <text class="dg-t" x="20" y="110" style="font-size:12px">Revenue at risk, all operators</text>
+        <text class="dg-t-sm" x="20" y="126" style="font-size:9.5px">the total addressable market</text>
+        <rect class="dg-node-accent" x="330" y="98" width="160" height="34" rx="6"/>
+        <text class="dg-t-hd" x="880" y="121" text-anchor="end" style="font-size:15px">₹12,400 Cr</text>
+        <text class="dg-t-acc" x="330" y="150" style="font-size:10px">× 30% OPERATOR MARKET SHARE</text>
+
+        <text class="dg-t" x="20" y="174" style="font-size:12px">Revenue at risk, one operator</text>
+        <text class="dg-t-sm" x="20" y="190" style="font-size:9.5px">the serviceable available market</text>
+        <rect class="dg-node-accent" x="330" y="162" width="88" height="34" rx="6"/>
+        <text class="dg-t-hd" x="880" y="185" text-anchor="end" style="font-size:15px">₹3,720 Cr</text>
+        <text class="dg-t-acc" x="330" y="214" style="font-size:10px">× 55% IN THE SIX LARGEST CITIES</text>
+
+        <text class="dg-t" x="20" y="238" style="font-size:12px">Tier 1 exposure</text>
+        <text class="dg-t-sm" x="20" y="254" style="font-size:9.5px">where a first release would ship</text>
+        <rect class="dg-node-accent" x="330" y="226" width="65" height="34" rx="6"/>
+        <text class="dg-t-hd" x="880" y="249" text-anchor="end" style="font-size:15px">₹2,050 Cr</text>
+        <text class="dg-t-acc" x="330" y="278" style="font-size:10px">× 8% RECOVERABLE IN TWELVE MONTHS</text>
+
+        <text class="dg-t" x="20" y="302" style="font-size:12px">The number you could fund</text>
+        <text class="dg-t-sm" x="20" y="318" style="font-size:9.5px">the serviceable obtainable market</text>
+        <rect class="dg-node-solid" x="330" y="290" width="19" height="34" rx="6"/>
+        <text class="dg-t-hd" x="880" y="313" text-anchor="end" style="font-size:19px;fill:var(--case)">₹165 Cr</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 344 H880"/>
+        <text class="dg-t-sm" x="20" y="368">Every arrow is one assumption. If somebody disagrees with the answer, they can point at exactly which one they dispute.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<!-- ============ ROUTE 2 ============ -->
+<section class="section-sm" id="bottomup">
+  <div class="prose reveal">
+    <p class="eyebrow">Route two</p>
+    <h2 class="h2">Bottom up, from rides outwards</h2>
+    <p>
+      The second route never touches the published market figure. It starts from how many rides
+      happen and what one costs, which means it can fail independently, and that is the entire
+      point of running it.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Cross check</p>
+      <h3>Two routes, and how far apart they land</h3>
+      <p>Both are estimating the same thing: annual revenue at risk for one operator.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 306" role="img" aria-label="Two routes compared. The top down route gives 3720 crore rupees. The bottom up route, from 2.5 million rides a day at 180 rupees average fare with 18 percent affected, gives about 2960 crore. The two land about 26 percent apart.">
+        <rect class="dg-node-accent" x="20" y="34" width="410" height="132" rx="10"/>
+        <text class="dg-t-hd" x="36" y="58">ROUTE ONE · TOP DOWN</text>
+        <text class="dg-t-sm" x="36" y="82">Published market of ₹69,600 Cr</text>
+        <text class="dg-t-sm" x="36" y="100">× 18% affected × 30% operator share</text>
+        <path class="dg-line" fill="none" stroke-width="1" d="M36 112 H414"/>
+        <text class="dg-t" x="36" y="140" style="font-size:19px">₹3,720 Cr</text>
+        <text class="dg-t-sm" x="36" y="157" style="font-size:9.5px">annual revenue at risk</text>
+
+        <rect class="dg-node-accent" x="470" y="34" width="410" height="132" rx="10"/>
+        <text class="dg-t-hd" x="486" y="58">ROUTE TWO · BOTTOM UP</text>
+        <text class="dg-t-sm" x="486" y="82">2.5 million rides a day × 365</text>
+        <text class="dg-t-sm" x="486" y="100">× ₹180 average fare × 18% affected</text>
+        <path class="dg-line" fill="none" stroke-width="1" d="M486 112 H864"/>
+        <text class="dg-t" x="486" y="140" style="font-size:19px">₹2,960 Cr</text>
+        <text class="dg-t-sm" x="486" y="157" style="font-size:9.5px">annual revenue at risk</text>
+
+        <path class="dg-line" fill="none" stroke-width="2" d="M60 236 H840"/>
+        <text class="dg-t-sm" x="60" y="258" style="font-size:9.5px">₹0</text>
+        <text class="dg-t-sm" x="840" y="258" text-anchor="end" style="font-size:9.5px">₹5,000 Cr</text>
+
+        <rect x="522" y="228" width="118" height="16" fill="var(--case-soft)"/>
+        <rect class="dg-node-solid" x="519" y="222" width="4" height="28"/>
+        <text class="dg-t-acc" x="519" y="214" text-anchor="middle" style="font-size:9.5px">2,960</text>
+        <rect class="dg-node-solid" x="638" y="222" width="4" height="28"/>
+        <text class="dg-t-acc" x="640" y="214" text-anchor="middle" style="font-size:9.5px">3,720</text>
+        <text class="dg-t-acc" x="581" y="274" text-anchor="middle" style="font-size:10px">26% APART</text>
+
+        <text class="dg-t-sm" x="60" y="296">For a market sizing built from public figures and a survey of 41 people, two routes landing within a quarter of each other is agreement.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <div class="callout">
+      <p class="eyebrow">What the gap tells you</p>
+      <p>
+        The bottom up route lands lower, which is what you would expect, since the average fare of
+        ₹180 reflects an auto heavy mix and the published market figure includes higher value
+        segments. The two disagreeing by a quarter is useful information. Two routes agreeing
+        exactly would suggest one of them was quietly derived from the other.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SENSITIVITY ============ -->
+<section class="section-sm" id="sensitivity">
+  <div class="prose reveal">
+    <p class="eyebrow">Stress test</p>
+    <h2 class="h2">What the answer looks like when the assumptions are wrong</h2>
+    <p>
+      A single number invites false confidence. Flexing the two weakest inputs, the share of
+      bookings affected and the share recoverable in year one, produces a range rather than a point.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Sensitivity</p>
+      <h3>The honest range is a factor of five</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 262" role="img" aria-label="Sensitivity range. The pessimistic case gives 69 crore rupees, the base case 165 crore, and the optimistic case 345 crore.">
+        <text class="dg-t-hd" x="80" y="42">RECOVERABLE IN YEAR ONE</text>
+
+        <path class="dg-line" fill="none" stroke-width="2" d="M80 130 H860"/>
+        <rect x="215" y="118" width="538" height="24" rx="6" fill="var(--case-soft)" stroke="var(--case-line)" stroke-width="1"/>
+
+        <rect class="dg-node-solid" x="213" y="108" width="4" height="44"/>
+        <text class="dg-t-acc" x="215" y="100" text-anchor="middle" style="font-size:12px">₹69 Cr</text>
+        <text class="dg-t-sm" x="215" y="170" text-anchor="middle" style="font-size:9.5px">PESSIMISTIC</text>
+        <text class="dg-t-sm" x="215" y="184" text-anchor="middle" style="font-size:9px">12% affected</text>
+        <text class="dg-t-sm" x="215" y="196" text-anchor="middle" style="font-size:9px">5% recoverable</text>
+
+        <circle class="dg-node-solid" cx="402" cy="130" r="9"/>
+        <text class="dg-t-acc" x="402" y="100" text-anchor="middle" style="font-size:15px">₹165 Cr</text>
+        <text class="dg-t-sm" x="402" y="170" text-anchor="middle" style="font-size:9.5px">BASE CASE</text>
+        <text class="dg-t-sm" x="402" y="184" text-anchor="middle" style="font-size:9px">18% affected</text>
+        <text class="dg-t-sm" x="402" y="196" text-anchor="middle" style="font-size:9px">8% recoverable</text>
+
+        <rect class="dg-node-solid" x="751" y="108" width="4" height="44"/>
+        <text class="dg-t-acc" x="753" y="100" text-anchor="middle" style="font-size:12px">₹345 Cr</text>
+        <text class="dg-t-sm" x="753" y="170" text-anchor="middle" style="font-size:9.5px">OPTIMISTIC</text>
+        <text class="dg-t-sm" x="753" y="184" text-anchor="middle" style="font-size:9px">25% affected</text>
+        <text class="dg-t-sm" x="753" y="196" text-anchor="middle" style="font-size:9px">12% recoverable</text>
+
+        <text class="dg-t-sm" x="80" y="150" style="font-size:9px">₹0</text>
+        <text class="dg-t-sm" x="860" y="150" text-anchor="end" style="font-size:9px">₹400 Cr</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M80 218 H860"/>
+        <text class="dg-t-sm" x="80" y="242">Even the pessimistic case clears the cost of a small team for a year, which is the decision this number actually has to support.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <p>
+      That last line is the useful one. The point of a sizing is rarely the number itself. It is
+      whether the decision changes across the plausible range. Here it does not, since even the
+      pessimistic case comfortably funds the work, which means the argument can move on from
+      whether to build to what to build first.
+    </p>
+  </div>
+</section>
+
+<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <div class="callout">
+      <p>
+        A guesstimate is not a prediction. It is a structured argument with every joint exposed, so
+        that anyone who disagrees can point at the specific assumption they would change rather
+        than rejecting the conclusion wholesale. Three habits carry it: state the inputs before the
+        arithmetic, build it twice by independent routes, and publish the range rather than the point.
+      </p>
+    </div>
+    <div class="note">
+      <span class="note-k">Honesty</span>
+      <p>
+        Every figure here is built from published market estimates and a survey of 41 riders, not
+        from any operator's internal data. The headline results of ₹12,400 crore, ₹3,720 crore and
+        ₹165 crore come from the original analysis. The step by step derivation, the bottom up cross
+        check and the sensitivity range were reconstructed to show the method, so treat the working
+        as an illustration of how the number can be defended rather than as a company forecast.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="pager reveal">
+    <a href="uber-pickup-experience.html"><span class="dir">The research behind it</span><span class="ttl">Uber India: the last 200 meters</span></a>
+    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+  </div>
+</section>
+
+  </div>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-t">On this page</p>
+    <a href="#question">The question</a>
+    <a href="#assumptions">Assumptions</a>
+    <a href="#topdown">Top down</a>
+    <a href="#bottomup">Bottom up</a>
+    <a href="#sensitivity">Stress test</a>
+    <a href="#takeaway">Takeaway</a>
+  </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-in">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">Haniya Amjad</p>
+        <p class="muted" style="font-size:13px;margin:0">Product Manager · Chennai, India</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Work</a>
+        <a href="../index.html#case-studies">Case Studies</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Uber is a trademark of Uber Technologies, Inc. This is an independent sizing exercise using
+      published market estimates and primary research. It is not affiliated with, endorsed by, or
+      commissioned by Uber, and contains no company data.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js?v=6"></script>
+</body>
+</html>

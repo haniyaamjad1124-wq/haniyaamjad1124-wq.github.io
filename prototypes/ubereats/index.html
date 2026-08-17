@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Group Order Host Room</title>
+<style>
+*{box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{background:#E2EDE6;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:26px 12px;color:#14201A}
+.cap{font-size:13px;color:#5A6E62;margin-bottom:16px;text-align:center;max-width:440px}
+.phone{width:390px;max-width:100%;background:#F6F8F7;border-radius:34px;border:9px solid #141414;overflow:hidden;box-shadow:0 24px 60px rgba(10,50,30,.3)}
+.scr{display:none;min-height:600px}.scr.on{display:block}
+.hdr{background:#06C167;color:#04331C;padding:18px 16px 14px}
+.hdr b{font-size:18px;display:block}
+.hdr small{font-size:11.5px;opacity:.8}
+.pad{padding:14px 16px 8px}
+.card{background:#fff;border-radius:12px;padding:13px 14px;margin-bottom:11px}
+.row{display:flex;align-items:center;gap:11px;padding:8px 0;border-bottom:1px solid #F0F3F1}
+.row:last-child{border-bottom:0}
+.av{width:30px;height:30px;border-radius:50%;background:#DCEBE2;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#0B7A46;flex:0 0 auto}
+.row .nm{flex:1}
+.row b{font-size:13px;display:block}
+.row small{font-size:11px;color:#7A8A80}
+.amt{font-weight:800;font-size:13px}
+.pend{color:#B0854A;font-size:11px;font-weight:700}
+.in{color:#0B7A46;font-size:11px;font-weight:700}
+.total{display:flex;justify-content:space-between;font-size:14px;padding-top:10px}
+.total b{font-size:15px}
+.btn{width:100%;background:#06C167;color:#04331C;border:0;border-radius:18px;font-weight:800;font-size:14px;padding:12px 0;cursor:pointer;margin:4px 0 8px}
+.btn:disabled{background:#D6DED9;color:#8A968E}
+.btn2{width:100%;background:#fff;border:1.4px solid #0B7A46;color:#0B7A46;border-radius:18px;font-weight:800;font-size:13px;padding:10px 0;cursor:pointer;margin-bottom:8px}
+.muted{font-size:11.5px;color:#7A8A80;text-align:center;margin-bottom:10px}
+.linkbox{background:#EAF6EF;border:1px dashed #0B7A46;border-radius:10px;padding:10px 12px;font-size:12px;color:#0B7A46;font-weight:700;text-align:center;margin-bottom:10px}
+.tickwrap{text-align:center;padding:26px 16px 6px}
+.bigtick{width:58px;height:58px;border-radius:50%;background:#06C167;color:#04331C;font-size:26px;display:flex;align-items:center;justify-content:center;margin:0 auto 12px}
+.tickwrap b{font-size:18px;display:block}
+.tickwrap small{font-size:12px;color:#7A8A80}
+.ghost{background:none;border:1px solid #C4CFC8;color:#5A6E62;border-radius:16px;padding:8px 18px;font-size:12px;cursor:pointer;margin:10px auto;display:block}
+</style>
+</head>
+<body>
+
+<p class="cap">The host room that Group Order is missing. Share one link, watch people join without installing anything, see every share live, then lock it.</p>
+
+<div class="phone">
+  <div id="setup" class="scr on">
+    <div class="hdr"><b>Start a group order</b><small>Biryani House · office lunch</small></div>
+    <div class="pad">
+      <div class="card">
+        <div class="row"><span class="av">You</span><span class="nm"><b>You are the host</b><small>You control the deadline and the budget</small></span></div>
+        <div class="row"><span class="nm"><b>Deadline</b><small>Everyone orders by 12:45 pm</small></span></div>
+        <div class="row"><span class="nm"><b>Budget cap</b><small>₹350 per person</small></span></div>
+      </div>
+      <button class="btn" onclick="go('room')">Create and share the link</button>
+      <p class="muted">The link opens in the browser, so nobody has to install the app.</p>
+    </div>
+  </div>
+
+  <div id="room" class="scr">
+    <div class="hdr"><b>Host room</b><small>Biryani House · locks at 12:45 pm</small></div>
+    <div class="pad">
+      <div class="linkbox">ubereats.com/g/office-lunch · shared on WhatsApp</div>
+      <div class="card" id="people">
+        <div class="row"><span class="av">You</span><span class="nm"><b>You</b><small>Chicken biryani</small></span><span class="amt">₹240</span></div>
+      </div>
+      <div class="card">
+        <div class="total"><span>Group total so far</span><b id="gt">₹240</b></div>
+        <div class="total" style="padding-top:4px"><small style="color:#7A8A80">Delivery ₹49, split between everyone who joins</small></div>
+      </div>
+      <button class="btn2" id="simBtn" onclick="join()">A colleague opens the link</button>
+      <button class="btn" id="lockBtn" onclick="go('locked')" disabled>Lock the order</button>
+      <p class="muted" id="roomNote">The lock opens once at least one other person is in.</p>
+    </div>
+  </div>
+
+  <div id="locked" class="scr">
+    <div class="tickwrap"><span class="bigtick">✓</span><b>Order locked</b><small>Everyone received a confirmation with their own share</small></div>
+    <div class="pad">
+      <div class="card" id="finalSplit"></div>
+      <div class="card"><div class="total"><span>One delivery, one fee</span><b id="dsplit">₹49 split</b></div></div>
+      <p class="muted">No chasing payments after lunch. Each person paid their own share when they joined.</p>
+      <button class="ghost" onclick="location.reload()">Start over</button>
+    </div>
+  </div>
+</div>
+
+<p class="cap" style="margin-top:16px">Independent concept prototype. Not affiliated with Uber Eats.</p>
+
+<script>
+var friends=[['PR','Priya','Paneer biryani',210],['AN','Ananya','Veg biryani + raita',260]];
+var joined=0, total=240;
+function go(n){
+  var s=['setup','room','locked'];
+  for(var i=0;i<s.length;i++){document.getElementById(s[i]).classList.toggle('on',s[i]===n);}
+  if(n==='locked'){fill();}
+}
+function join(){
+  if(joined>=friends.length) return;
+  var f=friends[joined]; joined++;
+  total+=f[3];
+  var r=document.createElement('div'); r.className='row';
+  r.innerHTML='<span class="av">'+f[0]+'</span><span class="nm"><b>'+f[1]+'</b><small>'+f[2]+' · joined from the link, no app</small></span><span class="amt">₹'+f[3]+'</span>';
+  document.getElementById('people').appendChild(r);
+  document.getElementById('gt').textContent='₹'+total;
+  document.getElementById('lockBtn').disabled=false;
+  document.getElementById('roomNote').textContent='Everyone sees their own share before anything is paid.';
+  if(joined>=friends.length){var b=document.getElementById('simBtn');b.disabled=true;b.textContent='Everyone is in';}
+}
+function fill(){
+  var ppl=[['You','Chicken biryani',240],['Priya','Paneer biryani',210],['Ananya','Veg biryani + raita',260]].slice(0,joined+1);
+  var share=Math.round(49/ppl.length);
+  var h='';
+  for(var i=0;i<ppl.length;i++){
+    h+='<div class="row"><span class="av">'+(i===0?'You':ppl[i][0].slice(0,2).toUpperCase())+'</span><span class="nm"><b>'+ppl[i][0]+'</b><small>'+ppl[i][1]+'</small></span><span class="amt">₹'+(ppl[i][2]+share)+'</span></div>';
+  }
+  document.getElementById('finalSplit').innerHTML=h;
+  document.getElementById('dsplit').textContent='₹'+share+' each';
+}
+</script>
+
+</body>
+</html>

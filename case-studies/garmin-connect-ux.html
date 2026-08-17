@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garmin Connect: a redesigned daily check in | Haniya Amjad</title>
+<meta name="description" content="A UX evaluation of one Garmin Connect flow, twelve usability issues across ten heuristics, and a redesigned interface that applies every fix.">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+</head>
+<body style="--case:#007cc3; --case-soft:rgba(0,124,195,.10); --case-line:rgba(0,124,195,.30);">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">Haniya Amjad <span>· Product</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="nav-links" id="navlinks">
+      <a href="../index.html">Work</a>
+      <a href="../index.html#case-studies" class="is-active">Case Studies</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="case-brand">
+      <span class="co"><span class="logo-mark" aria-hidden="true">G</span>Garmin Connect</span>
+      <span class="tag">Product design</span>
+      <span class="tag tag-plain">UX evaluation</span>
+    </div>
+    <h1 class="h1">A ninety second check in that takes five minutes</h1>
+    <p class="lede">
+      Garmin Connect holds more accurate data than almost any competitor and presents it worse
+      than most. I walked one everyday flow, logged twelve usability issues across ten heuristics,
+      and then rebuilt the interface with every fix applied.
+    </p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><span class="num">12</span><span class="lbl">Usability issues in a single daily flow</span><span class="sub">Across five screens and about ninety seconds</span></div>
+      <div class="metric"><span class="num">10 / 10</span><span class="lbl">Nielsen heuristics touched</span><span class="sub">Every one of them violated at least once</span></div>
+      <div class="metric"><span class="num">8 months</span><span class="lbl">Stale date range shown on the sleep screen</span><span class="sub">Presented without any indication it was old</span></div>
+      <div class="metric"><span class="num">6 → 3</span><span class="lbl">Metric cards after the redesign</span><span class="sub">Grouped rather than deleted</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-layout">
+  <div class="case-main">
+
+<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="problem">
+  <div class="prose reveal">
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">The data is right. The reading of it is the product.</h2>
+    <p>
+      The user is a fitness enthusiast who trains four to six times a week on a Forerunner and
+      cares about trends, recovery and personal records. The flow is the one they run every day:
+      open the app after a workout, see today, check sleep, review the activity, and glance at
+      what is coming.
+    </p>
+    <div class="quote">
+      <p>"I want to see how I performed today, slept last night, and what is next, without digging through menus."</p>
+      <cite>The user story the flow was evaluated against</cite>
+    </div>
+    <p>
+      Five screens, roughly ninety seconds of intent. In practice it takes far longer, because at
+      almost every step the screen shows a number without telling you what the number means, how
+      recent it is, or what good would look like.
+    </p>
+  </div>
+</section>
+
+<!-- ============ THE WORK ============ -->
+<section class="section-sm" id="work">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach</p>
+    <h2 class="h2">What the walkthrough found</h2>
+    <p>
+      Twelve issues, each mapped to the heuristic it violates and the fix it needs. They fall into
+      four groups, and the grouping is what turned a defect list into a redesign.
+    </p>
+
+    <div class="grid grid-2" style="margin:22px 0">
+      <div class="card">
+        <p class="eyebrow">Group 1</p>
+        <h4>Data that is stale or unlabelled</h4>
+        <p style="margin-bottom:10px">
+          The sleep screen opens on a four week range ending eight months in the past, with nothing
+          marking it as old. The heart rate gauge reads two dashes while the line underneath says
+          70 bpm resting, so the reader cannot tell whether it is live, stale, or a summary.
+        </p>
+        <p class="xsmall muted"><strong>Violates:</strong> visibility of system status, match with the real world</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Group 2</p>
+        <h4>Data that is simply wrong</h4>
+        <p style="margin-bottom:10px">
+          One continuous workout is auto split into three separate Running entries of 0.21, 1.07
+          and 2.26 km. The first of those is logged at 14:36 per km, which is a walking pace being
+          recorded as a run.
+        </p>
+        <p class="xsmall muted"><strong>Violates:</strong> error prevention, user control and freedom</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Group 3</p>
+        <h4>Numbers with no scale or key</h4>
+        <p style="margin-bottom:10px">
+          Stress reads 89 with no indication of the range or whether high is bad. The calendar
+          colours dates with six different bars and offers no legend. The Body Battery chart plots
+          three series with nothing identifying any of them.
+        </p>
+        <p class="xsmall muted"><strong>Violates:</strong> recognition rather than recall, help and documentation</p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Group 4</p>
+        <h4>Jargon and density</h4>
+        <p style="margin-bottom:10px">
+          Six metric cards sit on one screen, past the limit of what anyone holds in working memory.
+          They are labelled Body Battery, Fitness Age and Intensity Minutes with no explanation.
+          The top bar carries five unlabelled glyphs, and expedition distances mix units across
+          696lm, 260K, 3500K and 784K.
+        </p>
+        <p class="xsmall muted"><strong>Violates:</strong> aesthetic and minimalist design, consistency and standards</p>
+      </div>
+    </div>
+
+    <h3 class="h3">Where it breaks the laws of UX</h3>
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:22%">Law</th><th style="width:14%">Verdict</th><th>Where it shows up</th></tr></thead>
+        <tbody>
+          <tr class="t-win"><td><strong>Miller's law</strong></td><td>Violated</td><td>Six metric cards on one screen, brushing the seven plus or minus two working memory limit.</td></tr>
+          <tr class="t-win"><td><strong>Hick's law</strong></td><td>Violated</td><td>Five navigation tabs, six cards and five home sections together produce decision overload.</td></tr>
+          <tr class="t-win"><td><strong>Goal gradient</strong></td><td>Violated</td><td>Sleep data eight months stale means there is no current progress feedback toward any goal.</td></tr>
+          <tr><td><strong>Information scent</strong></td><td>Weak</td><td>Labels like Body Battery and Fitness Age give no preview of what tapping them reveals.</td></tr>
+          <tr><td><strong>Aesthetic usability</strong></td><td>Weak</td><td>Dense grey on grey cards read as utilitarian next to the polish of Strava or Whoop.</td></tr>
+          <tr><td><strong>Jakob's law</strong></td><td>Weak</td><td>Platform conventions are broken through the missing calendar legend, inconsistent units and non standard glyph navigation.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REDESIGN 1 ============ -->
+<section class="section-sm" id="redesign">
+  <div class="prose reveal">
+    <p class="eyebrow">The solutions</p>
+    <h2 class="h2">Six cards become three, and every number gains a meaning</h2>
+    <p>
+      The instinct with a crowded screen is to delete things. That is the wrong move here, because
+      the data is the reason people buy the watch. The fix is to group it, name it in plain
+      language, and give every number the context that makes it readable at a glance, which is the
+      pattern Strava gets right and Garmin does not.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Prototype · Before and after</p>
+      <h3>At a Glance, rebuilt as Today</h3>
+      <p>Same data, same dark interface, same brand. What changes is grouping, labelling and scale.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 592" role="img" aria-label="Before and after of the Garmin Connect metrics screen. The before shows six dense metric cards with dashes and unscaled numbers. The after shows three grouped cards with plain labels, timestamps, and every value given a scale and a zone.">
+        <defs>
+          <clipPath id="gA"><rect x="60" y="60" width="280" height="480" rx="26"/></clipPath>
+          <clipPath id="gB"><rect x="560" y="60" width="280" height="480" rx="26"/></clipPath>
+        </defs>
+
+        <!-- ============ BEFORE ============ -->
+        <text class="dg-t-hd" x="200" y="40" text-anchor="middle">TODAY, IN THE APP</text>
+        <g clip-path="url(#gA)">
+          <rect x="60" y="60" width="280" height="480" fill="#000000"/>
+          <text x="80" y="88" fill="#0A84FF" font-size="11" font-family="var(--font-text)">‹</text>
+          <text x="200" y="90" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">At a Glance</text>
+          <text x="322" y="90" text-anchor="end" fill="#0A84FF" font-size="9" font-family="var(--font-text)">Edit</text>
+
+          <!-- card 1 heart rate -->
+          <rect x="72" y="106" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <circle cx="84" cy="122" r="4" fill="#FF453A"/>
+          <text x="94" y="125" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Heart Rate</text>
+          <path d="M112 178 A28 28 0 1 1 158 178" fill="none" stroke="#48484A" stroke-width="5" stroke-linecap="round"/>
+          <text x="135" y="166" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">- -</text>
+          <text x="82" y="198" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">70 bpm</text>
+          <text x="122" y="198" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Resting</text>
+
+          <!-- card 2 intensity -->
+          <rect x="204" y="106" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <circle cx="216" cy="122" r="4" fill="#FF9F0A"/>
+          <text x="226" y="125" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Intensity Minutes</text>
+          <circle cx="267" cy="162" r="24" fill="none" stroke="#48484A" stroke-width="5"/>
+          <path d="M267 138 A24 24 0 0 1 267 186" fill="none" stroke="#0A84FF" stroke-width="5"/>
+          <text x="267" y="167" text-anchor="middle" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">65</text>
+          <text x="267" y="200" text-anchor="middle" fill="#8E8E93" font-size="8" font-family="var(--font-text)">150</text>
+
+          <!-- card 3 calories -->
+          <rect x="72" y="218" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <circle cx="84" cy="234" r="4" fill="#30D158"/>
+          <text x="94" y="237" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Calories Burned</text>
+          <text x="82" y="272" fill="#FFFFFF" font-size="16" font-weight="700" font-family="var(--font-text)">1,403</text>
+          <rect x="82" y="286" width="30" height="5" rx="2.5" fill="#FF453A"/>
+          <rect x="114" y="286" width="72" height="5" rx="2.5" fill="#0A84FF"/>
+          <text x="82" y="306" fill="#FFFFFF" font-size="8" font-family="var(--font-text)">360</text>
+          <text x="186" y="306" text-anchor="end" fill="#FFFFFF" font-size="8" font-family="var(--font-text)">1,043</text>
+
+          <!-- card 4 stress -->
+          <rect x="204" y="218" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <circle cx="216" cy="234" r="4" fill="#FF9F0A"/>
+          <text x="226" y="237" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Stress</text>
+          <circle cx="267" cy="276" r="26" fill="none" stroke="#FF6A00" stroke-width="5"/>
+          <text x="267" y="282" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700" font-family="var(--font-text)">89</text>
+          <text x="216" y="314" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">12 AM</text>
+          <text x="318" y="314" text-anchor="end" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">12 AM</text>
+
+          <!-- card 5 hydration -->
+          <rect x="72" y="330" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <circle cx="135" cy="366" r="16" fill="#2C2C2E"/>
+          <path d="M135 358 L140 368 A5.5 5.5 0 1 1 130 368 Z" fill="#0A84FF"/>
+          <text x="135" y="398" text-anchor="middle" fill="#FFFFFF" font-size="8" font-family="var(--font-text)">Hydration</text>
+          <text x="135" y="412" text-anchor="middle" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Start tracking the</text>
+          <text x="135" y="422" text-anchor="middle" fill="#8E8E93" font-size="7" font-family="var(--font-text)">liquid you drink.</text>
+
+          <!-- card 6 fitness age -->
+          <rect x="204" y="330" width="126" height="104" rx="8" fill="#1C1C1E"/>
+          <text x="226" y="352" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Fitness Age</text>
+          <text x="216" y="384" fill="#FFFFFF" font-size="17" font-weight="700" font-family="var(--font-text)">23.5</text>
+          <text x="216" y="410" fill="#FFFFFF" font-size="12" font-family="var(--font-text)">25</text>
+          <text x="216" y="424" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Your Age</text>
+
+          <!-- nav -->
+          <path d="M60 452 H340" stroke="#2C2C2E" stroke-width="1"/>
+          <text x="88" y="474" text-anchor="middle" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">Home</text>
+          <text x="144" y="474" text-anchor="middle" fill="#0A84FF" font-size="6.5" font-family="var(--font-text)">Challenges</text>
+          <text x="200" y="474" text-anchor="middle" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">Calendar</text>
+          <text x="256" y="474" text-anchor="middle" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">News Feed</text>
+          <text x="312" y="474" text-anchor="middle" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">More</text>
+        </g>
+        <rect x="60" y="60" width="280" height="480" rx="26" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+        <text class="dg-t-sm" x="200" y="562" text-anchor="middle" style="font-size:9.5px">Six cards, two dashes, and not one number</text>
+        <text class="dg-t-sm" x="200" y="576" text-anchor="middle" style="font-size:9.5px">carrying a scale or a timestamp.</text>
+
+        <!-- ============ CHANGE LIST ============ -->
+        <text class="dg-t-acc" x="450" y="96" text-anchor="middle" style="font-size:10px">WHAT CHANGED</text>
+        <path d="M450 108 V128" stroke="var(--case)" stroke-width="1.5" fill="none"/>
+        <path d="M445 128 L450 138 L455 128 Z" fill="var(--case)"/>
+
+        <circle cx="372" cy="164" r="7" fill="var(--case)"/>
+        <path d="M368.5 164 L371 166.5 L375.5 161.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="162" style="font-size:9.5px">Six cards grouped into</text>
+        <text class="dg-t-sm" x="386" y="174" style="font-size:9.5px">three: Today, Health, You</text>
+
+        <circle cx="372" cy="212" r="7" fill="var(--case)"/>
+        <path d="M368.5 212 L371 214.5 L375.5 209.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="210" style="font-size:9.5px">Jargon replaced with plain</text>
+        <text class="dg-t-sm" x="386" y="222" style="font-size:9.5px">labels and a one line meaning</text>
+
+        <circle cx="372" cy="260" r="7" fill="var(--case)"/>
+        <path d="M368.5 260 L371 262.5 L375.5 257.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="258" style="font-size:9.5px">Every value gets a scale</text>
+        <text class="dg-t-sm" x="386" y="270" style="font-size:9.5px">and a named zone</text>
+
+        <circle cx="372" cy="308" r="7" fill="var(--case)"/>
+        <path d="M368.5 308 L371 310.5 L375.5 305.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="306" style="font-size:9.5px">Live data carries a pulse dot</text>
+        <text class="dg-t-sm" x="386" y="318" style="font-size:9.5px">and an updated time</text>
+
+        <circle cx="372" cy="356" r="7" fill="var(--case)"/>
+        <path d="M368.5 356 L371 358.5 L375.5 353.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="354" style="font-size:9.5px">Words replace dashes when</text>
+        <text class="dg-t-sm" x="386" y="366" style="font-size:9.5px">a reading is unavailable</text>
+
+        <circle cx="372" cy="404" r="7" fill="var(--case)"/>
+        <path d="M368.5 404 L371 406.5 L375.5 401.5" stroke="#fff" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+        <text class="dg-t-sm" x="386" y="402" style="font-size:9.5px">Five navigation tabs</text>
+        <text class="dg-t-sm" x="386" y="414" style="font-size:9.5px">reduced to three</text>
+
+        <!-- ============ AFTER ============ -->
+        <text class="dg-t-hd" x="700" y="40" text-anchor="middle" style="fill:var(--case)">TODAY, REDESIGNED</text>
+        <g clip-path="url(#gB)">
+          <rect x="560" y="60" width="280" height="480" fill="#000000"/>
+          <text x="580" y="92" fill="#FFFFFF" font-size="15" font-weight="700" font-family="var(--font-text)">Today</text>
+          <circle cx="584" cy="106" r="3" fill="#30D158"/>
+          <text x="592" y="109" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Live · updated 2 min ago</text>
+          <text x="822" y="92" text-anchor="end" fill="#0A84FF" font-size="9" font-family="var(--font-text)">Edit</text>
+
+          <!-- group 1 : TODAY -->
+          <text x="580" y="132" fill="#8E8E93" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.08em">TODAY</text>
+          <rect x="572" y="140" width="256" height="104" rx="10" fill="#1C1C1E"/>
+          <circle cx="588" cy="160" r="4" fill="#FF453A"/>
+          <text x="598" y="163" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Resting heart rate</text>
+          <circle cx="812" cy="160" r="3" fill="#30D158"/>
+          <text x="586" y="192" fill="#FFFFFF" font-size="20" font-weight="700" font-family="var(--font-text)">70</text>
+          <text x="614" y="192" fill="#8E8E93" font-size="9" font-family="var(--font-text)">bpm</text>
+          <rect x="648" y="176" width="76" height="18" rx="9" fill="#0E3B2A"/>
+          <text x="686" y="189" text-anchor="middle" fill="#30D158" font-size="8" font-weight="700" font-family="var(--font-text)">Good range</text>
+          <text x="586" y="210" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Typical for you is 66 to 74. Lower usually means better recovery.</text>
+          <path d="M586 224 H814" stroke="#2C2C2E" stroke-width="4" stroke-linecap="round"/>
+          <path d="M634 224 H700" stroke="#30D158" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="668" cy="224" r="4.5" fill="#FFFFFF"/>
+          <text x="586" y="238" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">40</text>
+          <text x="814" y="238" text-anchor="end" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">100</text>
+
+          <!-- group 2 : HEALTH -->
+          <text x="580" y="268" fill="#8E8E93" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.08em">HEALTH</text>
+          <rect x="572" y="276" width="256" height="104" rx="10" fill="#1C1C1E"/>
+          <circle cx="588" cy="296" r="4" fill="#FF9F0A"/>
+          <text x="598" y="299" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Stress</text>
+          <text x="586" y="328" fill="#FFFFFF" font-size="20" font-weight="700" font-family="var(--font-text)">89</text>
+          <text x="616" y="328" fill="#8E8E93" font-size="9" font-family="var(--font-text)">/ 100</text>
+          <rect x="660" y="312" width="46" height="18" rx="9" fill="#4A1D05"/>
+          <text x="683" y="325" text-anchor="middle" fill="#FF9F0A" font-size="8" font-weight="700" font-family="var(--font-text)">High</text>
+          <text x="718" y="325" fill="#FF9F0A" font-size="8" font-family="var(--font-text)">▲ up 12 today</text>
+          <text x="586" y="346" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Above 75 for four hours. A light session is a better idea than intervals.</text>
+          <rect x="586" y="356" width="57" height="6" rx="3" fill="#30D158"/>
+          <rect x="647" y="356" width="57" height="6" rx="3" fill="#FFD60A"/>
+          <rect x="708" y="356" width="57" height="6" rx="3" fill="#FF9F0A"/>
+          <rect x="769" y="356" width="45" height="6" rx="3" fill="#FF453A"/>
+          <path d="M789 348 L785 354 L793 354 Z" fill="#FFFFFF"/>
+          <text x="586" y="374" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">Rest</text>
+          <text x="814" y="374" text-anchor="end" fill="#8E8E93" font-size="6.5" font-family="var(--font-text)">Very high</text>
+
+          <!-- group 3 : YOU -->
+          <text x="580" y="404" fill="#8E8E93" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.08em">YOU</text>
+          <rect x="572" y="412" width="256" height="66" rx="10" fill="#1C1C1E"/>
+          <text x="586" y="432" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Fitness age</text>
+          <text x="586" y="458" fill="#FFFFFF" font-size="18" font-weight="700" font-family="var(--font-text)">23.5</text>
+          <rect x="632" y="442" width="92" height="18" rx="9" fill="#0E3B2A"/>
+          <text x="678" y="455" text-anchor="middle" fill="#30D158" font-size="8" font-weight="700" font-family="var(--font-text)">1.5 yrs younger</text>
+          <text x="586" y="472" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Your body is performing like someone of 23.5, against your real age of 25.</text>
+
+          <text x="700" y="500" text-anchor="middle" fill="#0A84FF" font-size="9" font-family="var(--font-text)">See all 14 metrics</text>
+
+          <!-- nav, three tabs -->
+          <path d="M560 512 H840" stroke="#2C2C2E" stroke-width="1"/>
+          <text x="626" y="532" text-anchor="middle" fill="#0A84FF" font-size="7.5" font-weight="700" font-family="var(--font-text)">Today</text>
+          <text x="700" y="532" text-anchor="middle" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Activity</text>
+          <text x="774" y="532" text-anchor="middle" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Progress</text>
+        </g>
+        <rect x="560" y="60" width="280" height="480" rx="26" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <text class="dg-t-sm" x="700" y="562" text-anchor="middle" style="font-size:9.5px">Three groups, every number scaled, and one</text>
+        <text class="dg-t-sm" x="700" y="576" text-anchor="middle" style="font-size:9.5px">plain sentence saying what to do about it.</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      The before screen is redrawn from the live app. The after screen keeps Garmin's own dark interface
+      and accent colours so the comparison is about information design rather than a restyle.
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ============ REDESIGN 2 ============ -->
+<section class="section-sm" id="screens">
+  <div class="prose reveal">
+    <h3 class="h3">The rest of the flow</h3>
+    <p>
+      The same three rules carry through the other screens. Correct the data before displaying it,
+      never show a value without its scale, and say in words what the colours mean.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Prototype · Screen flow</p>
+      <h3>Activity, sleep and challenges</h3>
+      <p>The first two screens are the same morning. One is what the app logged, the other is what actually happened.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 556" role="img" aria-label="Four Garmin Connect screens. The activity log before shows one run split into three separate running entries. The activity log after shows a single merged run with the short walking segment recategorised. The sleep screen after opens on a current four week range with a legend. The challenges screen after standardises expedition distances into kilometres and sorts them.">
+        <defs>
+          <clipPath id="gc1"><rect x="20" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="gc2"><rect x="233" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="gc3"><rect x="446" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="gc4"><rect x="659" y="44" width="200" height="410" rx="22"/></clipPath>
+        </defs>
+
+        <!-- ===== 1 : ACTIVITY BEFORE ===== -->
+        <text class="dg-t-hd" x="120" y="30" text-anchor="middle">ACTIVITY, IN THE APP</text>
+        <g clip-path="url(#gc1)">
+          <rect x="20" y="44" width="200" height="410" fill="#000000"/>
+          <text x="34" y="80" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">Today's Activity</text>
+
+          <rect x="30" y="96" width="180" height="82" rx="10" fill="#1C1C1E"/>
+          <text x="42" y="116" fill="#FFFFFF" font-size="9" font-family="var(--font-text)">Running</text>
+          <circle cx="56" cy="144" r="14" fill="#FF9F0A"/>
+          <text x="80" y="142" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">0.21 km</text>
+          <text x="80" y="160" fill="#8E8E93" font-size="8" font-family="var(--font-text)">3:07 · 14:36 /km</text>
+
+          <rect x="30" y="188" width="180" height="82" rx="10" fill="#1C1C1E"/>
+          <text x="42" y="208" fill="#FFFFFF" font-size="9" font-family="var(--font-text)">Running</text>
+          <circle cx="56" cy="236" r="14" fill="#FF9F0A"/>
+          <text x="80" y="234" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">1.07 km</text>
+          <text x="80" y="252" fill="#8E8E93" font-size="8" font-family="var(--font-text)">14:43 · 13:46 /km</text>
+
+          <rect x="30" y="280" width="180" height="82" rx="10" fill="#1C1C1E"/>
+          <text x="42" y="300" fill="#FFFFFF" font-size="9" font-family="var(--font-text)">Running</text>
+          <circle cx="56" cy="328" r="14" fill="#FF9F0A"/>
+          <text x="80" y="326" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">2.26 km</text>
+          <text x="80" y="344" fill="#8E8E93" font-size="8" font-family="var(--font-text)">25:07 · 11:08 /km</text>
+
+          <text x="120" y="392" text-anchor="middle" fill="#FF453A" font-size="8" font-family="var(--font-text)">One run, logged as three.</text>
+          <text x="120" y="406" text-anchor="middle" fill="#FF453A" font-size="8" font-family="var(--font-text)">The first is a walking pace.</text>
+        </g>
+        <rect x="20" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--line)" stroke-width="2"/>
+
+        <!-- ===== 2 : ACTIVITY AFTER ===== -->
+        <text class="dg-t-hd" x="333" y="30" text-anchor="middle" style="fill:var(--case)">ACTIVITY, REDESIGNED</text>
+        <g clip-path="url(#gc2)">
+          <rect x="233" y="44" width="200" height="410" fill="#000000"/>
+          <text x="247" y="80" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">Today's activity</text>
+
+          <rect x="243" y="96" width="180" height="98" rx="10" fill="#1C1C1E"/>
+          <text x="255" y="116" fill="#FFFFFF" font-size="9" font-family="var(--font-text)">Morning run</text>
+          <circle cx="269" cy="146" r="14" fill="#FF9F0A"/>
+          <text x="293" y="142" fill="#FFFFFF" font-size="14" font-weight="700" font-family="var(--font-text)">3.33 km</text>
+          <text x="293" y="160" fill="#8E8E93" font-size="8" font-family="var(--font-text)">39:50 · 11:58 /km avg</text>
+          <rect x="255" y="170" width="156" height="16" rx="8" fill="#0E2E45"/>
+          <text x="263" y="182" fill="#0A84FF" font-size="7" font-family="var(--font-text)">3 segments merged · Undo</text>
+
+          <rect x="243" y="204" width="180" height="80" rx="10" fill="#1C1C1E"/>
+          <text x="255" y="224" fill="#FFFFFF" font-size="9" font-family="var(--font-text)">Warm up walk</text>
+          <circle cx="269" cy="250" r="14" fill="#30D158"/>
+          <text x="293" y="248" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">0.21 km</text>
+          <text x="293" y="264" fill="#8E8E93" font-size="8" font-family="var(--font-text)">3:07 · 14:36 /km</text>
+          <text x="255" y="278" fill="#30D158" font-size="7" font-family="var(--font-text)">Recategorised from Running · that pace is a walk</text>
+
+          <rect x="243" y="294" width="180" height="52" rx="10" fill="#0E2E45"/>
+          <text x="255" y="314" fill="#0A84FF" font-size="8" font-weight="700" font-family="var(--font-text)">Auto detect is splitting your runs</text>
+          <text x="255" y="328" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Merge adjacent segments automatically?</text>
+          <rect x="255" y="332" width="42" height="14" rx="7" fill="#0A84FF"/>
+          <text x="276" y="342" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">Turn on</text>
+
+          <text x="333" y="392" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">One run, one walk, and a setting</text>
+          <text x="333" y="406" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">that stops it happening again.</text>
+        </g>
+        <rect x="233" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 3 : SLEEP AFTER ===== -->
+        <text class="dg-t-hd" x="546" y="30" text-anchor="middle" style="fill:var(--case)">SLEEP, REDESIGNED</text>
+        <g clip-path="url(#gc3)">
+          <rect x="446" y="44" width="200" height="410" fill="#000000"/>
+          <text x="546" y="76" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">Sleep</text>
+
+          <rect x="456" y="88" width="180" height="22" rx="11" fill="#2C2C2E"/>
+          <rect x="547" y="90" width="43" height="18" rx="9" fill="#48484A"/>
+          <text x="479" y="103" text-anchor="middle" fill="#8E8E93" font-size="8" font-family="var(--font-text)">1d</text>
+          <text x="524" y="103" text-anchor="middle" fill="#8E8E93" font-size="8" font-family="var(--font-text)">7d</text>
+          <text x="568" y="103" text-anchor="middle" fill="#FFFFFF" font-size="8" font-weight="700" font-family="var(--font-text)">4w</text>
+          <text x="613" y="103" text-anchor="middle" fill="#8E8E93" font-size="8" font-family="var(--font-text)">1y</text>
+
+          <text x="546" y="128" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">20 Jul to 16 Aug 2026</text>
+          <text x="546" y="141" text-anchor="middle" fill="#30D158" font-size="7.5" font-family="var(--font-text)">Up to date as of this morning</text>
+
+          <rect x="456" y="154" width="180" height="52" rx="10" fill="#1C1C1E"/>
+          <text x="468" y="174" fill="#FFFFFF" font-size="15" font-weight="700" font-family="var(--font-text)">6h 18m</text>
+          <text x="468" y="188" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Average, last 4 weeks</text>
+          <rect x="556" y="164" width="70" height="18" rx="9" fill="#4A1D05"/>
+          <text x="591" y="177" text-anchor="middle" fill="#FF9F0A" font-size="7.5" font-weight="700" font-family="var(--font-text)">42m below goal</text>
+          <text x="556" y="194" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Goal is 7h 00m</text>
+
+          <text x="468" y="228" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">Nightly duration</text>
+          <path d="M468 320 H626" stroke="#2C2C2E" stroke-width="1"/>
+          <path d="M468 292 H626" stroke="#2C2C2E" stroke-width="1"/>
+          <path d="M468 264 H626" stroke="#2C2C2E" stroke-width="1"/>
+          <text x="462" y="322" text-anchor="end" fill="#8E8E93" font-size="6">3h</text>
+          <text x="462" y="294" text-anchor="end" fill="#8E8E93" font-size="6">6h</text>
+          <text x="462" y="266" text-anchor="end" fill="#8E8E93" font-size="6">9h</text>
+          <rect x="474" y="282" width="4" height="38" fill="#0A84FF"/>
+          <rect x="486" y="290" width="4" height="30" fill="#0A84FF"/>
+          <rect x="498" y="276" width="4" height="44" fill="#0A84FF"/>
+          <rect x="510" y="300" width="4" height="20" fill="#0A84FF"/>
+          <rect x="522" y="286" width="4" height="34" fill="#0A84FF"/>
+          <rect x="534" y="258" width="4" height="62" fill="#30D158"/>
+          <rect x="546" y="288" width="4" height="32" fill="#0A84FF"/>
+          <rect x="558" y="294" width="4" height="26" fill="#0A84FF"/>
+          <rect x="570" y="272" width="4" height="48" fill="#0A84FF"/>
+          <rect x="582" y="262" width="4" height="58" fill="#30D158"/>
+          <rect x="594" y="298" width="4" height="22" fill="#0A84FF"/>
+          <rect x="606" y="284" width="4" height="36" fill="#0A84FF"/>
+
+          <circle cx="476" cy="342" r="4" fill="#0A84FF"/>
+          <text x="486" y="345" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Below goal</text>
+          <circle cx="548" cy="342" r="4" fill="#30D158"/>
+          <text x="558" y="345" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Goal met</text>
+
+          <text x="546" y="392" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">Opens on the current range,</text>
+          <text x="546" y="406" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">and the colours are explained.</text>
+        </g>
+        <rect x="446" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 4 : CHALLENGES AFTER ===== -->
+        <text class="dg-t-hd" x="759" y="30" text-anchor="middle" style="fill:var(--case)">EXPEDITIONS, REDESIGNED</text>
+        <g clip-path="url(#gc4)">
+          <rect x="659" y="44" width="200" height="410" fill="#000000"/>
+          <text x="673" y="80" fill="#FFFFFF" font-size="13" font-weight="700" font-family="var(--font-text)">Expeditions</text>
+          <text x="673" y="96" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">Shortest first · all distances in km</text>
+
+          <rect x="669" y="110" width="180" height="46" rx="10" fill="#1C1C1E"/>
+          <rect x="679" y="120" width="26" height="26" rx="6" fill="#2C6E5A"/>
+          <text x="715" y="130" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Aconcagua</text>
+          <text x="715" y="142" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">7 km · about 3 days</text>
+          <text x="839" y="137" text-anchor="end" fill="#0A84FF" font-size="8" font-family="var(--font-text)">Start</text>
+
+          <rect x="669" y="164" width="180" height="46" rx="10" fill="#1C1C1E"/>
+          <rect x="679" y="174" width="26" height="26" rx="6" fill="#7A3E8E"/>
+          <text x="715" y="184" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Annapurna Circuit</text>
+          <text x="715" y="196" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">260 km · about 12 weeks</text>
+          <text x="839" y="191" text-anchor="end" fill="#0A84FF" font-size="8" font-family="var(--font-text)">Start</text>
+
+          <rect x="669" y="218" width="180" height="46" rx="10" fill="#1C1C1E"/>
+          <rect x="679" y="228" width="26" height="26" rx="6" fill="#8E5A2E"/>
+          <text x="715" y="238" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Camino de Santiago</text>
+          <text x="715" y="250" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">784 km · about 8 months</text>
+          <text x="839" y="245" text-anchor="end" fill="#0A84FF" font-size="8" font-family="var(--font-text)">Start</text>
+
+          <rect x="669" y="272" width="180" height="46" rx="10" fill="#1C1C1E"/>
+          <rect x="679" y="282" width="26" height="26" rx="6" fill="#3E5A8E"/>
+          <text x="715" y="292" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Appalachian Trail</text>
+          <text x="715" y="304" fill="#8E8E93" font-size="7.5" font-family="var(--font-text)">3,500 km · about 3 years</text>
+          <text x="839" y="299" text-anchor="end" fill="#0A84FF" font-size="8" font-family="var(--font-text)">Start</text>
+
+          <rect x="669" y="332" width="180" height="40" rx="10" fill="#0E2E45"/>
+          <text x="679" y="350" fill="#0A84FF" font-size="7.5" font-weight="700" font-family="var(--font-text)">Based on your 32 km a week</text>
+          <text x="679" y="363" fill="#8E8E93" font-size="7" font-family="var(--font-text)">Annapurna Circuit is the realistic next one.</text>
+
+          <text x="759" y="392" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">One unit, sorted by distance,</text>
+          <text x="759" y="406" text-anchor="middle" fill="#30D158" font-size="8" font-family="var(--font-text)">with a time each one will take.</text>
+        </g>
+        <rect x="659" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 500 H880"/>
+        <text class="dg-t-sm" x="450" y="526" text-anchor="middle">Every fix here is an information design change. None of them requires new sensors, new data, or a new watch.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <div class="btn-row">
+      <a class="btn" href="https://haniyaamjad1124-wq.github.io/product-prototypes/garmin/" target="_blank" rel="noopener">Open prototype</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <div class="callout">
+      <p>
+        Garmin's problem is not the data and it is not the hardware. It is that the app presents
+        measurements where the user needs meaning. A resting heart rate of 70 is a number. Seventy,
+        inside your normal range of 66 to 74, with lower usually meaning better recovery, is an
+        answer. The second one takes the same space on screen.
+      </p>
+    </div>
+    <p>
+      The three rules that produced every screen above are worth stating plainly, because they
+      generalise well beyond this app. Correct the data before you display it. Never show a value
+      without the scale that makes it readable. And say in words what the colours mean, rather than
+      expecting anyone to learn a key that was never provided.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="pager reveal">
+    <a href="zepto-aov.html"><span class="dir">Previous</span><span class="ttl">Zepto: closing the average order value gap</span></a>
+    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+  </div>
+</section>
+
+  </div>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-t">On this page</p>
+    <a href="#problem">The problem</a>
+    <a href="#work">The work</a>
+    <a href="#redesign">The redesign</a>
+    <a href="#screens">The rest of the flow</a>
+    <a href="#takeaway">Takeaway</a>
+  </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-in">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">Haniya Amjad</p>
+        <p class="muted" style="font-size:13px;margin:0">Product Manager · Chennai, India</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Work</a>
+        <a href="../index.html#case-studies">Case Studies</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      Garmin and Garmin Connect are trademarks of Garmin Ltd. This is an independent usability
+      evaluation of the publicly available app. It is not affiliated with, endorsed by, or
+      commissioned by Garmin. Redesign screens are proposals rather than shipped product.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js?v=6"></script>
+</body>
+</html>

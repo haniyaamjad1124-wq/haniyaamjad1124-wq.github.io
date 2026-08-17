@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zepto Basket Ladder</title>
+<style>
+*{box-sizing:border-box;margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+body{background:#E9E7EF;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:26px 12px;color:#16161A}
+.cap{font-size:13px;color:#6B6B76;margin-bottom:16px;text-align:center;max-width:420px}
+.phone{width:390px;max-width:100%;background:#F4F4F6;border-radius:34px;border:9px solid #141414;overflow:hidden;box-shadow:0 24px 60px rgba(30,10,60,.35)}
+.scr{display:none}.scr.on{display:block}
+.hdr{background:#3E0E70;color:#fff;padding:16px 18px 14px}
+.hdr small{opacity:.75;font-size:11px;display:block}
+.hdr b{font-size:20px}
+.body{padding:14px 14px 0}
+.card{background:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px;padding:7px 0}
+.thumb{width:34px;height:34px;border-radius:8px;background:#EDE9F6;flex:0 0 auto}
+.row .nm{flex:1}
+.row .nm b{font-size:13.5px;display:block}
+.row .nm small{color:#6B6B76;font-size:11px}
+.price{font-weight:700;font-size:13.5px}
+.free{color:#10893E;font-weight:800;font-size:12px}
+.lad{border:1.4px solid #950EDB}
+.lad b{font-size:13.5px}
+.track{position:relative;height:22px;margin:12px 2px 0}
+.track .rail,.track .fill{position:absolute;top:9px;left:0;height:4px;border-radius:2px}
+.rail{width:100%;background:#E6E6EC}
+.fill{background:#950EDB;transition:width .35s}
+.dot{position:absolute;top:4px;width:14px;height:14px;border-radius:50%;background:#fff;border:2.5px solid #C9C9D4;transform:translateX(-50%)}
+.dot.hit{background:#950EDB;border-color:#950EDB}
+.lbls{display:flex;position:relative;height:14px;font-size:10px;color:#6B6B76;margin-top:2px}
+.lbls span{position:absolute;transform:translateX(-50%)}
+.nxt{font-size:11.5px;color:#6B6B76;margin-top:8px}
+.unlocked{display:none;background:#10893E;color:#fff;border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:13px}
+.unlocked.on{display:flex;align-items:center;gap:10px}
+.unlocked small{opacity:.85;display:block;font-size:11px}
+.tick{width:26px;height:26px;border-radius:50%;border:2px solid #fff;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.sug .row{border-top:1px solid #F0F0F3}
+.sug .row:first-of-type{border-top:0}
+.add{border:1.4px solid #950EDB;color:#950EDB;background:#fff;border-radius:10px;font-weight:800;font-size:11px;padding:5px 12px;cursor:pointer}
+.add:disabled{border-color:#C9C9D4;color:#9A9AA6}
+.paybar{background:#3E0E70;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:14px 18px;margin-top:4px}
+.paybar small{opacity:.8;font-size:11px;display:block}
+.paybar b{font-size:18px}
+.paybtn{background:#fff;color:#3E0E70;border:0;border-radius:18px;font-weight:800;font-size:14px;padding:10px 22px;cursor:pointer}
+.center{text-align:center}
+.bigtick{width:56px;height:56px;border-radius:50%;border:3px solid #fff;margin:6px auto 12px;display:flex;align-items:center;justify-content:center;font-size:26px}
+.cd{height:5px;border-radius:3px;background:#E6E6EC;overflow:hidden;margin-top:8px}
+.cd div{height:100%;background:#950EDB;width:100%;transition:width 1s linear}
+.muted{color:#6B6B76;font-size:11.5px}
+.ghost{background:none;border:1px solid #C9C9D4;color:#6B6B76;border-radius:16px;padding:8px 18px;font-size:12px;cursor:pointer;margin:6px auto 16px;display:block}
+</style>
+</head>
+<body>
+
+<p class="cap">Tap ADD and watch the ladder respond. Cross ₹499 and the saving applies on its own. Pay, and the recovery window opens.</p>
+
+<div class="phone">
+  <div id="cart" class="scr on">
+    <div class="hdr"><small>Delivery in</small><b>10 minutes</b><small>Home · Koregaon Park</small></div>
+    <div class="body">
+      <div class="card">
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Amul Taaza Milk</b><small>1 L carton</small></div><div class="price">₹68</div></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>India Gate Basmati</b><small>5 kg pack</small></div><div class="price">₹244</div></div>
+        <div class="row"><div class="nm"><small>Delivery</small></div><div class="free">FREE</div></div>
+      </div>
+
+      <div id="unlocked" class="unlocked"><span class="tick">✓</span><span><b>₹40 saved on this order</b><small>applied automatically</small></span></div>
+
+      <div class="card lad">
+        <b id="ladLbl">Add ₹187 to save ₹40</b>
+        <div class="track"><div class="rail"></div><div id="fill" class="fill"></div>
+          <div class="dot" style="left:18.6%" data-v="149"></div>
+          <div class="dot" style="left:37.4%" data-v="299"></div>
+          <div class="dot" style="left:62.4%" data-v="499"></div>
+          <div class="dot" style="left:100%" data-v="799"></div>
+        </div>
+        <div class="lbls"><span style="left:18.6%">149</span><span style="left:37.4%">299</span><span style="left:62.4%">499</span><span style="left:97%">799</span></div>
+        <div id="ladNxt" class="nxt">Next at ₹499, a ₹40 saving on this order</div>
+      </div>
+
+      <div class="card sug">
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Amul Curd</b><small>400 g</small></div><div class="price">₹42</div><button class="add" onclick="add(this,42)">ADD</button></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Aashirvaad Atta</b><small>1 kg</small></div><div class="price">₹59</div><button class="add" onclick="add(this,59)">ADD</button></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Bananas</b><small>6 pieces</small></div><div class="price">₹59</div><button class="add" onclick="add(this,59)">ADD</button></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Brown bread</b><small>400 g</small></div><div class="price">₹45</div><button class="add" onclick="add(this,45)">ADD</button></div>
+      </div>
+    </div>
+    <div class="paybar"><div><small id="nItems">2 items</small><b id="payT">₹312</b></div><button class="paybtn" onclick="pay()">Pay now</button></div>
+  </div>
+
+  <div id="placed" class="scr">
+    <div class="hdr center" style="padding:26px 18px 22px"><div class="bigtick">✓</div><b>Order placed</b><small>Arriving in 9 minutes</small></div>
+    <div class="body">
+      <div class="card"><b style="font-size:13.5px">Forgot anything?</b>
+        <div class="muted" id="cdTxt">96 seconds left to join this delivery</div>
+        <div class="cd"><div id="cdBar"></div></div>
+      </div>
+      <div class="card sug" id="lateSug">
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Amul Curd</b><small>400 g</small></div><div class="price">₹42</div><button class="add" onclick="late(this)">ADD</button></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Bananas</b><small>6 pieces</small></div><div class="price">₹59</div><button class="add" onclick="late(this)">ADD</button></div>
+        <div class="row"><div class="thumb"></div><div class="nm"><b>Brown bread</b><small>400 g</small></div><div class="price">₹45</div><button class="add" onclick="late(this)">ADD</button></div>
+      </div>
+      <p class="muted center">Additions join the same rider. No second delivery fee.</p>
+      <button class="ghost" onclick="location.reload()">Start over</button>
+    </div>
+  </div>
+</div>
+
+<p class="cap" style="margin-top:16px">Independent concept prototype. Not affiliated with Zepto.</p>
+
+<script>
+var total=312, items=2, timer=null;
+function fmt(n){return '₹'+n}
+function render(){
+  var save = total>=499 ? 40 : 0;
+  document.getElementById('payT').textContent = fmt(total-save);
+  document.getElementById('nItems').textContent = items+' items';
+  var pct = Math.min(total,799)/799*100;
+  document.getElementById('fill').style.width = pct+'%';
+  var dots = document.querySelectorAll('#cart .dot');
+  for (var i=0;i<dots.length;i++){ dots[i].classList.toggle('hit', total>=+dots[i].getAttribute('data-v')); }
+  var lbl=document.getElementById('ladLbl'), nxt=document.getElementById('ladNxt');
+  if (total<499){ lbl.textContent='Add '+fmt(499-total)+' to save ₹40'; nxt.textContent='Next at ₹499, a ₹40 saving on this order'; }
+  else if (total<799){ lbl.textContent='Add '+fmt(799-total)+' for free delivery on your next three orders'; nxt.textContent='₹40 already saved. The top slab is ₹799.'; }
+  else { lbl.textContent='Top slab reached'; nxt.textContent='Every reward on this ladder is unlocked.'; }
+  document.getElementById('unlocked').classList.toggle('on', save>0);
+}
+function add(btn,p){ total+=p; items++; btn.disabled=true; btn.textContent='ADDED'; render(); }
+function late(btn){ btn.disabled=true; btn.textContent='ADDED'; }
+function pay(){
+  document.getElementById('cart').classList.remove('on');
+  document.getElementById('placed').classList.add('on');
+  var t=96, bar=document.getElementById('cdBar'), txt=document.getElementById('cdTxt');
+  timer=setInterval(function(){
+    t--; bar.style.width=(t/96*100)+'%';
+    if(t<=0){ clearInterval(timer); txt.textContent='Window closed. Your order is on its way.';
+      var bs=document.querySelectorAll('#lateSug .add'); for(var i=0;i<bs.length;i++){bs[i].disabled=true;} }
+    else { txt.textContent=t+' seconds left to join this delivery'; }
+  },1000);
+}
+render();
+</script>
+
+</body>
+</html>

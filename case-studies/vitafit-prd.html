@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VitaFit: the long game | Haniya Amjad</title>
+<meta name="description" content="A product requirements document for a fitness platform losing users to trainer rotation and demotivating leaderboards. Two features, a fair cohort model, and a hybrid online to offline loop.">
+<link rel="stylesheet" href="../assets/style.css?v=6">
+</head>
+<body style="--case:#0d9488; --case-soft:rgba(13,148,136,.10); --case-line:rgba(13,148,136,.30);">
+
+<a class="skip" href="#main">Skip to content</a>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a class="nav-logo" href="../index.html">Haniya Amjad <span>· Product</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="navlinks">Menu</button>
+    <div class="nav-links" id="navlinks">
+      <a href="../index.html">Work</a>
+      <a href="../index.html#case-studies" class="is-active">Case Studies</a>
+      <a href="../index.html#projects">Projects</a>
+      <a href="../about.html">About</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="case-hero">
+  <div class="wrap">
+    <div class="case-brand">
+      <span class="co"><span class="logo-mark" aria-hidden="true">V</span>VitaFit</span>
+      <span class="tag">Product design</span>
+      <span class="tag tag-plain">PRD</span>
+    </div>
+    <h1 class="h1">The long game</h1>
+    <p class="lede">
+      A fitness platform rotates its trainers, so nobody remembers your injury and you explain
+      yourself again every session. Its leaderboards put a 45 year old homemaker against a 25 year
+      old athlete. Both problems have the same effect, which is that people quietly stop booking.
+    </p>
+  </div>
+</header>
+
+<section class="section-sm">
+  <div class="wrap">
+    <div class="metrics reveal">
+      <div class="metric"><span class="num">18%</span><span class="lbl">Day 30 retention</span><span class="sub">Against an industry benchmark of 30 to 35%</span></div>
+      <div class="metric"><span class="num">45%</span><span class="lbl">Fall in repeat session rate from week 1 to week 4</span><span class="sub">The drop happens inside the first month</span></div>
+      <div class="metric"><span class="num">Under 5%</span><span class="lbl">Trainer favouriting rate</span><span class="sub">Almost nobody forms a bond with a coach</span></div>
+      <div class="metric"><span class="num">Zero</span><span class="lbl">Offline community presence</span><span class="sub">While the category leader runs events every weekend</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="case-layout">
+  <div class="case-main">
+
+<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="problem">
+  <div class="prose reveal">
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">Two failures that produce the same silence</h2>
+
+    <div class="grid grid-2" style="margin:22px 0">
+      <div class="card">
+        <p class="eyebrow">Failure 1</p>
+        <h4>Motivation fades</h4>
+        <p>
+          A single open leaderboard means most people are permanently near the bottom of it. A 45
+          year old homemaker cannot compete with a 25 year old athlete, so the feature that is
+          supposed to motivate her is the one telling her she does not belong. Progress becomes
+          invisible, and invisible progress stops being pursued.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Failure 2</p>
+        <h4>No bond with a trainer</h4>
+        <p>
+          Trainers rotate, so Trainer A has no idea what Trainer B taught. The user re-explains
+          their injury, their goal and their limits every single session. What should be a
+          relationship reads as a transaction, and a transaction has nothing holding it together.
+        </p>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>"The trainer did not know about my injury." "It felt impersonal." "I quit after my favourite trainer left." "The platform feels too automated."</p>
+      <cite>Customer support verbatims, quoted in the requirements document</cite>
+    </div>
+
+    <p>
+      The comparison that made the case internally was Nike Run Club, which sustains retention
+      above 80% on streaks and coaching alone. The gap is not effort from users. It is that
+      nothing in the product remembers them between sessions.
+    </p>
+  </div>
+</section>
+
+<!-- ============ THE WORK ============ -->
+<section class="section-sm" id="work">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach · The competitive gap</p>
+    <h2 class="h2">Every competitor owns one dimension, and nobody owns all three</h2>
+    <p>
+      Cult.fit has proven that offline community works at scale in India, but its classes are not
+      coach bonded. Strava has the stickiest competition mechanics in fitness, but open
+      leaderboards actively demotivate casual users and it has no trainer layer at all.
+      HealthifyMe leads on AI nutrition, but its coach chat is transactional and it runs no events.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Competitive gap</p>
+      <h3>Three capabilities, four players</h3>
+      <p>The opportunity is not a better version of any one column. It is the row nobody has completed.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 344" role="img" aria-label="Capability matrix. Cult.fit has offline events but no trainer continuity and no leaderboards. Strava has competition but no trainer layer and is digital only. HealthifyMe has transactional coach chat but no community layer and no events. VitaFit is proposed to hold all three capabilities.">
+        <text class="dg-t-hd" x="331" y="62" text-anchor="middle">CULT.FIT</text>
+        <text class="dg-t-hd" x="487" y="62" text-anchor="middle">STRAVA</text>
+        <text class="dg-t-hd" x="643" y="62" text-anchor="middle">HEALTHIFYME</text>
+        <text class="dg-t-hd" x="799" y="62" text-anchor="middle" style="fill:var(--case)">VITAFIT</text>
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 70 H874"/>
+
+        <!-- row 1 -->
+        <text class="dg-t" x="20" y="104" style="font-size:12px">Trainer continuity</text>
+        <text class="dg-t-sm" x="20" y="120" style="font-size:9.5px">someone who remembers you</text>
+        <rect class="dg-node" x="256" y="76" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="331" y="106" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="331" y="126" text-anchor="middle" style="font-size:9px">class based, not</text>
+        <text class="dg-t-sm" x="331" y="138" text-anchor="middle" style="font-size:9px">coach bonded</text>
+        <rect class="dg-node" x="412" y="76" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="487" y="106" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="487" y="126" text-anchor="middle" style="font-size:9px">no trainer layer</text>
+        <text class="dg-t-sm" x="487" y="138" text-anchor="middle" style="font-size:9px">at all</text>
+        <rect class="dg-node" x="568" y="76" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="643" y="106" text-anchor="middle" style="font-size:14px">~</text>
+        <text class="dg-t-sm" x="643" y="126" text-anchor="middle" style="font-size:9px">coach chat, but</text>
+        <text class="dg-t-sm" x="643" y="138" text-anchor="middle" style="font-size:9px">transactional</text>
+        <rect class="dg-node-solid" x="724" y="76" width="150" height="74" rx="8"/>
+        <text class="dg-t-inv" x="799" y="104" text-anchor="middle" style="font-size:13px">✓</text>
+        <text class="dg-t-inv" x="799" y="124" text-anchor="middle" style="font-weight:400;font-size:9px">Fitness Passport</text>
+        <text class="dg-t-inv" x="799" y="136" text-anchor="middle" style="font-weight:400;font-size:9px">and AI handoff</text>
+
+        <!-- row 2 -->
+        <text class="dg-t" x="20" y="186" style="font-size:12px">Fair cohort competition</text>
+        <text class="dg-t-sm" x="20" y="202" style="font-size:9.5px">ranked against your peers only</text>
+        <rect class="dg-node" x="256" y="158" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="331" y="188" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="331" y="208" text-anchor="middle" style="font-size:9px">no leaderboards,</text>
+        <text class="dg-t-sm" x="331" y="220" text-anchor="middle" style="font-size:9px">shallow gamification</text>
+        <rect class="dg-node" x="412" y="158" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="487" y="188" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="487" y="208" text-anchor="middle" style="font-size:9px">open boards</text>
+        <text class="dg-t-sm" x="487" y="220" text-anchor="middle" style="font-size:9px">demotivate casuals</text>
+        <rect class="dg-node" x="568" y="158" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="643" y="188" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="643" y="208" text-anchor="middle" style="font-size:9px">no community or</text>
+        <text class="dg-t-sm" x="643" y="220" text-anchor="middle" style="font-size:9px">game layer</text>
+        <rect class="dg-node-solid" x="724" y="158" width="150" height="74" rx="8"/>
+        <text class="dg-t-inv" x="799" y="186" text-anchor="middle" style="font-size:13px">✓</text>
+        <text class="dg-t-inv" x="799" y="206" text-anchor="middle" style="font-weight:400;font-size:9px">sub cohort boards</text>
+        <text class="dg-t-inv" x="799" y="218" text-anchor="middle" style="font-weight:400;font-size:9px">by age and weight</text>
+
+        <!-- row 3 -->
+        <text class="dg-t" x="20" y="268" style="font-size:12px">Hybrid online to offline</text>
+        <text class="dg-t-sm" x="20" y="284" style="font-size:9.5px">digital habit becomes real world</text>
+        <rect class="dg-node" x="256" y="240" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="331" y="270" text-anchor="middle" style="font-size:14px">~</text>
+        <text class="dg-t-sm" x="331" y="290" text-anchor="middle" style="font-size:9px">events exist, but not</text>
+        <text class="dg-t-sm" x="331" y="302" text-anchor="middle" style="font-size:9px">linked to the app</text>
+        <rect class="dg-node" x="412" y="240" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="487" y="270" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="487" y="290" text-anchor="middle" style="font-size:9px">digital only</text>
+        <rect class="dg-node" x="568" y="240" width="150" height="74" rx="8"/>
+        <text class="dg-t-sm" x="643" y="270" text-anchor="middle" style="font-size:14px">✕</text>
+        <text class="dg-t-sm" x="643" y="290" text-anchor="middle" style="font-size:9px">no in person</text>
+        <text class="dg-t-sm" x="643" y="302" text-anchor="middle" style="font-size:9px">events</text>
+        <rect class="dg-node-solid" x="724" y="240" width="150" height="74" rx="8"/>
+        <text class="dg-t-inv" x="799" y="268" text-anchor="middle" style="font-size:13px">✓</text>
+        <text class="dg-t-inv" x="799" y="288" text-anchor="middle" style="font-weight:400;font-size:9px">online sessions</text>
+        <text class="dg-t-inv" x="799" y="300" text-anchor="middle" style="font-weight:400;font-size:9px">unlock IRL events</text>
+
+        <text class="dg-t-sm" x="20" y="336">Trainer continuity builds trust, fair competition drives repeat sessions, and the hybrid loop turns a digital habit into a real world one.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<!-- ============ SOLUTIONS ============ -->
+<section class="section-sm" id="solutions">
+  <div class="prose reveal">
+    <p class="eyebrow">The solutions</p>
+    <h2 class="h2">Two features, written for the teams that have to build them</h2>
+
+    <div class="grid grid-2" style="margin:22px 0">
+      <div class="card">
+        <p class="eyebrow">Feature A</p>
+        <h4>Coach Connect</h4>
+        <p style="margin-bottom:12px">
+          A <strong>Fitness Passport</strong> that travels with the user across rotating trainers.
+          The user logs meals, weight, mood and energy. The trainer adds session notes, weekly
+          recommendations and goal adjustments. Medical history is always visible to the trainer,
+          and the user controls every non medical field.
+        </p>
+        <p style="margin-bottom:12px">
+          An <strong>AI handoff</strong> turns recent sessions and the shared document into a
+          thirty second brief the next trainer reads before walking over. This is not automation
+          replacing a coach, it is a coach arriving already informed.
+        </p>
+        <p>
+          <strong>Sub cohort leaderboards</strong> bucket users automatically by age, weight,
+          gender and discipline, so ranking happens against genuine peers. Streaks, XP and brand
+          partner rewards sit on top, with a flexible freeze so one missed day does not erase a month.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">Feature B</p>
+        <h4>Tribes and Chapters</h4>
+        <p style="margin-bottom:12px">
+          <strong>Squad challenges</strong> run online through deep link invites, with a live
+          leaderboard and a group chat. Family rivalry and peer cheering do the work that a
+          notification cannot.
+        </p>
+        <p style="margin-bottom:12px">
+          <strong>Regional chapters</strong> run offline, suggested by pin code, covering runs,
+          pickleball, paddle and yoga workshops. They are trainer led, capacity capped, and
+          bookable in the app.
+        </p>
+        <p>
+          The two halves are joined deliberately. Completing a set of online sessions unlocks
+          event tickets, and the event produces photos and recaps that pull the next group of
+          people back online.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · The mechanism</p>
+      <h3>The hybrid loop</h3>
+      <p>Online is the warm up. Offline is the payoff. The recap is what makes it repeat.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 300" role="img" aria-label="A four stage loop. Online squad challenges lead to unlocked event access, which leads to an offline chapter event, which produces a recap that is shared and brings new members back into online challenges.">
+        <rect class="dg-node-accent" x="40" y="56" width="200" height="92" rx="10"/>
+        <text class="dg-t-hd" x="56" y="82">ONLINE</text>
+        <text class="dg-t" x="56" y="106" style="font-size:12px">Squad challenge</text>
+        <text class="dg-t-sm" x="56" y="124">Time boxed, live leaderboard,</text>
+        <text class="dg-t-sm" x="56" y="138">group chat with the people you know</text>
+
+        <path class="dg-line" fill="none" stroke-width="1.5" d="M240 102 H272"/>
+        <path class="dg-arrow" d="M272 96 L284 102 L272 108 Z"/>
+
+        <rect class="dg-node-accent" x="290" y="56" width="200" height="92" rx="10"/>
+        <text class="dg-t-hd" x="306" y="82">UNLOCK</text>
+        <text class="dg-t" x="306" y="106" style="font-size:12px">Sessions earn access</text>
+        <text class="dg-t-sm" x="306" y="124">Completing a set of online sessions</text>
+        <text class="dg-t-sm" x="306" y="138">unlocks a chapter event ticket</text>
+
+        <path class="dg-line" fill="none" stroke-width="1.5" d="M490 102 H522"/>
+        <path class="dg-arrow" d="M522 96 L534 102 L522 108 Z"/>
+
+        <rect class="dg-node-solid" x="540" y="56" width="200" height="92" rx="10"/>
+        <text class="dg-t-inv" x="556" y="82" style="font-size:13px;font-weight:700">OFFLINE</text>
+        <text class="dg-t-inv" x="556" y="106" style="font-size:12px">Chapter event</text>
+        <text class="dg-t-inv" x="556" y="124" style="font-weight:400;font-size:11px">Trainer led, capacity capped,</text>
+        <text class="dg-t-inv" x="556" y="138" style="font-weight:400;font-size:11px">suggested by your pin code</text>
+
+        <path class="dg-line" fill="none" stroke-width="1.5" d="M740 102 H790 V206 H140 V148"/>
+        <path class="dg-arrow" d="M134 148 L140 136 L146 148 Z"/>
+
+        <rect class="dg-node-accent" x="300" y="184" width="300" height="44" rx="10"/>
+        <text class="dg-t-hd" x="316" y="204">RECAP</text>
+        <text class="dg-t-sm" x="380" y="204">Attendees, badge earned, group photo</text>
+        <text class="dg-t-sm" x="316" y="220">Shared to Instagram and WhatsApp, which is how the next group discovers a chapter</text>
+
+        <text class="dg-t-sm" x="450" y="264" text-anchor="middle">Cult.fit proved the offline half works in India. Nobody has connected it back to the online half.</text>
+        <text class="dg-t-acc" x="450" y="284" text-anchor="middle">EVERY FULL TURN OF THE LOOP PRODUCES A REPEAT BOOKING AND A NEW MEMBER</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<!-- ============ PROTOTYPE ============ -->
+<section class="section-sm" id="prototype">
+  <div class="prose reveal">
+    <p class="eyebrow">The prototype</p>
+    <h2 class="h2">What design and engineering actually build</h2>
+    <p>
+      A requirements document that stops at prose leaves every hard decision to whoever reads it
+      last. These are the four screens that carry the two features, drawn so the team can argue
+      with them.
+    </p>
+  </div>
+
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Prototype · Screen flow</p>
+      <h3>Passport, handoff, fair ranking, and the event</h3>
+      <p>The second screen is the trainer's view. Everything else is the member's.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 546" role="img" aria-label="Four VitaFit app screens. The fitness passport shared between member and trainer, the AI handoff brief a trainer reads before a session, a sub cohort leaderboard ranking against genuine peers, and a chapter event unlocked by completing online sessions.">
+        <defs>
+          <clipPath id="vf1"><rect x="20" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="vf2"><rect x="233" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="vf3"><rect x="446" y="44" width="200" height="410" rx="22"/></clipPath>
+          <clipPath id="vf4"><rect x="659" y="44" width="200" height="410" rx="22"/></clipPath>
+        </defs>
+
+        <!-- ===== 1 : FITNESS PASSPORT ===== -->
+        <text class="dg-t-hd" x="120" y="30" text-anchor="middle" style="fill:var(--case)">FITNESS PASSPORT</text>
+        <g clip-path="url(#vf1)">
+          <rect x="20" y="44" width="200" height="410" fill="#F5F8F8"/>
+          <rect x="20" y="44" width="200" height="58" fill="#0D9488"/>
+          <text x="34" y="72" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">Your passport</text>
+          <text x="34" y="88" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)" opacity="0.85">Shared with your trainer</text>
+
+          <rect x="30" y="114" width="180" height="16" rx="8" fill="#FDEBE8"/>
+          <text x="38" y="126" fill="#C0392B" font-size="7" font-weight="700" font-family="var(--font-text)">Left knee, ACL 2023 · always visible to trainer</text>
+
+          <text x="34" y="152" fill="#5A6A6A" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.06em">YOU LOGGED TODAY</text>
+          <rect x="30" y="160" width="180" height="70" rx="10" fill="#FFFFFF"/>
+          <text x="40" y="178" fill="#16201F" font-size="8" font-family="var(--font-text)">Weight</text>
+          <text x="200" y="178" text-anchor="end" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">64.2 kg</text>
+          <text x="40" y="196" fill="#16201F" font-size="8" font-family="var(--font-text)">Energy</text>
+          <text x="200" y="196" text-anchor="end" fill="#0D9488" font-size="8" font-weight="700" font-family="var(--font-text)">Low</text>
+          <text x="40" y="214" fill="#16201F" font-size="8" font-family="var(--font-text)">Mood</text>
+          <text x="200" y="214" text-anchor="end" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">Flat, slept badly</text>
+
+          <text x="34" y="252" fill="#5A6A6A" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.06em">YOUR TRAINER ADDED</text>
+          <rect x="30" y="260" width="180" height="76" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1"/>
+          <circle cx="44" cy="278" r="8" fill="#0D9488"/>
+          <text x="44" y="281" text-anchor="middle" fill="#FFFFFF" font-size="7" font-weight="700" font-family="var(--font-text)">RK</text>
+          <text x="58" y="277" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">Rohit K · Tuesday</text>
+          <text x="40" y="298" fill="#16201F" font-size="7.5" font-family="var(--font-text)">Held back on lunges, knee was talking.</text>
+          <text x="40" y="310" fill="#16201F" font-size="7.5" font-family="var(--font-text)">Swap to step ups next session and keep</text>
+          <text x="40" y="322" fill="#16201F" font-size="7.5" font-family="var(--font-text)">the load light until Thursday.</text>
+
+          <rect x="30" y="350" width="180" height="30" rx="15" fill="#0D9488"/>
+          <text x="120" y="369" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">Add today's log</text>
+
+          <text x="120" y="400" text-anchor="middle" fill="#5A6A6A" font-size="7" font-family="var(--font-text)">You control every field except medical history.</text>
+        </g>
+        <rect x="20" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 2 : AI HANDOFF ===== -->
+        <text class="dg-t-hd" x="333" y="30" text-anchor="middle" style="fill:var(--case)">TRAINER HANDOFF</text>
+        <g clip-path="url(#vf2)">
+          <rect x="233" y="44" width="200" height="410" fill="#16201F"/>
+          <text x="247" y="72" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">Before you start</text>
+          <text x="247" y="88" fill="#8FA3A1" font-size="7.5" font-family="var(--font-text)">Priya S · 6:30 pm · Strength</text>
+
+          <rect x="243" y="104" width="180" height="18" rx="9" fill="#3A1F1C"/>
+          <text x="251" y="117" fill="#FF8A7A" font-size="7" font-weight="700" font-family="var(--font-text)">Left knee, ACL 2023 · avoid deep lunges</text>
+
+          <rect x="243" y="132" width="180" height="128" rx="10" fill="#20302E"/>
+          <text x="253" y="150" fill="#4FD1C5" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.06em">30 SECOND BRIEF</text>
+          <text x="253" y="170" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">Three sessions in the last fortnight, all</text>
+          <text x="253" y="182" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">completed. Rohit held back on lunges last</text>
+          <text x="253" y="194" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">week because the knee flared.</text>
+          <text x="253" y="214" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">She logged low energy and poor sleep this</text>
+          <text x="253" y="226" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)">morning. Goal is a 5k in November.</text>
+          <text x="253" y="246" fill="#4FD1C5" font-size="7.5" font-weight="700" font-family="var(--font-text)">Suggested: step ups, light load, keep it short.</text>
+
+          <rect x="243" y="270" width="180" height="34" rx="10" fill="#20302E"/>
+          <text x="253" y="284" fill="#8FA3A1" font-size="7" font-family="var(--font-text)">Generated from her passport and your</text>
+          <text x="253" y="296" fill="#8FA3A1" font-size="7" font-family="var(--font-text)">colleague's notes. Review before you use it.</text>
+
+          <rect x="243" y="316" width="86" height="28" rx="14" fill="#0D9488"/>
+          <text x="286" y="334" text-anchor="middle" fill="#FFFFFF" font-size="8.5" font-weight="700" font-family="var(--font-text)">Looks right</text>
+          <rect x="337" y="316" width="86" height="28" rx="14" fill="none" stroke="#4A5C5A" stroke-width="1"/>
+          <text x="380" y="334" text-anchor="middle" fill="#FFFFFF" font-size="8.5" font-family="var(--font-text)">Edit</text>
+
+          <text x="333" y="376" text-anchor="middle" fill="#8FA3A1" font-size="7" font-family="var(--font-text)">A trainer arriving informed, not a trainer</text>
+          <text x="333" y="388" text-anchor="middle" fill="#8FA3A1" font-size="7" font-family="var(--font-text)">replaced by a model.</text>
+        </g>
+        <rect x="233" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 3 : SUB COHORT BOARD ===== -->
+        <text class="dg-t-hd" x="546" y="30" text-anchor="middle" style="fill:var(--case)">FAIR LEADERBOARD</text>
+        <g clip-path="url(#vf3)">
+          <rect x="446" y="44" width="200" height="410" fill="#F5F8F8"/>
+          <rect x="446" y="44" width="200" height="58" fill="#0D9488"/>
+          <text x="460" y="70" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">This week</text>
+          <text x="460" y="86" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)" opacity="0.85">Women 40 to 49 · strength · 60 to 70 kg</text>
+
+          <rect x="456" y="114" width="180" height="20" rx="10" fill="#E3F1EF"/>
+          <text x="464" y="128" fill="#0D9488" font-size="7" font-weight="700" font-family="var(--font-text)">You are ranked against 214 genuine peers</text>
+
+          <rect x="456" y="144" width="180" height="30" rx="8" fill="#FFFFFF"/>
+          <text x="468" y="163" fill="#8A9A99" font-size="9" font-weight="700" font-family="var(--font-text)">2</text>
+          <circle cx="490" cy="159" r="9" fill="#DDE8E7"/>
+          <text x="506" y="157" fill="#16201F" font-size="8" font-family="var(--font-text)">Meera R</text>
+          <text x="506" y="168" fill="#8A9A99" font-size="7" font-family="var(--font-text)">5 sessions</text>
+          <text x="626" y="163" text-anchor="end" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">940 XP</text>
+
+          <rect x="456" y="180" width="180" height="34" rx="8" fill="#0D9488"/>
+          <text x="468" y="201" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">3</text>
+          <circle cx="490" cy="197" r="9" fill="#FFFFFF" opacity="0.3"/>
+          <text x="506" y="195" fill="#FFFFFF" font-size="8" font-weight="700" font-family="var(--font-text)">You</text>
+          <text x="506" y="206" fill="#FFFFFF" font-size="7" font-family="var(--font-text)" opacity="0.85">4 sessions · 12 days</text>
+          <text x="626" y="201" text-anchor="end" fill="#FFFFFF" font-size="8" font-weight="700" font-family="var(--font-text)">880 XP</text>
+
+          <rect x="456" y="220" width="180" height="30" rx="8" fill="#FFFFFF"/>
+          <text x="468" y="239" fill="#8A9A99" font-size="9" font-weight="700" font-family="var(--font-text)">4</text>
+          <circle cx="490" cy="235" r="9" fill="#DDE8E7"/>
+          <text x="506" y="233" fill="#16201F" font-size="8" font-family="var(--font-text)">Anjali T</text>
+          <text x="506" y="244" fill="#8A9A99" font-size="7" font-family="var(--font-text)">4 sessions</text>
+          <text x="626" y="239" text-anchor="end" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">815 XP</text>
+
+          <rect x="456" y="266" width="180" height="52" rx="10" fill="#FFFFFF" stroke="#0D9488" stroke-width="1"/>
+          <text x="466" y="284" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">60 XP from second place</text>
+          <text x="466" y="298" fill="#5A6A6A" font-size="7.5" font-family="var(--font-text)">One more session this week takes it.</text>
+          <rect x="466" y="304" width="160" height="5" rx="2.5" fill="#DDE8E7"/>
+          <rect x="466" y="304" width="132" height="5" rx="2.5" fill="#0D9488"/>
+
+          <rect x="456" y="332" width="180" height="42" rx="10" fill="#FFF6E5"/>
+          <text x="466" y="350" fill="#8A6D1F" font-size="8" font-weight="700" font-family="var(--font-text)">Streak freeze available</text>
+          <text x="466" y="364" fill="#8A6D1F" font-size="7" font-family="var(--font-text)">Miss a day without losing twelve.</text>
+
+          <text x="546" y="400" text-anchor="middle" fill="#5A6A6A" font-size="7" font-family="var(--font-text)">Buckets are set by age, weight, gender and discipline.</text>
+        </g>
+        <rect x="446" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <!-- ===== 4 : CHAPTER EVENT ===== -->
+        <text class="dg-t-hd" x="759" y="30" text-anchor="middle" style="fill:var(--case)">CHAPTER UNLOCKED</text>
+        <g clip-path="url(#vf4)">
+          <rect x="659" y="44" width="200" height="410" fill="#F5F8F8"/>
+          <rect x="659" y="44" width="200" height="76" fill="#0D9488"/>
+          <text x="673" y="72" fill="#FFFFFF" font-size="12" font-weight="700" font-family="var(--font-text)">Unlocked</text>
+          <text x="673" y="90" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)" opacity="0.85">You completed 8 online sessions,</text>
+          <text x="673" y="102" fill="#FFFFFF" font-size="7.5" font-family="var(--font-text)" opacity="0.85">so a chapter event is now open to you.</text>
+
+          <rect x="669" y="132" width="180" height="112" rx="10" fill="#FFFFFF"/>
+          <rect x="669" y="132" width="180" height="42" rx="10" fill="#DCEEEB"/>
+          <text x="681" y="150" fill="#0D9488" font-size="7" font-weight="700" font-family="var(--font-text)" letter-spacing="0.05em">SUNDAY · 6:30 AM</text>
+          <text x="681" y="166" fill="#16201F" font-size="10" font-weight="700" font-family="var(--font-text)">Cubbon Park 5k</text>
+          <text x="681" y="192" fill="#5A6A6A" font-size="7.5" font-family="var(--font-text)">Led by Rohit K, your trainer</text>
+          <text x="681" y="206" fill="#5A6A6A" font-size="7.5" font-family="var(--font-text)">Bengaluru chapter · 2.4 km from you</text>
+          <text x="681" y="220" fill="#5A6A6A" font-size="7.5" font-family="var(--font-text)">18 of 25 places taken</text>
+          <rect x="681" y="228" width="156" height="5" rx="2.5" fill="#DDE8E7"/>
+          <rect x="681" y="228" width="112" height="5" rx="2.5" fill="#0D9488"/>
+
+          <rect x="669" y="256" width="180" height="30" rx="15" fill="#0D9488"/>
+          <text x="759" y="275" text-anchor="middle" fill="#FFFFFF" font-size="9" font-weight="700" font-family="var(--font-text)">Reserve my place</text>
+
+          <rect x="669" y="298" width="180" height="60" rx="10" fill="#FFFFFF"/>
+          <text x="681" y="316" fill="#16201F" font-size="8" font-weight="700" font-family="var(--font-text)">Bring your squad</text>
+          <circle cx="688" cy="332" r="8" fill="#DDE8E7"/>
+          <circle cx="702" cy="332" r="8" fill="#DDE8E7"/>
+          <circle cx="716" cy="332" r="8" fill="#DDE8E7"/>
+          <text x="734" y="335" fill="#5A6A6A" font-size="7.5" font-family="var(--font-text)">3 of your squad are going</text>
+          <text x="681" y="352" fill="#0D9488" font-size="7.5" font-weight="700" font-family="var(--font-text)">Invite on WhatsApp</text>
+
+          <rect x="669" y="370" width="180" height="34" rx="10" fill="#FFF6E5"/>
+          <text x="681" y="386" fill="#8A6D1F" font-size="7.5" font-weight="700" font-family="var(--font-text)">Certified trainer · capacity capped</text>
+          <text x="681" y="398" fill="#8A6D1F" font-size="7" font-family="var(--font-text)">Waiver signed once, in app.</text>
+
+          <text x="759" y="428" text-anchor="middle" fill="#5A6A6A" font-size="7" font-family="var(--font-text)">Afterwards, the recap card brings the next group in.</text>
+        </g>
+        <rect x="659" y="44" width="200" height="410" rx="22" fill="none" stroke="var(--case-line)" stroke-width="2"/>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 490 H880"/>
+        <text class="dg-t-sm" x="450" y="516" text-anchor="middle">VitaFit is the platform named in the assignment brief. These screens are proposals rather than an existing product.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="prose reveal">
+    <div class="btn-row">
+      <a class="btn" href="https://haniyaamjad1124-wq.github.io/product-prototypes/vitafit/" target="_blank" rel="noopener">Open prototype</a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============ ROLLOUT ============ -->
+<section class="section-sm" id="rollout">
+  <div class="prose reveal">
+    <p class="eyebrow">How it ships</p>
+    <h2 class="h2">Four phases, and the number each one has to move</h2>
+    <p>
+      Phase zero builds nothing. The Fitness Passport runs as a manual shared document with a
+      handful of power users and their trainers, because if people will not fill it in by hand
+      they will not fill it in inside an app either.
+    </p>
+
+    <div class="grid grid-4" style="margin:22px 0">
+      <div class="card"><p class="eyebrow">Phase 0</p><h4>Validate by hand</h4><p>Manual shared document with selected users and trainers. No engineering.</p></div>
+      <div class="card"><p class="eyebrow">Phase 1</p><h4>Coach Connect</h4><p>Limited rollout behind a feature flag, A/B against control. Primary metric is weekly repeat session rate.</p></div>
+      <div class="card"><p class="eyebrow">Phase 2</p><h4>Rewards and Tribes</h4><p>Brand rewards, share stack, squads, and city chapters in the first metros.</p></div>
+      <div class="card"><p class="eyebrow">Phase 3</p><h4>Scale</h4><p>Full rollout on proven improvement, opened with a marquee offline event.</p></div>
+    </div>
+
+    <div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:40%">Metric</th><th>Baseline</th><th>Target at 90 days</th></tr></thead>
+        <tbody>
+          <tr class="t-win"><td><strong>Weekly repeat session rate</strong><br><span class="xsmall muted">The primary metric for phase 1</span></td><td class="t-num">35%</td><td class="t-num">50% or better</td></tr>
+          <tr class="t-win"><td><strong>Day 30 retention</strong></td><td class="t-num">18%</td><td class="t-num">28% or better</td></tr>
+          <tr><td><strong>Trainer favouriting rate</strong></td><td class="t-num">Under 5%</td><td class="t-num">25% or better</td></tr>
+          <tr><td><strong>Average sessions per user per week</strong></td><td class="t-num">1.8</td><td class="t-num">2.7 or better</td></tr>
+          <tr><td><strong>Squad participation</strong></td><td class="t-num">0</td><td class="t-num">30% of monthly actives</td></tr>
+          <tr><td><strong>Offline chapter sign up</strong><br><span class="xsmall muted">Top three cities</span></td><td class="t-num">0</td><td class="t-num">8% of monthly actives</td></tr>
+          <tr><td><strong>Trainer notes added per session</strong></td><td class="t-num">Not tracked</td><td class="t-num">70% or better</td></tr>
+        </tbody>
+        <caption>Guardrail across every phase: no deterioration in session completion rate, NPS, or booking volume.</caption>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <div class="callout">
+      <p>
+        Retention here is not a content problem or a pricing problem. It is that nothing in the
+        product remembers the user between sessions, and nothing gives them a comparison they can
+        win. Fix memory with a passport that follows them, fix comparison by ranking them against
+        people like them, and the offline events give the habit somewhere to become an identity.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm">
+  <div class="pager reveal">
+    <a href="garmin-connect-ux.html"><span class="dir">Previous</span><span class="ttl">Garmin Connect: a redesigned daily check in</span></a>
+    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+  </div>
+</section>
+
+  </div>
+
+  <aside class="toc" aria-label="On this page">
+    <p class="toc-t">On this page</p>
+    <a href="#problem">The problem</a>
+    <a href="#work">The work</a>
+    <a href="#solutions">The solutions</a>
+    <a href="#prototype">The prototype</a>
+    <a href="#rollout">How it ships</a>
+    <a href="#takeaway">Takeaway</a>
+  </aside>
+
+  </div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-in">
+      <div>
+        <p style="font-family:var(--font-display);font-weight:600;margin-bottom:6px">Haniya Amjad</p>
+        <p class="muted" style="font-size:13px;margin:0">Product Manager · Chennai, India</p>
+      </div>
+      <div class="footer-links">
+        <a href="../index.html">Work</a>
+        <a href="../index.html#case-studies">Case Studies</a>
+        <a href="../index.html#projects">Projects</a>
+        <a href="../about.html">About</a>
+      </div>
+    </div>
+    <p class="footer-legal">
+      VitaFit is the platform named in the assignment brief this document responds to. Cult.fit,
+      Strava, HealthifyMe and Nike Run Club are trademarks of their respective owners and are
+      referenced here only for competitive comparison.
+    </p>
+  </div>
+</footer>
+
+<script src="../assets/main.js?v=6"></script>
+</body>
+</html>
