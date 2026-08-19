@@ -59,3 +59,17 @@
     targets.forEach(function (t) { spy.observe(t); });
   }
 })();
+
+/* ---- Sticky note board ---- */
+(function () {
+  'use strict';
+  var notes = Array.prototype.slice.call(document.querySelectorAll('.sticky'));
+  if (!notes.length) return;
+  notes.forEach(function (n) {
+    n.addEventListener('click', function () {
+      var wasOpen = n.classList.contains('open');
+      notes.forEach(function (o) { o.classList.remove('open'); o.setAttribute('aria-expanded', 'false'); });
+      if (!wasOpen) { n.classList.add('open'); n.setAttribute('aria-expanded', 'true'); }
+    });
+  });
+})();
