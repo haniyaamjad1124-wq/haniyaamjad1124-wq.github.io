@@ -42,9 +42,9 @@
   window.addEventListener('hashchange', route);
   route();
 
-  /* ---- Category filter: shows and hides work cards ---- */
-  var cards = Array.prototype.slice.call(document.querySelectorAll('.work-card[data-cat]'));
-  if (cards.length && filters.length) {
+  /* ---- Category filter: shows and hides whole category blocks ---- */
+  var blocks = Array.prototype.slice.call(document.querySelectorAll('.cat-block'));
+  if (blocks.length && filters.length) {
     filters.forEach(function (btn) {
       btn.addEventListener('click', function () {
         var want = btn.getAttribute('data-filter');
@@ -52,9 +52,9 @@
         filters.forEach(function (b) { b.classList.toggle('is-on', b === btn && want !== 'all'); });
 
         var shown = 0;
-        cards.forEach(function (card) {
-          var on = (want === 'all' || card.getAttribute('data-cat') === want);
-          card.classList.toggle('is-hidden', !on);
+        blocks.forEach(function (block) {
+          var on = (want === 'all' || block.getAttribute('data-cat') === want);
+          block.hidden = !on;
           if (on) shown++;
         });
         if (noResults) {
