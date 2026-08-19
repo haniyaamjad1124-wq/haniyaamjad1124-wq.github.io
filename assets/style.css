@@ -879,3 +879,93 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 }
 .sticky.open .st-b { max-height: 400px; opacity: 1; margin-top: 14px; }
 .sticky.open .st-hint { display: none; }
+
+/* ==========================================================================
+   THEME · Editorial minimal
+   Direction from marco.fyi, pratibhajoshi.com and danielsun.space:
+   white ground, large type, flat surfaces, whitespace over ornament.
+   Colour survives only where it carries meaning.
+   ========================================================================== */
+
+/* bigger, calmer type */
+.h-display { font-size: clamp(44px, 8vw, 92px); font-weight: 800; letter-spacing: -0.035em; }
+.h1 { font-size: clamp(36px, 6vw, 64px); font-weight: 800; }
+.home-hero { padding: 96px 0 18px; }
+.case-hero { padding: 84px 0 56px; }
+.case-hero::before { display: none; }
+
+/* flat, confident buttons */
+.btn {
+  background-image: none;
+  background-color: var(--text);
+  color: var(--bg);
+  box-shadow: none;
+  font-weight: 600;
+}
+.btn:hover { transform: translateY(-2px); filter: none; opacity: .88; box-shadow: var(--shadow-sm); }
+.btn:active { transform: translateY(0) scale(.98); }
+.btn-ghost {
+  background-image: none;
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+.btn-ghost:hover { background-color: var(--bg-alt); opacity: 1; }
+
+/* quiet category tiles: hairline, dot of colour, nothing else */
+.cat-tile {
+  background-image: none;
+  background-color: var(--surface);
+  border: 1px solid var(--line-soft);
+  box-shadow: none;
+  color: var(--text);
+  display: flex; align-items: center; gap: 10px;
+  padding: 18px 18px;
+}
+.cat-tile::after { content: none; }
+.cat-tile::before {
+  content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--cat); flex: 0 0 auto;
+}
+.cat-tile:hover { transform: translateY(-2px); border-color: var(--line); box-shadow: var(--shadow-sm); }
+.cat-tile.is-on {
+  background-color: color-mix(in srgb, var(--cat) 8%, var(--bg));
+  border-color: var(--cat);
+  box-shadow: none;
+}
+
+/* category headers dissolve into whitespace */
+.cat-head, .cat-head-slim {
+  background: transparent; border: 0; padding: 26px 0 4px;
+}
+.cat-block { margin-bottom: 30px; }
+
+/* flat feature rows, the thumbnail carries the colour */
+.case-row { box-shadow: none; border: 1px solid var(--line-soft); }
+.case-row:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); border-color: var(--line); }
+.row-preview::before { content: none; }
+.row-preview {
+  background: linear-gradient(140deg,
+    color-mix(in srgb, var(--case) 12%, var(--bg)),
+    color-mix(in srgb, var(--case) 5%, var(--bg)));
+}
+.pv-art { filter: drop-shadow(0 8px 14px rgba(0,0,0,.10)); }
+
+/* flat cards and metrics */
+.exp-card { background-image: none; border-color: var(--line-soft); }
+.metric { box-shadow: none; border: 1px solid var(--line-soft); }
+.metric:hover { transform: none; box-shadow: none; }
+.card { box-shadow: none; }
+.case-card { box-shadow: none; background-image: none; }
+
+/* the chat band goes quiet */
+.chat-band {
+  background: var(--bg-alt);
+  border: 1px solid var(--line-soft);
+  box-shadow: none;
+}
+
+/* sticky notes keep their paper, shadows soften */
+.sticky { box-shadow: 0 8px 18px rgba(20,20,30,.10); }
+.sticky.open { box-shadow: 0 16px 32px rgba(20,20,30,.14); }
