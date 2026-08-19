@@ -888,3 +888,19 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 .row-co { color: var(--text); }
 .row-txt .link-arrow { color: var(--text); }
 .row-txt .link-arrow::after { color: var(--text); }
+
+/* About hero photo */
+.hero-split { display: flex; align-items: center; gap: 44px; }
+.hero-split-txt { flex: 1 1 auto; min-width: 0; }
+.hero-photo {
+  flex: 0 0 auto;
+  width: 218px; height: 218px;
+  border-radius: 28px;
+  object-fit: cover;
+  border: 1px solid var(--case-line);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.14);
+}
+@media (max-width: 720px) {
+  .hero-split { flex-direction: column-reverse; align-items: flex-start; gap: 26px; }
+  .hero-photo { width: 148px; height: 148px; border-radius: 22px; }
+}
