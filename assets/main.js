@@ -73,3 +73,27 @@
     });
   });
 })();
+
+/* ---- Prefetch links on hover so the next page is already loading on click ---- */
+(function () {
+  'use strict';
+  var seen = {};
+  function prefetch(url) {
+    if (seen[url]) return;
+    seen[url] = true;
+    var l = document.createElement('link');
+    l.rel = 'prefetch';
+    l.href = url;
+    document.head.appendChild(l);
+  }
+  function maybePrefetch(e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) === '#' || href.indexOf('mailto:') === 0) return;
+    if (a.hostname && a.hostname !== location.hostname && a.hostname !== 'haniyamjad.com') return;
+    prefetch(a.href);
+  }
+  document.addEventListener('mouseover', maybePrefetch, { passive: true });
+  document.addEventListener('touchstart', maybePrefetch, { passive: true });
+})();
