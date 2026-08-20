@@ -558,8 +558,12 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .case-scope { --case: var(--c-d); }
+  :root:not([data-theme="light"]) .dg-t-acc { fill: color-mix(in srgb, var(--case) 72%, #fff); }
+  :root:not([data-theme="light"]) .dg-t-inv { fill: #0e1524; }
 }
 :root[data-theme="dark"] .case-scope { --case: var(--c-d); }
+:root[data-theme="dark"] .dg-t-acc { fill: color-mix(in srgb, var(--case) 72%, #fff); }
+:root[data-theme="dark"] .dg-t-inv { fill: #0e1524; }
 
 /* Routed views */
 .view { display: none; }
