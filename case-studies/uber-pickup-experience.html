@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uber India pickup experience: the last 200 meters | Haniya Amjad</title>
-<meta name="description" content="Primary research with 41 riders across Chennai and Bengaluru on why the Uber India pickup experience fails, four behavioural personas, and three research led solutions.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="Uber is a ride hailing app. In India its drivers often cannot find riders at pickup. Primary research with 41 riders, four behavioural personas, and three research led proposals.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#276ef1; --c-d:#5b91ff;">
 
@@ -25,13 +25,14 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">U</span>Uber India</span>
       <span class="tag">Product improvement</span>
       <span class="tag tag-plain">User research</span>
+      <span class="tag tag-plain">Personas</span>
+      <span class="tag tag-plain">Journey map</span>
     </div>
     <h1 class="h1">The last 200 meters</h1>
     <p class="lede">
@@ -42,105 +43,138 @@
   </div>
 </header>
 
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">73%</span><span class="lbl">Face difficulty finding their ride</span><span class="sub">Only 1 of 41 riders said this never happens</span></div>
-      <div class="metric"><span class="num">78%</span><span class="lbl">Phone the driver as fallback navigation</span><span class="sub">A workaround this common is a product gap</span></div>
-      <div class="metric"><span class="num">87%</span><span class="lbl">Report negative emotions at pickup</span><span class="sub">Anxiety, frustration, exhaustion, fear</span></div>
-      <div class="metric"><span class="num">83%</span><span class="lbl">Would accept a suggested pickup spot</span><span class="sub">The fix does not require behaviour change</span></div>
-    </div>
-  </div>
-</section>
-
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<section class="section-sm" id="question">
+<section class="section-sm" id="product">
   <div class="prose reveal">
-    <p class="eyebrow">The problem</p>
-    <h2 class="h3" style="margin-bottom:14px">
-      Find a real user problem, then prove with research that it is real.
-    </h2>
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What Uber is, and what pickup means here</h2>
     <p>
-      I chose the pickup moment because it is the one point at which a ride hailing product hands
-      off to the physical world, and handoffs are usually where things go wrong. It is also the
-      rare problem that is entirely controllable. Traffic is not, fuel prices are not, and
-      competitor pricing is not, but the last 200 meters sits fully inside Uber's own product.
-    </p>
-    <p>
-      The commercial case for looking here is straightforward. Uber India completes roughly
-      <strong>62% of bookings</strong> against an industry norm nearer 80%, and
-      <strong>82% of riders had a cancellation in the past year</strong>. A cancellation is not a
-      neutral event, because it costs a fare, wastes a driver trip, and leaves a rider one tap
-      away from an alternative app.
+      Uber is a ride hailing app. A rider opens it, drops a pin where they want to be collected, and
+      a nearby driver accepts and comes to get them. In India most of the fleet is autorickshaws and
+      small cars, and the competitors are Ola and Rapido. This case is about the pickup moment,
+      which is the stretch between a driver accepting the ride and the rider actually getting in. It
+      is the one point where the app hands off to the physical world, and handoffs are usually where
+      things break.
     </p>
   </div>
 </section>
 
-<section class="section-sm" id="clarify">
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>What the research found, and the four steps of the case</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 368" role="img" aria-label="Of 41 riders surveyed, 73 percent report difficulty finding their ride, 78 percent phone the driver to guide them, 87 percent report negative emotion at pickup, and 83 percent would accept a suggested pickup spot. Below, the four steps of the case: the problem is a 62 percent booking completion rate, the approach was a survey followed by interviews, the solution is smart pickup spots with fare certainty, and the measure is pickup driven cancellations.">
+        <text class="dg-t-hd" x="20" y="28">WHAT 41 RIDERS REPORTED ABOUT PICKUP</text>
+
+        <text class="dg-t" x="20" y="66" style="font-size:12px">Difficulty finding the ride</text>
+        <rect class="dg-node-accent" x="250" y="48" width="445" height="26" rx="5"/>
+        <text class="dg-t-hd" x="707" y="67" style="font-size:14px">73%</text>
+
+        <text class="dg-t" x="20" y="102" style="font-size:12px">Phone the driver to guide them</text>
+        <rect class="dg-node-solid" x="250" y="84" width="476" height="26" rx="5"/>
+        <text class="dg-t-hd" x="738" y="103" style="font-size:14px">78%</text>
+
+        <text class="dg-t" x="20" y="138" style="font-size:12px">Negative emotion at pickup</text>
+        <rect class="dg-node-accent" x="250" y="120" width="530" height="26" rx="5"/>
+        <text class="dg-t-hd" x="792" y="139" style="font-size:14px">87%</text>
+
+        <text class="dg-t" x="20" y="174" style="font-size:12px">Would accept a suggested spot</text>
+        <rect class="dg-node-accent" x="250" y="156" width="506" height="26" rx="5"/>
+        <text class="dg-t-hd" x="768" y="175" style="font-size:14px">83%</text>
+
+        <text class="dg-t-sm" x="20" y="206">A workaround used by 78% of riders is not a habit. It is a job the product failed to finish.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 228 H880"/>
+
+        <rect class="dg-node" x="20" y="248" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="274">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="298">Drivers cannot find riders.</text>
+        <text class="dg-t-sm" x="36" y="313">62% booking completion</text>
+        <text class="dg-t-sm" x="36" y="328">against a norm nearer 80%.</text>
+        <path class="dg-arrow" d="M225 297 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="248" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="274">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="298">Survey of 41 riders first,</text>
+        <text class="dg-t-sm" x="256" y="313">then interviews to explain</text>
+        <text class="dg-t-sm" x="256" y="328">the patterns it found.</text>
+        <path class="dg-arrow" d="M445 297 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="248" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="274">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="298">Smart pickup spots, fare</text>
+        <text class="dg-t-sm" x="476" y="313">certainty at booking, and a</text>
+        <text class="dg-t-sm" x="476" y="328">shared visual language.</text>
+        <path class="dg-arrow" d="M665 297 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="248" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="274">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="298">Pickup driven cancellations.</text>
+        <text class="dg-t-sm" x="696" y="313">&#8377;28 Cr a year rides on one</text>
+        <text class="dg-t-sm" x="696" y="328">point off that rate.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<section class="section-sm" id="problem">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Clarifying questions</p>
-    <h2 class="h2">Scoping the question</h2>
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">Why I chose this problem</h2>
+    <p>
+      The brief was to find a real user problem and prove with research that it is real. I picked
+      pickup because it sits fully inside Uber&#8217;s own product. Traffic, fuel prices and competitor
+      pricing are not controllable. The last 200 meters is.
+    </p>
+    <ul>
+      <li>Uber India completes roughly <strong>62%</strong> of bookings, against an industry norm nearer 80%.</li>
+      <li><strong>82%</strong> of riders had a cancellation in the past year.</li>
+      <li>A cancellation costs a fare, wastes a driver trip, and leaves a rider one tap from another app.</li>
+    </ul>
     <div class="qa">
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Is this a rider problem or a driver problem?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Both sides lose, although only the rider can churn to another app in the same minute. I scoped the research to riders and treated driver time as a benefit rather than the primary lens.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Is this a rider problem or a driver problem?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Both sides lose, but only the rider can switch to another app in the same minute. I scoped the research to riders and treated driver time as a benefit rather than the main lens.</span></div>
       </div>
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Which market are we designing for?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Tier 1 India, in which addresses are frequently informal, landmarks matter more than street names, and rider and driver often do not share a first language.</span></div>
-      </div>
-      <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Are we solving navigation or trust?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">The research answered this rather than my assumptions. Navigation is the visible failure, but the loudest complaint turned out to be extra fare demands, which is a trust failure occurring at the same moment.</span></div>
-      </div>
-      <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What counts as success?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">A measurable fall in pickup driven cancellations, since that is the point at which rider frustration becomes lost revenue.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Are we solving navigation or trust?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">The research answered this rather than my assumptions. Navigation is the visible failure, but the loudest complaint was extra fare demands, which is a trust failure happening at the same moment.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section-sm" id="method">
+<section class="section-sm" id="approach">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Market and user research</p>
+    <p class="eyebrow">The approach</p>
     <h2 class="h2">Two layers, because numbers and stories fail differently</h2>
     <p>
-      A survey tells you how often something happens, but it cannot tell you how it feels and it
-      cannot surface the thing you forgot to ask about. So the survey ran first in order to
-      establish pattern and scale, and the interviews ran afterwards in order to explain the
-      patterns it found.
+      A survey tells you how often something happens but not how it feels. The survey ran first to
+      establish scale, and interviews ran afterwards to explain what it found.
     </p>
-  </div>
-
-  <div class="prose reveal">
     <div class="note">
       <span class="note-k">Sample</span>
       <p>
-        Chennai 66% and Bengaluru 27%. Rapido was the most used app at 46% with Uber second at
-        29%, which matters because most respondents were describing Uber comparatively rather
-        than as loyalists. Autos accounted for 63% of bookings. The mix covered students aged 19
-        to 24 and professionals aged 25 to 35, across both daily commuters and occasional riders.
+        41 riders. Chennai 66% and Bengaluru 27%. Rapido was the most used app at 46% with Uber
+        second at 29%, which matters because most respondents were describing Uber comparatively
+        rather than as loyalists. Autos accounted for 63% of bookings. Students aged 19 to 24 and
+        professionals aged 25 to 35, across daily commuters and occasional riders.
       </p>
     </div>
-  </div>
-</section>
-
-<section class="section-sm" id="behaviour">
-  <div class="prose reveal">
-    <p class="eyebrow">The approach · What riders do today</p>
-    <h2 class="h2">Riders built a coordination system outside the product</h2>
     <p>
-      The most useful question in the survey was not about satisfaction. It was what riders do
-      when the driver cannot find them, because the workaround people invent tells you precisely
-      which job the product failed to complete.
+      The most useful question was not about satisfaction. It was what riders do when the driver
+      cannot find them, because the workaround people invent tells you which job the product failed
+      to finish.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Observed behaviour</p>
       <h3>The workaround economy, and where it happens</h3>
@@ -205,18 +239,13 @@
 
   <div class="prose reveal">
     <div class="quote">
-      <p>"I usually cancel and use Rapido. By the time Uber is looking for a driver, Rapido confirms."</p>
+      <p>I usually cancel and use Rapido. By the time Uber is looking for a driver, Rapido confirms.</p>
       <cite>Ashley, Chennai</cite>
     </div>
+    <h3 class="h3">Five results that changed what I proposed</h3>
   </div>
-</section>
 
-<section class="section-sm" id="findings">
-  <div class="prose reveal">
-    <p class="eyebrow">The approach · What the research said</p>
-    <h2 class="h2">Five results that changed what I proposed</h2>
-
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:30%">Finding</th><th>Why it mattered</th></tr></thead>
         <tbody>
@@ -243,65 +272,57 @@
         </tbody>
       </table>
     </div>
-  </div>
-</section>
 
-<section class="section-sm" id="personas">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Personas</p>
-    <h2 class="h2">Four personas, clustered from behaviour rather than demography</h2>
+    <h3 class="h3">Four personas, clustered from behaviour rather than demography</h3>
   </div>
 
-  <div class="grid grid-2 reveal" style="margin:22px 0">
+  <div class="grid grid-2 reveal">
     <div class="card">
       <p class="eyebrow">About 40%</p>
       <h4>The budget optimizer</h4>
-      <p style="margin-bottom:10px">Student, 19 to 24, Chennai. Rapido and autos, price first.</p>
-      <p class="xsmall muted"><strong>Primary pain:</strong> extra money demands, and cancellations at peak hours.</p>
+      <p>Student, 19 to 24, Chennai. Rapido and autos, price first. Main pain is extra money demands and cancellations at peak hours.</p>
     </div>
     <div class="card">
       <p class="eyebrow">About 30%</p>
       <h4>The daily commuter</h4>
-      <p style="margin-bottom:10px">IT professional, 24 to 32, Bengaluru. Uber and Rapido, reliability first.</p>
-      <p class="xsmall muted"><strong>Primary pain:</strong> tech park gates, and drivers unfamiliar with campus layouts.</p>
+      <p>IT professional, 24 to 32, Bengaluru. Uber and Rapido, reliability first. Main pain is tech park gates and drivers unfamiliar with campus layouts.</p>
     </div>
     <div class="card">
       <p class="eyebrow">About 20%</p>
       <h4>The anxious navigator</h4>
-      <p style="margin-bottom:10px">Woman, 22 to 35, travelling across unfamiliar cities. Uber and Ola, safety first.</p>
-      <p class="xsmall muted"><strong>Primary pain:</strong> language barriers, personal safety, and GPS drift.</p>
+      <p>Woman, 22 to 35, travelling across unfamiliar cities. Uber and Ola, safety first. Main pain is language barriers, personal safety and GPS drift.</p>
     </div>
     <div class="card">
       <p class="eyebrow">About 10%</p>
       <h4>The resigned accepter</h4>
-      <p style="margin-bottom:10px">Infrequent rider, uses whatever is available, expectations already lowered.</p>
-      <p class="xsmall muted"><strong>Primary pain:</strong> learned helplessness, summarised as "this is just how it is".</p>
+      <p>Infrequent rider, uses whatever is available, expectations already lowered. Main pain is learned helplessness, summarised as this is just how it is.</p>
     </div>
   </div>
 
   <div class="prose reveal">
     <div class="note">
-      <span class="note-k">The one to watch</span>
+      <span class="note-k">Watch</span>
       <p>
-        The resigned accepter is the persona that should worry a product manager most. They do not
-        complain, do not churn loudly, and never appear in support tickets. They simply stop
-        expecting better, which means every satisfaction metric reads acceptably right up until
-        the moment they leave.
+        The resigned accepter should worry a product manager most. They do not complain, do not churn
+        loudly, and never appear in support tickets. They simply stop expecting better, so every
+        satisfaction metric reads acceptably right up until they leave.
       </p>
     </div>
   </div>
 </section>
 
-<section class="section-sm" id="solutions">
+<section class="section-sm" id="solution">
   <div class="prose reveal">
-    <p class="eyebrow">The solutions</p>
+    <p class="eyebrow">The solution</p>
     <h2 class="h2">Three proposals, each tied to the finding that justifies it</h2>
     <p>
-      I held every proposal to one rule, which is that it must cite the specific research finding
-      that makes it necessary. An idea that cannot name its evidence is only a preference.
+      I held every proposal to one rule. It must cite the specific research finding that makes it
+      necessary, because an idea that cannot name its evidence is only a preference.
     </p>
+  </div>
 
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:22%">Solution</th><th style="width:34%">What it is</th><th>Evidence</th><th>Estimate</th></tr></thead>
         <tbody>
@@ -327,26 +348,16 @@
       </table>
     </div>
 
-    <div class="metrics" style="margin-top:24px">
-      <div class="metric"><span class="num">₹28 Cr</span><span class="lbl">Annual value of a single percentage point off the cancellation rate</span></div>
-      <div class="metric"><span class="num">62 → 75%</span><span class="lbl">Target booking completion rate</span></div>
-      <div class="metric"><span class="num">+2</span><span class="lbl">Additional rides per driver per day from time reclaimed at pickup</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="section-sm" id="journey">
   <div class="prose reveal">
-    <p class="eyebrow">The visual · The journey, before and after</p>
-    <h2 class="h2">What the pickup feels like now, and what it could feel like</h2>
+    <h3 class="h3">What the journey looks like now, and after</h3>
     <p>
-      Placing the findings in sequence shows that the damage is cumulative. No single stage is
-      catastrophic on its own, but confidence falls at every step until the rider arrives at the
-      car already annoyed, which is the state in which a fare dispute turns into a churn event.
+      The damage is cumulative. No single stage is catastrophic, but confidence falls at every step
+      until the rider reaches the car already annoyed, which is the state in which a fare dispute
+      becomes a churn event.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · User journey</p>
       <h3>Five stages, two very different curves</h3>
@@ -432,15 +443,7 @@
     </figcaption>
   </figure>
 
-  <div class="prose reveal">
-    <h3 class="h3">The same journey, on the ground</h3>
-    <p>
-      The curve above is the feeling. This is the geometry underneath it. A residential colony is
-      the most cited failure venue in the survey, so it is the one worth drawing.
-    </p>
-  </div>
-
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Street level</p>
       <h3>Why the driver circles, and what a named spot changes</h3>
@@ -567,46 +570,77 @@
   </figure>
 </section>
 
-<section class="section-sm" id="takeaway">
+<section class="section-sm" id="measure">
   <div class="prose reveal">
-    <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p class="eyebrow">The thesis</p>
-      <p>
-        Uber India does not have a pricing problem. It has a pickup experience problem that
-        presents itself as a pricing problem.
-      </p>
-    </div>
+    <p class="eyebrow">How we would know</p>
+    <h2 class="h2">What I would measure, and what I would check first</h2>
     <p>
-      When asked what they would change, a number of riders answered some version of "nothing,
-      just make it cheapest". The easy reading is that this market is purely price sensitive and
-      the product barely matters.
+      This case stops at research and proposals rather than a build plan, because the next honest step
+      is validation, not engineering.
     </p>
-    <p>
-      I think that reading is wrong. A rider who says "nothing, cheapest" is not stating a price
-      preference, but rather the absence of a reason to pay more. Every premium tier tried in this
-      market has run into that sentence, because the product has never reliably delivered the one
-      thing riders would actually pay for, which is the ride arriving where they are standing.
-    </p>
+  </div>
 
-    <p>The market model behind the ₹165 crore figure is worked through separately in <a href="pickup-market-sizing.html">Sizing the pickup problem</a>.</p>
+  <div class="table-scroll reveal">
+    <table>
+      <thead>
+        <tr><th>What we watch</th><th>Why it is on the list</th><th>Line</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t-win">
+          <td><strong>Pickup driven cancellations</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>The point at which frustration becomes lost revenue</td>
+          <td class="t-num">&#8377;28 Cr a point</td>
+        </tr>
+        <tr>
+          <td><strong>Booking completion rate</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>The headline gap to the industry norm</td>
+          <td class="t-num">62 to 75%</td>
+        </tr>
+        <tr>
+          <td><strong>Driver time at pickup</strong><br><span class="xsmall muted">Supporting</span></td>
+          <td>Time reclaimed turns into supply</td>
+          <td class="t-num">+2 rides a day</td>
+        </tr>
+        <tr>
+          <td><strong>Fare dispute rate</strong><br><span class="xsmall muted">Guardrail</span></td>
+          <td>The trust failure that sits under the navigation one</td>
+          <td class="t-num">No rise</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
+  <div class="prose reveal">
     <div class="note">
-      <span class="note-k">Where I would push back on myself</span>
+      <span class="note-k">Check first</span>
       <p>
-        The sample skews 93% South India and over represents Rapido users, so the competitive
-        dynamics described hold most strongly for Chennai and Bengaluru. Before funding any of
-        this I would want a matched read against internal cancellation logs broken down by venue
-        type, since that is the data most likely to confirm or kill the smart spot proposal quickly.
+        Before funding any of this I would want a matched read against internal cancellation logs
+        broken down by venue type. That is the data most likely to confirm or kill the smart spot
+        proposal quickly, and it costs nothing to pull.
       </p>
     </div>
   </div>
 </section>
 
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="uber-eats-group-order.html"><span class="dir">Previous</span><span class="ttl">Uber Eats: why groups abandon Group Order</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+<section class="section-sm" id="takeaway">
+  <div class="prose reveal">
+    <p class="eyebrow">Takeaway</p>
+    <h2 class="h2">What this case comes down to</h2>
+    <p>
+      Uber India does not have a pricing problem. It has a pickup problem that presents itself as a
+      pricing problem. Several riders said some version of &#8220;nothing, just make it cheapest&#8221;,
+      which reads as pure price sensitivity. I think that reading is wrong. A rider who says cheapest
+      is stating the absence of a reason to pay more, and the product has never reliably delivered the
+      one thing they would pay for, which is the ride arriving where they are standing.
+    </p>
+    <div class="note">
+      <span class="note-k">Limits</span>
+      <p>
+        The sample skews 93% South India and over represents Rapido users, so the competitive
+        dynamics described hold most strongly for Chennai and Bengaluru. The market model behind the
+        &#8377;165 crore figure is worked through separately in the market sizing case.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -614,14 +648,11 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
-    <a href="#question">The problem</a>
-    <a href="#clarify">Clarifying questions</a>
-    <a href="#method">Research</a>
-    <a href="#behaviour">What riders do</a>
-    <a href="#findings">What it said</a>
-    <a href="#personas">Personas</a>
-    <a href="#solutions">The solutions</a>
-    <a href="#journey">The journey</a>
+    <a href="#product">The product</a>
+    <a href="#problem">The problem</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
+    <a href="#measure">How we would know</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -652,6 +683,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

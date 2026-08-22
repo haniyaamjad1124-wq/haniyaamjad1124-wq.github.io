@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Uber Eats Group Order: JTBD and first principles | Haniya Amjad</title>
-<meta name="description" content="Why groups abandon Uber Eats Group Order for a WhatsApp poll. Six anxieties traced to four root causes, five design guarantees, and a phased feature roadmap.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="Uber Eats Group Order lets several people add to one shared cart. It works and almost nobody uses it. Traced from three job types through six anxieties to five design guarantees.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#0b7a46; --c-d:#2fd08a;">
 
@@ -25,19 +25,20 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">U</span>Uber Eats</span>
       <span class="tag">Product improvement</span>
       <span class="tag tag-plain">Jobs to be done</span>
+      <span class="tag tag-plain">First principles</span>
+      <span class="tag tag-plain">Roadmap</span>
     </div>
     <h1 class="h1">Why groups abandon Group Order for a WhatsApp poll</h1>
     <p class="lede">
-      Group Order is hired to do three jobs: coordinate the group, prove the split is fair, and
-      make ordering feel social. It falls short on all three, so groups return to the tool that
-      at least handles the first one.
+      Group Order is hired to do three jobs. Coordinate the group, prove the split is fair, and make
+      ordering feel social. It falls short on all three, so groups return to the tool that at least
+      handles the first one.
     </p>
   </div>
 </header>
@@ -46,105 +47,121 @@
   <div class="case-layout">
   <div class="case-main">
 
-<section class="section-sm" id="question">
+<section class="section-sm" id="product">
   <div class="prose reveal">
-    <p class="eyebrow">The problem</p>
-    <h2 class="h3" style="margin-bottom:14px">
-      Uber Eats Group Order exists and works. Why does almost nobody use it?
-    </h2>
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What Group Order is</h2>
     <p>
-      The feature ships, the flow completes, and adoption is still low. That gap is what makes
-      the problem worth looking at. A feature that functions but is not being hired is failing at
-      the level of the job rather than the level of the build. So I worked backwards from the job
-      instead of forwards from the screen.
+      Uber Eats is a food delivery app. Group Order is a feature inside it that lets several people
+      add items to one shared cart, so a group can order together and pay once instead of placing
+      separate orders. It exists, it works, and the flow completes. In India its real competitor is
+      not another app. It is a WhatsApp poll, followed by one person paying for everyone and then
+      chasing them for the money, which is free and which everybody already knows how to use.
     </p>
   </div>
 </section>
 
-<section class="section-sm" id="clarify">
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>The three jobs, and the four steps of the case</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 320" role="img" aria-label="Group Order is hired for three jobs, functional, emotional and social, and fails all three. Below, the four steps of the case: the problem is a feature that works but is not used, the approach worked backwards from the job, the solution is five guarantees delivered by six features, and the measure is join rate and repeat use rather than installs.">
+        <text class="dg-t-hd" x="20" y="28">THE THREE JOBS GROUP ORDER IS HIRED FOR</text>
+
+        <rect class="dg-node" x="20" y="46" width="278" height="86" rx="10"/>
+        <text class="dg-t-hd" x="36" y="72">FUNCTIONAL</text>
+        <text class="dg-t-sm" x="36" y="94">Get the order placed and the</text>
+        <text class="dg-t-sm" x="36" y="109">bill split fairly</text>
+        <rect class="dg-node-solid" x="228" y="58" width="56" height="22" rx="11"/>
+        <text class="dg-t-inv" x="256" y="73" text-anchor="middle" style="font-size:10px">FAILS</text>
+
+        <rect class="dg-node" x="311" y="46" width="278" height="86" rx="10"/>
+        <text class="dg-t-hd" x="327" y="72">EMOTIONAL</text>
+        <text class="dg-t-sm" x="327" y="94">Feel in control, trust the</text>
+        <text class="dg-t-sm" x="327" y="109">maths, keep choices private</text>
+        <rect class="dg-node-solid" x="519" y="58" width="56" height="22" rx="11"/>
+        <text class="dg-t-inv" x="547" y="73" text-anchor="middle" style="font-size:10px">FAILS</text>
+
+        <rect class="dg-node" x="602" y="46" width="278" height="86" rx="10"/>
+        <text class="dg-t-hd" x="618" y="72">SOCIAL</text>
+        <text class="dg-t-sm" x="618" y="94">Make it worth doing</text>
+        <text class="dg-t-sm" x="618" y="109">together rather than alone</text>
+        <rect class="dg-node-solid" x="810" y="58" width="56" height="22" rx="11"/>
+        <text class="dg-t-inv" x="838" y="73" text-anchor="middle" style="font-size:10px">FAILS</text>
+
+        <text class="dg-t-sm" x="20" y="158">Fail any one of the three and the group returns to WhatsApp, which never promised to solve the other two.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 180 H880"/>
+
+        <rect class="dg-node" x="20" y="200" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="226">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="250">The feature ships and works.</text>
+        <text class="dg-t-sm" x="36" y="265">Almost nobody uses it, and</text>
+        <text class="dg-t-sm" x="36" y="280">triers do not come back.</text>
+        <path class="dg-arrow" d="M225 249 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="200" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="226">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="250">Worked backwards from the</text>
+        <text class="dg-t-sm" x="256" y="265">job rather than forwards</text>
+        <text class="dg-t-sm" x="256" y="280">from the screen.</text>
+        <path class="dg-arrow" d="M445 249 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="200" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="226">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="250">Five guarantees a group</text>
+        <text class="dg-t-sm" x="476" y="265">order must meet, and six</text>
+        <text class="dg-t-sm" x="476" y="280">features that deliver them.</text>
+        <path class="dg-arrow" d="M665 249 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="200" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="226">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="250">Join rate and repeat use,</text>
+        <text class="dg-t-sm" x="696" y="265">not installs. A pass or fail</text>
+        <text class="dg-t-sm" x="696" y="280">test per guarantee.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<section class="section-sm" id="problem">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Clarifying questions</p>
-    <h2 class="h2">Scoping the question</h2>
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">A feature that works, and that nobody hires</h2>
+    <p>
+      The feature ships, the flow completes, and adoption is still low. That gap is what makes it
+      worth looking at. A feature that functions but is not being hired is failing at the level of
+      the job rather than the level of the build, so I worked backwards from the job instead of
+      forwards from the screen.
+    </p>
     <div class="qa">
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Are we solving for the host or for the participants?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Both, although they are different users with opposing needs. The host wants control, while participants want to be left alone. Most of the failure sits inside that tension.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Are we solving for the host or the participants?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Both, and they want opposite things. The host wants control, participants want to be left alone. Most of the failure sits inside that tension.</span></div>
       </div>
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What is Group Order actually competing against?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Not Swiggy or Zomato. It competes with a WhatsApp poll plus one person paying and then chasing reimbursements. That is the real incumbent, and it is free.</span></div>
-      </div>
-      <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Which market are we designing for?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">India, in which app install dependency becomes a first order constraint rather than an edge case.</span></div>
-      </div>
-      <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Is this a discovery problem or an experience problem?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">An experience problem. People who try it once do not come back, which is not how a discovery problem behaves.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Is this a discovery problem or an experience problem?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">An experience problem. People who try it once do not come back, which is not how a discovery problem behaves.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section-sm" id="jtbd">
+<section class="section-sm" id="approach">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · The jobs users hire it for</p>
-    <h2 class="h2">What users hire Group Order to do</h2>
-    <p>There are three layers of job here, and the feature is judged on all three at once.</p>
-  </div>
-
-  <div class="grid grid-3 reveal" style="margin:26px 0">
-    <div class="card">
-      <p class="eyebrow">Functional</p>
-      <h4>Get the order placed</h4>
-      <ul style="font-size:14px;color:var(--text-mid);margin:10px 0 0">
-        <li>Coordinate diverse food preferences</li>
-        <li>Split the bill fairly</li>
-        <li>One delivery, one shared fee</li>
-        <li>Handle bulk orders for events</li>
-        <li>Manage the checkout timer</li>
-      </ul>
-    </div>
-    <div class="card">
-      <p class="eyebrow">Emotional</p>
-      <h4>Feel in control, not exposed</h4>
-      <ul style="font-size:14px;color:var(--text-mid);margin:10px 0 0">
-        <li>Feel organised as the host</li>
-        <li>Keep my food choices private</li>
-        <li>Trust the payment maths</li>
-        <li>Know the order is actually locked</li>
-      </ul>
-    </div>
-    <div class="card">
-      <p class="eyebrow">Social</p>
-      <h4>Make it worth doing together</h4>
-      <ul style="font-size:14px;color:var(--text-mid);margin:10px 0 0">
-        <li>Build team camaraderie</li>
-        <li>Be seen as a thoughtful host</li>
-        <li>Make ordering fun rather than a chore</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="prose reveal">
-    <div class="callout">
-      <p class="eyebrow">The insight</p>
-      <p>
-        Group Order is hired for <strong>coordination, trust and social bonding</strong> rather
-        than for convenience. Convenience is what a solo order sells. If the feature falls short
-        on any one of the three, the group returns to WhatsApp, which does not promise to solve
-        the other two in the first place.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section-sm" id="gaps">
-  <div class="prose reveal">
-    <p class="eyebrow">The approach · Where it fails today</p>
+    <p class="eyebrow">The approach</p>
     <h2 class="h2">Six anxieties, each one a failed job</h2>
+    <p>
+      Group Order is hired for coordination, trust and social bonding rather than for convenience.
+      Convenience is what a solo order sells. Listing what actually goes through a group&#8217;s mind
+      turned the complaint into six specific failures.
+    </p>
+  </div>
 
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:24%">Anxiety</th><th>What actually happens</th><th style="width:14%">Job it fails</th></tr></thead>
         <tbody>
@@ -157,21 +174,17 @@
         </tbody>
       </table>
     </div>
-  </div>
-</section>
 
-<section class="section-sm" id="chain">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · From gaps to guarantees</p>
-    <h2 class="h2">From jobs to features, without skipping a step</h2>
+    <h3 class="h3">From jobs to features, without skipping a step</h3>
     <p>
-      Most feature lists move straight from complaint to solution. This chain keeps every feature
-      traceable: it exists because a guarantee requires it, the guarantee exists because a root
-      cause requires it, and the root cause was found by interrogating a specific failed job.
+      Most feature lists jump straight from complaint to solution. This chain keeps every feature
+      traceable. It exists because a guarantee requires it, the guarantee exists because a root cause
+      requires it, and the root cause came from interrogating a specific failed job.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Product thinking</p>
       <h3>The logic chain</h3>
@@ -252,98 +265,16 @@
       </svg>
     </div>
   </figure>
-</section>
 
-<section class="section-sm" id="features">
   <div class="prose reveal">
-    <p class="eyebrow">The solutions</p>
-    <h2 class="h2">Six features, each delivering a named guarantee</h2>
-
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th style="width:24%">Feature</th><th>What it does</th><th style="width:16%">Delivers</th></tr></thead>
-        <tbody>
-          <tr class="t-win"><td><strong>Transparent payment</strong></td><td>Live cost ticker, a review step before submitting, and a fair item wise split.</td><td class="xsmall muted">G1 Payment</td></tr>
-          <tr class="t-win"><td><strong>Host control room</strong></td><td>A real time view of who joined and who is pending, with a deadline and a budget cap.</td><td class="xsmall muted">G3, G4</td></tr>
-          <tr class="t-win"><td><strong>App free participation</strong></td><td>Web first, so the link opens a browser experience and no install is required.</td><td class="xsmall muted">G2 Delivery</td></tr>
-          <tr><td><strong>Confirmation screens</strong></td><td>An order locked state, a summary, and joint ETA tracking.</td><td class="xsmall muted">G3 Confirmation</td></tr>
-          <tr><td><strong>Repeat group orders</strong></td><td>Saved groups with weekly auto invite nudges.</td><td class="xsmall muted">G4 Transparency</td></tr>
-          <tr><td><strong>Restaurant democracy</strong></td><td>A poll for voting on the restaurant, with an AI recommender for mixed groups.</td><td class="xsmall muted">G5 Privacy</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="section-sm" id="roadmap">
-  <div class="prose reveal">
-    <p class="eyebrow">The solutions · Sequencing</p>
-    <h2 class="h2">Phased by user impact, then by technical feasibility</h2>
-  </div>
-
-  <figure class="diagram reveal">
-    <div class="diagram-head">
-      <p class="eyebrow">Infographic · Sequencing</p>
-      <h3>Trust first, then convenience, then delight</h3>
-      <p>Each phase is a precondition for the next, so the order itself carries the argument.</p>
-    </div>
-    <div class="diagram-body">
-      <svg viewBox="0 0 900 300" role="img" aria-label="Three phase roadmap. Phase 1 makes it trustworthy, Phase 2 makes it repeatable, Phase 3 makes it enjoyable. Each phase is a precondition for the next.">
-        <rect class="dg-node-solid" x="20" y="14" width="270" height="30" rx="15"/>
-        <text class="dg-t-inv" x="155" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT TRUSTWORTHY</text>
-        <rect class="dg-node-accent" x="315" y="14" width="270" height="30" rx="15" stroke-width="1.5"/>
-        <text class="dg-t-acc" x="450" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT REPEATABLE</text>
-        <rect class="dg-node-accent" x="610" y="14" width="270" height="30" rx="15" stroke-width="1.5"/>
-        <text class="dg-t-acc" x="745" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT ENJOYABLE</text>
-
-        <rect class="dg-node-solid" x="20" y="62" width="270" height="132" rx="10"/>
-        <text class="dg-t-inv" x="36" y="86" style="font-size:11px;font-weight:700;letter-spacing:.05em">PHASE 1</text>
-        <text class="dg-t-inv" x="36" y="108" style="font-size:14px">Friction fix</text>
-        <text class="dg-t-inv" x="36" y="130" style="font-weight:400;font-size:11px">Item wise payment split</text>
-        <text class="dg-t-inv" x="36" y="148" style="font-weight:400;font-size:11px">Confirmation screen</text>
-        <text class="dg-t-inv" x="36" y="166" style="font-weight:400;font-size:11px">Web first participation</text>
-        <text class="dg-t-inv" x="36" y="184" style="font-weight:400;font-size:11px">Host dashboard</text>
-
-        <path class="dg-line" fill="none" stroke-width="1" d="M290 128 H305"/>
-        <path class="dg-arrow" d="M305 123 L315 128 L305 133 Z"/>
-
-        <rect class="dg-node-accent" x="315" y="62" width="270" height="132" rx="10"/>
-        <text class="dg-t-acc" x="331" y="86">PHASE 2</text>
-        <text class="dg-t" x="331" y="108" style="font-size:14px">Smart grouping</text>
-        <text class="dg-t-sm" x="331" y="130">Saved groups</text>
-        <text class="dg-t-sm" x="331" y="148">Reminder nudges</text>
-        <text class="dg-t-sm" x="331" y="166">Budget cap and host controls</text>
-
-        <path class="dg-line" fill="none" stroke-width="1" d="M585 128 H600"/>
-        <path class="dg-arrow" d="M600 123 L610 128 L600 133 Z"/>
-
-        <rect class="dg-node" x="610" y="62" width="270" height="132" rx="10"/>
-        <text class="dg-t-acc" x="626" y="86">PHASE 3</text>
-        <text class="dg-t" x="626" y="108" style="font-size:14px">Decision support</text>
-        <text class="dg-t-sm" x="626" y="130">Restaurant poll</text>
-        <text class="dg-t-sm" x="626" y="148">Smart recommendations</text>
-
-        <rect class="dg-node-accent" x="20" y="216" width="860" height="66" rx="10"/>
-        <text class="dg-t-hd" x="36" y="240">WHY THIS ORDER</text>
-        <text class="dg-t-sm" x="36" y="260">A restaurant voting feature layered on a payment flow nobody trusts gives the group a more elaborate</text>
-        <text class="dg-t-sm" x="36" y="274">route back to the same WhatsApp poll. Phase 1 is deliberately basic because it has to come first.</text>
-      </svg>
-    </div>
-  </figure>
-</section>
-
-<section class="section-sm" id="journey">
-  <div class="prose reveal">
-    <p class="eyebrow">The visual · The user journey</p>
-    <h2 class="h2">Where the group actually drops out</h2>
+    <h3 class="h3">Where the group actually drops out</h3>
     <p>
-      The six anxieties are easier to act on once they are placed in order. Mapping the journey
-      from the first suggestion through to settling up shows two points at which groups give up
-      and go back to WhatsApp, and both of them sit before the food is even ordered.
+      Mapping the journey from first suggestion through to settling up shows two points where groups
+      give up, and both sit before the food is even ordered.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · User journey</p>
       <h3>Six stages, one confidence curve</h3>
@@ -479,43 +410,199 @@
   </figure>
 
   <div class="prose reveal">
-    <div class="btn-row">
-      <a class="btn" href="https://haniyamjad.com/product-prototypes/ubereats/" target="_blank" rel="noopener">Open prototype</a>
-    </div>
+    <p>
+      The group never reaches the part of the experience Uber Eats is good at. They leave at Join,
+      where the install requirement blocks half the team, and again at Checkout, where nobody can see
+      what they owe. By the time delivery quality or restaurant range matters, they are back in a
+      WhatsApp thread.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="solution">
+  <div class="prose reveal">
+    <p class="eyebrow">The solution</p>
+    <h2 class="h2">Six features, each delivering a named guarantee</h2>
   </div>
 
-
-  <div class="prose reveal">
-    <div class="callout">
-      <p class="eyebrow">What the journey shows</p>
-      <p>
-        The group never reaches the part of the experience Uber Eats is good at. They leave at
-        Join, in which the install requirement blocks half the team, and they leave again at
-        Checkout, in which nobody can see what they owe. By the time delivery quality or
-        restaurant range matters, the group has already gone back to a WhatsApp thread.
-      </p>
+<div class="table-scroll">
+      <table>
+        <thead><tr><th style="width:24%">Feature</th><th>What it does</th><th style="width:16%">Delivers</th></tr></thead>
+        <tbody>
+          <tr class="t-win"><td><strong>Transparent payment</strong></td><td>Live cost ticker, a review step before submitting, and a fair item wise split.</td><td class="xsmall muted">G1 Payment</td></tr>
+          <tr class="t-win"><td><strong>Host control room</strong></td><td>A real time view of who joined and who is pending, with a deadline and a budget cap.</td><td class="xsmall muted">G3, G4</td></tr>
+          <tr class="t-win"><td><strong>App free participation</strong></td><td>Web first, so the link opens a browser experience and no install is required.</td><td class="xsmall muted">G2 Delivery</td></tr>
+          <tr><td><strong>Confirmation screens</strong></td><td>An order locked state, a summary, and joint ETA tracking.</td><td class="xsmall muted">G3 Confirmation</td></tr>
+          <tr><td><strong>Repeat group orders</strong></td><td>Saved groups with weekly auto invite nudges.</td><td class="xsmall muted">G4 Transparency</td></tr>
+          <tr><td><strong>Restaurant democracy</strong></td><td>A poll for voting on the restaurant, with an AI recommender for mixed groups.</td><td class="xsmall muted">G5 Privacy</td></tr>
+        </tbody>
+      </table>
     </div>
+
+  <div class="btn-row reveal" style="margin-top:8px">
+    <a class="btn" href="https://haniyamjad.com/product-prototypes/ubereats/" target="_blank" rel="noopener">Open prototype</a>
+  </div>
+</section>
+
+<section class="section-sm" id="execution">
+  <div class="prose reveal">
+    <p class="eyebrow">The execution plan</p>
+    <h2 class="h2">Phased by user impact, then by feasibility</h2>
+    <p>
+      The order is set by which guarantee unblocks the others. Nothing downstream matters if half the
+      group cannot get into the cart in the first place.
+    </p>
+  </div>
+
+<figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Infographic · Sequencing</p>
+      <h3>Trust first, then convenience, then delight</h3>
+      <p>Each phase is a precondition for the next, so the order itself carries the argument.</p>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 300" role="img" aria-label="Three phase roadmap. Phase 1 makes it trustworthy, Phase 2 makes it repeatable, Phase 3 makes it enjoyable. Each phase is a precondition for the next.">
+        <rect class="dg-node-solid" x="20" y="14" width="270" height="30" rx="15"/>
+        <text class="dg-t-inv" x="155" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT TRUSTWORTHY</text>
+        <rect class="dg-node-accent" x="315" y="14" width="270" height="30" rx="15" stroke-width="1.5"/>
+        <text class="dg-t-acc" x="450" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT REPEATABLE</text>
+        <rect class="dg-node-accent" x="610" y="14" width="270" height="30" rx="15" stroke-width="1.5"/>
+        <text class="dg-t-acc" x="745" y="34" text-anchor="middle" style="font-size:12px;font-weight:700;letter-spacing:.06em">MAKE IT ENJOYABLE</text>
+
+        <rect class="dg-node-solid" x="20" y="62" width="270" height="132" rx="10"/>
+        <text class="dg-t-inv" x="36" y="86" style="font-size:11px;font-weight:700;letter-spacing:.05em">PHASE 1</text>
+        <text class="dg-t-inv" x="36" y="108" style="font-size:14px">Friction fix</text>
+        <text class="dg-t-inv" x="36" y="130" style="font-weight:400;font-size:11px">Item wise payment split</text>
+        <text class="dg-t-inv" x="36" y="148" style="font-weight:400;font-size:11px">Confirmation screen</text>
+        <text class="dg-t-inv" x="36" y="166" style="font-weight:400;font-size:11px">Web first participation</text>
+        <text class="dg-t-inv" x="36" y="184" style="font-weight:400;font-size:11px">Host dashboard</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M290 128 H305"/>
+        <path class="dg-arrow" d="M305 123 L315 128 L305 133 Z"/>
+
+        <rect class="dg-node-accent" x="315" y="62" width="270" height="132" rx="10"/>
+        <text class="dg-t-acc" x="331" y="86">PHASE 2</text>
+        <text class="dg-t" x="331" y="108" style="font-size:14px">Smart grouping</text>
+        <text class="dg-t-sm" x="331" y="130">Saved groups</text>
+        <text class="dg-t-sm" x="331" y="148">Reminder nudges</text>
+        <text class="dg-t-sm" x="331" y="166">Budget cap and host controls</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M585 128 H600"/>
+        <path class="dg-arrow" d="M600 123 L610 128 L600 133 Z"/>
+
+        <rect class="dg-node" x="610" y="62" width="270" height="132" rx="10"/>
+        <text class="dg-t-acc" x="626" y="86">PHASE 3</text>
+        <text class="dg-t" x="626" y="108" style="font-size:14px">Decision support</text>
+        <text class="dg-t-sm" x="626" y="130">Restaurant poll</text>
+        <text class="dg-t-sm" x="626" y="148">Smart recommendations</text>
+
+        <rect class="dg-node-accent" x="20" y="216" width="860" height="66" rx="10"/>
+        <text class="dg-t-hd" x="36" y="240">WHY THIS ORDER</text>
+        <text class="dg-t-sm" x="36" y="260">A restaurant voting feature layered on a payment flow nobody trusts gives the group a more elaborate</text>
+        <text class="dg-t-sm" x="36" y="274">route back to the same WhatsApp poll. Phase 1 is deliberately basic because it has to come first.</text>
+      </svg>
+    </div>
+  </figure>
+
+  <div class="rail reveal">
+    <div class="rail-item">
+      <span class="rail-n">1</span>
+      <div class="rail-b">
+        <h4>Remove the install requirement</h4>
+        <p>
+          A browser based join link, so a participant can add items without downloading anything. This
+          is the single biggest drop and everything else is downstream of it.
+        </p>
+        <span class="tag">Phase 1</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">2</span>
+      <div class="rail-b">
+        <h4>Make the split visible before payment</h4>
+        <p>
+          A live per person total that updates as people add items, so nobody is agreeing to an
+          unknown amount. This closes the second drop.
+        </p>
+        <span class="tag">Phase 1</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">3</span>
+      <div class="rail-b">
+        <h4>Give the host control without exposing anyone</h4>
+        <p>
+          Lock and unlock the cart, extend the timer, and keep individual choices private until the
+          order is placed. Host tools and participant privacy ship together or neither works.
+        </p>
+        <span class="tag">Phase 2</span>
+      </div>
+    </div>
+    <div class="rail-item is-leak">
+      <span class="rail-n">4</span>
+      <div class="rail-b">
+        <h4>Add the social layer last</h4>
+        <p>
+          Reactions, group chat and host recognition are worth building only once the group reliably
+          gets to checkout. Delight on top of a broken coordination flow changes nothing.
+        </p>
+        <span class="tag">Phase 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="measure">
+  <div class="prose reveal">
+    <p class="eyebrow">How we would know</p>
+    <h2 class="h2">Measure the job, not the feature</h2>
+    <p>
+      Installs and opens would flatter this feature. The numbers that matter are whether a group gets
+      through, and whether they come back.
+    </p>
+  </div>
+
+  <div class="table-scroll reveal">
+    <table>
+      <thead>
+        <tr><th>What we watch</th><th>Why it is on the list</th><th>Line</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t-win">
+          <td><strong>Join rate</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>Share of invited participants who actually add an item</td>
+          <td class="t-num">The first drop</td>
+        </tr>
+        <tr>
+          <td><strong>Group order completion</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>Started carts that reach a placed order</td>
+          <td class="t-num">The second drop</td>
+        </tr>
+        <tr>
+          <td><strong>Repeat use within 30 days</strong><br><span class="xsmall muted">The real test</span></td>
+          <td>A group that comes back has hired the feature</td>
+          <td class="t-num">Pass or fail</td>
+        </tr>
+        <tr>
+          <td><strong>Host disputes after delivery</strong><br><span class="xsmall muted">Guardrail</span></td>
+          <td>Trust in the split is the job, so disputes mean it failed</td>
+          <td class="t-num">No rise</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        The feature was not under built. It was under specified. Nobody had written down what a
-        group order must guarantee, so each release added capability without closing the trust gap
-        that sends groups back to WhatsApp. Five guarantees, derived from first principles, turn an
-        open ended feature backlog into a pass or fail test.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="uber-pickup-experience.html"><span class="dir">Next case study</span><span class="ttl">Uber India: the last 200 meters</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+    <h2 class="h2">What this case comes down to</h2>
+    <p>
+      The feature was not under built. It was under specified. Nobody had written down what a group
+      order must guarantee, so each release added capability without closing the trust gap that sends
+      groups back to WhatsApp. Five guarantees, derived from first principles, turn an open ended
+      backlog into a pass or fail test.
+    </p>
   </div>
 </section>
 
@@ -523,14 +610,12 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
-    <a href="#question">The problem</a>
-    <a href="#clarify">Clarifying questions</a>
-    <a href="#jtbd">The jobs</a>
-    <a href="#gaps">Where it fails</a>
-    <a href="#chain">The logic chain</a>
-    <a href="#features">The solutions</a>
-    <a href="#roadmap">Sequencing</a>
-    <a href="#journey">The journey</a>
+    <a href="#product">The product</a>
+    <a href="#problem">The problem</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
+    <a href="#execution">Execution plan</a>
+    <a href="#measure">How we would know</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -561,6 +646,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Garmin Connect: a redesigned daily check in | Haniya Amjad</title>
-<meta name="description" content="A UX evaluation of one Garmin Connect flow, twelve usability issues across ten heuristics, and a redesigned interface that applies every fix.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="Garmin Connect is the phone app Garmin sports watches sync to. Twelve usability issues across ten heuristics in one everyday flow, and a redesigned interface with every fix applied.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#007cc3; --c-d:#4fb3e8;">
 
@@ -25,117 +25,144 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">G</span>Garmin Connect</span>
       <span class="tag">Product design</span>
-      <span class="tag tag-plain">UX evaluation</span>
+      <span class="tag tag-plain">Heuristic evaluation</span>
+      <span class="tag tag-plain">Redesign</span>
+      <span class="tag tag-plain">Clickable prototype</span>
     </div>
     <h1 class="h1">A ninety second check in that takes five minutes</h1>
     <p class="lede">
-      Garmin Connect holds more accurate data than almost any competitor and presents it worse
-      than most. I walked one everyday flow, logged twelve usability issues across ten heuristics,
-      and then rebuilt the interface with every fix applied.
+      Garmin Connect holds more accurate data than almost any competitor and presents it worse than
+      most. I walked one everyday flow, logged twelve usability issues across ten heuristics, and
+      rebuilt the interface with every fix applied.
     </p>
   </div>
 </header>
-
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">12</span><span class="lbl">Usability issues in a single daily flow</span><span class="sub">Across five screens and about ninety seconds</span></div>
-      <div class="metric"><span class="num">10 / 10</span><span class="lbl">Nielsen heuristics touched</span><span class="sub">Every one of them violated at least once</span></div>
-      <div class="metric"><span class="num">8 months</span><span class="lbl">Stale date range shown on the sleep screen</span><span class="sub">Presented without any indication it was old</span></div>
-      <div class="metric"><span class="num">6 → 3</span><span class="lbl">Metric cards after the redesign</span><span class="sub">Grouped rather than deleted</span></div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="product">
+  <div class="prose reveal">
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What Garmin Connect is</h2>
+    <p>
+      Garmin makes GPS sports watches for runners, cyclists and swimmers. Garmin Connect is the
+      phone app the watch syncs to, where the wearer reviews their training, sleep, heart rate and
+      recovery each day. The hardware is well regarded and the measurements it collects are more
+      accurate than most rivals, so this case is not about the sensors. It is about the app that has
+      to make what they collect readable.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>The four kinds of failure, and the four steps of the case</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 328" role="img" aria-label="Twelve usability issues in one ninety second flow, in four groups: data that is stale or unlabelled, data that is simply wrong, numbers with no scale or key, and jargon with screen density. Below, the four steps of the case: the problem is measurements shown where meaning is needed, the approach was a heuristic walkthrough, the solution groups six cards into three, and the measure is time to answer the daily questions.">
+        <text class="dg-t-hd" x="20" y="28">TWELVE ISSUES IN ONE NINETY SECOND FLOW</text>
+
+        <rect class="dg-node" x="20" y="46" width="209" height="94" rx="10"/>
+        <text class="dg-t-acc" x="36" y="72">STALE OR UNLABELLED</text>
+        <text class="dg-t-sm" x="36" y="96">A sleep screen opening on a</text>
+        <text class="dg-t-sm" x="36" y="111">range that ended 8 months</text>
+        <text class="dg-t-sm" x="36" y="126">ago, marked as nothing.</text>
+
+        <rect class="dg-node" x="243" y="46" width="209" height="94" rx="10"/>
+        <text class="dg-t-acc" x="259" y="72">SIMPLY WRONG</text>
+        <text class="dg-t-sm" x="259" y="96">One run auto split into three,</text>
+        <text class="dg-t-sm" x="259" y="111">one of them logged at</text>
+        <text class="dg-t-sm" x="259" y="126">walking pace.</text>
+
+        <rect class="dg-node" x="466" y="46" width="209" height="94" rx="10"/>
+        <text class="dg-t-acc" x="482" y="72">NO SCALE OR KEY</text>
+        <text class="dg-t-sm" x="482" y="96">Stress reads 89 with no</text>
+        <text class="dg-t-sm" x="482" y="111">range. A calendar with six</text>
+        <text class="dg-t-sm" x="482" y="126">colours and no legend.</text>
+
+        <rect class="dg-node" x="689" y="46" width="191" height="94" rx="10"/>
+        <text class="dg-t-acc" x="705" y="72">JARGON AND DENSITY</text>
+        <text class="dg-t-sm" x="705" y="96">Six metric cards on one</text>
+        <text class="dg-t-sm" x="705" y="111">screen, named Body Battery</text>
+        <text class="dg-t-sm" x="705" y="126">and Fitness Age.</text>
+
+        <text class="dg-t-sm" x="20" y="166">All ten Nielsen heuristics violated at least once, in a flow the user runs every single morning.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 188 H880"/>
+
+        <rect class="dg-node" x="20" y="208" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="234">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="258">The data is accurate. The</text>
+        <text class="dg-t-sm" x="36" y="273">app shows measurements</text>
+        <text class="dg-t-sm" x="36" y="288">where a user needs meaning.</text>
+        <path class="dg-arrow" d="M225 257 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="208" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="234">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="258">Walked one everyday flow</text>
+        <text class="dg-t-sm" x="256" y="273">and logged 12 issues against</text>
+        <text class="dg-t-sm" x="256" y="288">ten usability heuristics.</text>
+        <path class="dg-arrow" d="M445 257 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="208" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="234">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="258">Six cards grouped into three,</text>
+        <text class="dg-t-sm" x="476" y="273">every number given a scale,</text>
+        <text class="dg-t-sm" x="476" y="288">every colour given a word.</text>
+        <path class="dg-arrow" d="M665 257 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="208" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="234">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="258">Time to finish the daily</text>
+        <text class="dg-t-sm" x="696" y="273">check in, and support asking</text>
+        <text class="dg-t-sm" x="696" y="288">what a metric means.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
 <section class="section-sm" id="problem">
   <div class="prose reveal">
     <p class="eyebrow">The problem</p>
     <h2 class="h2">The data is right. The reading of it is the product.</h2>
     <p>
-      The user is a fitness enthusiast who trains four to six times a week on a Forerunner and
-      cares about trends, recovery and personal records. The flow is the one they run every day:
-      open the app after a workout, see today, check sleep, review the activity, and glance at
-      what is coming.
+      The user is a fitness enthusiast who trains four to six times a week on a Forerunner and cares
+      about trends, recovery and personal records. The flow is the one they run every morning. Open
+      the app after a workout, see today, check sleep, review the activity, glance at what is next.
     </p>
     <div class="quote">
-      <p>"I want to see how I performed today, slept last night, and what is next, without digging through menus."</p>
+      <p>I want to see how I performed today, slept last night, and what is next, without digging through menus.</p>
       <cite>The user story the flow was evaluated against</cite>
     </div>
     <p>
       Five screens, roughly ninety seconds of intent. In practice it takes far longer, because at
-      almost every step the screen shows a number without telling you what the number means, how
-      recent it is, or what good would look like.
+      almost every step the screen shows a number without saying what it means, how recent it is, or
+      what good would look like.
     </p>
   </div>
 </section>
 
-<!-- ============ THE WORK ============ -->
-<section class="section-sm" id="work">
+<section class="section-sm" id="approach">
   <div class="prose reveal">
     <p class="eyebrow">The approach</p>
     <h2 class="h2">What the walkthrough found</h2>
     <p>
-      Twelve issues, each mapped to the heuristic it violates and the fix it needs. They fall into
-      four groups, and the grouping is what turned a defect list into a redesign.
+      Twelve issues, each mapped to the heuristic it violates and the fix it needs. Grouping them
+      into four kinds is what turned a defect list into a redesign, because each group has one fix
+      rather than three.
     </p>
+  </div>
 
-    <div class="grid grid-2" style="margin:22px 0">
-      <div class="card">
-        <p class="eyebrow">Group 1</p>
-        <h4>Data that is stale or unlabelled</h4>
-        <p style="margin-bottom:10px">
-          The sleep screen opens on a four week range ending eight months in the past, with nothing
-          marking it as old. The heart rate gauge reads two dashes while the line underneath says
-          70 bpm resting, so the reader cannot tell whether it is live, stale, or a summary.
-        </p>
-        <p class="xsmall muted"><strong>Violates:</strong> visibility of system status, match with the real world</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Group 2</p>
-        <h4>Data that is simply wrong</h4>
-        <p style="margin-bottom:10px">
-          One continuous workout is auto split into three separate Running entries of 0.21, 1.07
-          and 2.26 km. The first of those is logged at 14:36 per km, which is a walking pace being
-          recorded as a run.
-        </p>
-        <p class="xsmall muted"><strong>Violates:</strong> error prevention, user control and freedom</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Group 3</p>
-        <h4>Numbers with no scale or key</h4>
-        <p style="margin-bottom:10px">
-          Stress reads 89 with no indication of the range or whether high is bad. The calendar
-          colours dates with six different bars and offers no legend. The Body Battery chart plots
-          three series with nothing identifying any of them.
-        </p>
-        <p class="xsmall muted"><strong>Violates:</strong> recognition rather than recall, help and documentation</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Group 4</p>
-        <h4>Jargon and density</h4>
-        <p style="margin-bottom:10px">
-          Six metric cards sit on one screen, past the limit of what anyone holds in working memory.
-          They are labelled Body Battery, Fitness Age and Intensity Minutes with no explanation.
-          The top bar carries five unlabelled glyphs, and expedition distances mix units across
-          696lm, 260K, 3500K and 784K.
-        </p>
-        <p class="xsmall muted"><strong>Violates:</strong> aesthetic and minimalist design, consistency and standards</p>
-      </div>
-    </div>
-
-    <h3 class="h3">Where it breaks the laws of UX</h3>
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:22%">Law</th><th style="width:14%">Verdict</th><th>Where it shows up</th></tr></thead>
         <tbody>
@@ -148,23 +175,20 @@
         </tbody>
       </table>
     </div>
-  </div>
 </section>
 
-<!-- ============ REDESIGN 1 ============ -->
-<section class="section-sm" id="redesign">
+<section class="section-sm" id="solution">
   <div class="prose reveal">
-    <p class="eyebrow">The solutions</p>
+    <p class="eyebrow">The solution</p>
     <h2 class="h2">Six cards become three, and every number gains a meaning</h2>
     <p>
-      The instinct with a crowded screen is to delete things. That is the wrong move here, because
-      the data is the reason people buy the watch. The fix is to group it, name it in plain
-      language, and give every number the context that makes it readable at a glance, which is the
-      pattern Strava gets right and Garmin does not.
+      The instinct with a crowded screen is to delete things. That is wrong here, because the data is
+      the reason people buy the watch. The fix is to group it, name it in plain language, and give
+      every number the context that makes it readable at a glance.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Prototype · Before and after</p>
       <h3>At a Glance, rebuilt as Today</h3>
@@ -358,10 +382,7 @@
       and accent colours so the comparison is about information design rather than a restyle.
     </figcaption>
   </figure>
-</section>
 
-<!-- ============ REDESIGN 2 ============ -->
-<section class="section-sm" id="screens">
   <div class="prose reveal">
     <h3 class="h3">The rest of the flow</h3>
     <p>
@@ -370,7 +391,7 @@
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Prototype · Screen flow</p>
       <h3>Activity, sleep and challenges</h3>
@@ -545,39 +566,125 @@
     </div>
   </figure>
 
-  <div class="prose reveal">
-    <div class="btn-row">
-      <a class="btn" href="https://haniyamjad.com/product-prototypes/garmin/" target="_blank" rel="noopener">Open prototype</a>
-    </div>
+  <div class="btn-row reveal" style="margin-top:8px">
+    <a class="btn" href="https://haniyamjad.com/product-prototypes/garmin/" target="_blank" rel="noopener">Open prototype</a>
   </div>
-
 </section>
 
-<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="execution">
+  <div class="prose reveal">
+    <p class="eyebrow">The execution plan</p>
+    <h2 class="h2">How this ships without a rebuild</h2>
+    <p>
+      None of these fixes need new sensors or new data. They are display and copy changes on top of
+      what the watch already records, which is why the order below is cheap at the front and only
+      gets expensive at the end.
+    </p>
+  </div>
+
+  <div class="rail reveal">
+    <div class="rail-item">
+      <span class="rail-n">1</span>
+      <div class="rail-b">
+        <h4>Fix the wrong data first</h4>
+        <p>
+          One run being auto split into three is a correctness bug, not a design choice. No amount of
+          visual work saves a screen that is reporting a run as a walk.
+        </p>
+        <span class="tag">Backend, first</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">2</span>
+      <div class="rail-b">
+        <h4>Label every number with its range</h4>
+        <p>
+          Stress 89 becomes 89 out of 100, higher is worse. This is a copy and template change with
+          no new data behind it, so it can ship in days.
+        </p>
+        <span class="tag">Copy only</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">3</span>
+      <div class="rail-b">
+        <h4>Date stamp anything that can go stale</h4>
+        <p>
+          A sleep screen defaulting to a range eight months old is only dangerous because nothing says
+          so. Show the range, and default it to the most recent night.
+        </p>
+        <span class="tag">Small change</span>
+      </div>
+    </div>
+    <div class="rail-item is-leak">
+      <span class="rail-n">4</span>
+      <div class="rail-b">
+        <h4>Regroup the home screen last</h4>
+        <p>
+          Six cards into three is the only change that alters what a long time user recognises, so it
+          ships behind a flag with an opt out, after the cheaper fixes have already improved the flow.
+        </p>
+        <span class="tag">Behind a flag</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-sm" id="measure">
+  <div class="prose reveal">
+    <p class="eyebrow">How we would know</p>
+    <h2 class="h2">Measure the ninety seconds</h2>
+    <p>
+      The user story sets the test. If the flow still takes five minutes, the redesign failed no
+      matter how it looks.
+    </p>
+  </div>
+
+  <div class="table-scroll reveal">
+    <table>
+      <thead>
+        <tr><th>What we watch</th><th>Why it is on the list</th><th>Line</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t-win">
+          <td><strong>Time to complete the daily check in</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>The whole case is that ninety seconds takes five minutes</td>
+          <td class="t-num">Under 2 min</td>
+        </tr>
+        <tr>
+          <td><strong>Screens visited per check in</strong><br><span class="xsmall muted">Supporting</span></td>
+          <td>Digging through menus shows up here first</td>
+          <td class="t-num">Fewer</td>
+        </tr>
+        <tr>
+          <td><strong>Support questions asking what a metric means</strong><br><span class="xsmall muted">Supporting</span></td>
+          <td>Direct evidence the labels are doing their job</td>
+          <td class="t-num">Falling</td>
+        </tr>
+        <tr>
+          <td><strong>Long time user opt outs of the new home</strong><br><span class="xsmall muted">Guardrail</span></td>
+          <td>Regrouping changes what an existing user recognises</td>
+          <td class="t-num">Under 5%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        Garmin's problem is not the data and it is not the hardware. It is that the app presents
-        measurements where the user needs meaning. A resting heart rate of 70 is a number. Seventy,
-        inside your normal range of 66 to 74, with lower usually meaning better recovery, is an
-        answer. The second one takes the same space on screen.
-      </p>
-    </div>
+    <h2 class="h2">What this case comes down to</h2>
     <p>
-      The three rules that produced every screen above are worth stating plainly, because they
-      generalise well beyond this app. Correct the data before you display it. Never show a value
-      without the scale that makes it readable. And say in words what the colours mean, rather than
-      expecting anyone to learn a key that was never provided.
+      A resting heart rate of 70 is a number. Seventy, inside your normal range of 66 to 74, with
+      lower usually meaning better recovery, is an answer. The second one takes the same space on
+      screen. Three rules produced every screen here, and they generalise well beyond this app.
     </p>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="zepto-aov.html"><span class="dir">Previous</span><span class="ttl">Zepto: closing the average order value gap</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+    <ul>
+      <li>Correct the data before you display it.</li>
+      <li>Never show a value without the scale that makes it readable.</li>
+      <li>Say in words what the colours mean, rather than expecting anyone to learn a key that was never provided.</li>
+    </ul>
   </div>
 </section>
 
@@ -585,10 +692,12 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
+    <a href="#product">The product</a>
     <a href="#problem">The problem</a>
-    <a href="#work">The work</a>
-    <a href="#redesign">The redesign</a>
-    <a href="#screens">The rest of the flow</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
+    <a href="#execution">Execution plan</a>
+    <a href="#measure">How we would know</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -619,6 +728,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

@@ -574,18 +574,6 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 .home-hero h1 { max-width: 16ch; }
 .home-hero .lede { max-width: 60ch; margin-top: 20px; }
 
-/* Category filters */
-.filters { display: flex; flex-wrap: wrap; gap: 9px; margin: 30px 0 30px; }
-.filter {
-  font-size: 12.5px; font-weight: 600; letter-spacing: .02em;
-  padding: 8px 16px; border-radius: 100px; cursor: pointer;
-  background: transparent; color: var(--muted); border: 1px solid var(--line);
-  font-family: inherit; transition: color .2s var(--ease), border-color .2s var(--ease),
-               background .2s var(--ease);
-}
-.filter:hover { color: var(--text); border-color: var(--muted); }
-.filter.is-on { background: var(--text); color: var(--bg); border-color: var(--text); }
-
 /* Index grid */
 .case-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 .case-grid .is-hidden { display: none; }
@@ -600,33 +588,6 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 .back-link::before { content: "\2039"; font-size: 1.35em; line-height: 1; }
 
 /* Empty state */
-.no-results { padding: 40px 0; color: var(--muted); font-size: 15px; }
-
-/* ---------- Category blocks on the index ---------- */
-.cat-block { margin-bottom: 48px; }
-.cat-head {
-  display: flex; align-items: center; gap: 12px;
-  border-radius: 0; padding: 0 0 0 2px; margin-bottom: 20px;
-  background: transparent; border: 0;
-}
-.cat-dot {
-  width: 12px; height: 12px; border-radius: 50%; background: var(--cat); flex: 0 0 auto;
-  box-shadow: 0 0 0 5px color-mix(in srgb, var(--cat) 16%, transparent);
-}
-.cat-head h2 {
-  font-size: clamp(19px, 2.2vw, 23px); letter-spacing: -0.018em; margin: 0;
-}
-.cat-head p { font-size: 13.5px; color: var(--muted); margin: 5px 0 0; max-width: 62ch; }
-.cat-count {
-  margin-left: auto; font-size: 11.5px; font-weight: 700; letter-spacing: .04em;
-  color: var(--cat); background: color-mix(in srgb, var(--cat) 15%, transparent);
-  padding: 6px 12px; border-radius: 100px; white-space: nowrap;
-  border: 1px solid color-mix(in srgb, var(--cat) 26%, transparent);
-}
-@media (max-width: 560px) {
-  .cat-head { flex-wrap: wrap; }
-  .cat-count { margin-left: 0; }
-}
 
 /* secondary skill tags on a card */
 .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 14px; }
@@ -653,65 +614,6 @@ caption { caption-side: bottom; text-align: left; padding-top: 14px; font-size: 
 /* ==========================================================================
    Glass layer: category tiles, livelier cards
    ========================================================================== */
-
-/* category tiles: glass chips with gradient squircle */
-.cat-tiles {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-  margin: 34px 0 44px;
-}
-.cat-tile {
-  position: relative;
-  border: 0;
-  border-radius: 20px;
-  padding: 22px 18px 18px;
-  text-align: left;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 14px;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  background-color: var(--surface);
-  background-image: var(--gloss);
-  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
-  box-shadow: var(--glass-edge), var(--shadow-sm);
-  cursor: pointer;
-  transition: transform .25s var(--ease), box-shadow .25s var(--ease);
-  overflow: hidden;
-}
-.cat-tile::before {
-  content: "";
-  display: block;
-  width: 34px; height: 34px; border-radius: 12px;
-  background: linear-gradient(135deg, var(--cat), color-mix(in srgb, var(--cat) 55%, #fff));
-  box-shadow: 0 6px 14px color-mix(in srgb, var(--cat) 40%, transparent);
-  margin-bottom: 14px;
-}
-.cat-tile::after {
-  content: "";
-  position: absolute;
-  right: -30px; bottom: -30px;
-  width: 90px; height: 90px; border-radius: 50%;
-  background: color-mix(in srgb, var(--cat) 20%, transparent);
-  filter: blur(26px);
-  transition: transform .35s var(--ease);
-}
-.cat-tile:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--glass-edge), var(--shadow-md);
-}
-.cat-tile:hover::after { transform: scale(1.3); }
-.cat-tile.is-on {
-  background: color-mix(in srgb, var(--cat) 14%, var(--surface-solid));
-  color: var(--text);
-  border: 0;
-  box-shadow: inset 0 0 0 2px var(--cat), var(--shadow-sm);
-}
-
-/* slim category headers */
-.cat-head-slim { padding: 0 0 0 2px; }
-.cat-head-slim h2 { font-size: 19px; }
 
 /* livelier cards */
 .metric { transition: transform .3s var(--ease), box-shadow .3s var(--ease); }

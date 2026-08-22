@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zomato: the OKR that survives contact with a funnel | Haniya Amjad</title>
-<meta name="description" content="Per 100 Tier 1 app opens only 12 end in a delivered order. A north star that decomposes into four key results, a funnel holding two different kinds of problem, and six cohorts framed as runnable tests.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="Zomato is one of India&#39;s two large food delivery apps. Per 100 Tier 1 app opens only 12 end in a delivered order. Choosing a north star, splitting it into four key results, and guarding it against being gamed.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#e23744; --c-d:#ff6b75;">
 
@@ -25,81 +25,140 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">Z</span>Zomato</span>
       <span class="tag">Metrics</span>
-      <span class="tag tag-plain">OKRs and funnel analysis</span>
+      <span class="tag tag-plain">North star</span>
+      <span class="tag tag-plain">OKRs</span>
+      <span class="tag tag-plain">Cohorts</span>
     </div>
     <h1 class="h1">The OKR that survives contact with a funnel</h1>
     <p class="lede">
-      Per 100 Tier 1 app opens, only 12 end in a delivered order. The useful discovery is that the
+      Per 100 Tier 1 app opens, only 12 end in a delivered order. The useful finding is that the
       leaks above the cart and the leaks below it are different kinds of problem, owned by
       different teams and fixed by different work.
     </p>
   </div>
 </header>
 
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">100 → 12</span><span class="lbl">App opens that reach a delivered order</span><span class="sub">Two problem types wearing one funnel</span></div>
-      <div class="metric"><span class="num">WAE</span><span class="lbl">Weekly Active Eaters, the north star</span><span class="sub">It factors cleanly into all four key results</span></div>
-      <div class="metric"><span class="num">6 → 2</span><span class="lbl">Cohorts collapsed into two recurring patterns</span><span class="sub">The synthesis that makes a roadmap possible</span></div>
-      <div class="metric"><span class="num">6</span><span class="lbl">Guardrails built to stop the north star being gamed</span><span class="sub">Margin, spend, riders, partners, trust</span></div>
-    </div>
-  </div>
-</section>
-
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="product">
+  <div class="prose reveal">
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What Zomato is</h2>
+    <p>
+      Zomato is one of India&#8217;s two large food delivery apps. A user browses restaurants near
+      them, orders a meal, and a delivery partner brings it, usually within about half an hour. It
+      is a public company and its main competitor is Swiggy. Tier 1 here means the biggest Indian
+      metros, so Bangalore, Mumbai, Delhi and similar, where the market is already mature and
+      growth has to come from existing users ordering more often rather than from new signups.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>Where the users go, and the four steps of the case</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 366" role="img" aria-label="Per 100 app opens in Tier 1 India, 53 reach a restaurant page, 22 add to cart and 12 receive a delivered order. Below, the four steps of the case: the problem is choosing one number to organise a year around, the approach forces a funnel, cohorts and OKRs to reconcile, the solution is Weekly Active Eaters split into four key results, and the measure is one isolated experiment per leak with six guardrails.">
+        <text class="dg-t-hd" x="20" y="28">PER 100 APP OPENS IN TIER 1 INDIA</text>
+
+        <rect class="dg-node-accent" x="20" y="46" width="740" height="28" rx="5"/>
+        <text class="dg-t" x="34" y="65" style="font-size:12px">100 open the app</text>
+
+        <rect class="dg-node-accent" x="20" y="82" width="392" height="28" rx="5"/>
+        <text class="dg-t" x="34" y="101" style="font-size:12px">53 reach a restaurant page</text>
+
+        <rect class="dg-node-accent" x="20" y="118" width="163" height="28" rx="5"/>
+        <text class="dg-t" x="34" y="137" style="font-size:12px">22 add to cart</text>
+
+        <rect class="dg-node-solid" x="20" y="154" width="89" height="28" rx="5"/>
+        <text class="dg-t-inv" x="34" y="173" style="font-size:12px">12 delivered</text>
+
+        <text class="dg-t-sm" x="20" y="204">The two largest drops happen before anyone reaches a cart, which makes them decision problems rather than checkout problems.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 226 H880"/>
+
+        <rect class="dg-node" x="20" y="246" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="272">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="296">Which single number should</text>
+        <text class="dg-t-sm" x="36" y="311">a company this size point</text>
+        <text class="dg-t-sm" x="36" y="326">a year at, safely?</text>
+        <path class="dg-arrow" d="M225 295 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="246" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="272">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="296">A funnel, cohorts and OKRs</text>
+        <text class="dg-t-sm" x="256" y="311">forced to reconcile. Every</text>
+        <text class="dg-t-sm" x="256" y="326">target traces to one leak.</text>
+        <path class="dg-arrow" d="M445 295 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="246" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="272">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="296">Weekly Active Eaters as the</text>
+        <text class="dg-t-sm" x="476" y="311">north star, split into four</text>
+        <text class="dg-t-sm" x="476" y="326">key results teams own.</text>
+        <path class="dg-arrow" d="M665 295 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="246" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="272">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="296">One isolated experiment per</text>
+        <text class="dg-t-sm" x="696" y="311">leak, plus six guardrails</text>
+        <text class="dg-t-sm" x="696" y="326">against gaming the number.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
 <section class="section-sm" id="problem">
   <div class="prose reveal">
     <p class="eyebrow">The problem</p>
-    <h2 class="h2">Which number should a business at this scale organise a year around?</h2>
+    <h2 class="h2">Which number should a business this size organise a year around?</h2>
     <p>
-      Zomato is not short of users or awareness. The interesting question is not growth in the
-      abstract. It is which single number the company should point a year at, and whether that
-      number can be moved without quietly breaking something else.
+      Zomato is not short of users or awareness, so growth in the abstract is not the interesting
+      question. The question is which single number the company should point a year at, and whether
+      that number can be moved without quietly breaking something else.
     </p>
-
     <div class="qa">
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What counts as an active user?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Only a successfully delivered order. Counting an order that arrived cold or late as engagement rewards exactly the behaviour the strategy is trying to remove.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">What counts as an active user?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Only a successfully delivered order. Counting an order that arrived cold or late as engagement rewards the exact behaviour the strategy is trying to remove.</span></div>
       </div>
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Why weekly rather than daily or monthly?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Daily over indexes on a power user tail that flatters the number. Monthly hides churn for four weeks at a time. Weekly is where a real habit forms, in which a restaurant becomes a regular and a lunch becomes a routine.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Why weekly rather than daily or monthly?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Daily over indexes on a power user tail that flatters the number. Monthly hides churn for four weeks at a time. Weekly is where a habit actually forms.</span></div>
       </div>
     </div>
-
-    <div class="quote">
-      <p>Become the go to weekly meal companion for Tier 1 urban India, in which users discover effortlessly, order in seconds, and receive on time, every single time.</p>
-      <cite>The CY2026 objective, with every word doing work</cite>
+    <div class="callout">
+      <p class="eyebrow">The objective</p>
+      <p>
+        Become the go to weekly meal companion for Tier 1 urban India, in which users discover
+        effortlessly, order in seconds, and receive on time, every single time.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ============ THE WORK ============ -->
-<section class="section-sm" id="work">
+<section class="section-sm" id="approach">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · The north star and the funnel</p>
+    <p class="eyebrow">The approach</p>
     <h2 class="h2">Three lenses, forced to reconcile</h2>
-    <p>
-      A funnel shows where users leak inside a single session. A cohort shows who leaks over
-      months and why. Neither tells you what to do. Objectives and key results are the operational
-      answer that ties the two together, and the discipline was that every key result had to trace
-      back to a specific funnel leak or a specific cohort drop.
-    </p>
+    <ul>
+      <li><strong>A funnel</strong> shows where users leak inside a single session.</li>
+      <li><strong>Cohorts</strong> show who leaks over months, and why.</li>
+      <li><strong>Objectives and key results</strong> tie the two together. The rule I set was that every key result had to trace back to a named funnel leak or a named cohort drop.</li>
+    </ul>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · North star</p>
       <h3>How the north star decomposes into four key results</h3>
@@ -163,7 +222,7 @@
     </figcaption>
   </figure>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Funnel</p>
       <h3>Two problems wearing one funnel</h3>
@@ -212,80 +271,18 @@
       </svg>
     </div>
   </figure>
-</section>
 
-<!-- ============ EXPERIMENTS ============ -->
-<section class="section-sm" id="experiments">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Experiment design</p>
-    <h2 class="h2">Each leak gets one isolated experiment</h2>
+    <h3 class="h3">Reading the cohort curves before proposing anything</h3>
     <p>
-      Bundled interventions produce results nobody can attribute. Every stage above the cart gets a
-      single change tested against a named control, and the delivery stage gets three separate
-      experiments rather than one.
-    </p>
-
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th>Stage</th><th style="width:32%">What changes</th><th>Primary metric</th><th>Target</th></tr></thead>
-        <tbody>
-          <tr><td class="t-num">1 to 2</td><td>Personalised top three picks above the fold, against a generic restaurant list</td><td>Sessions engaging discovery within 10 seconds</td><td class="t-num">75 → 85%</td></tr>
-          <tr><td class="t-num">2 to 3</td><td>A contextual cue on the top three to five cards only, against standard cards</td><td>Card to menu click through</td><td class="t-num">60 → 75%</td></tr>
-          <tr class="t-win"><td class="t-num">3 to 4</td><td>A most ordered here carousel pinned above the category list</td><td>Add to cart conversion</td><td class="t-num">49 → 62%</td></tr>
-          <tr><td class="t-num">4 to 5</td><td>All in pricing from the first item with the best coupon applied visibly</td><td>Carts reaching checkout</td><td class="t-num">82 → 92%</td></tr>
-          <tr><td class="t-num">5 to 6</td><td>Single screen checkout with a context aware address prefilled</td><td>Checkout completion and time to order</td><td class="t-num">78 → 90%</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="h3">The delivery stage is three experiments, not one</h3>
-    <div class="grid grid-3" style="margin:22px 0">
-      <div class="card">
-        <p class="eyebrow">Test A</p>
-        <h4>Predictive arrival time</h4>
-        <p style="margin-bottom:10px">A user level trial at 10%. A learned estimate using traffic, kitchen load and rider availability, against the current heuristic.</p>
-        <p class="xsmall muted">Orders within five minutes of the promise. Guardrails on refund cost and satisfaction.</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Test B</p>
-        <h4>Insulated delivery</h4>
-        <p style="margin-bottom:10px">A <strong>geographic cluster trial</strong> in two pilot zones, because equipping riders is a rider level change rather than a user level one.</p>
-        <p class="xsmall muted">Cold food complaints per thousand orders. Guardrails on equipment cost and compliance.</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Test C</p>
-        <h4>Refund before the complaint</h4>
-        <p style="margin-bottom:10px">An order level trial at 20%. An automatic refund when a delay beyond ten minutes is predicted, rather than waiting to be asked.</p>
-        <p class="xsmall muted">Issues resolved before the user reports them. Guardrails on refund cost and net promoter score.</p>
-      </div>
-    </div>
-
-    <div class="note">
-      <span class="note-k">Why test B is designed differently</span>
-      <p>
-        A rider carries orders for many users, so randomising insulated bags per user leaks the
-        treatment into the control group and the result means nothing. Cluster randomisation by
-        geography is the only design that gives a clean read. Getting this wrong is one of the more
-        common ways an experiment programme produces confident nonsense.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ COHORTS ============ -->
-<section class="section-sm" id="cohorts">
-  <div class="prose reveal">
-    <p class="eyebrow">The approach · Cohorts</p>
-    <h2 class="h2">Read the curve shape before proposing anything</h2>
-    <p>
-      The funnel says nothing about who leaks over months. Before writing a single cohort
-      intervention I classified each retention curve by shape, because the shape decides whether the
-      right move is to fix onboarding, invest in winning people back, or stop spending on that
-      group entirely.
+      I classified each retention curve by shape first, because the shape decides whether the right
+      move is to fix onboarding, invest in winning people back, or stop spending on that group
+      entirely. Six cohorts then collapsed into two patterns, which matters because six separate
+      cohort programmes is a roadmap nobody can staff.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Curve shapes</p>
       <h3>Four shapes, four different licences to act</h3>
@@ -322,52 +319,40 @@
     </div>
   </figure>
 
-  <div class="prose reveal">
-    <h3 class="h3">Six cohorts collapse into two patterns</h3>
-    <p>
-      Six separate cohort programmes is a roadmap nobody can staff. Collapsing them produced
-      something more useful than any single intervention, which is that retention here is not a
-      discount problem at all.
-    </p>
-
-    <div class="grid grid-2" style="margin:22px 0">
-      <div class="card">
-        <p class="eyebrow">Pattern 1</p>
-        <h4>Make the use case explicit</h4>
-        <p style="margin-bottom:12px">
-          Low frequency, single orderer and dinner dominant users churn because the app hands them
-          a generic experience built for the median customer.
-        </p>
-        <p style="margin-bottom:12px"><strong>Fix:</strong> named, occasion anchored experiences. Weekday lunch, made for one, Friday night, Sunday treat.</p>
-        <p class="xsmall muted">People hire this product for a job, and "feed me on a busy weekday" is a different job from "treat me on Friday". One generic feed serves neither.</p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Pattern 2</p>
-        <h4>Turn episodic into durable</h4>
-        <p style="margin-bottom:12px">
-          New users, discount driven users and subscribers all churn at transition moments. The end
-          of the honeymoon, the end of the promotion, the renewal date.
-        </p>
-        <p style="margin-bottom:12px"><strong>Fix:</strong> replace the episodic high with a durable reason. Habit, everyday value, visible ongoing value.</p>
-        <p class="xsmall muted">Episodic engagement is sugar. It spikes and then crashes. A no surge lunch at a fair price is durable. A flash sale is not.</p>
-      </div>
+  <div class="grid grid-2 reveal" style="margin-top:6px">
+    <div class="card">
+      <p class="eyebrow">Pattern 1</p>
+      <h4>Make the use case explicit</h4>
+      <p>
+        Low frequency, single orderer and dinner dominant users churn because the app hands them a
+        generic experience built for the median customer. The fix is named, occasion anchored
+        experiences. Weekday lunch, made for one, Friday night, Sunday treat.
+      </p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Pattern 2</p>
+      <h4>Turn episodic into durable</h4>
+      <p>
+        New users, discount driven users and subscribers all churn at transition moments, so at the
+        end of the honeymoon, the end of the promotion, or the renewal date. The fix is to replace
+        an episodic high with a durable reason to stay.
+      </p>
     </div>
   </div>
 </section>
 
-<!-- ============ PROTOTYPE ============ -->
-<section class="section-sm" id="prototype">
+<section class="section-sm" id="solution">
   <div class="prose reveal">
-    <p class="eyebrow">The solutions · The fixes on screen</p>
-    <h2 class="h2">What the two largest leaks look like once they are fixed</h2>
+    <p class="eyebrow">The solution</p>
+    <h2 class="h2">One north star, four key results, twelve initiatives</h2>
     <p>
-      Both of the biggest drops happen before anyone reaches a cart, which means they are decision
-      problems. These are the screens that carry the fixes, plus the delivery moment that turns a
-      complaint into a resolved issue.
+      Weekly Active Eaters is the north star because it factors cleanly into all four key results,
+      and each key result points at a specific leak. Both of the biggest drops happen before anyone
+      reaches a cart, so both are decision problems rather than checkout problems.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Prototype · Screen flow</p>
       <h3>Discovery, the menu, and the delivery nobody had to complain about</h3>
@@ -545,72 +530,137 @@
     </div>
   </figure>
 
+  <div class="btn-row reveal" style="margin-top:8px">
+    <a class="btn" href="https://haniyamjad.com/product-prototypes/zomato/" target="_blank" rel="noopener">Open prototype</a>
+  </div>
+</section>
+
+<section class="section-sm" id="execution">
   <div class="prose reveal">
-    <div class="btn-row">
-      <a class="btn" href="https://haniyamjad.com/product-prototypes/zomato/" target="_blank" rel="noopener">Open prototype</a>
+    <p class="eyebrow">The execution plan</p>
+    <h2 class="h2">How the twelve initiatives get sequenced</h2>
+    <p>
+      Twelve initiatives cannot ship at once, and the order is not set by which is easiest. It is
+      set by which leak is biggest and which experiment can be read cleanly.
+    </p>
+  </div>
+
+  <div class="rail reveal">
+    <div class="rail-item">
+      <span class="rail-n">1</span>
+      <div class="rail-b">
+        <h4>Replace every illustrative baseline with internal data</h4>
+        <p>
+          Every number in this strategy is a public benchmark. Day one of execution is replacing
+          them, because a target set against an industry estimate is not a target.
+        </p>
+        <span class="tag">Weeks 1 to 2</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">2</span>
+      <div class="rail-b">
+        <h4>Fix the two leaks above the cart first</h4>
+        <p>
+          Discovery and the restaurant page lose the most users and are owned by one team, so they
+          can move without waiting on operations or rider supply.
+        </p>
+        <span class="tag">Weeks 2 to 8</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">3</span>
+      <div class="rail-b">
+        <h4>Run the delivery stage as three experiments, not one</h4>
+        <p>
+          Predictive arrival time at user level, insulated delivery as a geographic cluster trial,
+          and refund before the complaint at order level. Bundling them would make the result
+          impossible to attribute.
+        </p>
+        <span class="tag">Weeks 4 to 14</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">4</span>
+      <div class="rail-b">
+        <h4>Ship cohort work only after the funnel work reads</h4>
+        <p>
+          Occasion anchored experiences change the same surfaces the funnel tests are measuring, so
+          launching both together would contaminate each other.
+        </p>
+        <span class="tag">Quarter 2</span>
+      </div>
+    </div>
+    <div class="rail-item is-leak">
+      <span class="rail-n">5</span>
+      <div class="rail-b">
+        <h4>Review notification load across every initiative</h4>
+        <p>
+          Three of the twelve ship into the same push channel. Somebody has to look across them
+          monthly rather than down at one, which is the review nobody schedules.
+        </p>
+        <span class="tag">Monthly</span>
+      </div>
     </div>
   </div>
 
-</section>
-
-<!-- ============ GUARDRAILS ============ -->
-<section class="section-sm" id="guardrails">
   <div class="prose reveal">
-    <p class="eyebrow">Guardrails</p>
-    <h2 class="h2">Hitting the north star through unhealthy means is failure</h2>
-    <p>
-      Weekly Active Eaters is gameable. You can buy it with discounts, buy it with advertising, or
-      extract it from riders and restaurant partners. Each of those wins the metric and loses the
-      business, so each one gets a named threshold agreed before anything ships. The six cover contribution margin per order, acquisition cost, rider earnings per hour, restaurant partner churn, push notification opt outs, and app store trust.
-    </p>
-
     <div class="note">
-      <span class="note-k">The one worth arguing hardest for</span>
+      <span class="note-k">Design</span>
       <p>
-        Notification hygiene. Three of the twelve initiatives ship into the same push channel, and
-        individually each looks reasonable. Together they can drive an opt out cascade that
-        permanently removes a surface the company cannot buy back. That risk is invisible unless
-        somebody looks across initiatives rather than down at one.
+        Insulated delivery is randomised by geography rather than by user. A rider carries orders
+        for many users, so randomising per user leaks the treatment into the control group and the
+        result means nothing. Getting this wrong is a common way an experiment programme produces
+        confident nonsense.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ============ TAKEAWAY ============ -->
+<section class="section-sm" id="measure">
+  <div class="prose reveal">
+    <p class="eyebrow">How we would know</p>
+    <h2 class="h2">Six guardrails, because the north star is gameable</h2>
+    <p>
+      Weekly Active Eaters can be bought with discounts, bought with advertising, or extracted from
+      riders and restaurant partners. Each of those wins the metric and loses the business, so each
+      gets a threshold agreed before anything ships.
+    </p>
+    <ul>
+      <li>Contribution margin per order</li>
+      <li>Customer acquisition cost</li>
+      <li>Rider earnings per hour</li>
+      <li>Restaurant partner churn</li>
+      <li>Push notification opt out rate</li>
+      <li>App store rating and trust</li>
+    </ul>
+    <p>
+      The one worth arguing hardest for is notification hygiene. Individually each of the three push
+      based initiatives looks reasonable. Together they can drive an opt out cascade that removes a
+      surface the company cannot buy back.
+    </p>
+  </div>
+</section>
+
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        A funnel exposes where users leak in the moment. A cohort exposes who leaks over months and
-        why. Objectives and key results are the operational answer to both. Every key result here
-        traces back to a named leak or a named drop, every initiative is measured as an outcome
-        rather than an activity count, and every hypothesis is written as an experiment somebody
-        could actually run on Monday.
-      </p>
-    </div>
-    <div class="note">
-      <span class="note-k">Stated assumptions</span>
-      <p>
-        Every baseline is an illustrative public benchmark drawn from investor disclosures, the
-        annual report and published industry estimates, pending replacement with internal data on
-        the first day of execution. Tier 1 is treated as a single market, although Bangalore,
-        Mumbai and Delhi differ materially in density and competitive intensity and a real
-        programme would separate them. Sample sizes would be set from observed variance rather than
-        assumed.
-      </p>
-    </div>
+    <h2 class="h2">What this case comes down to</h2>
     <p>
-      I would rather present a strategy that names what it does not know than one that quietly
-      launders industry estimates into the language of internal truth.
+      A funnel exposes where users leak in the moment. A cohort exposes who leaks over months.
+      Objectives and key results are the operational answer to both. Every key result here traces
+      back to a named leak or a named drop, and every hypothesis is written as an experiment
+      somebody could run on Monday.
     </p>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="vitafit-prd.html"><span class="dir">Previous</span><span class="ttl">VitaFit: the long game</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+    <div class="note">
+      <span class="note-k">Assumptions</span>
+      <p>
+        Every baseline is an illustrative public benchmark from investor disclosures and published
+        industry estimates, pending replacement with internal data on the first day of execution.
+        Tier 1 is treated as one market, although Bangalore, Mumbai and Delhi differ materially and
+        a real programme would separate them.
+      </p>
+    </div>
   </div>
 </section>
 
@@ -618,12 +668,12 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
+    <a href="#product">The product</a>
     <a href="#problem">The problem</a>
-    <a href="#work">The work</a>
-    <a href="#experiments">The tests</a>
-    <a href="#cohorts">Cohorts</a>
-    <a href="#prototype">The prototype</a>
-    <a href="#guardrails">Guardrails</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
+    <a href="#execution">Execution plan</a>
+    <a href="#measure">How we would know</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -654,6 +704,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

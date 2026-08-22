@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Zepto: closing the average order value gap | Haniya Amjad</title>
-<meta name="description" content="Zepto sits 157 rupees behind the category leader on average order value. The diagnosis, the five mechanics that close it, and what the app looks like afterwards.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="Zepto is an Indian ten minute grocery delivery app. It sits 157 rupees behind the category leader on average order value. The cause, the five mechanics that close it, and how it would ship.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#950edb; --c-d:#c05df5;">
 
@@ -25,83 +25,143 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">Z</span>Zepto</span>
-      <span class="tag">RCA</span>
+      <span class="tag">Root cause analysis</span>
       <span class="tag tag-plain">Problem framing</span>
+      <span class="tag tag-plain">Prioritisation</span>
+      <span class="tag tag-plain">Prototype</span>
     </div>
     <h1 class="h1">Closing the average order value gap</h1>
     <p class="lede">
-      Zepto sits ₹157 behind the category leader on average order value. The gap is not demand and
-      it is not brand. It is a stretch of the price range in which the product gives a shopper no
-      reason at all to add one more thing.
+      Zepto sits &#8377;157 behind the category leader on the size of an average order. The cause is a
+      stretch of the price range in which the app gives a shopper no reason to add anything more.
     </p>
   </div>
 </header>
-
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">₹540</span><span class="lbl">Zepto average order value</span><span class="sub">Against ₹660 at Blinkit and ₹697 at Instamart</span></div>
-      <div class="metric"><span class="num">63%</span><span class="lbl">Stop adding items at the free delivery line</span><span class="sub">The threshold acts as a finish line</span></div>
-      <div class="metric"><span class="num">77%</span><span class="lbl">Of surveyed orders come in under ₹500</span><span class="sub">Well below the platform average</span></div>
-      <div class="metric"><span class="num">₹149 to ₹1,000</span><span class="lbl">The range in which no incentive exists</span><span class="sub">Where almost every order actually lands</span></div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<!-- ============ PROBLEM ============ -->
+<section class="section-sm" id="product">
+  <div class="prose reveal">
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What Zepto is</h2>
+    <p>
+      Zepto is a grocery delivery app in India that promises to deliver in ten minutes. A shopper
+      adds milk, vegetables or shampoo to a cart and a rider brings it from a small neighbourhood
+      warehouse, with no shop to walk into and no delivery slot to pick. The category is called
+      quick commerce, and the two competitors are Blinkit, owned by Zomato, and Instamart, owned by
+      Swiggy. This case is about average order value, the rupee value of a typical order, which
+      matters because every delivery costs about the same to pick, pack and ride out no matter what
+      is in the bag.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>The gap, and the four steps to closing it</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 330" role="img" aria-label="Average order value: Zepto 540 rupees, Blinkit 660 rupees, Instamart 697 rupees. Below, the four steps of the case: the problem is a 157 rupee gap with nothing in the app asking for a second item, the approach was a 30 shopper survey across four cities, the solution is a basket ladder between 149 and 1,000 rupees, and the measure is a segment matched test in three cities.">
+        <text class="dg-t-hd" x="20" y="28">AVERAGE ORDER VALUE, RUPEES PER ORDER</text>
+
+        <text class="dg-t" x="20" y="68" style="font-size:12px">Zepto</text>
+        <rect class="dg-node-solid" x="170" y="50" width="449" height="26" rx="5"/>
+        <text class="dg-t-hd" x="631" y="69" style="font-size:14px">&#8377;540</text>
+
+        <text class="dg-t" x="20" y="104" style="font-size:12px">Blinkit</text>
+        <rect class="dg-node-accent" x="170" y="86" width="549" height="26" rx="5"/>
+        <text class="dg-t-hd" x="731" y="105" style="font-size:14px">&#8377;660</text>
+
+        <text class="dg-t" x="20" y="140" style="font-size:12px">Instamart</text>
+        <rect class="dg-node-accent" x="170" y="122" width="580" height="26" rx="5"/>
+        <text class="dg-t-hd" x="762" y="141" style="font-size:14px">&#8377;697</text>
+
+        <text class="dg-t-sm" x="20" y="168">The gap to the leader is &#8377;157 an order. Same ten minute promise, same cities, same customer.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 190 H880"/>
+
+        <rect class="dg-node" x="20" y="210" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="236">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="260">&#8377;157 behind the category</text>
+        <text class="dg-t-sm" x="36" y="275">leader. Nothing in the app</text>
+        <text class="dg-t-sm" x="36" y="290">asks for a second item.</text>
+
+        <path class="dg-arrow" d="M225 259 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="210" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="236">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="260">30 shoppers surveyed</text>
+        <text class="dg-t-sm" x="256" y="275">across 4 cities, plus what</text>
+        <text class="dg-t-sm" x="256" y="290">the competition publishes.</text>
+
+        <path class="dg-arrow" d="M445 259 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="210" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="236">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="260">A basket ladder in the</text>
+        <text class="dg-t-sm" x="476" y="275">empty stretch from &#8377;149</text>
+        <text class="dg-t-sm" x="476" y="290">to &#8377;1,000, plus four more.</text>
+
+        <path class="dg-arrow" d="M665 259 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="210" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="236">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="260">Segment matched test in</text>
+        <text class="dg-t-sm" x="696" y="275">3 cities. Ships on a &#8377;20 lift</text>
+        <text class="dg-t-sm" x="696" y="290">if order volume holds.</text>
+      </svg>
+    </div>
+    <figcaption class="diagram-note">
+      Competitor averages are as publicly reported. Zepto&#8217;s figure is the one we worked against.
+    </figcaption>
+  </figure>
+</section>
+
 <section class="section-sm" id="problem">
   <div class="prose reveal">
     <p class="eyebrow">The problem</p>
-    <h2 class="h2">Speed is the moat, and also the ceiling</h2>
+    <h2 class="h2">Baskets are small, and staying small</h2>
     <p>
-      Quick commerce economics are unforgiving. Every order carries a fixed cost in picking,
-      packing and rider time, so a platform delivering a ₹540 basket in ten minutes earns less per
-      delivery than one moving ₹697. Zepto's average order value has stayed flat while both
-      competitors grew.
+      Zepto&#8217;s average order value has stayed flat while both competitors grew theirs. The app is
+      not short of users or orders. It is short of a second item.
     </p>
-    <p>
-      Home, search and cart are all built for <strong>speed to checkout</strong> rather than
-      <strong>basket to completion</strong>. Once a shopper finds the item they came for, nothing
-      in the product asks them to continue, so the session ends exactly where the urgent need ended.
-    </p>
-
+    <ul>
+      <li>Home, search and cart are all built to reach checkout quickly, which is correct for a ten minute promise.</li>
+      <li>The side effect is that once a shopper finds what they came for, nothing asks them to continue.</li>
+      <li>The session ends where the urgent need ended.</li>
+    </ul>
     <div class="qa">
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Are we growing average order value, or growing revenue?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Average order value, without losing order volume. Raising the basket by pushing away small urgent orders reads as a win on the headline number and a loss on the business, so order volume becomes a guardrail rather than a target.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Are we growing average order value, or growing revenue?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Average order value, without losing order volume. Raising the basket by pushing away small urgent orders looks like a win on the headline number and a loss on the business, so order volume is a guardrail rather than a target.</span></div>
       </div>
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Is the ten minute promise negotiable?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">No, in which case every proposal has to fit inside it. A bigger basket takes longer to pick, so delivery time becomes a second guardrail rather than an acceptable trade.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Is the ten minute promise negotiable?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">No. Every proposal has to fit inside it, because a bigger basket takes longer to pick. Delivery time is the second guardrail.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ THE WORK ============ -->
-<section class="section-sm" id="work">
+<section class="section-sm" id="approach">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · Market and user research</p>
-    <h2 class="h2">What we did to find the answer</h2>
-    <p>
-      Two inputs. First, a read of what the competition publishes, because in this category they
-      say a great deal. Instamart attributes a 14% quarterly rise in average order value directly
-      to Maxxsaver, its basket building mechanic, which is close to a stated answer. Second, a
-      primary survey of 30 shoppers across Pune, Bengaluru, Chennai and Mumbai, which returned a
-      midpoint basket of ₹414 and confirmed the gap is structural rather than seasonal.
-    </p>
+    <p class="eyebrow">The approach</p>
+    <h2 class="h2">What we did to find the cause</h2>
+    <ul>
+      <li><strong>What competitors publish.</strong> Instamart credits a 14% quarterly rise in average order value directly to Maxxsaver, its basket building feature. That is close to a stated answer.</li>
+      <li><strong>A survey of 30 shoppers</strong> across Pune, Bengaluru, Chennai and Mumbai. Midpoint basket &#8377;414, which confirmed the gap is structural rather than seasonal.</li>
+    </ul>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Category scoreboard</p>
       <h3>Where Zepto sits, and what the other two do differently</h3>
@@ -137,28 +197,27 @@
   </figure>
 
   <div class="prose reveal">
+    <p>The survey agreed on three things.</p>
+    <ul>
+      <li>The free delivery line is treated as a finish line. 63% stop at or near it, and 40% stop after a single item.</li>
+      <li>Discovery is too generic to pull anyone sideways. 43% said they rarely try a new category.</li>
+      <li>The forgotten item only surfaces after payment, when the app has already closed the order.</li>
+    </ul>
     <p>
-      The survey agreed on three things. The free delivery line is treated as a finish line, with
-      63% stopping at or near it and 40% stopping after a single item. Discovery is too generic to
-      pull anyone sideways, with 43% saying they rarely try new categories. And the forgotten item
-      only surfaces after payment, at which point the product has already closed the door.
+      Grouping the responses gave five behavioural segments. Three of them, together 67% of the
+      sample, already respond to basket building offers. The highest spending segment does almost no
+      browsing beyond what it already buys, so discovery is the limit on Zepto&#8217;s best shoppers,
+      not loyalty.
     </p>
-    <p>
-      Clustering the responses produced five behavioural segments, of which three are already
-      responsive to basket building mechanics, together 67% of the sample. The read worth keeping
-      is that the highest value segment does almost no discovery beyond the products it already
-      buys, so the ceiling on Zepto's best shoppers is set entirely by discovery rather than by loyalty.
-    </p>
-
     <h3 class="h3">The diagnosis</h3>
     <p>
-      Plotting the incentive structure against where orders actually land makes the problem
-      obvious. Zepto rewards a shopper at ₹149 and then again at ₹1,000, and does nothing at all
-      in between.
+      Plotting where Zepto rewards a shopper against where orders actually land makes the cause
+      visible. There is an incentive at &#8377;149 and the next at &#8377;1,000, with nothing in between.
+      Almost every order lands in that gap.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · The core diagnosis</p>
       <h3>The dead zone</h3>
@@ -225,85 +284,87 @@
   </figure>
 
   <div class="prose reveal">
-    <div class="callout">
-      <p class="eyebrow">The reframe</p>
-      <p>
-        The right question is not "how do we make shoppers browse for longer", because that attacks
-        the moat. It is <strong>"how do we deepen baskets without breaking the ten minute
-        promise"</strong>, which is a question the product can actually answer.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ SOLUTIONS ============ -->
-<section class="section-sm" id="solutions">
-  <div class="prose reveal">
-    <p class="eyebrow">The solutions</p>
-    <h2 class="h2">Five mechanics, each removing one blocker</h2>
-
-    <div class="table-scroll">
-      <table>
-        <thead><tr><th style="width:22%">Mechanic</th><th>What it does</th><th style="width:24%">Blocker it removes</th></tr></thead>
-        <tbody>
-          <tr class="t-win">
-            <td><strong>Basket ladder</strong></td>
-            <td>Four visible slabs at ₹149, ₹299, ₹499 and ₹799, so a next step always exists. Collapsed for urgent sessions and expanded for browse sessions.</td>
-            <td class="xsmall muted">The ₹149 to ₹1,000 dead zone</td>
-          </tr>
-          <tr>
-            <td><strong>Pre cart discovery</strong></td>
-            <td>Intent routed cards on home, category and product pages. Recipe completion, adjacent category prompts, and a forgotten item widget.</td>
-            <td class="xsmall muted">Discovery too generic to pull anyone sideways</td>
-          </tr>
-          <tr>
-            <td><strong>Cart layer</strong></td>
-            <td>Three transparent nudges in the cart: an always on value line, real event based scarcity, and a standard offers lane.</td>
-            <td class="xsmall muted">The cart behaves like a receipt, not a shelf</td>
-          </tr>
-          <tr>
-            <td><strong>Post cart recovery</strong></td>
-            <td>A 60 to 120 second window after checkout asking whether anything was forgotten, with one tap adds while the delivery slot is still held.</td>
-            <td class="xsmall muted">No way back in after payment</td>
-          </tr>
-          <tr>
-            <td><strong>Intent ranked pairs</strong></td>
-            <td>Frequently bought together pairs on product and cart pages, ranked by current intent rather than by overall popularity.</td>
-            <td class="xsmall muted">Rewards attach to items, never to the basket</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
     <p>
-      The basket ladder ships first, and not because it scores well. It is the layer every other
-      mechanic points at. Discovery, cart nudges and recovery all need a visible next step to exist
-      before they have anything to say.
+      So the question is not how to make shoppers browse for longer, which works against the ten
+      minute promise. It is how to deepen a basket without breaking it.
     </p>
+  </div>
+</section>
 
+<section class="section-sm" id="solution">
+  <div class="prose reveal">
+    <p class="eyebrow">The solution</p>
+    <h2 class="h2">Five mechanics, each removing one blocker</h2>
+  </div>
+
+  <div class="table-scroll reveal">
+    <table>
+      <thead>
+        <tr><th>Mechanic</th><th>Blocker it removes</th><th>Effort</th><th>Priority</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t-win">
+          <td><strong>Basket ladder</strong><br><span class="xsmall muted">Visible next reward at &#8377;299, &#8377;499 and &#8377;799</span></td>
+          <td>No reason to add a second item</td>
+          <td class="t-num">Medium</td>
+          <td>Must have</td>
+        </tr>
+        <tr>
+          <td><strong>Cart nudges</strong><br><span class="xsmall muted">You are &#8377;46 from the next slab</span></td>
+          <td>Shopper cannot see how close they are</td>
+          <td class="t-num">Low</td>
+          <td>Must have</td>
+        </tr>
+        <tr>
+          <td><strong>Bought together</strong><br><span class="xsmall muted">Complements from the same dark store</span></td>
+          <td>Discovery too generic to be useful</td>
+          <td class="t-num">Medium</td>
+          <td>Should have</td>
+        </tr>
+        <tr>
+          <td><strong>Post order window</strong><br><span class="xsmall muted">Add to the same delivery for a few minutes</span></td>
+          <td>Forgotten item surfaces too late</td>
+          <td class="t-num">High</td>
+          <td>Should have</td>
+        </tr>
+        <tr>
+          <td><strong>Restock reminders</strong><br><span class="xsmall muted">Timed to a household&#8217;s own cycle</span></td>
+          <td>Repeat items rebought one at a time</td>
+          <td class="t-num">Medium</td>
+          <td>Could have</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose reveal">
+    <p>
+      The basket ladder ships first, not because it scores best but because the other four point at
+      it. Nudges, discovery and recovery all need a visible next step to exist before they have
+      anything to say.
+    </p>
     <div class="note">
-      <span class="note-k">Design constraint</span>
+      <span class="note-k">Constraint</span>
       <p>
-        No dark patterns and no fabricated urgency. Scarcity messaging is only used where a real
-        event backs it, because a quick commerce shopper who catches the product lying once has
-        very little switching cost.
+        No dark patterns and no invented urgency. Scarcity messaging is used only where a real event
+        backs it, because a shopper in this category who catches the app being untruthful once has
+        almost no cost to switching.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ============ PROTOTYPE ============ -->
 <section class="section-sm" id="prototype">
   <div class="prose reveal">
     <p class="eyebrow">The prototype</p>
     <h2 class="h2">What the app looks like once this ships</h2>
     <p>
-      The same cart, the same two items, the same ₹312. The only thing that changes is whether the
+      The same cart, the same two items, the same &#8377;312. The only thing that changes is whether the
       screen gives the shopper somewhere to go next.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Prototype · Screen flow</p>
       <h3>Before, after, and the two new moments</h3>
@@ -526,59 +587,145 @@
     </figcaption>
   </figure>
 
+  <div class="btn-row reveal" style="margin-top:8px">
+    <a class="btn" href="https://haniyamjad.com/product-prototypes/zepto/" target="_blank" rel="noopener">Open prototype</a>
+  </div>
+</section>
+
+<section class="section-sm" id="execution">
   <div class="prose reveal">
-    <div class="btn-row">
-      <a class="btn" href="https://haniyamjad.com/product-prototypes/zepto/" target="_blank" rel="noopener">Open prototype</a>
+    <p class="eyebrow">The execution plan</p>
+    <h2 class="h2">How this would actually ship</h2>
+    <p>
+      The ladder is a pricing and operations change before it is a screen, so the order of work is
+      set by what has to be true before the interface can promise a reward honestly.
+    </p>
+  </div>
+
+  <div class="rail reveal">
+    <div class="rail-item">
+      <span class="rail-n">1</span>
+      <div class="rail-b">
+        <h4>Set the slabs against real margin</h4>
+        <p>
+          Finance and the category team fix the reward at each slab so a bigger basket is worth more
+          than the discount that produced it. Nothing else is safe to build until this is settled.
+        </p>
+        <span class="tag">Weeks 1 to 2</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">2</span>
+      <div class="rail-b">
+        <h4>Check the dark stores can carry it</h4>
+        <p>
+          Operations confirm the complements the ladder points at are stocked in the same dark store.
+          Otherwise the app recommends things it cannot deliver in ten minutes.
+        </p>
+        <span class="tag">Weeks 1 to 3</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">3</span>
+      <div class="rail-b">
+        <h4>Build the ladder and the cart nudge together</h4>
+        <p>
+          One sprint. Both read the same piece of state, the distance from the basket to the next
+          slab, so splitting them across releases would mean building it twice.
+        </p>
+        <span class="tag">Weeks 3 to 6</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">4</span>
+      <div class="rail-b">
+        <h4>Run the segment matched test</h4>
+        <p>
+          Three cities, exposure split inside each behavioural segment. Two weeks to read, guardrails
+          checked daily.
+        </p>
+        <span class="tag">Weeks 6 to 8</span>
+      </div>
+    </div>
+    <div class="rail-item is-leak">
+      <span class="rail-n">5</span>
+      <div class="rail-b">
+        <h4>Decide, then queue the rest</h4>
+        <p>
+          Ship, hold or kill on the numbers below. The remaining four are only worth building on top
+          of a ladder that has already proved it moves a basket.
+        </p>
+        <span class="tag">Week 9</span>
+      </div>
     </div>
   </div>
-
 </section>
 
-<!-- ============ MEASUREMENT ============ -->
-<section class="section-sm" id="measurement">
+<section class="section-sm" id="measure">
   <div class="prose reveal">
     <p class="eyebrow">How we would know</p>
-    <h2 class="h2">Three numbers, three guardrails</h2>
+    <h2 class="h2">Three numbers, two guardrails</h2>
     <p>
-      Segment targeted exposure across three cities with a matched in segment control rather than
-      a blanket split, because baskets range from ₹311 to ₹575 across the five segments and random
-      assignment would let segment mix masquerade as a treatment effect.
+      Baskets range from &#8377;311 to &#8377;575 across the five segments, so a random split would let
+      segment mix look like a treatment effect. Exposure is split inside each segment instead.
     </p>
+  </div>
 
+  <div class="table-scroll reveal">
+    <table>
+      <thead>
+        <tr><th>What we watch</th><th>Why it is on the list</th><th>Line</th></tr>
+      </thead>
+      <tbody>
+        <tr class="t-win">
+          <td><strong>Average order value</strong><br><span class="xsmall muted">Primary</span></td>
+          <td>The number the whole case is about</td>
+          <td class="t-num">Ship on +&#8377;30</td>
+        </tr>
+        <tr>
+          <td><strong>Orders per user per week</strong><br><span class="xsmall muted">Guardrail</span></td>
+          <td>A bigger basket must not come from fewer orders</td>
+          <td class="t-num">No drop</td>
+        </tr>
+        <tr>
+          <td><strong>Delivery time</strong><br><span class="xsmall muted">Guardrail</span></td>
+          <td>A bigger basket takes longer to pick</td>
+          <td class="t-num">Under 10 min</td>
+        </tr>
+        <tr>
+          <td><strong>Slab completion rate</strong><br><span class="xsmall muted">Diagnostic</span></td>
+          <td>Tells us whether the ladder itself is the thing working</td>
+          <td class="t-num">Read only</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prose reveal">
     <p>
-      The test is powered to detect a ₹20 lift, ships on a ₹30 lift with no guardrail breach, and
-      is killed by two consecutive guardrail failures or a negative primary metric at day 14. The
-      phase one target is a population average order value of ₹575 to ₹595.
+      Powered to detect a &#8377;20 lift, ships on &#8377;30 with no guardrail breach, killed by two
+      consecutive guardrail failures or a negative primary metric at day 14. Phase one target is
+      &#8377;575 to &#8377;595.
     </p>
   </div>
 </section>
 
-<!-- ============ TAKEAWAY ============ -->
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        Protect the ten minute moat, but give the shopper a reason to keep building once the first
-        need is solved. The gap to the category leader is not a discount the product forgot to
-        offer. It is 850 rupees of silence in the middle of the price range, and the fix is simply
-        to put something there.
-      </p>
-    </div>
+    <h2 class="h2">What this case comes down to</h2>
+    <p>
+      Protect the ten minute promise, but give the shopper a reason to keep building once the first
+      need is met. The gap to the category leader is not a missing discount. It is a stretch of 850
+      rupees in which the app says nothing, and the fix is to put something there.
+    </p>
     <div class="note">
       <span class="note-k">Attribution</span>
       <p>
-        This was submitted as a group assignment. The framing, research synthesis, prioritisation
-        and experiment design presented here are the parts I worked on and can defend in detail.
+        This was submitted as a group assignment. The framing, research synthesis, prioritisation and
+        experiment design shown here are the parts I worked on and can defend in detail.
       </p>
     </div>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="uber-pickup-experience.html"><span class="dir">Previous</span><span class="ttl">Uber India: the last 200 meters</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
   </div>
 </section>
 
@@ -586,11 +733,13 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
+    <a href="#product">The product</a>
     <a href="#problem">The problem</a>
-    <a href="#work">The work</a>
-    <a href="#solutions">The solutions</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
     <a href="#prototype">The prototype</a>
-    <a href="#measurement">How we would know</a>
+    <a href="#execution">Execution plan</a>
+    <a href="#measure">How we would know</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -621,6 +770,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

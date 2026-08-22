@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sizing the pickup problem | Haniya Amjad</title>
-<meta name="description" content="How much revenue is actually at stake in ride hailing pickup friction in India. A market sizing built two ways, cross checked against each other, and stress tested against its own assumptions.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="A market sizing for ride hailing pickup failure in India. A claim of 165 crore rupees a year, built two independent ways and stressed until it produces a range.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#6d5bd0; --c-d:#a79bff;">
 
@@ -25,80 +25,131 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">U</span>Uber India</span>
       <span class="tag">Guesstimates</span>
       <span class="tag tag-plain">Market sizing</span>
+      <span class="tag tag-plain">Cross check</span>
+      <span class="tag tag-plain">Sensitivity</span>
     </div>
     <h1 class="h1">Sizing the pickup problem</h1>
     <p class="lede">
-      Every product proposal eventually meets the question of whether it is worth doing. This is
-      the arithmetic behind a claim of ₹165 crore a year, built two separate ways so the two can
-      be checked against each other.
+      Every product proposal eventually meets the question of whether it is worth doing. This is the
+      arithmetic behind a claim of &#8377;165 crore a year, built two separate ways so the two can be
+      checked against each other.
     </p>
   </div>
 </header>
-
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">₹12,400 Cr</span><span class="lbl">Total market affected by pickup friction</span><span class="sub">All ride hailing in India, per year</span></div>
-      <div class="metric"><span class="num">₹3,720 Cr</span><span class="lbl">The share of that sitting inside one operator</span><span class="sub">Serviceable available market</span></div>
-      <div class="metric"><span class="num">₹165 Cr</span><span class="lbl">Realistically recoverable in twelve months</span><span class="sub">Six Tier 1 cities</span></div>
-      <div class="metric"><span class="num">₹69 to ₹345 Cr</span><span class="lbl">The honest range once assumptions are stressed</span><span class="sub">A factor of five, which is worth saying out loud</span></div>
-    </div>
-  </div>
-</section>
 
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<!-- ============ QUESTION ============ -->
-<section class="section-sm" id="question">
+<section class="section-sm" id="product">
+  <div class="prose reveal">
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What is being sized</h2>
+    <p>
+      Ride hailing in India means apps like Uber, Ola and Rapido, where a rider books a car or an
+      autorickshaw from a phone and a nearby driver comes to collect them. This case sizes one
+      specific problem inside that market, which is the money lost when the driver cannot find the
+      rider at pickup. A guesstimate is an estimate built from public figures and stated assumptions
+      rather than from company data, and what it tests is whether every step can be defended.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>The number, and how it was built</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 332" role="img" aria-label="The total market affected by pickup friction is 12,400 crore rupees, of which 3,720 crore sits inside one operator, of which 165 crore is recoverable within twelve months across six Tier 1 cities. Stressing the two weakest assumptions moves the answer between 69 and 345 crore. Below, the four steps: the question is whether the problem is big enough to fund, the approach states five assumptions and builds the estimate twice, the answer is 165 crore, and the stress test shows the decision holds across the range.">
+        <text class="dg-t-hd" x="20" y="28">FROM THE WHOLE MARKET DOWN TO ONE YEAR</text>
+
+        <rect class="dg-node-accent" x="20" y="46" width="740" height="28" rx="5"/>
+        <text class="dg-t" x="34" y="65" style="font-size:12px">&#8377;12,400 Cr  &#183;  all ride hailing affected by pickup friction</text>
+
+        <rect class="dg-node-accent" x="20" y="82" width="222" height="28" rx="5"/>
+        <text class="dg-t" x="34" y="101" style="font-size:12px">&#8377;3,720 Cr  &#183;  one operator</text>
+
+        <rect class="dg-node-solid" x="20" y="118" width="99" height="28" rx="5"/>
+        <text class="dg-t-inv" x="34" y="137" style="font-size:12px">&#8377;165 Cr</text>
+        <text class="dg-t-sm" x="131" y="137">recoverable in twelve months across six Tier 1 cities</text>
+
+        <text class="dg-t-sm" x="20" y="170">Stress the two weakest assumptions and the answer moves between &#8377;69 Cr and &#8377;345 Cr, a factor of five.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 192 H880"/>
+
+        <rect class="dg-node" x="20" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="238">1 &#183; QUESTION</text>
+        <text class="dg-t-sm" x="36" y="262">Is the pickup problem big</text>
+        <text class="dg-t-sm" x="36" y="277">enough to fund? Revenue at</text>
+        <text class="dg-t-sm" x="36" y="292">risk, not total revenue.</text>
+        <path class="dg-arrow" d="M225 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="238">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="262">Five assumptions stated up</text>
+        <text class="dg-t-sm" x="256" y="277">front, then built twice by</text>
+        <text class="dg-t-sm" x="256" y="292">two independent routes.</text>
+        <path class="dg-arrow" d="M445 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="238">3 &#183; ANSWER</text>
+        <text class="dg-t-sm" x="476" y="262">&#8377;165 Cr a year recoverable.</text>
+        <text class="dg-t-sm" x="476" y="277">The two routes land 26%</text>
+        <text class="dg-t-sm" x="476" y="292">apart, which is healthy.</text>
+        <path class="dg-arrow" d="M665 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="238">4 &#183; STRESS TEST</text>
+        <text class="dg-t-sm" x="696" y="262">&#8377;69 Cr to &#8377;345 Cr. Even the</text>
+        <text class="dg-t-sm" x="696" y="277">pessimistic case funds the</text>
+        <text class="dg-t-sm" x="696" y="292">work, so the decision holds.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<section class="section-sm" id="problem">
   <div class="prose reveal">
     <p class="eyebrow">The question</p>
-    <h2 class="h3" style="margin-bottom:14px">
-      How much money is actually at stake in fixing ride hailing pickup in India?
-    </h2>
+    <h2 class="h2">How much money is at stake in fixing pickup?</h2>
     <p>
       This estimate sits underneath a research led product case, in which 73% of riders reported
       difficulty finding their driver and 17% said they cancel and switch app when it happens. The
-      research established that the problem is real. This is the separate question of whether it is
-      large enough to fund.
+      research established the problem is real. This is the separate question of whether it is large
+      enough to fund.
     </p>
-
     <div class="qa">
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">What exactly are we sizing?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Revenue at risk rather than total revenue. A ride that completes despite a painful pickup still earns money today, so counting the whole market would be dishonest. The relevant number is the share of bookings that are lost or degraded because of pickup.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">What exactly are we sizing?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Revenue at risk, not total revenue. A ride that completes despite a painful pickup still earns money today, so counting the whole market would be dishonest.</span></div>
       </div>
       <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Over what period?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Annual, and recoverable within twelve months of shipping. A number that only arrives in year four cannot be used to argue for headcount now.</span></div>
-      </div>
-      <div class="qa-row">
-        <div class="qa-q"><span class="qa-who">Q</span><span class="qa-txt">Top down or bottom up?</span></div>
-        <div class="qa-a"><span class="qa-who">A</span><span class="qa-txt">Both, deliberately. A single chain of multiplications is impossible to sanity check, because there is nothing to compare the answer against. Two independent routes give you one.</span></div>
+        <div class="qa-q"><span class="qa-who">Asked</span><span class="qa-txt">Top down or bottom up?</span></div>
+        <div class="qa-a"><span class="qa-who">Answer</span><span class="qa-txt">Both, deliberately. A single chain of multiplications cannot be sanity checked, because there is nothing to compare the answer against. Two independent routes give you that.</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ ASSUMPTIONS ============ -->
 <section class="section-sm" id="assumptions">
   <div class="prose reveal">
-    <p class="eyebrow">Assumptions</p>
-    <h2 class="h2">Stated first, so they can be attacked</h2>
+    <p class="eyebrow">The approach</p>
+    <h2 class="h2">Assumptions stated first, so they can be attacked</h2>
     <p>
-      The estimate is only as good as these five inputs, and the honest thing is to list them
-      before the arithmetic rather than bury them in a footnote.
+      The estimate is only as good as these five inputs, so they go before the arithmetic rather than
+      into a footnote.
     </p>
+  </div>
 
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:32%">Input</th><th>Value used</th><th style="width:34%">Where it comes from</th></tr></thead>
         <tbody>
@@ -111,17 +162,14 @@
         </tbody>
       </table>
     </div>
-  </div>
 </section>
 
-<!-- ============ ROUTE 1 ============ -->
-<section class="section-sm" id="topdown">
+<section class="section-sm" id="routes">
   <div class="prose reveal">
-    <p class="eyebrow">Route one</p>
-    <h2 class="h2">Top down, from the market inwards</h2>
+    <h3 class="h3">Route one, top down from the market inwards</h3>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · The chain</p>
       <h3>Five steps from a market to a number you could fund</h3>
@@ -163,21 +211,17 @@
       </svg>
     </div>
   </figure>
-</section>
 
-<!-- ============ ROUTE 2 ============ -->
-<section class="section-sm" id="bottomup">
   <div class="prose reveal">
-    <p class="eyebrow">Route two</p>
-    <h2 class="h2">Bottom up, from rides outwards</h2>
+    <h3 class="h3">Route two, bottom up from rides outwards</h3>
     <p>
       The second route never touches the published market figure. It starts from how many rides
-      happen and what one costs, which means it can fail independently, and that is the entire
-      point of running it.
+      happen and what one costs, which means it can fail independently. That is the entire point of
+      running it.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Cross check</p>
       <h3>Two routes, and how far apart they land</h3>
@@ -218,30 +262,26 @@
   </figure>
 
   <div class="prose reveal">
-    <div class="callout">
-      <p class="eyebrow">What the gap tells you</p>
-      <p>
-        The bottom up route lands lower, which is what you would expect, since the average fare of
-        ₹180 reflects an auto heavy mix and the published market figure includes higher value
-        segments. The two disagreeing by a quarter is useful information. Two routes agreeing
-        exactly would suggest one of them was quietly derived from the other.
-      </p>
-    </div>
+    <p>
+      The bottom up route lands lower, which is expected, since the average fare of &#8377;180 reflects
+      an auto heavy mix while the published market figure includes higher value segments. The two
+      disagreeing by a quarter is useful information. Two routes agreeing exactly would suggest one
+      was quietly derived from the other.
+    </p>
   </div>
 </section>
 
-<!-- ============ SENSITIVITY ============ -->
-<section class="section-sm" id="sensitivity">
+<section class="section-sm" id="stress">
   <div class="prose reveal">
     <p class="eyebrow">Stress test</p>
     <h2 class="h2">What the answer looks like when the assumptions are wrong</h2>
     <p>
-      A single number invites false confidence. Flexing the two weakest inputs, the share of
-      bookings affected and the share recoverable in year one, produces a range rather than a point.
+      A single number invites false confidence. Flexing the two weakest inputs, the share of bookings
+      affected and the share recoverable in year one, produces a range rather than a point.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Sensitivity</p>
       <h3>The honest range is a factor of five</h3>
@@ -283,42 +323,37 @@
   <div class="prose reveal">
     <p>
       That last line is the useful one. The point of a sizing is rarely the number itself. It is
-      whether the decision changes across the plausible range. Here it does not, since even the
-      pessimistic case comfortably funds the work, which means the argument can move on from
-      whether to build to what to build first.
+      whether the decision changes across the plausible range. Here it does not, because even the
+      pessimistic case comfortably funds the work, which means the argument can move on from whether
+      to build to what to build first.
     </p>
   </div>
 </section>
 
-<!-- ============ TAKEAWAY ============ -->
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        A guesstimate is not a prediction. It is a structured argument with every joint exposed, so
-        that anyone who disagrees can point at the specific assumption they would change rather
-        than rejecting the conclusion wholesale. Three habits carry it: state the inputs before the
-        arithmetic, build it twice by independent routes, and publish the range rather than the point.
-      </p>
-    </div>
+    <h2 class="h2">What this case comes down to</h2>
+    <p>
+      A guesstimate is not a prediction. It is a structured argument with every joint exposed, so
+      anyone who disagrees can point at the specific assumption they would change rather than
+      rejecting the conclusion wholesale. Three habits carry it.
+    </p>
+    <ul>
+      <li>State the inputs before the arithmetic.</li>
+      <li>Build it twice, by routes that can fail independently.</li>
+      <li>Publish the range rather than the point.</li>
+    </ul>
     <div class="note">
       <span class="note-k">Honesty</span>
       <p>
-        Every figure here is built from published market estimates and a survey of 41 riders, not
-        from any operator's internal data. The headline results of ₹12,400 crore, ₹3,720 crore and
-        ₹165 crore come from the original analysis. The step by step derivation, the bottom up cross
-        check and the sensitivity range were reconstructed to show the method, so treat the working
-        as an illustration of how the number can be defended rather than as a company forecast.
+        Every figure here is built from published market estimates and a survey of 41 riders, not from
+        any operator&#8217;s internal data. The headline results come from the original analysis. The
+        step by step derivation, the bottom up cross check and the sensitivity range were
+        reconstructed to show the method, so treat the working as an illustration of how the number
+        can be defended rather than as a company forecast.
       </p>
     </div>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="uber-pickup-experience.html"><span class="dir">The research behind it</span><span class="ttl">Uber India: the last 200 meters</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
   </div>
 </section>
 
@@ -326,11 +361,11 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
-    <a href="#question">The question</a>
+    <a href="#product">What is sized</a>
+    <a href="#problem">The question</a>
     <a href="#assumptions">Assumptions</a>
-    <a href="#topdown">Top down</a>
-    <a href="#bottomup">Bottom up</a>
-    <a href="#sensitivity">Stress test</a>
+    <a href="#routes">Two routes</a>
+    <a href="#stress">Stress test</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -361,6 +396,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>

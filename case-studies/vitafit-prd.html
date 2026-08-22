@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>VitaFit: the long game | Haniya Amjad</title>
-<meta name="description" content="A product requirements document for a fitness platform losing users to trainer rotation and demotivating leaderboards. Two features, a fair cohort model, and a hybrid online to offline loop.">
-<link rel="stylesheet" href="../assets/style.css?v=19">
+<meta name="description" content="VitaFit is a subscription fitness platform. Day 30 retention is 18% against a 30 to 35% benchmark. A requirements document covering a fitness passport, peer ranked leaderboards and offline chapters.">
+<link rel="stylesheet" href="../assets/style.css?v=21">
 </head>
 <body class="case-scope" style="--c-l:#0d9488; --c-d:#2dd4bf;">
 
@@ -25,13 +25,14 @@
 </nav>
 
 <main id="main">
-
 <header class="case-hero">
   <div class="wrap">
     <div class="case-brand">
       <span class="co"><span class="logo-mark" aria-hidden="true">V</span>VitaFit</span>
       <span class="tag">Product design</span>
       <span class="tag tag-plain">PRD</span>
+      <span class="tag tag-plain">Feature design</span>
+      <span class="tag tag-plain">Clickable prototype</span>
     </div>
     <h1 class="h1">The long game</h1>
     <p class="lede">
@@ -42,76 +43,134 @@
   </div>
 </header>
 
-<section class="section-sm">
-  <div class="wrap">
-    <div class="metrics reveal">
-      <div class="metric"><span class="num">18%</span><span class="lbl">Day 30 retention</span><span class="sub">Against an industry benchmark of 30 to 35%</span></div>
-      <div class="metric"><span class="num">45%</span><span class="lbl">Fall in repeat session rate from week 1 to week 4</span><span class="sub">The drop happens inside the first month</span></div>
-      <div class="metric"><span class="num">Under 5%</span><span class="lbl">Trainer favouriting rate</span><span class="sub">Almost nobody forms a bond with a coach</span></div>
-      <div class="metric"><span class="num">Zero</span><span class="lbl">Offline community presence</span><span class="sub">While the category leader runs events every weekend</span></div>
-    </div>
-  </div>
-</section>
-
 <div class="wrap">
   <div class="case-layout">
   <div class="case-main">
 
-<!-- ============ PROBLEM ============ -->
-<section class="section-sm" id="problem">
+<section class="section-sm" id="product">
   <div class="prose reveal">
-    <p class="eyebrow">The problem</p>
-    <h2 class="h2">Two failures that produce the same silence</h2>
-
-    <div class="grid grid-2" style="margin:22px 0">
-      <div class="card">
-        <p class="eyebrow">Failure 1</p>
-        <h4>Motivation fades</h4>
-        <p>
-          A single open leaderboard means most people are permanently near the bottom of it. A 45
-          year old homemaker cannot compete with a 25 year old athlete, so the feature that is
-          supposed to motivate her is the one telling her she does not belong. Progress becomes
-          invisible, and invisible progress stops being pursued.
-        </p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Failure 2</p>
-        <h4>No bond with a trainer</h4>
-        <p>
-          Trainers rotate, so Trainer A has no idea what Trainer B taught. The user re-explains
-          their injury, their goal and their limits every single session. What should be a
-          relationship reads as a transaction, and a transaction has nothing holding it together.
-        </p>
-      </div>
-    </div>
-
-    <div class="quote">
-      <p>"The trainer did not know about my injury." "It felt impersonal." "I quit after my favourite trainer left." "The platform feels too automated."</p>
-      <cite>Customer support verbatims, quoted in the requirements document</cite>
-    </div>
-
+    <p class="eyebrow">The product</p>
+    <h2 class="h2">What VitaFit is</h2>
     <p>
-      The comparison that made the case internally was Nike Run Club, which sustains retention
-      above 80% on streaks and coaching alone. The gap is not effort from users. It is that
-      nothing in the product remembers them between sessions.
+      VitaFit is a fitness platform where members book classes and personal training sessions, either
+      at a gym or online, and track their progress in an app. It runs on a subscription, so the
+      business depends on people continuing to book after the first month rather than on selling the
+      first month. It sits in the same Indian market as cult.fit, and this case is a requirements
+      document written for the teams that would build the fix.
     </p>
   </div>
 </section>
 
-<!-- ============ THE WORK ============ -->
-<section class="section-sm" id="work">
+<section class="section-sm" id="glance">
+  <figure class="diagram reveal">
+    <div class="diagram-head">
+      <p class="eyebrow">Case at a glance</p>
+      <h3>The retention gap, and the four steps of the case</h3>
+    </div>
+    <div class="diagram-body">
+      <svg viewBox="0 0 900 332" role="img" aria-label="Day 30 retention is 18 percent at VitaFit against an industry benchmark of 30 to 35 percent and over 80 percent at Nike Run Club. Below, the four steps of the case: the problem is rotating trainers and unwinnable leaderboards, the approach combined support verbatims with a competitor read, the solution is a fitness passport with peer ranked leaderboards and offline chapters, and the measure is weekly repeat session rate validated manually first.">
+        <text class="dg-t-hd" x="20" y="28">DAY 30 RETENTION, AGAINST THE CATEGORY</text>
+
+        <text class="dg-t" x="20" y="66" style="font-size:12px">VitaFit today</text>
+        <rect class="dg-node-solid" x="200" y="48" width="132" height="26" rx="5"/>
+        <text class="dg-t-hd" x="344" y="67" style="font-size:14px">18%</text>
+
+        <text class="dg-t" x="20" y="102" style="font-size:12px">Industry benchmark</text>
+        <rect class="dg-node-accent" x="200" y="84" width="257" height="26" rx="5"/>
+        <text class="dg-t-hd" x="469" y="103" style="font-size:14px">30 to 35%</text>
+
+        <text class="dg-t" x="20" y="138" style="font-size:12px">Nike Run Club</text>
+        <rect class="dg-node-accent" x="200" y="120" width="588" height="26" rx="5"/>
+        <text class="dg-t-hd" x="800" y="139" style="font-size:14px">80%+</text>
+
+        <text class="dg-t-sm" x="20" y="170">Repeat session rate falls 45% between week 1 and week 4. Trainer favouriting sits under 5%, so almost nobody forms a bond.</text>
+
+        <path class="dg-line" fill="none" stroke-width="1" d="M20 192 H880"/>
+
+        <rect class="dg-node" x="20" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="36" y="238">1 &#183; PROBLEM</text>
+        <text class="dg-t-sm" x="36" y="262">Trainers rotate and nobody</text>
+        <text class="dg-t-sm" x="36" y="277">remembers you. Leaderboards</text>
+        <text class="dg-t-sm" x="36" y="292">nobody casual can win.</text>
+        <path class="dg-arrow" d="M225 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="240" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="256" y="238">2 &#183; APPROACH</text>
+        <text class="dg-t-sm" x="256" y="262">Support verbatims plus a</text>
+        <text class="dg-t-sm" x="256" y="277">competitor read. Everyone</text>
+        <text class="dg-t-sm" x="256" y="292">owns one dimension of three.</text>
+        <path class="dg-arrow" d="M445 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node-accent" x="460" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="476" y="238">3 &#183; SOLUTION</text>
+        <text class="dg-t-sm" x="476" y="262">A passport that follows the</text>
+        <text class="dg-t-sm" x="476" y="277">user, peer ranked boards,</text>
+        <text class="dg-t-sm" x="476" y="292">and offline chapters.</text>
+        <path class="dg-arrow" d="M665 261 l11 6 l-11 6 z"/>
+
+        <rect class="dg-node" x="680" y="212" width="199" height="110" rx="10"/>
+        <text class="dg-t-acc" x="696" y="238">4 &#183; MEASURE</text>
+        <text class="dg-t-sm" x="696" y="262">Weekly repeat session rate,</text>
+        <text class="dg-t-sm" x="696" y="277">validated by hand before</text>
+        <text class="dg-t-sm" x="696" y="292">anything gets built.</text>
+      </svg>
+    </div>
+  </figure>
+</section>
+
+<section class="section-sm" id="problem">
   <div class="prose reveal">
-    <p class="eyebrow">The approach · The competitive gap</p>
-    <h2 class="h2">Every competitor owns one dimension, and nobody owns all three</h2>
-    <p>
-      Cult.fit has proven that offline community works at scale in India, but its classes are not
-      coach bonded. Strava has the stickiest competition mechanics in fitness, but open
-      leaderboards actively demotivate casual users and it has no trainer layer at all.
-      HealthifyMe leads on AI nutrition, but its coach chat is transactional and it runs no events.
-    </p>
+    <p class="eyebrow">The problem</p>
+    <h2 class="h2">Two failures that produce the same silence</h2>
   </div>
 
-  <figure class="diagram reveal">
+  <div class="grid grid-2 reveal">
+    <div class="card">
+      <p class="eyebrow">Failure 1</p>
+      <h4>Motivation fades</h4>
+      <p>
+        A single open leaderboard means most people are permanently near the bottom of it. A 45 year
+        old homemaker cannot compete with a 25 year old athlete, so the feature meant to motivate her
+        is the one telling her she does not belong. Progress becomes invisible, and invisible progress
+        stops being pursued.
+      </p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Failure 2</p>
+      <h4>No bond with a trainer</h4>
+      <p>
+        Trainers rotate, so Trainer A has no idea what Trainer B taught. The user re-explains their
+        injury, their goal and their limits every session. What should be a relationship reads as a
+        transaction, and a transaction has nothing holding it together.
+      </p>
+    </div>
+  </div>
+
+  <div class="prose reveal">
+    <div class="quote">
+      <p>The trainer did not know about my injury. It felt impersonal. I quit after my favourite trainer left. The platform feels too automated.</p>
+      <cite>Customer support verbatims, quoted in the requirements document</cite>
+    </div>
+    <p>
+      The comparison that made the case internally was Nike Run Club, which holds retention above 80%
+      on streaks and coaching alone. The gap is not effort from users. It is that nothing in the
+      product remembers them between sessions.
+    </p>
+  </div>
+</section>
+
+<section class="section-sm" id="approach">
+  <div class="prose reveal">
+    <p class="eyebrow">The approach</p>
+    <h2 class="h2">Every competitor owns one dimension, and nobody owns all three</h2>
+    <ul>
+      <li><strong>cult.fit</strong> has proven offline community works at scale in India, but its classes are not coach bonded.</li>
+      <li><strong>Strava</strong> has the stickiest competition mechanics in fitness, but open leaderboards demotivate casual users and there is no trainer layer at all.</li>
+      <li><strong>HealthifyMe</strong> leads on AI nutrition, but its coach chat is transactional and it runs no events.</li>
+    </ul>
+  </div>
+
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · Competitive gap</p>
       <h3>Three capabilities, four players</h3>
@@ -190,56 +249,43 @@
   </figure>
 </section>
 
-<!-- ============ SOLUTIONS ============ -->
-<section class="section-sm" id="solutions">
+<section class="section-sm" id="solution">
   <div class="prose reveal">
-    <p class="eyebrow">The solutions</p>
+    <p class="eyebrow">The solution</p>
     <h2 class="h2">Two features, written for the teams that have to build them</h2>
+  </div>
 
-    <div class="grid grid-2" style="margin:22px 0">
-      <div class="card">
-        <p class="eyebrow">Feature A</p>
-        <h4>Coach Connect</h4>
-        <p style="margin-bottom:12px">
-          A <strong>Fitness Passport</strong> that travels with the user across rotating trainers.
-          The user logs meals, weight, mood and energy. The trainer adds session notes, weekly
-          recommendations and goal adjustments. Medical history is always visible to the trainer,
-          and the user controls every non medical field.
-        </p>
-        <p style="margin-bottom:12px">
-          An <strong>AI handoff</strong> turns recent sessions and the shared document into a
-          thirty second brief the next trainer reads before walking over. This is not automation
-          replacing a coach, it is a coach arriving already informed.
-        </p>
-        <p>
-          <strong>Sub cohort leaderboards</strong> bucket users automatically by age, weight,
-          gender and discipline, so ranking happens against genuine peers. Streaks, XP and brand
-          partner rewards sit on top, with a flexible freeze so one missed day does not erase a month.
-        </p>
-      </div>
-      <div class="card">
-        <p class="eyebrow">Feature B</p>
-        <h4>Tribes and Chapters</h4>
-        <p style="margin-bottom:12px">
-          <strong>Squad challenges</strong> run online through deep link invites, with a live
-          leaderboard and a group chat. Family rivalry and peer cheering do the work that a
-          notification cannot.
-        </p>
-        <p style="margin-bottom:12px">
-          <strong>Regional chapters</strong> run offline, suggested by pin code, covering runs,
-          pickleball, paddle and yoga workshops. They are trainer led, capacity capped, and
-          bookable in the app.
-        </p>
-        <p>
-          The two halves are joined deliberately. Completing a set of online sessions unlocks
-          event tickets, and the event produces photos and recaps that pull the next group of
-          people back online.
-        </p>
-      </div>
+  <div class="grid grid-2 reveal">
+    <div class="card">
+      <p class="eyebrow">Feature A</p>
+      <h4>Coach Connect</h4>
+      <p>
+        A Fitness Passport that travels with the user across rotating trainers. The user logs meals,
+        weight, mood and energy. The trainer adds session notes and goal adjustments. Medical history
+        is always visible to the trainer, and the user controls every non medical field.
+      </p>
+      <p style="margin-top:10px">
+        An AI handoff turns recent sessions into a thirty second brief the next trainer reads before
+        walking over. This is not automation replacing a coach. It is a coach arriving informed.
+      </p>
+    </div>
+    <div class="card">
+      <p class="eyebrow">Feature B</p>
+      <h4>Tribes and Chapters</h4>
+      <p>
+        Sub cohort leaderboards bucket users by age, weight, gender and discipline, so ranking happens
+        against genuine peers. Squad challenges run online through invite links with a live board and
+        a group chat.
+      </p>
+      <p style="margin-top:10px">
+        Regional chapters run offline, suggested by pin code, covering runs, pickleball and yoga
+        workshops. Completing online sessions unlocks event tickets, and the event produces the photos
+        that pull the next group back online.
+      </p>
     </div>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Infographic · The mechanism</p>
       <h3>The hybrid loop</h3>
@@ -284,21 +330,16 @@
       </svg>
     </div>
   </figure>
-</section>
 
-<!-- ============ PROTOTYPE ============ -->
-<section class="section-sm" id="prototype">
   <div class="prose reveal">
-    <p class="eyebrow">The prototype</p>
-    <h2 class="h2">What design and engineering actually build</h2>
+    <h3 class="h3">What design and engineering actually build</h3>
     <p>
-      A requirements document that stops at prose leaves every hard decision to whoever reads it
-      last. These are the four screens that carry the two features, drawn so the team can argue
-      with them.
+      A requirements document that stops at prose leaves every hard decision to whoever reads it last.
+      These are the four screens that carry the two features, drawn so the team can argue with them.
     </p>
   </div>
 
-  <figure class="diagram reveal">
+<figure class="diagram reveal">
     <div class="diagram-head">
       <p class="eyebrow">Prototype · Screen flow</p>
       <h3>Passport, handoff, fair ranking, and the event</h3>
@@ -472,33 +513,70 @@
     </div>
   </figure>
 
+  <div class="btn-row reveal" style="margin-top:8px">
+    <a class="btn" href="https://haniyamjad.com/product-prototypes/vitafit/" target="_blank" rel="noopener">Open prototype</a>
+  </div>
+</section>
+
+<section class="section-sm" id="execution">
   <div class="prose reveal">
-    <div class="btn-row">
-      <a class="btn" href="https://haniyamjad.com/product-prototypes/vitafit/" target="_blank" rel="noopener">Open prototype</a>
+    <p class="eyebrow">The execution plan</p>
+    <h2 class="h2">Four phases, and the number each one has to move</h2>
+    <p>
+      Phase zero builds nothing. The Fitness Passport runs as a shared document filled in by hand with
+      a handful of power users and their trainers, because if people will not fill it in by hand they
+      will not fill it in inside an app either.
+    </p>
+  </div>
+
+  <div class="rail reveal">
+    <div class="rail-item">
+      <span class="rail-n">0</span>
+      <div class="rail-b">
+        <h4>Validate by hand</h4>
+        <p>
+          A manual shared document with selected users and their trainers. No engineering, and the
+          cheapest possible way to find out the idea is wrong.
+        </p>
+        <span class="tag">No build</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">1</span>
+      <div class="rail-b">
+        <h4>Coach Connect</h4>
+        <p>
+          Limited rollout behind a feature flag, tested against a control group. Primary metric is
+          weekly repeat session rate.
+        </p>
+        <span class="tag">Flagged rollout</span>
+      </div>
+    </div>
+    <div class="rail-item">
+      <span class="rail-n">2</span>
+      <div class="rail-b">
+        <h4>Rewards and Tribes</h4>
+        <p>
+          Brand rewards, the share stack, squads, and city chapters in the first metros. This is the
+          phase where the online and offline halves get joined.
+        </p>
+        <span class="tag">First metros</span>
+      </div>
+    </div>
+    <div class="rail-item is-leak">
+      <span class="rail-n">3</span>
+      <div class="rail-b">
+        <h4>Scale</h4>
+        <p>
+          Full rollout, but only on proven improvement from phase 1, opened with a marquee offline
+          event that gives the launch something to be about.
+        </p>
+        <span class="tag">On proof only</span>
+      </div>
     </div>
   </div>
 
-</section>
-
-<!-- ============ ROLLOUT ============ -->
-<section class="section-sm" id="rollout">
-  <div class="prose reveal">
-    <p class="eyebrow">How it ships</p>
-    <h2 class="h2">Four phases, and the number each one has to move</h2>
-    <p>
-      Phase zero builds nothing. The Fitness Passport runs as a manual shared document with a
-      handful of power users and their trainers, because if people will not fill it in by hand
-      they will not fill it in inside an app either.
-    </p>
-
-    <div class="grid grid-4" style="margin:22px 0">
-      <div class="card"><p class="eyebrow">Phase 0</p><h4>Validate by hand</h4><p>Manual shared document with selected users and trainers. No engineering.</p></div>
-      <div class="card"><p class="eyebrow">Phase 1</p><h4>Coach Connect</h4><p>Limited rollout behind a feature flag, A/B against control. Primary metric is weekly repeat session rate.</p></div>
-      <div class="card"><p class="eyebrow">Phase 2</p><h4>Rewards and Tribes</h4><p>Brand rewards, share stack, squads, and city chapters in the first metros.</p></div>
-      <div class="card"><p class="eyebrow">Phase 3</p><h4>Scale</h4><p>Full rollout on proven improvement, opened with a marquee offline event.</p></div>
-    </div>
-
-    <div class="table-scroll">
+<div class="table-scroll">
       <table>
         <thead><tr><th style="width:40%">Metric</th><th>Baseline</th><th>Target at 90 days</th></tr></thead>
         <tbody>
@@ -513,28 +591,18 @@
         <caption>Guardrail across every phase: no deterioration in session completion rate, NPS, or booking volume.</caption>
       </table>
     </div>
-  </div>
 </section>
 
-<!-- ============ TAKEAWAY ============ -->
 <section class="section-sm" id="takeaway">
   <div class="prose reveal">
     <p class="eyebrow">Takeaway</p>
-    <div class="callout">
-      <p>
-        Retention here is not a content problem or a pricing problem. It is that nothing in the
-        product remembers the user between sessions, and nothing gives them a comparison they can
-        win. Fix memory with a passport that follows them, fix comparison by ranking them against
-        people like them, and the offline events give the habit somewhere to become an identity.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="section-sm">
-  <div class="pager reveal">
-    <a href="garmin-connect-ux.html"><span class="dir">Previous</span><span class="ttl">Garmin Connect: a redesigned daily check in</span></a>
-    <a href="../index.html#case-studies"><span class="dir">Browse</span><span class="ttl">All case studies</span></a>
+    <h2 class="h2">What this case comes down to</h2>
+    <p>
+      Retention here is not a content problem or a pricing problem. It is that nothing in the product
+      remembers the user between sessions, and nothing gives them a comparison they can win. Fix
+      memory with a passport that follows them, fix comparison by ranking them against people like
+      them, and the offline events give the habit somewhere to become an identity.
+    </p>
   </div>
 </section>
 
@@ -542,11 +610,11 @@
 
   <aside class="toc" aria-label="On this page">
     <p class="toc-t">On this page</p>
+    <a href="#product">The product</a>
     <a href="#problem">The problem</a>
-    <a href="#work">The work</a>
-    <a href="#solutions">The solutions</a>
-    <a href="#prototype">The prototype</a>
-    <a href="#rollout">How it ships</a>
+    <a href="#approach">The approach</a>
+    <a href="#solution">The solution</a>
+    <a href="#execution">Execution plan</a>
     <a href="#takeaway">Takeaway</a>
   </aside>
 
@@ -577,6 +645,6 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=19"></script>
+<script src="../assets/main.js?v=21"></script>
 </body>
 </html>
