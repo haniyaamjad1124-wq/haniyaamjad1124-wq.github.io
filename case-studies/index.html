@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Haniya Amjad Portfolio</title>
-<meta name="description" content="Product management case studies across RCA, metrics, product improvement, product design and guesstimates, plus a capstone project with a working prototype.">
-<link rel="stylesheet" href="../assets/style.css?v=25">
+<meta name="description" content="Product management case studies and projects by Haniya Amjad, plus Airtribe coursework across RCA, metrics, product improvement, product design and guesstimates.">
+<link rel="stylesheet" href="../assets/style.css?v=40">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
       <a href="../">About</a>
       <a href="#">Case studies</a>
       <a href="#projects">Projects</a>
+      <a href="#airtribe">Airtribe coursework</a>
     </div>
   </div>
 </nav>
@@ -28,7 +29,23 @@
 <section class="view is-on" id="index-view" data-view="index">
   <header class="home-hero">
     <div class="wrap">
-      <h1 class="h-display">Product problems, worked end to end.</h1>
+      <h1 class="h-display">Case studies</h1>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="case-rows">
+
+    </div>
+  </div>
+
+  <div class="wrap" style="padding-top:48px"></div>
+</section>
+
+<section class="view" id="airtribe-page" data-view="airtribe" hidden>
+  <header class="home-hero">
+    <div class="wrap">
+      <h1 class="h-display">Airtribe coursework</h1>
       <p class="lede">Seven products, taken apart and put back together. Each one starts with what
       the product is, so you can follow it without knowing the company.</p>
     </div>
@@ -231,7 +248,14 @@
           customer's side of the problem, and I keep things simple on the way to the core of it.
         </p>
       </div>
-      <img class="hero-photo" src="../assets/haniya.jpg" alt="Haniya Amjad" width="720" height="720">
+      <div class="hero-photo-wrap">
+        <span class="pm-orbit" aria-hidden="true"></span>
+        <img class="hero-photo" src="../assets/haniya.jpg" alt="Haniya Amjad" width="720" height="720">
+        <span class="pm-badge pm-b1 case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff" aria-hidden="true"><span class="pm-badge-in"><svg viewBox="0 0 24 24" width="24" height="24"><rect x="3" y="13" width="4.2" height="8" rx="1.3" fill="currentColor" opacity=".3"/><rect x="9.9" y="8.5" width="4.2" height="12.5" rx="1.3" fill="currentColor" opacity=".55"/><rect x="16.8" y="3" width="4.2" height="18" rx="1.3" fill="currentColor"/></svg></span></span>
+        <span class="pm-badge pm-b2 case-scope" style="--c-l:#D99A00; --c-d:#f2b53d" aria-hidden="true"><span class="pm-badge-in"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="9" fill="currentColor" opacity=".14"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.7" fill="currentColor"/></svg></span></span>
+        <span class="pm-badge pm-b3 case-scope" style="--c-l:#16A34A; --c-d:#3fd68a" aria-hidden="true"><span class="pm-badge-in"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="9" cy="8" r="3.6" fill="currentColor"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0Z" fill="currentColor"/><circle cx="17.2" cy="9" r="2.8" fill="currentColor" opacity=".45"/><path d="M16 20h5.5a4.9 4.9 0 0 0-4.2-4.85" fill="currentColor" opacity=".45"/></svg></span></span>
+        <span class="pm-badge pm-b4 case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff" aria-hidden="true"><span class="pm-badge-in"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M12 3a6 6 0 0 1 3.7 10.7c-.7.6-1.2 1.4-1.2 2.3H9.5c0-.9-.5-1.7-1.2-2.3A6 6 0 0 1 12 3Z" fill="currentColor" opacity=".2"/><path d="M12 3a6 6 0 0 1 3.7 10.7c-.7.6-1.2 1.4-1.2 2.3H9.5c0-.9-.5-1.7-1.2-2.3A6 6 0 0 1 12 3Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.5 19h5M10.5 21.5h3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span></span>
+      </div>
     </div>
   </div>
 </header>
@@ -256,26 +280,74 @@
     <h2 class="h2">How I work</h2>
   </div>
 
-  <div class="sticky-board reveal">
-    <button class="sticky case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff" aria-expanded="false">
-      <span class="st-t">Customer discovery comes first</span>
-      <span class="st-b">I start with the people the product is failing, in the field where they are. My research reaches the people who left, not only the ones who stayed.</span>
-    </button>
+  <p class="work-lede reveal">Strategic and empathy driven. I read an industry fast, reduce the problem to first principles,
+  and hold what users need and what the business needs in the same decision.</p>
 
-    <button class="sticky case-scope" style="--c-l:#16A34A; --c-d:#3fd68a" aria-expanded="false">
-      <span class="st-t">First principles, stated simply</span>
-      <span class="st-b">I reduce a problem to its core and keep the answer simple enough that every stakeholder can repeat it, in one sentence.</span>
-    </button>
+  <div class="work-panel reveal">
+    <ol class="work-flow">
+      <li class="wf case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff">
+        <span class="wf-ic"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="currentColor" opacity=".14"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 12 16.5 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><path d="M12 3v2M21 12h-2M12 21v-2M3 12h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+        <span class="wf-n">01</span>
+        <b class="wf-t">Read the industry fast</b>
+        <span class="wf-s">Market, money, and who pays for what</span>
+      </li>
+      <li class="wf case-scope" style="--c-l:#A67400; --c-d:#f2b53d">
+        <span class="wf-ic"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m12 3 9 5-9 5-9-5 9-5Z" fill="currentColor"/><path d="m3 12.5 9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" opacity=".6"/><path d="m3 16.5 9 5 9-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" opacity=".3"/></svg></span>
+        <span class="wf-n">02</span>
+        <b class="wf-t">Decode first principles</b>
+        <span class="wf-s">Strip the problem to what must be true</span>
+      </li>
+      <li class="wf case-scope" style="--c-l:#16A34A; --c-d:#3fd68a">
+        <span class="wf-ic"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M12 4v16M5 20h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M4 8h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 8 4 14h6L7 8Z" fill="currentColor" opacity=".25"/><path d="M7 8 4 14h6L7 8Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 8l-3 6h6l-3-6Z" fill="currentColor" opacity=".25"/><path d="M17 8l-3 6h6l-3-6Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
+        <span class="wf-n">03</span>
+        <b class="wf-t">Balance user and business</b>
+        <span class="wf-s">Experience that grows the business</span>
+      </li>
+    </ol>
 
-    <button class="sticky case-scope" style="--c-l:#D99A00; --c-d:#f2b53d" aria-expanded="false">
-      <span class="st-t">Journeys designed for the outcome people feel</span>
-      <span class="st-b">A journey is a sequence of feelings, and the last one decides whether the person returns. I design the recovery so a bad moment costs a detour rather than the customer.</span>
-    </button>
+    <div class="wb-scroll">
+    <svg class="wb-svg" viewBox="0 0 720 300" role="img" aria-label="A balance. User experience on one side, business growth on the other, resting on first principles.">
+      <rect class="wb-pill" x="282" y="14" width="156" height="30" rx="15"/>
+      <text class="wb-pill-t" x="360" y="34" text-anchor="middle">Growth decision</text>
+      <path class="wb-strut" d="M360 44v46"/>
 
-    <button class="sticky case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff" aria-expanded="false">
-      <span class="st-t">B2B Experience</span>
-      <span class="st-b">My shipped work is B2B. The buyer, the daily user and the decision maker define value differently, and I have run a product that serves all three at once.</span>
-    </button>
+      <rect class="wb-beam" x="60" y="94" width="600" height="7" rx="3.5"/>
+      <circle class="wb-pivot" cx="360" cy="97.5" r="10"/>
+
+      <path class="wb-string" d="M140 101v30M580 101v30"/>
+
+      <g class="wb-side wb-user">
+        <rect class="wb-pan" x="24" y="131" width="232" height="118" rx="18"/>
+        <text class="wb-hd" x="140" y="163" text-anchor="middle">User experience</text>
+        <rect class="wb-tag" x="38" y="182" width="62" height="24" rx="12"/><text class="wb-tag-t" x="69" y="198" text-anchor="middle">Empathy</text>
+        <rect class="wb-tag" x="108" y="182" width="66" height="24" rx="12"/><text class="wb-tag-t" x="141" y="198" text-anchor="middle">Research</text>
+        <rect class="wb-tag" x="182" y="182" width="62" height="24" rx="12"/><text class="wb-tag-t" x="213" y="198" text-anchor="middle">Journeys</text>
+        <text class="wb-sub" x="140" y="232" text-anchor="middle">What people need to feel</text>
+      </g>
+
+      <g class="wb-side wb-biz">
+        <rect class="wb-pan" x="464" y="131" width="232" height="118" rx="18"/>
+        <text class="wb-hd" x="580" y="163" text-anchor="middle">Business growth</text>
+        <rect class="wb-tag" x="482" y="182" width="62" height="24" rx="12"/><text class="wb-tag-t" x="513" y="198" text-anchor="middle">Revenue</text>
+        <rect class="wb-tag" x="552" y="182" width="56" height="24" rx="12"/><text class="wb-tag-t" x="580" y="198" text-anchor="middle">Margin</text>
+        <rect class="wb-tag" x="616" y="182" width="66" height="24" rx="12"/><text class="wb-tag-t" x="649" y="198" text-anchor="middle">Retention</text>
+        <text class="wb-sub" x="580" y="232" text-anchor="middle">What the business needs to grow</text>
+      </g>
+
+      <g class="wb-side wb-core">
+        <path class="wb-fulcrum" d="M360 104 318 212h84L360 104Z"/>
+        <text class="wb-hd" x="360" y="244" text-anchor="middle">First principles</text>
+        <text class="wb-sub" x="360" y="264" text-anchor="middle">What must be true for this to work</text>
+      </g>
+    </svg>
+    </div>
+
+    <p class="work-base-k">What this stands on</p>
+    <div class="work-base">
+      <span class="wb-chip case-scope" style="--c-l:#1e56a0; --c-d:#7fb0ff"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m12 2.5 8 4.5v10l-8 4.5-8-4.5V7l8-4.5Z" fill="currentColor" opacity=".16"/><path d="m12 2.5 8 4.5v10l-8 4.5-8-4.5V7l8-4.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M4 7l8 4.5L20 7M12 11.5v10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>Product building</span>
+      <span class="wb-chip case-scope" style="--c-l:#16A34A; --c-d:#3fd68a"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2.5" fill="currentColor" opacity=".16"/><rect x="3" y="7" width="18" height="13" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M3 12.5h18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>Business development</span>
+      <span class="wb-chip case-scope" style="--c-l:#A67400; --c-d:#f2b53d"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="m2.5 9 9.5-4.5L21.5 9 12 13.5 2.5 9Z" fill="currentColor"/><path d="M6.5 11.2v4.3c0 1.6 2.5 3 5.5 3s5.5-1.4 5.5-3v-4.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/><path d="M21.5 9v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" opacity=".7"/></svg>MBA, finance</span>
+    </div>
   </div>
 </section>
 
@@ -439,8 +511,8 @@
 
 </section>
 
-<section class="view case-scope" id="zepto-aov" data-view="zepto-aov" style="--c-l:#950edb; --c-d:#c05df5;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="zepto-aov" data-view="zepto-aov" data-nav="#airtribe" style="--c-l:#950edb; --c-d:#c05df5;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -1166,8 +1238,8 @@
 
 </section>
 
-<section class="view case-scope" id="zomato-tier1-strategy" data-view="zomato-tier1-strategy" style="--c-l:#e23744; --c-d:#ff6b75;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="zomato-tier1-strategy" data-view="zomato-tier1-strategy" data-nav="#airtribe" style="--c-l:#e23744; --c-d:#ff6b75;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -1827,8 +1899,8 @@
 
 </section>
 
-<section class="view case-scope" id="uber-pickup-experience" data-view="uber-pickup-experience" style="--c-l:#276ef1; --c-d:#5b91ff;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="uber-pickup-experience" data-view="uber-pickup-experience" data-nav="#airtribe" style="--c-l:#276ef1; --c-d:#5b91ff;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -2467,8 +2539,8 @@
 
 </section>
 
-<section class="view case-scope" id="uber-eats-group-order" data-view="uber-eats-group-order" style="--c-l:#0b7a46; --c-d:#2fd08a;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="uber-eats-group-order" data-view="uber-eats-group-order" data-nav="#airtribe" style="--c-l:#0b7a46; --c-d:#2fd08a;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -3069,8 +3141,8 @@
 
 </section>
 
-<section class="view case-scope" id="garmin-connect-ux" data-view="garmin-connect-ux" style="--c-l:#007cc3; --c-d:#4fb3e8;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="garmin-connect-ux" data-view="garmin-connect-ux" data-nav="#airtribe" style="--c-l:#007cc3; --c-d:#4fb3e8;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -3754,8 +3826,8 @@
 
 </section>
 
-<section class="view case-scope" id="vitafit-prd" data-view="vitafit-prd" style="--c-l:#0d9488; --c-d:#2dd4bf;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="vitafit-prd" data-view="vitafit-prd" data-nav="#airtribe" style="--c-l:#0d9488; --c-d:#2dd4bf;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -4356,8 +4428,8 @@
 
 </section>
 
-<section class="view case-scope" id="pickup-market-sizing" data-view="pickup-market-sizing" style="--c-l:#6d5bd0; --c-d:#a79bff;" hidden>
-  <div class="wrap back-bar"><a class="back-link" href="#">All case studies</a></div>
+<section class="view case-scope" id="pickup-market-sizing" data-view="pickup-market-sizing" data-nav="#airtribe" style="--c-l:#6d5bd0; --c-d:#a79bff;" hidden>
+  <div class="wrap back-bar"><a class="back-link" href="#airtribe">Airtribe coursework</a></div>
 
 <header class="case-hero">
   <div class="wrap">
@@ -4708,7 +4780,7 @@
 
 </section>
 
-<section class="view case-scope" id="edtech-program" data-view="edtech-program" style="--c-l:#1e56a0; --c-d:#7fb0ff;" hidden>
+<section class="view case-scope" id="edtech-program" data-view="edtech-program" data-nav="#projects" style="--c-l:#1e56a0; --c-d:#7fb0ff;" hidden>
   <div class="wrap back-bar"><a class="back-link" href="#projects">Projects</a></div>
 
 
@@ -4961,7 +5033,7 @@
 
 </section>
 
-<section class="view case-scope" id="nbfc-recovery" data-view="nbfc-recovery" style="--c-l:#A67400; --c-d:#f2b53d;" hidden>
+<section class="view case-scope" id="nbfc-recovery" data-view="nbfc-recovery" data-nav="#projects" style="--c-l:#A67400; --c-d:#f2b53d;" hidden>
   <div class="wrap back-bar"><a class="back-link" href="#projects">Projects</a></div>
 
 
@@ -5327,7 +5399,7 @@
 
 </section>
 
-<section class="view case-scope" id="cultfit-anchored-week" data-view="cultfit-anchored-week" style="--c-l:#ef430a; --c-d:#ff7a4d;" hidden>
+<section class="view case-scope" id="cultfit-anchored-week" data-view="cultfit-anchored-week" data-nav="#projects" style="--c-l:#ef430a; --c-d:#ff7a4d;" hidden>
   <div class="wrap back-bar"><a class="back-link" href="#projects">Projects</a></div>
 
 
@@ -6031,6 +6103,7 @@
         <a href="../">About</a>
         <a href="#">Case studies</a>
         <a href="#projects">Projects</a>
+        <a href="#airtribe">Airtribe coursework</a>
       </div>
     </div>
     <p class="footer-legal">
@@ -6043,7 +6116,7 @@
   </div>
 </footer>
 
-<script src="../assets/main.js?v=25"></script>
-<script src="../assets/router.js?v=25"></script>
+<script src="../assets/main.js?v=40"></script>
+<script src="../assets/router.js?v=40"></script>
 </body>
 </html>

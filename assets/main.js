@@ -97,3 +97,25 @@
   document.addEventListener('mouseover', maybePrefetch, { passive: true });
   document.addEventListener('touchstart', maybePrefetch, { passive: true });
 })();
+
+/* ---- Nav: scrolled state and reading progress ---- */
+(function () {
+  'use strict';
+  var nav = document.querySelector('.nav');
+  var pill = document.querySelector('.nav-in');
+  if (!nav || !pill) return;
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    nav.classList.toggle('is-scrolled', y > 24);
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+    pill.style.setProperty('--progress', p.toFixed(4));
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll, { passive: true });
+  window.addEventListener('hashchange', function () { setTimeout(update, 60); });
+  update();
+})();

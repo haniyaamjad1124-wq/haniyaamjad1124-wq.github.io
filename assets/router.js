@@ -21,6 +21,20 @@
     }
   }
 
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-links a'));
+  function setNavActive(slug) {
+    // A case or project view carries data-nav with the top level page it belongs to.
+    var view = document.querySelector('[data-view="' + slug + '"]');
+    var want = view && view.getAttribute('data-nav') ? view.getAttribute('data-nav')
+      : slug === 'about' ? '#about'
+      : slug === 'projects' ? '#projects'
+      : slug === 'airtribe' ? '#airtribe'
+      : '#';
+    navLinks.forEach(function (a) {
+      a.classList.toggle('is-active', a.getAttribute('href') === want);
+    });
+  }
+
   function route() {
     var raw = (location.hash || '').replace(/^#/, '');
     // "slug--section" deep links open the case study, then jump to the section
@@ -28,6 +42,7 @@
     var target = raw.indexOf('--') > -1 ? raw : null;
 
     show(slug || 'index');
+    setNavActive(slug || 'index');
 
     if (target) {
       var el = document.getElementById(target);
