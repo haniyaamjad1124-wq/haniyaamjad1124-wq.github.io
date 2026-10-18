@@ -94,8 +94,9 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; }
 .num-lg { font-size: var(--t-num-lg); }
 .mono { font-family: var(--mono); font-size: 0.92em; }
 @media (max-width: 720px) {
-  .h1, h1, .h-display { font-size: 30px; line-height: 36px; }
+  .h1, h1, .h-display { font-size: 26px; line-height: 32px; letter-spacing: -0.015em; }
   .h2, h2 { font-size: 24px; line-height: 30px; }
+  .lede, .lead, .intent { font-size: 17px; line-height: 26px; }
 }
 
 /* ---------- Layout ---------- */
