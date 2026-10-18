@@ -387,3 +387,6 @@ caption { caption-side: bottom; text-align: left; padding: var(--s-3) var(--s-4)
   body { background: #fff; font-size: 11pt; }
   .diagram { break-inside: avoid; }
 }
+
+/* mobile type overrides, kept last so they win the cascade */
+@media (max-width: 720px) { .intent, .lede, .lead { font-size: 17px; line-height: 26px; } }
