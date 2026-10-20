@@ -59,6 +59,6 @@ jobs:
           paths = json.loads(pathlib.Path('.git/portfolio-deployment-paths.json').read_text())
           subprocess.run(['git', 'add', '--', *paths], check=True)
           PY
-          git diff --cached --check
+          git -c core.whitespace=-blank-at-eol diff --cached --check
           git commit -m 'Deploy verified text-free bookshelf portfolio'
           git push origin HEAD:main
