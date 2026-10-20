@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /case-studies/
-Disallow: /about.html
-
 Sitemap: https://haniyamjad.com/sitemap.xml
