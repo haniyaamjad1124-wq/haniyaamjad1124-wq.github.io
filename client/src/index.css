@@ -1349,3 +1349,7 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.portrait-single .portrait-frame {
+  /* the oval highlight belonged to the empty placeholder, not to a photo */
+  background: linear-gradient(145deg, #e2dfd6, #d3d1c8 58%, #e9e6de);
+}
