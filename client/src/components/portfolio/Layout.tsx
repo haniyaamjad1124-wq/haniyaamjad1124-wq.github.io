@@ -14,7 +14,7 @@ export function Header({ path }: { path: string }) {
     <header
       className={path === "/" ? "site-header entry-header" : "site-header"}
     >
-      <a className="brand" href="/" aria-label="Bookshelf home">
+      <a className="brand" href="/">
         Haniya Amjad
       </a>
       <button

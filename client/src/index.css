@@ -4,7 +4,7 @@
 :root {
   --paper: #f5f3ed;
   --ink: #252c28;
-  --muted: #888a80;
+  --muted: #6a6c63; /* was #888a80, 3.15:1 on paper. 4.6:1 now */
   --line: #dcded2;
   --blue: #3f59c3;
   --orange: #df5c2c;
@@ -1352,4 +1352,73 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
 .portrait-single .portrait-frame {
   /* the oval highlight belonged to the empty placeholder, not to a photo */
   background: linear-gradient(145deg, #e2dfd6, #d3d1c8 58%, #e9e6de);
+}
+
+/* ==========================================================================
+   Audit fixes, 2026-10-21. Readability and accessibility only.
+   Kept last so they win the cascade. No layout or motion changes.
+   ========================================================================== */
+
+/* 1. Grey text that failed WCAG AA on the paper background */
+.nav a { color: #5f695f; }                       /* was #717b70, 3.97:1 -> 5.6:1 */
+.work-empty > .small-label { color: #5e5c56; }   /* 5.2:1 on the sunken panel */
+.portrait-state { color: #5f5e57; }
+
+/* 2. Label floor: nothing that carries meaning renders under 11px */
+.small-label,
+.content-section-heading > .small-label,
+.rumi-hero-type > .small-label,
+.rumi-journal-header > .small-label,
+.essay-index .small-label,
+.site-footer,
+.shelf-label,
+.entry-bottom > span,
+.entry-bottom a,
+.india-landscape figcaption,
+.rumi-hero-foot,
+.back-link,
+.not-found .page-kicker,
+.rumi-empty,
+.media-grid figcaption,
+.media-tabs button,
+.portrait-options-intro p {
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  .small-label,
+  .editorial-heading > .small-label,
+  .content-section-heading > .small-label,
+  .work-empty > .small-label,
+  .rumi-hero-type > .small-label,
+  .rumi-journal-header > .small-label,
+  .site-footer,
+  .shelf-label,
+  .entry-bottom > span,
+  .entry-bottom a,
+  .india-landscape figcaption,
+  .rumi-hero-foot,
+  .back-link,
+  .rumi-empty,
+  .media-tabs button {
+    font-size: 11px;
+  }
+}
+
+/* 3. Tap targets: 44px tall hit area without moving anything on screen */
+.nav a,
+.site-footer a {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-top: -13px;
+  margin-bottom: -13px;
+}
+.site-footer .footer-resume { white-space: nowrap; }
+
+/* 4. Visible keyboard focus on the shelf link and nav */
+.bookshelf-link:focus-visible,
+.entry-center a:focus-visible,
+.nav a:focus-visible,
+.site-footer a:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 4px;
 }
