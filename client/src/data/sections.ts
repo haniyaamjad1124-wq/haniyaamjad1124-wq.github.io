@@ -53,3 +53,5 @@ export interface RumiMedia {
 export const rumiMedia: RumiMedia[] = [];
 
 export const rumiArtwork = "/images/india-journey.webp";
+
+export const aboutPortrait = "/images/portrait.png";

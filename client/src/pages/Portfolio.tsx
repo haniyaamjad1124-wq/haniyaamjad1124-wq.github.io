@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import {
+  aboutPortrait,
   projects,
   rumiArtwork,
   type PageDefinition,
@@ -83,43 +84,20 @@ function AboutPage({ page }: { page: PageDefinition }) {
           <i />
         </span>
       </header>
-      <section
-        className="about-layout"
-        aria-label={`${page.title} portrait options for review`}
-      >
-        <div className="portrait-options-intro">
-          <h2>Portrait options</h2>
-          <p>Two retouches for review; original photos pending.</p>
-        </div>
-        <div className="portrait-options">
+      <section className="about-layout" aria-label="About Haniya Amjad">
+        <div className="portrait-options portrait-single">
           <figure className="portrait-option portrait-option-color">
             <div className="portrait-frame">
-              <div className="portrait-guide" aria-hidden="true">
-                <i />
-                <i />
-              </div>
-              <span className="portrait-state">Source photo pending</span>
+              <img
+                className="portrait-image"
+                src={aboutPortrait}
+                alt="Haniya Amjad"
+                width={1200}
+                height={1500}
+              />
             </div>
-            <figcaption>
-              <span className="small-label">LL / OPTION 01</span>
-              <h2>Colour</h2>
-              <p>Background and foreground drink removal</p>
-            </figcaption>
           </figure>
-          <figure className="portrait-option portrait-option-bw">
-            <div className="portrait-frame">
-              <div className="portrait-guide" aria-hidden="true">
-                <i />
-                <i />
-              </div>
-              <span className="portrait-state">Source photo pending</span>
-            </div>
-            <figcaption>
-              <span className="small-label">ab / OPTION 02</span>
-              <h2>Black &amp; white</h2>
-              <p>Background cleanup</p>
-            </figcaption>
-          </figure>
+          <Body paragraphs={page.body} />
         </div>
       </section>
     </section>

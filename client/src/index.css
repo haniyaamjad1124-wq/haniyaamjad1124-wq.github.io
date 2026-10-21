@@ -1330,3 +1330,22 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
     animation: none !important;
   }
 }
+
+/* About: one portrait, the LL colour cutout, on the existing frame surface */
+.portrait-single {
+  grid-template-columns: minmax(0, 440px) minmax(0, 1fr);
+  align-items: start;
+}
+.portrait-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+@media (max-width: 800px) {
+  .portrait-single {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

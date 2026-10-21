@@ -37,13 +37,19 @@ fs.writeFileSync(
 );
 
 // canonical tag on every prerendered page, if the prerender did not add one
-for (const p of pages) {
-  const file = path.join(out, p === "/" ? "index.html" : p.slice(1), p === "/" ? "" : "index.html");
+const htmlFiles = pages.map(p => path.join(out, p === "/" ? "index.html" : p.slice(1), p === "/" ? "" : "index.html"));
+htmlFiles.push(path.join(out, "404.html"));
+for (const file of htmlFiles) {
+  if (!fs.existsSync(file)) continue;
   let html = fs.readFileSync(file, "utf8");
-  if (!html.includes('rel="canonical"')) {
-    html = html.replace("</head>", `  <link rel="canonical" href="${site}${p}" />\n</head>`);
-    fs.writeFileSync(file, html);
+  // Manus platform script, nothing serves it on Pages
+  html = html.replace(/\s*<script src="\/api\/platform\/config\.js"><\/script>/g, "");
+  const rel = path.relative(out, file).split(path.sep).join("/");
+  const route = rel === "index.html" ? "/" : rel.endsWith("/index.html") ? "/" + rel.slice(0, -"index.html".length) : null;
+  if (route && !html.includes('rel="canonical"')) {
+    html = html.replace("</head>", `  <link rel="canonical" href="${site}${route}" />\n</head>`);
   }
+  fs.writeFileSync(file, html);
 }
 
 console.log(`Pages export ready: ${pages.length} pages -> ${pages.join(", ")}`);
