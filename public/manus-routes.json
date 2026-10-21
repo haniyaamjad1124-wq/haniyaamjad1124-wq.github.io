@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "path": "/",
+      "title": "Entrance"
+    },
+    {
+      "path": "/work",
+      "title": "Work"
+    },
+    {
+      "path": "/reminiscence",
+      "title": "Reminiscence"
+    },
+    {
+      "path": "/about",
+      "title": "About"
+    }
+  ]
+}

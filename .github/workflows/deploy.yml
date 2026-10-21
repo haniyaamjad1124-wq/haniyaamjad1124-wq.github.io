@@ -1,0 +1,51 @@
+name: Build and deploy to GitHub Pages
+
+# Source lives on the `source` branch. Every push builds the static site and
+# publishes dist/public to `main`, which GitHub Pages serves at haniyamjad.com.
+
+on:
+  push:
+    branches: [source]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.18.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm build:static
+        env:
+          NODE_ENV: production
+
+      - run: node scripts/export-pages.mjs
+
+      - name: Publish dist/public to main
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: main
+          publish_dir: ./dist/public
+          cname: haniyamjad.com
+          force_orphan: false
+          keep_files: false
+          exclude_assets: ""
+          commit_message: "Deploy ${{ github.sha }}"

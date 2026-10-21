@@ -1,0 +1,3 @@
+# Historical deployment artifacts
+
+`refresh_deployment.py` and `install-portfolio-zip.yml` are exact copies of the temporary tooling used for the prior GitHub Pages deployment. They are included to document what happened, not as a current deployment setup. The Python script contains absolute Manus workspace paths; the workflow is manually dispatched and pinned to the SHA-256 and 61-file member list of a historical static-site ZIP. The workflow was removed from the GitHub repository after deployment. Do not run these unchanged against the source archive or a new static-site package; first configure a new exporter/workflow and verify its exact paths and checksum.
