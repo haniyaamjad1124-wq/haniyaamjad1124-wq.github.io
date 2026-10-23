@@ -1422,3 +1422,32 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
   outline: 2px solid var(--green);
   outline-offset: 4px;
 }
+
+/* ==========================================================================
+   Reminiscence on the editorial theme, 2026-10-23. Same skeleton and colours
+   as Work and About. Illustration and its pointer drift unchanged.
+   ========================================================================== */
+.rumi-page .accent-period { color: var(--yellow); }
+.rumi-page .rumi-hero {
+  display: block;
+  padding: 0;
+  margin-top: 8px;
+  background: radial-gradient(ellipse at var(--pointer-x) var(--pointer-y), #f5ca623e, transparent 65%);
+}
+.rumi-page .india-landscape { max-width: 1120px; }
+.rumi-page .india-landscape figcaption { color: var(--muted); text-align: right; margin-top: 12px; }
+.rumi-page .rumi-journal-header > .small-label,
+.rumi-page .rumi-hero-foot { color: var(--muted); }
+@media (max-width: 1000px) {
+  .rumi-page .rumi-hero { padding: 0; }
+}
+@media (max-width: 600px) {
+  .rumi-page .rumi-hero { padding: 0; }
+}
+/* the long word needs a smaller step on phones so it never overflows */
+@media (max-width: 600px) {
+  .rumi-page .editorial-heading h1 { font-size: clamp(36px, 11vw, 56px); letter-spacing: -0.045em; }
+}
+@media (max-width: 380px) {
+  .rumi-page .editorial-heading h1 { font-size: 34px; }
+}

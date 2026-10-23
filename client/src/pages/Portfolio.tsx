@@ -106,19 +106,28 @@ function AboutPage({ page }: { page: PageDefinition }) {
 
 function ReminiscencePage({ page }: { page: PageDefinition }) {
   return (
-    <section className="rumi-page">
+    <section className="editorial-page rumi-page">
+      <header className="editorial-heading">
+        <span className="small-label">02 / REMINISCENCE</span>
+        <h1>
+          Reminiscence<span className="accent-period">.</span>
+        </h1>
+        <span className="section-axis" aria-hidden="true">
+          <i />
+          <i />
+          <i />
+        </span>
+      </header>
       <FluidSurface className="rumi-hero">
-        <div className="rumi-hero-type">
-          <span className="small-label">02 / REMINISCENCE</span>
-          <h1>Reminiscence</h1>
-        </div>
         <figure className="india-landscape">
           <img
             className="rumi-material"
             src={rumiArtwork}
             alt="Illustration of a train journey through a green Indian landscape"
           />
-          <figcaption>INDIA · AN EDITORIAL ILLUSTRATION</figcaption>
+          <figcaption className="small-label">
+            INDIA · AN EDITORIAL ILLUSTRATION
+          </figcaption>
         </figure>
       </FluidSurface>
       {page.body.length > 0 && (
