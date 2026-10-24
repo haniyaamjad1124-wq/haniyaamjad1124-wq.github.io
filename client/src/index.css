@@ -1451,3 +1451,4 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
 @media (max-width: 380px) {
   .rumi-page .editorial-heading h1 { font-size: 34px; }
 }
+.portrait-single .page-body { margin-top: 0; }
