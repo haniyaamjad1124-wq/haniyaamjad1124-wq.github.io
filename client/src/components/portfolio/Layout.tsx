@@ -65,10 +65,21 @@ export function Header({ path }: { path: string }) {
   );
 }
 
+// The entry bookshelf's palette, first shelf row, as a small spine row.
+const footerSpines: [string, number][] = [
+  ["#f1ebda", 18], ["#f5ca62", 22], ["#df5c2c", 20], ["#b94525", 24],
+  ["#8798d4", 19], ["#3f59c3", 23], ["#2b409a", 21], ["#f5ca62", 18],
+];
+
 export function Footer() {
   return (
     <footer className="site-footer">
       <a href="/">Haniya Amjad</a>
+      <span className="footer-spines" aria-hidden="true">
+        {footerSpines.map(([color, height], i) => (
+          <i key={i} style={{ background: color, height }} className={color === "#f1ebda" ? "is-cream" : undefined} />
+        ))}
+      </span>
     </footer>
   );
 }
