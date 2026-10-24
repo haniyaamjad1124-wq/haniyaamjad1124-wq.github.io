@@ -21,7 +21,7 @@ export function metadata(path: string) {
         : page
           ? `${page.title} — Haniya Amjad`
           : project
-            ? `${project.client}, ${project.project} — Haniya Amjad`
+            ? `${project.title ?? `${project.client}, ${project.project}`} — Haniya Amjad`
             : "Page Not Found — Haniya Amjad",
     description:
       path === "/"

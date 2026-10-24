@@ -149,11 +149,6 @@ export function ProjectPage({ project }: { project: Project }) {
     (p, k, arr) => p && p.slug !== project.slug && arr.indexOf(p) === k
   );
   const images = project.images ?? [];
-  const groups: string[][] = [];
-  for (let k = 0; k < images.length; k += 1) {
-    const even = (k - 1) % 3 === 0 && images[k + 1] && (k + 1) % 3 !== 0;
-    if (even) { groups.push([images[k], images[k + 1]]); k += 1; } else groups.push([images[k]]);
-  }
   return (
     <section className="editorial-page project-page">
       <div className="project-top">
@@ -167,9 +162,7 @@ export function ProjectPage({ project }: { project: Project }) {
         )}
       </div>
       <div className="project-head">
-        <h1>
-          {project.client}, {project.project}
-        </h1>
+        <h1>{project.title ?? `${project.client}, ${project.project}`}</h1>
       </div>
       <figure className="project-hero">
         <img src={project.cover} alt="" width={1920} height={1440} />
@@ -201,23 +194,14 @@ export function ProjectPage({ project }: { project: Project }) {
           </>
         )}
       </div>
-      {groups.length > 0 && (
+      {images.length > 0 && (
         <div className="project-images">
-          {groups.map((group, k) =>
-            group.length === 2 ? (
-              <div className="pair" key={k}>
-                {group.map(src => (
-                  <figure className="project-figure" key={src}>
-                    <img src={src} alt="" loading="lazy" decoding="async" />
-                  </figure>
-                ))}
-              </div>
-            ) : (
-              <figure className="project-figure" key={k}>
-                <img src={group[0]} alt="" loading="lazy" decoding="async" />
-              </figure>
-            )
-          )}
+          {images.map(image => (
+            <figure className="project-figure" key={image.src}>
+              <img src={image.src} alt={image.caption} loading="lazy" decoding="async" />
+              <figcaption>{image.caption}</figcaption>
+            </figure>
+          ))}
         </div>
       )}
       {next.length > 0 && (

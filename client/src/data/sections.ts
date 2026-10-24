@@ -40,6 +40,7 @@ export const resumeUrl: string | null = "/resume.pdf";
 // Work. One card per project; the user supplies every field.
 export interface Project {
   slug: string;          // /work/<slug>/
+  title?: string;        // project page heading; defaults to "client, project"
   client: string;        // company or passion project name, shown in ink
   project: string;       // what was done, shown in muted
   year: string;
@@ -48,10 +49,29 @@ export interface Project {
   goal: string[];        // paragraphs on the project page
   role?: string;
   impact?: string;
-  images?: string[];     // further images on the project page, in order
+  images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
 }
-export const projects: Project[] = [];
+export const projects: Project[] = [
+  {
+    slug: "mikids-pdo-crm",
+    title: "MIKIDS PDO CRM - Retention CRM",
+    client: "MIKIDS PDO CRM",
+    project: "Retention and sales CRM for field trainers",
+    year: "2026",
+    tags: ["EdTech", "Internal tool"],
+    cover: "/images/work/mikids-pdo-crm-cover.jpg",
+    goal: [
+      "A phonics programme with 517 partner schools tracked renewals, upsell pitches and quality visits in monthly spreadsheets, so schools at risk surfaced too late. I designed and built a role-based CRM where a field trainer logs a school visit in about a minute and rates its renewal risk, and the revenue at risk updates for the trainer, the region and head office. It covers retention, a demo-to-conversion sales pipeline, reading-test reports and a visit calendar that marks a plan done when the service is logged, across three portals on one back end: 517 schools, six regions, about Rs 20 crore of business value.",
+    ],
+    images: [
+      { src: "/images/work/crm-admin.webp", caption: "Admin dashboard, all regions" },
+      { src: "/images/work/crm-calendar.webp", caption: "Visit calendar" },
+      { src: "/images/work/crm-timeline.webp", caption: "School timeline" },
+      { src: "/images/work/crm-admin-regions.webp", caption: "Risk by region" },
+    ],
+  },
+];
 
 // Rows under the grid: side projects, giving back. Hidden while empty.
 export interface ListItem { name: string; sub: string; url: string }
