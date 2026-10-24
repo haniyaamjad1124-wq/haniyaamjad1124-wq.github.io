@@ -35,7 +35,12 @@ function useReveal<T extends HTMLElement>() {
       { rootMargin: "0px 0px -10% 0px" }
     );
     io.observe(el);
-    return () => io.disconnect();
+    // Safety: if the observer never reports (hidden tab, odd embed), show anyway.
+    const fallback = window.setTimeout(() => setShown(true), 1800);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(fallback);
+    };
   }, []);
   return { ref, shown };
 }

@@ -71,6 +71,21 @@ export const projects: Project[] = [
       { src: "/images/work/crm-admin-regions.webp", caption: "Risk by region" },
     ],
   },
+  {
+    slug: "mikids-crc",
+    title: "MIKIDS CRC - Classroom review",
+    client: "MIKIDS CRC",
+    project: "Phone-first classroom review and report",
+    year: "2026",
+    tags: ["EdTech", "Mobile web"],
+    cover: "/images/work/mikids-crc-cover.jpg",
+    goal: [
+      "Twice a year each school gets a classroom review: a trainer rates every teacher and class level, then re-types it all into Excel and formats a report by hand. I replaced the workbook with a phone-first app used in the classroom. Every rating is one tap, the class levels appear on their own from the classes typed, and the two-to-three page report builds itself with the workbook's exact maths. Each trainer downloads their region's consolidated Excel in the head-office layout, so nobody copies averages by hand any more.",
+    ],
+    images: [
+      { src: "/images/work/crc-report.jpg", caption: "Report tab: PDF, consolidated Excel and the report's averages" },
+    ],
+  },
 ];
 
 // Rows under the grid: side projects, giving back. Hidden while empty.
