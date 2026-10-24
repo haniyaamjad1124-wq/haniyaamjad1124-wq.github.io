@@ -69,16 +69,6 @@ export function Footer() {
   return (
     <footer className="site-footer">
       <a href="/">Haniya Amjad</a>
-      <nav className="footer-links" aria-label="Footer navigation">
-        <a href="/work">Work</a>
-        <a href="/reminiscence">Reminiscence</a>
-        <a href="/about">About</a>
-        {resumeUrl ? (
-          <a href={resumeUrl} target="_blank" rel="noreferrer">
-            Resume <ArrowUpRight size={13} aria-hidden="true" />
-          </a>
-        ) : null}
-      </nav>
     </footer>
   );
 }
