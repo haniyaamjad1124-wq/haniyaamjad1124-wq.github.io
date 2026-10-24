@@ -1452,3 +1452,4 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
   .rumi-page .editorial-heading h1 { font-size: 34px; }
 }
 .portrait-single .page-body { margin-top: 0; }
+.portrait-single .page-body { font-size: 16px; line-height: 1.8; max-width: 640px; }
