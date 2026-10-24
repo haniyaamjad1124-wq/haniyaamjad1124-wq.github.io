@@ -67,8 +67,8 @@ export function Header({ path }: { path: string }) {
 
 // The entry bookshelf's palette, first shelf row, as a small spine row.
 const footerSpines: [string, number][] = [
-  ["#f1ebda", 18], ["#f5ca62", 22], ["#df5c2c", 20], ["#b94525", 24],
-  ["#8798d4", 19], ["#3f59c3", 23], ["#2b409a", 21], ["#f5ca62", 18],
+  ["#f1ebda", 28], ["#f5ca62", 34], ["#df5c2c", 31], ["#b94525", 38],
+  ["#8798d4", 30], ["#3f59c3", 36], ["#2b409a", 33], ["#f5ca62", 28],
 ];
 
 export function Footer() {
