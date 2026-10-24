@@ -37,15 +37,28 @@ export const sections: PageDefinition[] = [
 
 export const resumeUrl: string | null = "/resume.pdf";
 
+// Work. One card per project; the user supplies every field.
 export interface Project {
-  slug: string;
-  title: string;
-  summary: string;
-  cover?: string;
-  body: string[];
+  slug: string;          // /work/<slug>/
+  client: string;        // company or passion project name, shown in ink
+  project: string;       // what was done, shown in muted
+  year: string;
+  tags: string[];        // one or two short words on the image
+  cover: string;         // 1920x1440 image under /images/work/
+  goal: string[];        // paragraphs on the project page
+  role?: string;
+  impact?: string;
+  images?: string[];     // further images on the project page, in order
+  caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
 }
-
 export const projects: Project[] = [];
+
+// Rows under the grid: side projects, giving back. Hidden while empty.
+export interface ListItem { name: string; sub: string; url: string }
+export interface ListBlock { heading: string; intro: string; items: ListItem[] }
+export const sideProjects: ListBlock = { heading: "", intro: "", items: [] };
+export const community: ListBlock = { heading: "", intro: "", items: [] };
+
 
 export interface RumiMedia {
   id: string;

@@ -1,6 +1,7 @@
 @import url("/fonts/raleway.css");
 @import "./book.css";
 @import "./book-images.css";
+@import "./work.css";
 @import "tailwindcss";
 
 :root {

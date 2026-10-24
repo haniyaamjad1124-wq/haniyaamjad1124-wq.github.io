@@ -21,7 +21,7 @@ export function metadata(path: string) {
         : page
           ? `${page.title} — Haniya Amjad`
           : project
-            ? `${project.title} — Haniya Amjad`
+            ? `${project.client}, ${project.project} — Haniya Amjad`
             : "Page Not Found — Haniya Amjad",
     description:
       path === "/"
@@ -29,7 +29,7 @@ export function metadata(path: string) {
         : page
           ? `${page.title}. A space for Haniya Amjad’s portfolio content.`
           : project
-            ? project.summary
+            ? project.goal[0] ?? `${project.client}, ${project.project}.`
             : "This page could not be found.",
     known: staticRoutes.includes(path),
   };

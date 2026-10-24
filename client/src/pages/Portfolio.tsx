@@ -3,13 +3,16 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import {
   aboutBook,
   aboutPortrait,
+  community,
   projects,
   rumiArtwork,
+  sideProjects,
   type PageDefinition,
   type Project,
 } from "../data/sections";
 import FluidSurface from "../components/portfolio/FluidSurface";
 import FlipBook from "../components/portfolio/FlipBook";
+import { Arrow, ListBlock, WorkCard, WorksGrid, WorksLabel } from "../components/portfolio/WorkCards";
 
 function Body({ paragraphs }: { paragraphs: string[] }) {
   return paragraphs.length ? (
@@ -36,29 +39,9 @@ function WorkPage({ page }: { page: PageDefinition }) {
         </span>
       </header>
       <Body paragraphs={page.body} />
-      <div className="content-section-heading">
-        <h2>Projects</h2>
-        <span className="small-label">COMPANY & PASSION PROJECTS</span>
-      </div>
+      <WorksLabel text="Selected works" />
       {projects.length ? (
-        <div className="project-grid">
-          {projects.map(project => (
-            <a
-              href={`/work/${project.slug}`}
-              className="project-item"
-              key={project.slug}
-            >
-              {project.cover && (
-                <img src={project.cover} alt="" loading="lazy" />
-              )}
-              <div>
-                <h3>{project.title}</h3>
-                <ArrowUpRight size={20} aria-hidden="true" />
-              </div>
-              {project.summary && <p>{project.summary}</p>}
-            </a>
-          ))}
-        </div>
+        <WorksGrid projects={projects} />
       ) : (
         <FluidSurface className="work-empty">
           <span className="small-label">NO PROJECTS ADDED YET</span>
@@ -68,6 +51,8 @@ function WorkPage({ page }: { page: PageDefinition }) {
           </div>
         </FluidSurface>
       )}
+      <ListBlock block={sideProjects} />
+      <ListBlock block={community} />
     </section>
   );
 }
@@ -159,20 +144,97 @@ export function PortfolioPage({ page }: { page: PageDefinition }) {
 }
 
 export function ProjectPage({ project }: { project: Project }) {
+  const i = projects.findIndex(p => p.slug === project.slug);
+  const next = [projects[(i + 1) % projects.length], projects[(i + 2) % projects.length]].filter(
+    (p, k, arr) => p && p.slug !== project.slug && arr.indexOf(p) === k
+  );
+  const images = project.images ?? [];
+  const groups: string[][] = [];
+  for (let k = 0; k < images.length; k += 1) {
+    const even = (k - 1) % 3 === 0 && images[k + 1] && (k + 1) % 3 !== 0;
+    if (even) { groups.push([images[k], images[k + 1]]); k += 1; } else groups.push([images[k]]);
+  }
   return (
-    <section className="editorial-page reading-page">
-      <a className="back-link" href="/work">
-        <ArrowLeft size={14} aria-hidden="true" /> Work
-      </a>
-      <header>
-        <span className="small-label">PROJECT</span>
-        <h1>{project.title}</h1>
-        {project.summary && <p>{project.summary}</p>}
-      </header>
-      {project.cover && (
-        <img className="project-cover" src={project.cover} alt="" />
+    <section className="editorial-page project-page">
+      <div className="project-top">
+        <a className="pill" href="/work">
+          <ArrowLeft size={14} aria-hidden="true" /> Back
+        </a>
+        {project.caseStudyUrl && (
+          <a className="pill dark" href={project.caseStudyUrl} target="_blank" rel="noopener noreferrer">
+            Full case study <Arrow />
+          </a>
+        )}
+      </div>
+      <div className="project-head">
+        <h1>
+          {project.client}, {project.project}
+        </h1>
+      </div>
+      <figure className="project-hero">
+        <img src={project.cover} alt="" width={1920} height={1440} />
+      </figure>
+      <div className="project-copy">
+        <span className="label">Goal</span>
+        <div className="goal">
+          {project.goal.map((paragraph, k) => (
+            <p key={k}>{paragraph}</p>
+          ))}
+        </div>
+        {(project.role || project.impact) && (
+          <>
+            <span className="label">Overview</span>
+            <div className="project-meta">
+              {project.role && (
+                <div>
+                  <span>Role</span>
+                  <span>{project.role}</span>
+                </div>
+              )}
+              {project.impact && (
+                <div>
+                  <span>Impact</span>
+                  <span>{project.impact}</span>
+                </div>
+              )}
+            </div>
+          </>
+        )}
+      </div>
+      {groups.length > 0 && (
+        <div className="project-images">
+          {groups.map((group, k) =>
+            group.length === 2 ? (
+              <div className="pair" key={k}>
+                {group.map(src => (
+                  <figure className="project-figure" key={src}>
+                    <img src={src} alt="" loading="lazy" decoding="async" />
+                  </figure>
+                ))}
+              </div>
+            ) : (
+              <figure className="project-figure" key={k}>
+                <img src={group[0]} alt="" loading="lazy" decoding="async" />
+              </figure>
+            )
+          )}
+        </div>
       )}
-      <Body paragraphs={project.body} />
+      {next.length > 0 && (
+        <div className="project-next">
+          <div className="works-label">
+            <span>Up next</span>
+            <a href="/work">
+              All works <ArrowUpRight size={14} aria-hidden="true" />
+            </a>
+          </div>
+          <div className="works-grid">
+            {next.map((p, k) => (
+              <WorkCard project={p} index={k} key={p.slug} />
+            ))}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
