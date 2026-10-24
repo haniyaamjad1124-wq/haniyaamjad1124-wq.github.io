@@ -1,6 +1,7 @@
 import React from "react";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import {
+  aboutBook,
   aboutPortrait,
   projects,
   rumiArtwork,
@@ -8,6 +9,7 @@ import {
   type Project,
 } from "../data/sections";
 import FluidSurface from "../components/portfolio/FluidSurface";
+import FlipBook from "../components/portfolio/FlipBook";
 
 function Body({ paragraphs }: { paragraphs: string[] }) {
   return paragraphs.length ? (
@@ -99,6 +101,15 @@ function AboutPage({ page }: { page: PageDefinition }) {
           </figure>
           <Body paragraphs={page.body} />
         </div>
+      </section>
+      <section className="about-book" aria-label="Different sides of Haniya">
+        <span className="small-label">DIFFERENT SIDES</span>
+        <FlipBook
+          title="Haniya Amjad"
+          subtitle="different sides of the same person"
+          pages={aboutBook}
+          closing="Nothing is unlearnable or off-limits."
+        />
       </section>
     </section>
   );
