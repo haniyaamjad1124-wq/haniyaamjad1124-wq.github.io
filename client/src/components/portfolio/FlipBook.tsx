@@ -154,10 +154,13 @@ export default function FlipBook({ title, subtitle, pages, closing, interval = 3
 
 function PageFace({ page, number }: { page: BookPage; number: number }) {
   return (
-    <div className="book-page">
-      <span className="book-kicker">{page.kicker}</span>
-      <h4>{page.title}</h4>
-      <p>{page.text}</p>
+    <div className="book-page book-page-image">
+      <img src={page.image} alt={page.title} loading="lazy" decoding="async" />
+      <div className="book-plate">
+        <span className="book-kicker">{page.kicker}</span>
+        <h4>{page.title}</h4>
+        {page.caption && <p>{page.caption}</p>}
+      </div>
       <span className="book-folio">{number}</span>
     </div>
   );

@@ -61,18 +61,13 @@ export const rumiArtwork = "/images/india-journey.webp";
 
 export const aboutPortrait = "/images/portrait.png";
 
-// The About book. Every line below is the user's own wording from the biography.
+// The About book: a picture book of different sides. Images and captions are
+// the user's. Empty until the images arrive; the About page hides the book when empty.
 export interface BookPage {
   kicker: string;
   title: string;
-  text: string;
+  image: string;
+  caption?: string;
 }
-export const aboutBook: BookPage[] = [
-  { kicker: "I", title: "Grassroots", text: "More than five years in the education sector, working at the grassroots level across India." },
-  { kicker: "II", title: "Craft", text: "Empathy, pattern recognition and numbers with stories. Keep it simple, so you'll keep doing it." },
-  { kicker: "III", title: "Leading", text: "Intentional listening. Spot a team member's strength, guide them to lead. When it gets too easy, the weaknesses are next." },
-  { kicker: "IV", title: "Economics", text: "Economics and finance, for their scope to create and measure impact at the core level." },
-  { kicker: "V", title: "Data", text: "An F1 enthusiast, which stems from a love for data." },
-  { kicker: "VI", title: "Couture", text: "Art as a conversation between indigenous stories, supply chain economics and socio-political lobbying." },
-  { kicker: "VII", title: "Endurance", text: "A quarter-life crisis that struck on time. Marathons and HYROX." },
-];
+export const aboutBook: BookPage[] = [];
+// e.g. { kicker: "I", title: "F1", image: "/images/book/01.jpg", caption: "..." }

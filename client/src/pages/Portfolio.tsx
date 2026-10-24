@@ -102,6 +102,7 @@ function AboutPage({ page }: { page: PageDefinition }) {
           <Body paragraphs={page.body} />
         </div>
       </section>
+      {aboutBook.length > 0 && (
       <section className="about-book" aria-label="Different sides of Haniya">
         <span className="small-label">DIFFERENT SIDES</span>
         <FlipBook
@@ -111,6 +112,7 @@ function AboutPage({ page }: { page: PageDefinition }) {
           closing="Nothing is unlearnable or off-limits."
         />
       </section>
+      )}
     </section>
   );
 }
