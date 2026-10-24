@@ -266,6 +266,13 @@
   color: var(--ink);
   margin: 0 0 16px;
 }
+.project-demo { margin-top: 28px; }
+.project-copy .goal .project-demo-note {
+  margin: 12px 0 0;
+  font-size: 14px;
+  letter-spacing: -0.2px;
+  color: var(--muted);
+}
 .project-meta { display: grid; gap: 16px; }
 .project-meta div span {
   display: block;

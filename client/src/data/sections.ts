@@ -51,6 +51,8 @@ export interface Project {
   impact?: string;
   images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
+  demoUrl?: string;      // "Try the live demo" pill under the Goal, opens in a new tab
+  demoNote?: string;     // muted line under that pill
 }
 export const projects: Project[] = [
   {
@@ -77,8 +79,10 @@ export const projects: Project[] = [
     client: "MIKIDS CRC",
     project: "Phone-first classroom review and report",
     year: "2026",
-    tags: ["EdTech", "Mobile web"],
+    tags: ["EdTech", "Mobile web", "Live demo"],
     cover: "/images/work/mikids-crc-cover.jpg",
+    demoUrl: "https://mikids-crc-demo.vercel.app/",
+    demoNote: "Made-up data. Pick a name on the sign-in page; entries reset from time to time.",
     goal: [
       "Twice a year each school gets a classroom review: a trainer rates every teacher and class level, then re-types it all into Excel and formats a report by hand. I replaced the workbook with a phone-first app used in the classroom. Every rating is one tap, the class levels appear on their own from the classes typed, and the two-to-three page report builds itself with the workbook's exact maths. Each trainer downloads their region's consolidated Excel in the head-office layout, so nobody copies averages by hand any more.",
     ],

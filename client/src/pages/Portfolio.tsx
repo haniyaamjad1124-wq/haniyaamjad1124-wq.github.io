@@ -173,6 +173,14 @@ export function ProjectPage({ project }: { project: Project }) {
           {project.goal.map((paragraph, k) => (
             <p key={k}>{paragraph}</p>
           ))}
+          {project.demoUrl && (
+            <div className="project-demo">
+              <a className="pill dark" href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                Try the live demo <Arrow />
+              </a>
+              {project.demoNote && <p className="project-demo-note">{project.demoNote}</p>}
+            </div>
+          )}
         </div>
         {(project.role || project.impact) && (
           <>
