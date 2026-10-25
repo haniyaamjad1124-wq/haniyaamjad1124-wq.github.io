@@ -299,6 +299,8 @@
 @media (max-width: 600px) {
   .work-card { gap: 16px; }
   .work-frame { border-radius: 16px; }
+  .work-tags { top: 10px; left: 10px; gap: 6px; }
+  .work-tag { font-size: 12px; padding: 6px 10px; }
   .work-caption { flex-wrap: wrap; font-size: 16px; }
   .work-year { margin-left: 0; flex-basis: 100%; }
   .works-label { padding: 18px 0 32px; }
