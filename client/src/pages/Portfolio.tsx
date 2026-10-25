@@ -182,6 +182,16 @@ export function ProjectPage({ project }: { project: Project }) {
             </div>
           )}
         </div>
+        {(project.sections ?? []).map(section => (
+          <React.Fragment key={section.title}>
+            <span className="label">{section.title}</span>
+            <div className="goal">
+              {section.body.map((paragraph, k) => (
+                <p key={k}>{paragraph}</p>
+              ))}
+            </div>
+          </React.Fragment>
+        ))}
         {(project.role || project.impact) && (
           <>
             <span className="label">Overview</span>
