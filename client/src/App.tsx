@@ -84,7 +84,7 @@ export default function App({ pathname }: { pathname?: string }) {
         )}
       </main>
       <Footer />
-      <CatCta />
+      <CatCta hidden={path === "/work"} />
     </div>
   );
 }
