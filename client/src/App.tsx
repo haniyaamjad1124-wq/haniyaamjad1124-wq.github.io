@@ -5,6 +5,7 @@ import { PortfolioPage, ProjectPage } from "./pages/Portfolio";
 import { projects, sections } from "./data/sections";
 import usePortfolioNavigation from "./components/portfolio/usePortfolioNavigation";
 import useSmoothScroll from "./components/portfolio/useSmoothScroll";
+import CatCta from "./components/portfolio/CatCta";
 
 export const staticRoutes = [
   "/",
@@ -83,6 +84,7 @@ export default function App({ pathname }: { pathname?: string }) {
         )}
       </main>
       <Footer />
+      <CatCta />
     </div>
   );
 }

@@ -57,18 +57,30 @@ function WorkPage({ page }: { page: PageDefinition }) {
   );
 }
 
-function FeedPost({ index, paragraph }: { index: number; paragraph: string }) {
+function FeedPost({ paragraph }: { paragraph: string }) {
   const { ref, shown } = useReveal<HTMLElement>();
   return (
     <article ref={ref} className={`feed-post${shown ? " is-shown" : ""}`}>
-      <span className="small-label">{String(index).padStart(2, "0")}</span>
       <p>{paragraph}</p>
     </article>
   );
 }
 
+/* the scroll cue is a prompt: it fades once the reader has started scrolling */
+function useScrolled(threshold = 60) {
+  const [scrolled, setScrolled] = React.useState(false);
+  React.useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > threshold);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [threshold]);
+  return scrolled;
+}
+
 function AboutPage({ page }: { page: PageDefinition }) {
   const [lede, ...posts] = page.body;
+  const scrolled = useScrolled();
   return (
     <section className="editorial-page about-page about-feed">
       <header className="feed-hero">
@@ -95,14 +107,14 @@ function AboutPage({ page }: { page: PageDefinition }) {
             />
           </div>
         </figure>
-        <a className="feed-scroll-cue" href="#feed" aria-label="Scroll to read more">
+        <a className={`feed-scroll-cue${scrolled ? " is-hidden" : ""}`} href="#feed" aria-label="Scroll to read more">
           <i aria-hidden="true" />
           Scroll
         </a>
       </header>
       <div id="feed" className="feed" aria-label="About Haniya Amjad">
         {posts.map((paragraph, i) => (
-          <FeedPost key={i} index={i + 1} paragraph={paragraph} />
+          <FeedPost key={i} paragraph={paragraph} />
         ))}
       </div>
       <div className="feed-end">

@@ -3,6 +3,7 @@
 @import "./book-images.css";
 @import "./work.css";
 @import "./landing.css";
+@import "./cat.css";
 @import "tailwindcss";
 
 :root {
