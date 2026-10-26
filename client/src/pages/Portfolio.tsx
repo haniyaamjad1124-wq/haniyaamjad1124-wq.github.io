@@ -12,7 +12,7 @@ import {
 } from "../data/sections";
 import FluidSurface from "../components/portfolio/FluidSurface";
 import FlipBook from "../components/portfolio/FlipBook";
-import { Arrow, ListBlock, WorkCard, WorksGrid, WorksLabel } from "../components/portfolio/WorkCards";
+import { Arrow, ListBlock, WorkCard, WorksGrid, WorksLabel, useReveal } from "../components/portfolio/WorkCards";
 
 function Body({ paragraphs }: { paragraphs: string[] }) {
   return paragraphs.length ? (
@@ -57,36 +57,60 @@ function WorkPage({ page }: { page: PageDefinition }) {
   );
 }
 
-function AboutPage({ page }: { page: PageDefinition }) {
+function FeedPost({ index, paragraph }: { index: number; paragraph: string }) {
+  const { ref, shown } = useReveal<HTMLElement>();
   return (
-    <section className="editorial-page about-page">
-      <header className="editorial-heading">
-        <span className="small-label">03 / ABOUT</span>
-        <h1>
-          About<span className="accent-period">.</span>
-        </h1>
-        <span className="section-axis" aria-hidden="true">
+    <article ref={ref} className={`feed-post${shown ? " is-shown" : ""}`}>
+      <span className="small-label">{String(index).padStart(2, "0")}</span>
+      <p>{paragraph}</p>
+    </article>
+  );
+}
+
+function AboutPage({ page }: { page: PageDefinition }) {
+  const [lede, ...posts] = page.body;
+  return (
+    <section className="editorial-page about-page about-feed">
+      <header className="feed-hero">
+        <span className="feed-hero-axis" aria-hidden="true">
           <i />
           <i />
           <i />
         </span>
-      </header>
-      <section className="about-layout" aria-label="About Haniya Amjad">
-        <div className="portrait-options portrait-single">
-          <figure className="portrait-option portrait-option-color">
-            <div className="portrait-frame">
-              <img
-                className="portrait-image"
-                src={aboutPortrait}
-                alt="Haniya Amjad"
-                width={1200}
-                height={1500}
-              />
-            </div>
-          </figure>
-          <Body paragraphs={page.body} />
+        <div className="feed-hero-copy">
+          <span className="small-label">03 / ABOUT</span>
+          <h1>
+            About<span className="accent-period">.</span>
+          </h1>
+          {lede && <p className="feed-lede">{lede}</p>}
         </div>
-      </section>
+        <figure className="feed-portrait">
+          <div className="portrait-frame">
+            <img
+              className="portrait-image"
+              src={aboutPortrait}
+              alt="Haniya Amjad"
+              width={1200}
+              height={1500}
+            />
+          </div>
+        </figure>
+        <a className="feed-scroll-cue" href="#feed" aria-label="Scroll to read more">
+          <i aria-hidden="true" />
+          Scroll
+        </a>
+      </header>
+      <div id="feed" className="feed" aria-label="About Haniya Amjad">
+        {posts.map((paragraph, i) => (
+          <FeedPost key={i} index={i + 1} paragraph={paragraph} />
+        ))}
+      </div>
+      <div className="feed-end">
+        <span className="small-label">NEXT</span>
+        <a className="pill" href="/work">
+          Selected works <ArrowUpRight size={14} aria-hidden="true" />
+        </a>
+      </div>
       {aboutBook.length > 0 && (
       <section className="about-book" aria-label="Different sides of Haniya">
         <span className="small-label">DIFFERENT SIDES</span>

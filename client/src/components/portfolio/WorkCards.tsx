@@ -15,7 +15,7 @@ export function Arrow({ size = 16 }: { size?: number }) {
 }
 
 /* Fades a block up 30px the first time it scrolls into view. */
-function useReveal<T extends HTMLElement>() {
+export function useReveal<T extends HTMLElement>() {
   const ref = useRef<T | null>(null);
   const [shown, setShown] = useState(false);
   useEffect(() => {

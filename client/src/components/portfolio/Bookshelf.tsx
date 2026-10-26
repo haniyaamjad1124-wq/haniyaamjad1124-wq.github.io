@@ -89,7 +89,7 @@ export default function Bookshelf() {
         new CustomEvent("portfolio:navigate", {
           cancelable: true,
           detail: {
-            path: "/work",
+            path: "/about",
             origin: {
               x: rect.left + rect.width / 2,
               y: rect.top + rect.height / 2,
@@ -97,15 +97,15 @@ export default function Bookshelf() {
           },
         })
       );
-      if (!handled) window.location.assign("/work");
+      if (!handled) window.location.assign("/about");
     }, 120);
   }
 
   return (
     <a
       className="entry-work-link"
-      href="/work"
-      aria-label="Open Work portfolio"
+      href="/about"
+      aria-label="Open the portfolio"
       onClick={enter}
     >
       <div className={`spine-collection ${selected ? "is-entering" : ""}`}>

@@ -4,6 +4,7 @@ import { Header, Footer } from "./components/portfolio/Layout";
 import { PortfolioPage, ProjectPage } from "./pages/Portfolio";
 import { projects, sections } from "./data/sections";
 import usePortfolioNavigation from "./components/portfolio/usePortfolioNavigation";
+import useSmoothScroll from "./components/portfolio/useSmoothScroll";
 
 export const staticRoutes = [
   "/",
@@ -46,6 +47,7 @@ export default function App({ pathname }: { pathname?: string }) {
     staticRoutes,
     metadata
   );
+  useSmoothScroll(path !== "/");
   if (path === "/") return <Home />;
 
   const page = sections.find(page => page.path === path);

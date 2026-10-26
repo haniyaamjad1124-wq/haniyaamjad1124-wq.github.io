@@ -17,6 +17,8 @@ export function Header({ path }: { path: string }) {
       <a className="brand" href="/">
         Haniya Amjad
       </a>
+      {path !== "/" && (
+        <>
       <button
         className="menu-toggle"
         type="button"
@@ -61,6 +63,8 @@ export function Header({ path }: { path: string }) {
           </a>
         )}
       </nav>
+        </>
+      )}
     </header>
   );
 }

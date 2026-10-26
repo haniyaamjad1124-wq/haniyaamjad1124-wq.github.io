@@ -1,0 +1,151 @@
+/* ==========================================================================
+   About as the landing page: a full-screen opening, then the biography as a
+   feed of posts that surface while scrolling. Same paper, ink and accents.
+   Imported by index.css.
+   ========================================================================== */
+
+/* Lenis: native scroll stays the source of truth, no CSS smoothing on top */
+html.lenis,
+html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* opening screen */
+.about-feed { padding-bottom: 0; }
+.feed-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  gap: clamp(28px, 6vw, 96px);
+  align-items: center;
+  min-height: calc(100svh - 98px - 64px);
+  padding-bottom: 72px;
+}
+.feed-hero-copy { display: flex; flex-direction: column; }
+.feed-hero-copy .small-label { color: var(--muted); }
+.feed-hero-copy h1 {
+  font-size: clamp(70px, 8.5vw, 116px);
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+  margin-top: 22px;
+}
+.feed-lede {
+  margin-top: 28px;
+  max-width: 560px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.7;
+  color: var(--ink);
+}
+.feed-hero-axis {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  gap: 6px;
+}
+.feed-hero-axis i { width: 13px; height: 13px; background: var(--blue); }
+.feed-hero-axis i:nth-child(2) { background: var(--orange); }
+.feed-hero-axis i:nth-child(3) { background: var(--yellow); }
+.feed-portrait { margin: 0; }
+.feed-portrait .portrait-frame {
+  background: linear-gradient(145deg, #e2dfd6, #d3d1c8 58%, #e9e6de);
+}
+.feed-scroll-cue {
+  position: absolute;
+  left: 0;
+  bottom: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.feed-scroll-cue i {
+  display: block;
+  width: 1px;
+  height: 38px;
+  background: var(--line);
+  position: relative;
+  overflow: hidden;
+}
+.feed-scroll-cue i::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -40%;
+  width: 1px;
+  height: 40%;
+  background: var(--ink);
+  animation: cue-drop 1.8s cubic-bezier(0.22, 0.68, 0.22, 1) infinite;
+}
+@keyframes cue-drop {
+  from { top: -40%; }
+  to { top: 110%; }
+}
+
+/* the feed */
+.feed {
+  border-top: 1px solid var(--line);
+  padding: 8px 0 24px;
+}
+.feed-post {
+  display: grid;
+  grid-template-columns: minmax(0, 160px) minmax(0, 680px);
+  gap: 24px 64px;
+  align-items: start;
+  padding: clamp(56px, 10vh, 120px) 0;
+  border-bottom: 1px solid var(--line);
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.22, 0.68, 0.22, 1), transform 0.8s cubic-bezier(0.22, 0.68, 0.22, 1);
+}
+.feed-post.is-shown { opacity: 1; transform: none; }
+.feed-post:last-child { border-bottom: 0; }
+.feed-post .small-label { color: var(--muted); padding-top: 8px; }
+.feed-post p {
+  font-size: clamp(18px, 1.75vw, 24px);
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+.feed-post p + p { margin-top: 1em; }
+.feed-end {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 40px 0 72px;
+  border-top: 1px solid var(--line);
+}
+.feed-end .small-label { color: var(--muted); }
+.feed-end .pill { font-size: 14px; }
+
+@media (max-width: 1024px) {
+  .feed-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+}
+@media (max-width: 800px) {
+  .feed-hero {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    padding-bottom: 56px;
+    gap: 32px;
+  }
+  .feed-portrait { max-width: 420px; }
+  .feed-scroll-cue { position: static; margin-top: 8px; }
+  .feed-post { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 48px 0; }
+}
+@media (max-width: 600px) {
+  .feed-hero-copy h1 { font-size: 73px; margin-top: 20px; }
+  .feed-hero-axis i { width: 9px; height: 9px; }
+  .feed-post p { font-size: 18px; }
+  .feed-end { flex-direction: column; align-items: flex-start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feed-post { opacity: 1; transform: none; transition: none; }
+  .feed-scroll-cue i::after { animation: none; }
+}
