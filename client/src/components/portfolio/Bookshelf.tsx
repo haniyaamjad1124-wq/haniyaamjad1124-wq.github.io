@@ -39,17 +39,26 @@ const shelves = [
 
 const WALK_MS = 760;
 const FALL_MS = 620;
+const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 export default function Bookshelf() {
   const [selected, setSelected] = useState<string | null>(null);
   const [wave, setWave] = useState<{ row: number; position: number } | null>(null);
-  // where the cat stands: a shelf and a book index (index = books.length means just past the last book)
-  const [catRow, setCatRow] = useState(0);
-  const [catIndex, setCatIndex] = useState(rows[0].length - 1);
+  // where the cat stands: a shelf and a book index along it
+  const [cat, setCat] = useState({ row: 0, index: rows[0].length - 3 });
   const [walking, setWalking] = useState(false);
-  const [hoverRow, setHoverRow] = useState<number | null>(null);
   const navigating = useRef(false);
+  const hovering = useRef(false);
   const timers = useRef<number[]>([]);
+  const stillTimer = useRef<number | null>(null);
+  const catRef = useRef(cat);
+  catRef.current = cat;
+
+  const later = (fn: () => void, ms: number) => {
+    timers.current.push(window.setTimeout(fn, ms));
+  };
+  const reduced = () =>
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   useEffect(() => {
     const reset = () => {
@@ -67,14 +76,37 @@ export default function Bookshelf() {
     };
   }, []);
 
-  const later = (fn: () => void, ms: number) => {
-    timers.current.push(window.setTimeout(fn, ms));
-  };
+  /* left alone, the cat wanders: a stroll along its shelf, now and then a hop to another shelf */
+  useEffect(() => {
+    if (reduced()) return;
+    let id = 0;
+    const tick = () => {
+      if (!hovering.current && !navigating.current) {
+        const { row } = catRef.current;
+        const nextRow = Math.random() < 0.22 ? Math.floor(Math.random() * rows.length) : row;
+        const nextIndex = Math.floor(Math.random() * rows[nextRow].length);
+        setCat({ row: nextRow, index: nextIndex });
+        setWalking(true);
+        window.setTimeout(() => setWalking(false), WALK_MS);
+      }
+      id = window.setTimeout(tick, 2600 + Math.random() * 2800);
+    };
+    id = window.setTimeout(tick, 2200);
+    return () => window.clearTimeout(id);
+  }, []);
 
-  const reduced = () =>
-    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* the cat follows the cursor along a shelf */
+  function follow(row: number, position: number) {
+    const index = clamp(Math.round(position), 0, rows[row].length - 1);
+    if (catRef.current.row !== row || catRef.current.index !== index) {
+      setCat({ row, index });
+      setWalking(true);
+    }
+    if (stillTimer.current) window.clearTimeout(stillTimer.current);
+    stillTimer.current = window.setTimeout(() => setWalking(false), 320);
+  }
 
-  /* open a shelf's page: the cat walks to the book, pushes it off, then the page opens from that spot */
+  /* open a shelf's page: the cat knocks the book under its feet off the shelf, then the page opens from there */
   function push(row: number, column: number) {
     if (navigating.current) return;
     navigating.current = true;
@@ -102,36 +134,31 @@ export default function Bookshelf() {
       go();
       return;
     }
-    setCatRow(row);
-    setWalking(true);
-    setCatIndex(column);
+    const far = cat.row !== row || cat.index !== column;
+    setCat({ row, index: column });
+    setWalking(far);
+    const walk = far ? WALK_MS : 120;
     later(() => {
       setWalking(false);
       setSelected(id);
-    }, WALK_MS);
-    later(go, WALK_MS + FALL_MS);
+    }, walk);
+    later(go, walk + FALL_MS);
   }
 
-  function onBookClick(event: React.MouseEvent, row: number, column: number) {
+  function onRowClick(event: React.MouseEvent, row: number, columns: number) {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
+    const book = (event.target as Element).closest<HTMLElement>(".entry-book");
+    let column = cat.row === row ? cat.index : columns - 1;
+    if (book) column = Number(book.dataset.bookId!.split("-")[1]);
     push(row, column);
   }
-
-  function onCatClick() {
-    // the cat strolls a few books along its shelf and shoves one off
-    const row = catRow;
-    const column = Math.min(Math.max(catIndex - 4, 0), rows[row].length - 1);
-    push(row, column);
-  }
-
-  const activeRow = hoverRow ?? catRow;
 
   return (
     <div className={`spine-collection ${selected ? "is-entering" : ""}`}>
       {rows.map((colors, row) => {
         const shelf = shelves[row];
-        const catHere = activeRow === row;
+        const catHere = cat.row === row;
         return (
           <a
             className={`spine-row${catHere ? " has-cat" : ""}`}
@@ -140,22 +167,20 @@ export default function Bookshelf() {
             target={shelf.external ? "_blank" : undefined}
             rel={shelf.external ? "noopener noreferrer" : undefined}
             aria-label={`${shelf.name}${shelf.external ? ", opens the PDF" : ""}`}
-            onClick={event => {
-              // a click on the row (not on a book) pushes the last book
-              if ((event.target as Element).closest(".entry-book, .shelf-cat")) return;
-              onBookClick(event, row, colors.length - 1);
-            }}
+            onClick={event => onRowClick(event, row, colors.length)}
             onPointerEnter={event => {
-              if (event.pointerType !== "touch" && !navigating.current) setHoverRow(row);
+              if (event.pointerType !== "touch") hovering.current = true;
             }}
             onPointerMove={event => {
-              if (event.pointerType === "touch" || reduced()) return;
+              if (event.pointerType === "touch" || reduced() || navigating.current) return;
               const rect = event.currentTarget.querySelector(".spine-books")!.getBoundingClientRect();
-              setWave({ row, position: ((event.clientX - rect.left) / rect.width) * colors.length - 0.5 });
+              const position = ((event.clientX - rect.left) / rect.width) * colors.length - 0.5;
+              setWave({ row, position });
+              follow(row, position);
             }}
             onPointerLeave={() => {
+              hovering.current = false;
               setWave(null);
-              if (!navigating.current) setHoverRow(null);
             }}
           >
             <span className="spine-books" aria-hidden="true">
@@ -166,7 +191,6 @@ export default function Bookshelf() {
                     key={id}
                     data-book-id={id}
                     className={`entry-book ${selected === id ? "pushed" : ""}`}
-                    onClick={event => onBookClick(event, row, column)}
                     style={
                       {
                         "--spine-color": color,
@@ -180,30 +204,21 @@ export default function Bookshelf() {
             </span>
             <span className="shelf-label" aria-hidden="true">
               {shelf.name}
-              <span>→</span>
             </span>
             {catHere && (
-              <button
-                type="button"
+              <span
                 className={`shelf-cat${walking ? " is-walking" : ""}`}
-                style={{ ["--i" as string]: hoverRow !== null && hoverRow !== catRow ? colors.length - 1 : catIndex }}
-                onClick={event => {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  onCatClick();
-                }}
-                aria-label={`The cat. Tap to open ${shelf.name}`}
+                style={{ ["--i" as string]: cat.index }}
+                aria-hidden="true"
               >
-                <span className="shelf-cat-say" aria-hidden="true">
-                  <b>Push a few books with me</b>
-                  <small>tap me, or a book</small>
-                </span>
+                <span className="shelf-cat-say">Let's knock over some books</span>
                 <CatFigure />
-              </button>
+              </span>
             )}
           </a>
         );
       })}
+      <span className="shelf-say" aria-hidden="true">Let's knock over some books</span>
     </div>
   );
 }

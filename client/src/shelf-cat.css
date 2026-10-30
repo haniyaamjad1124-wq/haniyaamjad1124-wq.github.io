@@ -8,6 +8,7 @@
 
 /* the shelf cat stands on the books: its feet at the top of the spines */
 .shelf-cat {
+  pointer-events: none;
   position: absolute;
   left: calc(var(--i, 0) * (var(--spine-width) + var(--spine-gap)) + var(--spine-width) / 2);
   top: 8px;
@@ -17,7 +18,6 @@
   padding: 0;
   border: 0;
   background: none;
-  cursor: pointer;
   transform: translate(-50%, -100%);
   transition: left 0.76s cubic-bezier(0.45, 0.05, 0.3, 1);
   z-index: 6;
@@ -30,11 +30,9 @@
   overflow: visible;
   transform: scaleX(-1); /* faces left, into the row */
 }
-.shelf-cat:focus-visible .cat { filter: drop-shadow(0 0 0 2px #f5ca62); }
 
-/* the cream outline shows on the dark shelf */
-.shelf-cat .cat-outline { display: block; }
-.shelf-cat .cat-tail-outline { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 2.6s ease-in-out infinite; }
+/* on the dark shelf the cat is a lifted charcoal with a soft glow, no outline */
+.shelf-cat { --cat-ink: #2c2f36; filter: drop-shadow(0 0 10px rgba(245, 202, 98, 0.18)) drop-shadow(0 6px 10px rgba(0, 0, 0, 0.55)); }
 /* idle: tail sways, eyes blink; walking: a bob and the paw swings */
 .shelf-cat .cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 2.6s ease-in-out infinite; }
 .shelf-cat .cat-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: cat-blink 5.2s ease-in-out infinite; }
@@ -111,22 +109,37 @@
 
 /* the shelf the cat is on lights its label */
 .spine-row.has-cat .shelf-label { color: #f1ebda; }
-.spine-row.has-cat .shelf-label > span { opacity: 1; }
 
 @media (max-width: 800px) {
   .spine-collection { --cat-h: 64px; }
   .shelf-cat { transform: translate(-64%, -100%); }
-  .shelf-cat-say { left: auto; right: 10px; transform: none; padding: 8px 11px; white-space: normal; width: 200px; text-align: right; align-items: flex-end; }
-  .shelf-cat-say::after { left: auto; right: 22px; }
-  @keyframes say-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .shelf-cat-say { font-size: 11px; padding: 5px 8px; }
   .shelf-cat-say b { font-size: 11px; }
   .shelf-cat-say small { font-size: 8px; }
 }
 @media (max-width: 380px) {
   .spine-collection { --cat-h: 52px; }
-  .shelf-cat-say { white-space: normal; width: 170px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .shelf-cat { transition: none; }
-  .shelf-cat .cat, .shelf-cat .cat-tail, .shelf-cat .cat-eyes, .shelf-cat .cat-paw, .shelf-cat-say, .entry-book.pushed { animation: none !important; }
+  .shelf-cat .cat, .shelf-cat .cat-tail, .shelf-cat .cat-eyes, .shelf-cat .cat-paw, .entry-book.pushed { animation: none !important; }
+}
+
+/* on phones the line sits under the shelves instead of riding on the cat */
+.shelf-say {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 34px);
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: #f1ebda;
+  opacity: 0.85;
+}
+@media (max-width: 800px) {
+  .shelf-cat-say { display: none; }
+  .shelf-say { display: block; }
 }
