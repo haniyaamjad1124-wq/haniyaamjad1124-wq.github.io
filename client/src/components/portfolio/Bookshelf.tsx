@@ -119,9 +119,9 @@ export default function Bookshelf() {
   }
 
   function onCatClick() {
-    // the cat shoves the book it is standing next to, or the last one on its shelf
+    // the cat strolls a few books along its shelf and shoves one off
     const row = catRow;
-    const column = Math.min(Math.max(catIndex, 0), rows[row].length - 1);
+    const column = Math.min(Math.max(catIndex - 4, 0), rows[row].length - 1);
     push(row, column);
   }
 
