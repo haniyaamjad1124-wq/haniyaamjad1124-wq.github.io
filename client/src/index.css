@@ -1497,4 +1497,4 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
 .shelf-label { font-size: 15px; color: #c7ccc1; width: 140px; top: calc(50% - 10px); }
 .shelf-label small { display: none; }
 .spine-row:hover .shelf-label, .spine-row.has-cat .shelf-label { color: #f5ca62; }
-@media (max-width: 800px) { .shelf-label { font-size: 13px; bottom: -18px; } }
+@media (max-width: 800px) { .shelf-label { font-size: 13px; left: auto; right: 0; top: auto; bottom: -20px; width: auto; } }

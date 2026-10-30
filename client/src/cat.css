@@ -100,9 +100,9 @@
 
 @media (max-width: 600px) {
   /* small corner cat on phones, no bubble, never over the text column */
-  .cat-cta { width: 72px; height: 62px; right: 4px; }
-  .cat-cta .cat { width: 72px; }
-  .cat-cta.is-paw .cat { transform: translateY(100%) translateY(-26px); }
+  .cat-cta { width: 58px; height: 50px; right: 2px; }
+  .cat-cta .cat { width: 58px; }
+  .cat-cta.is-paw .cat { transform: translateY(100%) translateY(-22px); }
   .cat-cta.is-peek .cat { transform: translateY(40%); }
   .cat-cta:hover .cat, .cat-cta:focus-visible .cat { transform: translateY(14%); }
   .cat-bubble { display: none; }
