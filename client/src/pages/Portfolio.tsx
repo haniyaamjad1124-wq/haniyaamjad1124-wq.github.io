@@ -30,7 +30,7 @@ function WorkPage({ page }: { page: PageDefinition }) {
       <header className="editorial-heading">
         <span className="small-label">01 / WORK</span>
         <h1>
-          Work<span className="accent-period">.</span>
+          Work
         </h1>
         <span className="section-axis" aria-hidden="true">
           <i />
@@ -92,7 +92,7 @@ function AboutPage({ page }: { page: PageDefinition }) {
         <div className="feed-hero-copy">
           <span className="small-label">03 / ABOUT</span>
           <h1>
-            About<span className="accent-period">.</span>
+            About
           </h1>
           {lede && <p className="feed-lede">{lede}</p>}
         </div>
@@ -144,7 +144,7 @@ function ReminiscencePage({ page }: { page: PageDefinition }) {
       <header className="editorial-heading">
         <span className="small-label">02 / REMINISCENCE</span>
         <h1>
-          Reminiscence<span className="accent-period">.</span>
+          Reminiscence
         </h1>
         <span className="section-axis" aria-hidden="true">
           <i />

@@ -12,7 +12,9 @@ export default function Home() {
     <div className="entry-screen">
       <Header path="/" />
       <main id="main-content" className="entry-main" tabIndex={-1}>
-        <h1 className="sr-only">Haniya Amjad portfolio</h1>
+        <div className="entry-top">
+          <h1>You have entered the space of a weird cat lady</h1>
+        </div>
         <div className="entry-center">
           <div className="entry-shelf">
             <Bookshelf />

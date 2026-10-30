@@ -1480,3 +1480,21 @@ html[data-transition-kind="shelf"]::view-transition-new(root) {
   position: relative;
   z-index: 30;
 }
+
+/* ---- 30 Oct corrections ------------------------------------------------ */
+/* no dot under the current page link; colour alone marks it */
+.nav a[aria-current="page"]::after,
+.nav > a[aria-current="page"]::after { display: none; }
+.nav a[aria-current="page"] { color: var(--ink); }
+/* softer, longer page arrival */
+::view-transition-old(root) { animation: route-out 0.34s ease both; }
+::view-transition-new(root) { animation: route-in 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.page-arriving .portfolio-content > * { animation-duration: 0.6s; }
+/* entry heading above the shelves */
+.entry-top { text-align: center; pointer-events: none; }
+.entry-top h1 { font-size: clamp(18px, 2.2vw, 28px); font-weight: 500; letter-spacing: -0.4px; color: #f1ebda; text-wrap: balance; }
+/* shelf labels: plain names, larger, the arrow on hover */
+.shelf-label { font-size: 15px; color: #c7ccc1; width: 140px; top: calc(50% - 10px); }
+.shelf-label small { display: none; }
+.spine-row:hover .shelf-label, .spine-row.has-cat .shelf-label { color: #f5ca62; }
+@media (max-width: 800px) { .shelf-label { font-size: 13px; bottom: -18px; } }

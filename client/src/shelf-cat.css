@@ -2,7 +2,7 @@
    The cat on the entry bookshelf. It stands on top of a shelf's books, walks
    along the row when tapped, and shoves a book off. Each shelf is a link.
    ========================================================================== */
-.spine-collection { --cat-h: 66px; }
+.spine-collection { --cat-h: 96px; }
 .spine-row { text-decoration: none; color: inherit; cursor: pointer; }
 .spine-row:focus-visible { outline: 2px solid #f1ebda; outline-offset: 14px; border-radius: 4px; }
 
@@ -32,10 +32,17 @@
 }
 .shelf-cat:focus-visible .cat { filter: drop-shadow(0 0 0 2px #f5ca62); }
 
+/* the cream outline shows on the dark shelf */
+.shelf-cat .cat-outline { display: block; }
+.shelf-cat .cat-tail-outline { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 2.6s ease-in-out infinite; }
 /* idle: tail sways, eyes blink; walking: a bob and the paw swings */
-.shelf-cat .cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 3.4s ease-in-out infinite; }
+.shelf-cat .cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 2.6s ease-in-out infinite; }
 .shelf-cat .cat-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: cat-blink 5.2s ease-in-out infinite; }
 .shelf-cat .cat-paw { transform-box: fill-box; transform-origin: 20% 100%; animation: cat-beckon 2.4s ease-in-out infinite; }
+@keyframes cat-tail {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-14deg); }
+}
 @keyframes cat-beckon {
   0%, 70%, 100% { transform: rotate(0deg); }
   80% { transform: rotate(-18deg); }
@@ -107,15 +114,16 @@
 .spine-row.has-cat .shelf-label > span { opacity: 1; }
 
 @media (max-width: 800px) {
-  .spine-collection { --cat-h: 48px; }
-  .shelf-cat-say { left: auto; right: 2px; transform: none; padding: 8px 11px; white-space: normal; width: 200px; text-align: right; align-items: flex-end; }
+  .spine-collection { --cat-h: 64px; }
+  .shelf-cat { transform: translate(-64%, -100%); }
+  .shelf-cat-say { left: auto; right: 10px; transform: none; padding: 8px 11px; white-space: normal; width: 200px; text-align: right; align-items: flex-end; }
   .shelf-cat-say::after { left: auto; right: 22px; }
   @keyframes say-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
   .shelf-cat-say b { font-size: 11px; }
   .shelf-cat-say small { font-size: 8px; }
 }
 @media (max-width: 380px) {
-  .spine-collection { --cat-h: 36px; }
+  .spine-collection { --cat-h: 52px; }
   .shelf-cat-say { white-space: normal; width: 170px; }
 }
 @media (prefers-reduced-motion: reduce) {

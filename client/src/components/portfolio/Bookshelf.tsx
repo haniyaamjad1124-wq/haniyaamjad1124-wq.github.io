@@ -179,7 +179,6 @@ export default function Bookshelf() {
               })}
             </span>
             <span className="shelf-label" aria-hidden="true">
-              <small>0{row + 1}</small>
               {shelf.name}
               <span>→</span>
             </span>
@@ -196,8 +195,8 @@ export default function Bookshelf() {
                 aria-label={`The cat. Tap to open ${shelf.name}`}
               >
                 <span className="shelf-cat-say" aria-hidden="true">
-                  <b>Shall we see what Haniya can do?</b>
-                  <small>tap the cat, or a book</small>
+                  <b>Push a few books with me</b>
+                  <small>tap me, or a book</small>
                 </span>
                 <CatFigure />
               </button>
