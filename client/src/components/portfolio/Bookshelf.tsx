@@ -76,16 +76,14 @@ export default function Bookshelf() {
     };
   }, []);
 
-  /* left alone, the cat wanders: a stroll along its shelf, now and then a hop to another shelf */
+  /* left alone, the cat wanders along the top shelf */
   useEffect(() => {
     if (reduced()) return;
     let id = 0;
     const tick = () => {
       if (!hovering.current && !navigating.current) {
-        const { row } = catRef.current;
-        const nextRow = Math.random() < 0.22 ? Math.floor(Math.random() * rows.length) : row;
-        const nextIndex = Math.floor(Math.random() * rows[nextRow].length);
-        setCat({ row: nextRow, index: nextIndex });
+        const nextIndex = Math.floor(Math.random() * rows[0].length);
+        setCat({ row: 0, index: nextIndex });
         setWalking(true);
         window.setTimeout(() => setWalking(false), WALK_MS);
       }
@@ -95,11 +93,11 @@ export default function Bookshelf() {
     return () => window.clearTimeout(id);
   }, []);
 
-  /* the cat follows the cursor along a shelf */
-  function follow(row: number, position: number) {
-    const index = clamp(Math.round(position), 0, rows[row].length - 1);
-    if (catRef.current.row !== row || catRef.current.index !== index) {
-      setCat({ row, index });
+  /* the cat follows the cursor along the top shelf, whichever shelf the cursor is over */
+  function follow(_row: number, position: number) {
+    const index = clamp(Math.round(position), 0, rows[0].length - 1);
+    if (catRef.current.index !== index) {
+      setCat({ row: 0, index });
       setWalking(true);
     }
     if (stillTimer.current) window.clearTimeout(stillTimer.current);
@@ -134,8 +132,8 @@ export default function Bookshelf() {
       go();
       return;
     }
-    const far = cat.row !== row || cat.index !== column;
-    setCat({ row, index: column });
+    const far = cat.index !== column;
+    setCat({ row: 0, index: column });
     setWalking(far);
     const walk = far ? WALK_MS : 120;
     later(() => {
@@ -149,7 +147,7 @@ export default function Bookshelf() {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     const book = (event.target as Element).closest<HTMLElement>(".entry-book");
-    let column = cat.row === row ? cat.index : columns - 1;
+    let column = clamp(cat.index, 0, columns - 1);
     if (book) column = Number(book.dataset.bookId!.split("-")[1]);
     push(row, column);
   }
