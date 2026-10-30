@@ -32,33 +32,74 @@ const tilts: Record<string, number> = {
 /* each shelf opens one page */
 const shelves = [
   { name: "Work", path: "/work" },
-  { name: "Play", path: "/reminiscence" },
+  { name: "Play", path: "/play" },
   { name: "About", path: "/about" },
   { name: "Resume", path: resumeUrl ?? "/resume.pdf", external: true },
 ];
 
-const WALK_MS = 760;
 const FALL_MS = 620;
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
+/*
+  The cat lives at the collection level and is moved every frame, easing
+  toward a target: the cursor while it is over the shelves, otherwise a
+  spot it picks for itself. It can stand on any shelf, and a little beyond
+  either end. Tapping a shelf knocks off the book under the cat on that
+  shelf (or the tapped book); the page opens from where the book fell.
+*/
 export default function Bookshelf() {
   const [selected, setSelected] = useState<string | null>(null);
   const [wave, setWave] = useState<{ row: number; position: number } | null>(null);
-  // where the cat stands: a shelf and a book index along it
-  const [cat, setCat] = useState({ row: 0, index: rows[0].length - 3 });
   const [walking, setWalking] = useState(false);
+  const [face, setFace] = useState(-1); // -1 faces left, 1 faces right
+  const collection = useRef<HTMLDivElement>(null);
+  const catEl = useRef<HTMLSpanElement>(null);
   const navigating = useRef(false);
   const hovering = useRef(false);
   const timers = useRef<number[]>([]);
-  const stillTimer = useRef<number | null>(null);
-  const catRef = useRef(cat);
-  catRef.current = cat;
+  const cur = useRef({ x: 0, y: 0 });
+  const target = useRef({ x: 0, y: 0 });
+  const walkingRef = useRef(false);
+  const faceRef = useRef(-1);
 
   const later = (fn: () => void, ms: number) => {
     timers.current.push(window.setTimeout(fn, ms));
   };
   const reduced = () =>
     typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* geometry of the shelves inside the collection */
+  const rowBox = (row: number) => {
+    const el = collection.current?.querySelectorAll<HTMLElement>(".spine-books")[row];
+    const root = collection.current;
+    if (!el || !root) return { left: 0, top: 0, width: 0, height: 0 };
+    const a = el.getBoundingClientRect();
+    const b = root.getBoundingClientRect();
+    return { left: a.left - b.left, top: a.top - b.top, width: a.width, height: a.height };
+  };
+  const standOn = (row: number, x: number) => {
+    const box = rowBox(row);
+    const reach = 18; // how far past either end the cat may stand
+    target.current = { x: clamp(x, box.left - reach, box.left + box.width + reach), y: box.top };
+  };
+  const nearestRow = (y: number) => {
+    let best = 0;
+    let dist = Infinity;
+    for (let r = 0; r < rows.length; r += 1) {
+      const box = rowBox(r);
+      const d = Math.abs(y - (box.top + box.height / 2));
+      if (d < dist) {
+        dist = d;
+        best = r;
+      }
+    }
+    return best;
+  };
+  const columnAt = (row: number, x: number) => {
+    const box = rowBox(row);
+    const n = rows[row].length;
+    return clamp(Math.round(((x - box.left) / box.width) * n - 0.5), 0, n - 1);
+  };
 
   useEffect(() => {
     const reset = () => {
@@ -67,7 +108,6 @@ export default function Bookshelf() {
       navigating.current = false;
       setSelected(null);
       setWave(null);
-      setWalking(false);
     };
     window.addEventListener("pageshow", reset);
     return () => {
@@ -76,35 +116,57 @@ export default function Bookshelf() {
     };
   }, []);
 
-  /* left alone, the cat wanders along the top shelf */
+  /* start on the top shelf, then ease toward the target every frame */
+  useEffect(() => {
+    const box = rowBox(0);
+    cur.current = { x: box.left + box.width * 0.7, y: box.top };
+    target.current = { ...cur.current };
+    let frame = 0;
+    const ease = reduced() ? 1 : 0.2;
+    const loop = () => {
+      const c = cur.current;
+      const t = target.current;
+      const dx = t.x - c.x;
+      const dy = t.y - c.y;
+      c.x += dx * ease;
+      c.y += dy * ease;
+      if (catEl.current) catEl.current.style.transform = `translate(${c.x}px, ${c.y}px) translate(-50%, -100%)`;
+      const moving = Math.abs(dx) > 1.2 || Math.abs(dy) > 1.2;
+      if (moving !== walkingRef.current) {
+        walkingRef.current = moving;
+        setWalking(moving);
+      }
+      if (Math.abs(dx) > 4) {
+        const f = dx < 0 ? -1 : 1;
+        if (f !== faceRef.current) {
+          faceRef.current = f;
+          setFace(f);
+        }
+      }
+      frame = window.requestAnimationFrame(loop);
+    };
+    frame = window.requestAnimationFrame(loop);
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  /* left alone, the cat wanders: any shelf, any spot, now and then an end */
   useEffect(() => {
     if (reduced()) return;
     let id = 0;
     const tick = () => {
-      if (!hovering.current && !navigating.current) {
-        const nextIndex = Math.floor(Math.random() * rows[0].length);
-        setCat({ row: 0, index: nextIndex });
-        setWalking(true);
-        window.setTimeout(() => setWalking(false), WALK_MS);
+      if (!hovering.current && !navigating.current && collection.current) {
+        const row = Math.floor(Math.random() * rows.length);
+        const box = rowBox(row);
+        const x = box.left + box.width * (Math.random() * 1.1 - 0.05);
+        standOn(row, x);
       }
-      id = window.setTimeout(tick, 2600 + Math.random() * 2800);
+      id = window.setTimeout(tick, 2400 + Math.random() * 2600);
     };
-    id = window.setTimeout(tick, 2200);
+    id = window.setTimeout(tick, 1800);
     return () => window.clearTimeout(id);
   }, []);
 
-  /* the cat follows the cursor along the top shelf, whichever shelf the cursor is over */
-  function follow(_row: number, position: number) {
-    const index = clamp(Math.round(position), 0, rows[0].length - 1);
-    if (catRef.current.index !== index) {
-      setCat({ row: 0, index });
-      setWalking(true);
-    }
-    if (stillTimer.current) window.clearTimeout(stillTimer.current);
-    stillTimer.current = window.setTimeout(() => setWalking(false), 320);
-  }
-
-  /* open a shelf's page: the cat knocks the book under its feet off the shelf, then the page opens from there */
+  /* open a shelf's page */
   function push(row: number, column: number) {
     if (navigating.current) return;
     navigating.current = true;
@@ -132,53 +194,53 @@ export default function Bookshelf() {
       go();
       return;
     }
-    const far = cat.index !== column;
-    setCat({ row: 0, index: column });
-    setWalking(far);
-    const walk = far ? WALK_MS : 120;
-    later(() => {
-      setWalking(false);
-      setSelected(id);
-    }, walk);
-    later(go, walk + FALL_MS);
+    // the cat runs to the book, then shoves it
+    const box = rowBox(row);
+    const n = rows[row].length;
+    standOn(row, box.left + ((column + 0.5) / n) * box.width);
+    const run = Math.min(900, 200 + Math.abs(target.current.x - cur.current.x) * 1.2 + Math.abs(target.current.y - cur.current.y) * 1.2);
+    later(() => setSelected(id), run);
+    later(go, run + FALL_MS);
   }
 
-  function onRowClick(event: React.MouseEvent, row: number, columns: number) {
+  function onRowClick(event: React.MouseEvent, row: number) {
     if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
     event.preventDefault();
     const book = (event.target as Element).closest<HTMLElement>(".entry-book");
-    let column = clamp(cat.index, 0, columns - 1);
-    if (book) column = Number(book.dataset.bookId!.split("-")[1]);
+    const column = book ? Number(book.dataset.bookId!.split("-")[1]) : columnAt(row, cur.current.x);
     push(row, column);
   }
 
   return (
-    <div className={`spine-collection ${selected ? "is-entering" : ""}`}>
+    <div
+      className={`spine-collection ${selected ? "is-entering" : ""}`}
+      ref={collection}
+      onPointerMove={event => {
+        if (event.pointerType === "touch" || reduced() || navigating.current) return;
+        hovering.current = true;
+        const root = collection.current!.getBoundingClientRect();
+        standOn(nearestRow(event.clientY - root.top), event.clientX - root.left);
+      }}
+      onPointerLeave={() => {
+        hovering.current = false;
+        setWave(null);
+      }}
+    >
       {rows.map((colors, row) => {
         const shelf = shelves[row];
-        const catHere = cat.row === row;
         return (
           <a
-            className={`spine-row${catHere ? " has-cat" : ""}`}
+            className="spine-row"
             key={row}
             href={shelf.path}
             target={shelf.external ? "_blank" : undefined}
             rel={shelf.external ? "noopener noreferrer" : undefined}
             aria-label={`${shelf.name}${shelf.external ? ", opens the PDF" : ""}`}
-            onClick={event => onRowClick(event, row, colors.length)}
-            onPointerEnter={event => {
-              if (event.pointerType !== "touch") hovering.current = true;
-            }}
+            onClick={event => onRowClick(event, row)}
             onPointerMove={event => {
-              if (event.pointerType === "touch" || reduced() || navigating.current) return;
+              if (event.pointerType === "touch" || reduced()) return;
               const rect = event.currentTarget.querySelector(".spine-books")!.getBoundingClientRect();
-              const position = ((event.clientX - rect.left) / rect.width) * colors.length - 0.5;
-              setWave({ row, position });
-              follow(row, position);
-            }}
-            onPointerLeave={() => {
-              hovering.current = false;
-              setWave(null);
+              setWave({ row, position: ((event.clientX - rect.left) / rect.width) * colors.length - 0.5 });
             }}
           >
             <span className="spine-books" aria-hidden="true">
@@ -203,19 +265,18 @@ export default function Bookshelf() {
             <span className="shelf-label" aria-hidden="true">
               {shelf.name}
             </span>
-            {catHere && (
-              <span
-                className={`shelf-cat${walking ? " is-walking" : ""}`}
-                style={{ ["--i" as string]: cat.index }}
-                aria-hidden="true"
-              >
-                <span className="shelf-cat-say">Let's knock over some books</span>
-                <CatFigure />
-              </span>
-            )}
           </a>
         );
       })}
+      <span
+        ref={catEl}
+        className={`shelf-cat${walking ? " is-walking" : ""}`}
+        style={{ ["--face" as string]: face }}
+        aria-hidden="true"
+      >
+        <span className="shelf-cat-say">Let's knock over some books</span>
+        <CatFigure />
+      </span>
       <span className="shelf-say" aria-hidden="true">Let's knock over some books</span>
     </div>
   );

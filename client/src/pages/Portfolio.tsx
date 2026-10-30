@@ -142,9 +142,9 @@ function ReminiscencePage({ page }: { page: PageDefinition }) {
   return (
     <section className="editorial-page rumi-page">
       <header className="editorial-heading">
-        <span className="small-label">02 / REMINISCENCE</span>
+        <span className="small-label">02 / PLAY</span>
         <h1>
-          Reminiscence
+          Play
         </h1>
         <span className="section-axis" aria-hidden="true">
           <i />

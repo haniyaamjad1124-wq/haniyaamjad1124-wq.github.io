@@ -126,7 +126,7 @@ fs.writeFileSync(
 const routes = [
   ["/", "Entrance"],
   ["/work", "Work"],
-  ["/reminiscence", "Reminiscence"],
+  ["/play", "Play"],
   ["/about", "About"],
 ];
 fs.writeFileSync(

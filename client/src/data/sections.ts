@@ -15,8 +15,8 @@ export const sections: PageDefinition[] = [
     body: [],
   },
   {
-    path: "/reminiscence",
-    title: "Reminiscence",
+    path: "/play",
+    title: "Play",
     number: "02",
     group: "reminiscence",
     body: [],

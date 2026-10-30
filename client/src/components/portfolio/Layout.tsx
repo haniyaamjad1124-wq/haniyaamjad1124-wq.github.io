@@ -6,7 +6,7 @@ export function Header({ path }: { path: string }) {
   const [open, setOpen] = useState(false);
   const links = [
     { href: "/work", label: "Work" },
-    { href: "/reminiscence", label: "Reminiscence" },
+    { href: "/play", label: "Play" },
     { href: "/about", label: "About" },
   ];
 

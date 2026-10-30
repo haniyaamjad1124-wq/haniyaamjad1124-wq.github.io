@@ -76,7 +76,7 @@ export default function App({ pathname }: { pathname?: string }) {
             </div>
             <nav className="footer-links not-found-links" aria-label="Pages">
               <a href="/work">Work</a>
-              <a href="/reminiscence">Reminiscence</a>
+              <a href="/play">Play</a>
               <a href="/about">About</a>
               <a href="/resume.pdf">Resume</a>
             </nav>
