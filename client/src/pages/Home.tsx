@@ -14,7 +14,9 @@ export default function Home() {
       <main id="main-content" className="entry-main" tabIndex={-1}>
         <h1 className="sr-only">Haniya Amjad portfolio</h1>
         <div className="entry-center">
-          <Bookshelf />
+          <div className="entry-shelf">
+            <Bookshelf />
+          </div>
         </div>
       </main>
     </div>

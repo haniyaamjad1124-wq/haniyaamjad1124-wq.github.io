@@ -1,0 +1,124 @@
+/* ==========================================================================
+   The cat on the entry bookshelf. It stands on top of a shelf's books, walks
+   along the row when tapped, and shoves a book off. Each shelf is a link.
+   ========================================================================== */
+.spine-collection { --cat-h: 66px; }
+.spine-row { text-decoration: none; color: inherit; cursor: pointer; }
+.spine-row:focus-visible { outline: 2px solid #f1ebda; outline-offset: 14px; border-radius: 4px; }
+
+/* the shelf cat stands on the books: its feet at the top of the spines */
+.shelf-cat {
+  position: absolute;
+  left: calc(var(--i, 0) * (var(--spine-width) + var(--spine-gap)) + var(--spine-width) / 2);
+  top: 8px;
+  width: calc(var(--cat-h) * 1.22);
+  height: var(--cat-h);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  transform: translate(-50%, -100%);
+  transition: left 0.76s cubic-bezier(0.45, 0.05, 0.3, 1);
+  z-index: 6;
+  outline: none;
+}
+.shelf-cat .cat {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  transform: scaleX(-1); /* faces left, into the row */
+}
+.shelf-cat:focus-visible .cat { filter: drop-shadow(0 0 0 2px #f5ca62); }
+
+/* idle: tail sways, eyes blink; walking: a bob and the paw swings */
+.shelf-cat .cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: cat-tail 3.4s ease-in-out infinite; }
+.shelf-cat .cat-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: cat-blink 5.2s ease-in-out infinite; }
+.shelf-cat .cat-paw { transform-box: fill-box; transform-origin: 20% 100%; animation: cat-beckon 2.4s ease-in-out infinite; }
+@keyframes cat-beckon {
+  0%, 70%, 100% { transform: rotate(0deg); }
+  80% { transform: rotate(-18deg); }
+  90% { transform: rotate(6deg); }
+}
+.shelf-cat.is-walking .cat { animation: cat-walk 0.38s ease-in-out infinite; }
+.shelf-cat.is-walking .cat-paw { animation: cat-swing 0.38s ease-in-out infinite; }
+@keyframes cat-walk {
+  0%, 100% { transform: scaleX(-1) translateY(0) rotate(0deg); }
+  50% { transform: scaleX(-1) translateY(-4px) rotate(-3deg); }
+}
+@keyframes cat-swing {
+  0%, 100% { transform: rotate(-30deg); }
+  50% { transform: rotate(10deg); }
+}
+
+/* the invitation */
+.shelf-cat-say {
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 10px);
+  transform: translateX(-50%) scaleX(1);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: #f1ebda;
+  color: #17191d;
+  white-space: nowrap;
+  text-align: center;
+  box-shadow: 0 10px 24px -14px #000;
+  animation: say-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both 0.3s;
+}
+.shelf-cat-say::after {
+  content: "";
+  position: absolute;
+  left: calc(50% - 6px);
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  background: #f1ebda;
+  transform: rotate(45deg);
+  border-radius: 2px;
+}
+.shelf-cat-say b { font-size: 13px; font-weight: 600; letter-spacing: -0.2px; }
+.shelf-cat-say small { font-size: 9px; letter-spacing: 1.4px; text-transform: uppercase; color: #6a6c63; }
+.shelf-cat.is-walking .shelf-cat-say { opacity: 0; transition: opacity 0.2s; }
+@keyframes say-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(6px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* the pushed book tips and falls off the shelf */
+.entry-book.pushed {
+  transform-origin: 50% 100%;
+  animation: book-fall 0.62s cubic-bezier(0.5, 0, 0.9, 0.4) both;
+  z-index: 5;
+}
+@keyframes book-fall {
+  0% { transform: translateY(0) rotate(var(--tilt)); }
+  30% { transform: translateY(2px) rotate(calc(var(--tilt) - 40deg)); }
+  100% { transform: translateY(160px) rotate(calc(var(--tilt) - 110deg)); opacity: 0.2; }
+}
+.spine-collection.is-entering .entry-book:not(.pushed) { opacity: 0.35; transition-duration: 0.18s; }
+
+/* the shelf the cat is on lights its label */
+.spine-row.has-cat .shelf-label { color: #f1ebda; }
+.spine-row.has-cat .shelf-label > span { opacity: 1; }
+
+@media (max-width: 800px) {
+  .spine-collection { --cat-h: 48px; }
+  .shelf-cat-say { left: auto; right: 2px; transform: none; padding: 8px 11px; white-space: normal; width: 200px; text-align: right; align-items: flex-end; }
+  .shelf-cat-say::after { left: auto; right: 22px; }
+  @keyframes say-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  .shelf-cat-say b { font-size: 11px; }
+  .shelf-cat-say small { font-size: 8px; }
+}
+@media (max-width: 380px) {
+  .spine-collection { --cat-h: 36px; }
+  .shelf-cat-say { white-space: normal; width: 170px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shelf-cat { transition: none; }
+  .shelf-cat .cat, .shelf-cat .cat-tail, .shelf-cat .cat-eyes, .shelf-cat .cat-paw, .shelf-cat-say, .entry-book.pushed { animation: none !important; }
+}

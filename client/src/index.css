@@ -4,6 +4,7 @@
 @import "./work.css";
 @import "./landing.css";
 @import "./cat.css";
+@import "./shelf-cat.css";
 @import "tailwindcss";
 
 :root {
@@ -117,14 +118,14 @@ button:focus-visible,
   align-items: center;
   padding: 0;
 }
-.entry-work-link {
+.entry-work-link,
+.entry-shelf {
   width: 100%;
   min-height: 100svh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 150px 25px 56px;
-  cursor: pointer;
 }
 .entry-work-link:focus-visible {
   outline: none;
