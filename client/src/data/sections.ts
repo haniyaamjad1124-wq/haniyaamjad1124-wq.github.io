@@ -48,6 +48,7 @@ export interface Project {
   goal: string[];        // paragraphs on the project page
   role?: string;
   impact?: string;
+  contribution?: number; // share of the project that was mine, 0 to 100
   sections?: { title: string; body: string[]; bullets?: string[] }[]; // discovery, competition, design, execution, validation
   images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
@@ -67,48 +68,45 @@ export const projects: Project[] = [
     goal: [
       "A phonics programme with 520 partner schools tracked renewals, upsell pitches and quality visits in monthly spreadsheets, so a school at risk surfaced too late to act. I designed and built a role-based CRM. A field trainer logs a school visit in about a minute and rates its renewal risk, and the revenue at risk updates for the trainer, the region and head office. It covers retention, a demo-to-conversion sales pipeline, reading-test reports and a visit calendar, across three portals on one back end, for 520 schools in 8 states and about Rs 20 crore of business value.",
     ],
+    contribution: 90,
     sections: [
       {
-        title: "Customer discovery",
+        title: "My role",
         body: [
-          "The users are the programme delivery officers, the 40 trainers who visit our 520 partner schools across 8 states. Sitting with them showed three problems.",
-        ],
-        bullets: [
-          "A school's renewal status lived in a monthly sheet, so a school moving through the dropout stages was caught at the eleventh hour, usually at renewal.",
-          "Nobody could see revenue at risk by region.",
-          "A visit planned in one sheet was never reconciled with the service logged in another.",
+          "Product manager, end to end. I sat with the trainers, defined the workflow, drew the screens, designed the data model, built the tool and rolled it out to a 40-person field team across 8 states.",
         ],
       },
       {
-        title: "Competitive analysis",
+        title: "The problem",
         body: [
-          "Vendors selling English and phonics programmes into schools compete on content and teacher training at the point of sale. Post-sale service, the quality visits and the renewal follow-up, runs on spreadsheets and chat groups. Generic CRMs model leads and deals, not a trainer's school visit or a renewal-risk rating per school.",
+          "A phonics programme with 520 partner schools ran its retention on monthly spreadsheets. A school passes through dropout stages over a year, and the sheets caught it at the eleventh hour, at renewal. Three things followed from that.",
+        ],
+        bullets: [
+          "Nobody could see revenue at risk by region, so managers worked blind until the month closed.",
+          "A visit planned in one sheet was never reconciled with the service logged in another, so the same visit was entered twice or not at all.",
+          "Head office waited a month for a picture that was already out of date.",
         ],
       },
       {
-        title: "Product design and UX",
-        body: [],
+        title: "The solution",
+        body: [
+          "A CRM built around the visit rather than the deal. The first version was one form: the trainer logs a school visit in about a minute from the school gate, records what was done, rates the renewal risk and sets the next step. Once trainers used that on real visits, the rest grew around it.",
+        ],
         bullets: [
-          "One form logs a visit in about a minute: the school, what was done, the renewal risk, the next step.",
-          "Risk and revenue at risk roll up live for the trainer, the region and head office.",
+          "Risk and revenue at risk roll up live to the trainer, the region and head office.",
           "Three portals on one back end, for trainers, managers and admin, each seeing only its own schools.",
-          "The calendar marks a planned visit done when the service is logged, so there is one record instead of two.",
+          "The calendar marks a planned visit done when the service is logged, so there is one record.",
+          "A demo-to-conversion pipeline for upsells, reading-test reports, and an audit trail of every change.",
         ],
       },
       {
-        title: "Product and tech execution",
-        body: [
-          "Live and in daily use by the 40-person team across 520 schools. I designed the workflow, the screens and the data model, and built it. One release shipped the visit log, the renewal-risk roll-ups, the demo-to-conversion pipeline, reading-test reports, the visit calendar and an audit trail of every change.",
-        ],
-      },
-      {
-        title: "Product-market validation",
+        title: "Impact",
         body: [],
         bullets: [
-          "Every service delivered since launch is logged in it.",
+          "Every service the team has delivered since launch is logged in it.",
           "By a conservative count it saves each trainer about three hours a month, roughly 270 hours in the first ten weeks.",
           "In appraisal season the log replaced self-reported sheets.",
-          "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets.",
+          "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets. A school at risk now surfaces when the trainer walks out of it, not at renewal.",
         ],
       },
     ],

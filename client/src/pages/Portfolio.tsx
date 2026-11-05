@@ -235,10 +235,19 @@ export function ProjectPage({ project }: { project: Project }) {
             </div>
           </React.Fragment>
         ))}
-        {(project.role || project.impact) && (
+        {(project.role || project.impact || project.contribution !== undefined) && (
           <>
             <span className="label">Overview</span>
             <div className="project-meta">
+              {project.contribution !== undefined && (
+                <div className="contrib">
+                  <span>My contribution</span>
+                  <span className="contrib-bar" role="img" aria-label={`${project.contribution} percent of the project`}>
+                    <i style={{ width: `${project.contribution}%` }} />
+                  </span>
+                  <span className="contrib-value">{project.contribution}%</span>
+                </div>
+              )}
               {project.role && (
                 <div>
                   <span>Role</span>

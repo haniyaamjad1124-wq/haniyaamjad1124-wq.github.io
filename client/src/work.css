@@ -286,6 +286,11 @@
 .goal-list li::marker { color: var(--orange); }
 .project-copy .goal p + .goal-list { margin-top: 4px; }
 .project-meta { display: grid; gap: 16px; }
+.contrib { display: grid; grid-template-columns: auto minmax(120px, 280px) auto; align-items: center; gap: 12px; }
+.contrib > span:first-child { color: var(--muted); font-size: 16px; letter-spacing: -0.3px; }
+.contrib-bar { display: block; height: 8px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.contrib-bar i { display: block; height: 100%; border-radius: 999px; background: var(--orange); }
+.contrib-value { font-size: 16px; font-weight: 600; letter-spacing: -0.3px; color: var(--ink); font-variant-numeric: tabular-nums; }
 .project-meta div span {
   display: block;
   font-size: 16px;
