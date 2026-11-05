@@ -48,7 +48,7 @@ export interface Project {
   goal: string[];        // paragraphs on the project page
   role?: string;
   impact?: string;
-  sections?: { title: string; body: string[] }[]; // discovery, competition, design, execution, validation
+  sections?: { title: string; body: string[]; bullets?: string[] }[]; // discovery, competition, design, execution, validation
   images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
   demoUrl?: string;      // "Try the live demo" pill under the Goal, opens in a new tab
@@ -71,35 +71,44 @@ export const projects: Project[] = [
       {
         title: "Customer discovery",
         body: [
-          "The users are the programme delivery officers, the trainers who visit partner schools. Sitting with them showed three problems. A school's renewal status lived in a monthly Excel that each trainer filled from memory, so a school slipping away showed up only at renewal time. Nobody could see revenue at risk by region. A visit planned in one sheet was never reconciled with the service logged in another.",
-          "The trainers did not ask for a CRM. They wanted to log a visit in a minute from the school gate and never type it again.",
+          "The users are the programme delivery officers, the 40 trainers who visit our 520 partner schools across 8 states. Sitting with them showed three problems.",
+        ],
+        bullets: [
+          "A school's renewal status lived in a monthly sheet, so a school moving through the dropout stages was caught at the eleventh hour, usually at renewal.",
+          "Nobody could see revenue at risk by region.",
+          "A visit planned in one sheet was never reconciled with the service logged in another.",
         ],
       },
       {
         title: "Competitive analysis",
         body: [
-          "Vendors selling English and phonics programmes into schools compete on content and teacher training at the point of sale. Post-sale service, the quality visits and the renewal follow-up, runs on spreadsheets and chat groups. Generic CRMs model leads and deals, not a trainer's school visit or a renewal-risk rating per school. Nobody had built a tool around the visit itself, with risk rolled up to the region and head office.",
+          "Vendors selling English and phonics programmes into schools compete on content and teacher training at the point of sale. Post-sale service, the quality visits and the renewal follow-up, runs on spreadsheets and chat groups. Generic CRMs model leads and deals, not a trainer's school visit or a renewal-risk rating per school.",
         ],
       },
       {
         title: "Product design and UX",
-        body: [
-          "I designed it from the trainer's day rather than adapting a generic CRM. One form logs the visit: the school, what was done, the renewal risk, the next step. Risk and revenue at risk roll up live for the trainer, the region and head office.",
-          "Three portals share one back end, scoped by role so a trainer sees only their own schools. The calendar marks a planned visit done when the service is logged, so there is one record instead of two.",
+        body: [],
+        bullets: [
+          "One form logs a visit in about a minute: the school, what was done, the renewal risk, the next step.",
+          "Risk and revenue at risk roll up live for the trainer, the region and head office.",
+          "Three portals on one back end, for trainers, managers and admin, each seeing only its own schools.",
+          "The calendar marks a planned visit done when the service is logged, so there is one record instead of two.",
         ],
       },
       {
         title: "Product and tech execution",
         body: [
-          "It is live and in daily use. One Python server with SQLite behind HTTPS, nothing to license. The 520 schools across 8 states load at first run, with the demo-to-conversion pipeline, reading-test reports, the visit calendar and a full audit trail.",
-          "Every API call is checked against the user's role and scope, passwords are hashed, accounts lock after failed attempts, backups run nightly, and 69 smoke checks run against a throw-away database before a release.",
+          "Live and in daily use by the 40-person team across 520 schools. I designed the workflow, the screens and the data model, and built it. One release shipped the visit log, the renewal-risk roll-ups, the demo-to-conversion pipeline, reading-test reports, the visit calendar and an audit trail of every change.",
         ],
       },
       {
         title: "Product-market validation",
-        body: [
-          "This is an internal tool, so validation is usage rather than revenue. It carries about Rs 20 crore of business value across 520 schools and 8 states.",
-          "The same problem exists far beyond us. UDISE+ 2023-24 counts about 3.3 lakh private unaided schools in India. Industry estimates put India's edtech and smart-classroom market near USD 8.9 billion in 2025 (MarketsandMarkets) and the global education CRM market near USD 2.8 billion (MarketIntelo). Every vendor selling a programme into those schools carries the same renewal and service-visit problem.",
+        body: [],
+        bullets: [
+          "Every service delivered since launch is logged in it.",
+          "By a conservative count it saves each trainer about three hours a month, roughly 270 hours in the first ten weeks.",
+          "In appraisal season the log replaced self-reported sheets.",
+          "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets.",
         ],
       },
     ],

@@ -273,6 +273,18 @@
   letter-spacing: -0.2px;
   color: var(--muted);
 }
+.goal-list {
+  margin: 0;
+  padding-left: 1.1em;
+  display: grid;
+  gap: 10px;
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.5;
+  letter-spacing: -0.2px;
+  color: var(--ink);
+}
+.goal-list li::marker { color: var(--orange); }
+.project-copy .goal p + .goal-list { margin-top: 4px; }
 .project-meta { display: grid; gap: 16px; }
 .project-meta div span {
   display: block;

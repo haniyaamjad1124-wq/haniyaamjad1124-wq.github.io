@@ -225,6 +225,13 @@ export function ProjectPage({ project }: { project: Project }) {
               {section.body.map((paragraph, k) => (
                 <p key={k}>{paragraph}</p>
               ))}
+              {section.bullets && section.bullets.length > 0 && (
+                <ul className="goal-list">
+                  {section.bullets.map((item, k) => (
+                    <li key={k}>{item}</li>
+                  ))}
+                </ul>
+              )}
             </div>
           </React.Fragment>
         ))}
