@@ -100,7 +100,7 @@ export const projects: Project[] = [
         body: [],
         bullets: [
           "Every service the team has delivered since launch is logged in it.",
-          "By a conservative count it saves each trainer about three hours a month, roughly 270 hours in the first ten weeks.",
+          "By a conservative count it saves each PDO about two and a half hours a month, roughly 300 hours across the team in the first ten weeks.",
           "In appraisal season the log replaced self-reported sheets.",
           "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets. A school at risk now surfaces when the trainer walks out of it, not at renewal.",
         ],
