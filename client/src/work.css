@@ -328,3 +328,6 @@
   .work-card, .list-block { transition: none; opacity: 1; transform: none; }
   .work-badge, .pill { transition: none; }
 }
+
+/* section labels on project pages end with a colon: "My role:" */
+.project-copy .label::after { content: ":"; }
