@@ -66,26 +66,22 @@ export const projects: Project[] = [
     cover: "/images/work/pdo-crm-cover.jpg",
     role: "Product Manager",
     goal: [
-      "A phonics programme with 520 partner schools tracked renewals, upsell pitches and quality visits in monthly spreadsheets, so a school at risk surfaced too late to act. I designed and built a role-based CRM. A field trainer logs a school visit in about a minute and rates its renewal risk, and the revenue at risk updates for the trainer, the region and head office. It covers retention, a demo-to-conversion sales pipeline, reading-test reports and a visit calendar, across three portals on one back end, for 520 schools in 8 states and about Rs 20 crore of business value.",
+      "The business is curriculum software used in 520 partner schools. A 50-member team works only on retention and post-sales service. They are called Programme Delivery Officers (PDOs). Their calendar runs across an 11-month academic year, and they also carry cross-selling targets. Their productivity metric is the percentage of business value retained from the schools currently in the portfolio.",
     ],
     contribution: 90,
     sections: [
       {
-        title: "My role",
+        title: "The problem",
         body: [
-          "Product manager, end to end. I sat with the trainers, defined the workflow, drew the screens, designed the data model, built the tool and rolled it out to a 40-person field team across 8 states.",
+          "Several members of the team visit each school, and the higher a school's dropout risk, the more senior the people who visit it. This created a loop of changing, subjective readings of each school's feedback on the programme. Senior management needed a tool that logs each PDO's work and service calendar and runs analytics on that human intelligence.",
         ],
       },
       {
-        title: "The problem",
+        title: "For the PDO",
         body: [
-          "A phonics programme with 520 partner schools ran its retention on monthly spreadsheets. A school passes through dropout stages over a year, and the sheets caught it at the eleventh hour, at renewal. Three things followed from that.",
+          "Parallel reporting to managers is gone, and risk levels are reported transparently. Each PDO has a clear dashboard of the services done for every school:",
         ],
-        bullets: [
-          "Nobody could see revenue at risk by region, so managers worked blind until the month closed.",
-          "A visit planned in one sheet was never reconciled with the service logged in another, so the same visit was entered twice or not at all.",
-          "Head office waited a month for a picture that was already out of date.",
-        ],
+        bullets: ["Renewal risk", "Reading test", "Initial training", "CRC 1 and 2", "Retraining", "Maximization"],
       },
       {
         title: "The solution",
