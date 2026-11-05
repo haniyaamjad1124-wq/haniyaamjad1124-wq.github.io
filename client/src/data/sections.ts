@@ -86,23 +86,23 @@ export const projects: Project[] = [
       {
         title: "The solution",
         body: [
-          "A CRM built around the visit rather than the deal. The first version was one form: the trainer logs a school visit in about a minute from the school gate, records what was done, rates the renewal risk and sets the next step. Once trainers used that on real visits, the rest grew around it.",
+          "A business analytics dashboard for the retention team, built on the work the PDOs already do. Every service a PDO delivers becomes a data point, and the dashboard turns those into retention, risk and cross-selling views. It serves three personas with specific needs:",
         ],
         bullets: [
-          "Risk and revenue at risk roll up live to the trainer, the region and head office.",
-          "Three portals on one back end, for trainers, managers and admin, each seeing only its own schools.",
-          "The calendar marks a planned visit done when the service is logged, so there is one record.",
-          "A demo-to-conversion pipeline for upsells, reading-test reports, and an audit trail of every change.",
+          "PDO: their own schools, the services done and due for each, and the renewal risk they have rated.",
+          "Manager: their region's schools, the revenue at risk, and where each PDO stands on services and targets.",
+          "Head office: retained business value across all 520 schools and 8 states, risk by region over time, and the maximization pipeline.",
         ],
       },
       {
         title: "Impact",
         body: [],
         bullets: [
-          "Every service the team has delivered since launch is logged in it.",
-          "By a conservative count it saves each PDO about two and a half hours a month, roughly 300 hours across the team in the first ten weeks.",
-          "In appraisal season the log replaced self-reported sheets.",
-          "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets. A school at risk now surfaces when the trainer walks out of it, not at renewal.",
+          "Each PDO saves about 4 hours a week, roughly 2,000 hours across the 50-member team in the first ten weeks.",
+          "Each manager saves about 3 hours a week.",
+          "Every service the team has delivered since launch is in the dashboard.",
+          "In appraisal season the dashboard replaced self-reported sheets.",
+          "Managers open one screen for revenue at risk by region instead of waiting for the month's sheets.",
         ],
       },
     ],
