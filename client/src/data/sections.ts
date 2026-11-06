@@ -53,7 +53,7 @@ export interface Project {
     title: string;
     body: string[];
     bullets?: string[];
-    personas?: { name: string; line: string; needs: string; tone: "yellow" | "orange" | "blue" }[];
+    personas?: { name: string; line: string; needs: string; tone: "yellow" | "orange" | "blue" | "cream" }[];
   }[];
   images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
@@ -129,46 +129,52 @@ export const projects: Project[] = [
     demoUrl: "https://mikids-crc-demo.vercel.app/",
     demoNote: "Made-up data. Pick a name on the sign-in page; entries reset from time to time.",
     goal: [
-      "The same curriculum software, the same 520 partner schools. Twice a year each PDO runs a classroom review, called the CRC, in every school they look after. They observe each teacher, rate them on 12 criteria, rate what the students in each class can do, and send the principal a report. Head office then collects every school's averages in one consolidated workbook.",
+      "Show each school evidential progress on the programme by comparing its beginning-of-year (BOY) and end-of-year (EOY) scores. School management uses this report as a testimonial when deciding whether to renew the programme for the next academic year, which is how it retains our business with them.",
     ],
     sections: [
       {
         title: "The problem",
         body: [
-          "The review lived in an Excel workbook. PDOs noted ratings in the classroom, re-typed everything into the workbook in the evening, fixed the formulas, and formatted the principal's report by hand. A back-end team then opened each PDO's file and copied the averages into the head-office workbook. The same ratings were entered three times.",
+          "This was mainly a design problem. The review lived in Excel. PDOs noted the ratings in the classroom, typed them into Excel, and the back-end team recorded the averages in head office's central workbook. Two pain points followed:",
         ],
-      },
-      {
-        title: "For the PDO",
-        body: [
-          "Every rating is one tap on the phone, in the classroom. Each review moves through the same steps:",
+        bullets: [
+          "Management got no visual, digestible view of the data",
+          "PDOs entered the same scores three times: in the classroom, in Excel, and for the back-end team",
         ],
-        bullets: ["General info", "Teachers", "Students", "Recommendations", "Scores", "Report"],
       },
       {
         title: "The solution",
         body: [
-          "A phone-first app that replaces the workbook with the same fields, ratings and maths. Class levels appear on their own from the classes typed for each teacher, and the 2 to 3 page report builds itself, checked against the original workbook. It serves three personas with specific needs.",
+          "Working from first principles, we removed the workbook altogether instead of making it faster to fill. The CRC is now recorded on a phone-first app, with every input made in the app itself. The app calculates the scores and lays out the report on its own, generates it school by school, and exports the averages as a portable Excel file. The back-end team presses Download, and the files sit with them for compliance.",
+        ],
+      },
+      {
+        title: "Who uses it",
+        body: [
+          "Four personas, each with one use case.",
         ],
         personas: [
-          { name: "PDO", tone: "yellow", line: "Runs the review in the classroom.", needs: "One-tap ratings for each teacher and class, and a report that builds itself before they leave the school." },
-          { name: "Principal", tone: "orange", line: "Receives the review.", needs: "A 2 to 3 page report with teacher and student scores, focus areas and good practices observed." },
-          { name: "Retention head", tone: "blue", line: "Owns the review across regions.", needs: "Every school's averages in the head-office consolidated workbook, by region, without anyone copying them by hand." },
+          { name: "PDO", tone: "yellow", line: "Records the review in the classroom.", needs: "Enter every rating once, on the phone, and have the report build itself." },
+          { name: "Manager", tone: "orange", line: "Leads a region's PDOs.", needs: "See each school's report and how its scores move from BOY to EOY." },
+          { name: "Retention head", tone: "blue", line: "Owns retention across the client portfolio.", needs: "Use each school's progress report to support its renewal for the next academic year." },
+          { name: "Channel support officer", tone: "cream", line: "Handles company-wide filings.", needs: "Export the averages in Excel with one download, for compliance and company-wide filings." },
         ],
       },
       {
         title: "Impact",
         body: [],
         bullets: [
-          "About 1,040 reviews a year, 2 per school across 520 schools, no longer pass through Excel",
-          "Each PDO downloads their region's consolidated workbook in the head-office layout",
-          "Report averages match the workbook's maths, checked against a real school's file",
-          "A live demo on made-up data, linked above",
+          "About 1,000 reports generated without Excel",
+          "Fewer errors, since every score is entered once",
+          "Schools receive a clear, visual report of their progress, and they are happy with what they see",
         ],
       },
     ],
     images: [
-      { src: "/images/work/crc-report.jpg", caption: "Report tab: PDF, consolidated Excel and the report's averages" },
+      { src: "/images/work/crc-report-p1.webp", caption: "Generated report, page 1: summary" },
+      { src: "/images/work/crc-report-p2.webp", caption: "Generated report, page 2: student scores by level" },
+      { src: "/images/work/crc-report-p3.webp", caption: "Generated report, page 3: teacher scores by parameter" },
+      { src: "/images/work/crc-report.jpg", caption: "The report tab on the phone" },
     ],
   },
 ];

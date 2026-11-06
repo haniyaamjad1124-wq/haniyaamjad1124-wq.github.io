@@ -4,7 +4,7 @@ export interface Persona {
   name: string;
   line: string;
   needs: string;
-  tone: "yellow" | "orange" | "blue";
+  tone: "yellow" | "orange" | "blue" | "cream";
 }
 
 /*
@@ -54,6 +54,7 @@ export default function PersonaCards({ personas }: { personas: Persona[] }) {
   return (
     <div
       className={`persona-deck${still ? " is-still" : ""}`}
+      data-count={n}
       onPointerEnter={() => (paused.current = true)}
       onPointerLeave={() => (paused.current = false)}
       onFocus={() => (paused.current = true)}
