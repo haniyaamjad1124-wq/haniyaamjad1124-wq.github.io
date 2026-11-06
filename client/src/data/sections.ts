@@ -49,7 +49,12 @@ export interface Project {
   role?: string;
   impact?: string;
   contribution?: number; // share of the project that was mine, 0 to 100
-  sections?: { title: string; body: string[]; bullets?: string[] }[]; // discovery, competition, design, execution, validation
+  sections?: {
+    title: string;
+    body: string[];
+    bullets?: string[];
+    personas?: { name: string; line: string; needs: string; tone: "yellow" | "orange" | "blue" }[];
+  }[];
   images?: { src: string; caption: string }[]; // further images on the project page, in order
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
   demoUrl?: string;      // "Try the live demo" pill under the Goal, opens in a new tab
@@ -68,7 +73,6 @@ export const projects: Project[] = [
     goal: [
       "The business is curriculum software used in 520 partner schools. A 50-member team works only on retention and post-sales service. They are called Programme Delivery Officers (PDOs). Their calendar runs across an 11-month academic year, and they also carry cross-selling targets. Their productivity metric is the percentage of business value retained from the schools currently in the portfolio.",
     ],
-    contribution: 90,
     sections: [
       {
         title: "The problem",
@@ -79,35 +83,35 @@ export const projects: Project[] = [
       {
         title: "For the PDO",
         body: [
-          "PDOs no longer send separate reports to each manager. A PDO rates a school's risk once, and everyone above sees that same rating. Each PDO's dashboard shows the services done for every school:",
+          "Transparent, real-time updates on retention risk across the client portfolio. Each PDO has a clear dashboard of the services done for every school:",
         ],
-        bullets: ["Renewal risk", "Reading test", "Initial training", "CRC 1 and 2", "Retraining", "Maximization"],
+        bullets: ["Initial training", "Implementation", "CRC 1", "Reading test", "Retraining", "CRC 2", "Maximization"],
       },
       {
         title: "The solution",
         body: [
-          "A business analytics dashboard for the retention team, built on the work the PDOs already do. Every service a PDO delivers becomes a data point, and the dashboard turns those into retention, risk and cross-selling views. It serves three personas with specific needs:",
+          "A business analytics dashboard for the retention team, built on the work the PDOs already do. Every service a PDO delivers becomes a data point, and the dashboard turns those into retention, risk and cross-selling views. It serves three personas with specific needs.",
         ],
-        bullets: [
-          "PDO: Their own schools, the services done and due for each, and the renewal risk they have rated.",
-          "Manager: Their region's schools, the revenue at risk, and where each PDO stands on services and targets.",
-          "Head office: Retained business value across all 520 schools and 8 states, risk by region over time, and the maximization pipeline.",
+        personas: [
+          { name: "PDO", tone: "yellow", line: "Visits the schools and rates their risk.", needs: "Their own schools, the services done for each, and the renewal risk they have rated." },
+          { name: "Manager", tone: "orange", line: "Leads a region's PDOs.", needs: "Their region's schools, the revenue at risk, and where each PDO stands on services and targets." },
+          { name: "Head office", tone: "blue", line: "Owns the retained business value.", needs: "Retained business value across all 520 schools and 8 states, risk by region over time, and the maximization pipeline." },
         ],
       },
       {
         title: "Impact",
         body: [],
         bullets: [
-          "Each school now has one risk rating, set by the PDO who visits it, in place of the changing opinions of everyone who visited.",
-          "Parallel reporting to managers ended. Risk moves from the PDO to the manager to head office on the same screen.",
-          "Head office sees retained business value and the maximization pipeline across all 520 schools as it happens, not at month end.",
-          "In appraisal season, reviews ran on logged work instead of self-reported sheets.",
-          "Each PDO saves about 4 hours a week, roughly 2,000 hours across the 50-member team in the first ten weeks, and each manager about 3 hours a week.",
+          "Schools classified by risk rating, updated case by case as each school develops",
+          "Retained business value and the maximization pipeline across 520 schools, visible every day",
+          "4 hours a week saved per PDO",
+          "2,000 hours saved across 50 PDOs in the first ten weeks",
+          "3 hours a week saved per manager",
         ],
       },
     ],
     images: [
-      { src: "/images/work/crm-admin.webp", caption: "Admin dashboard, all regions" },
+      { src: "/images/work/crm-admin.webp", caption: "Admin dashboard" },
       { src: "/images/work/crm-calendar.webp", caption: "Visit calendar" },
       { src: "/images/work/crm-timeline.webp", caption: "School timeline" },
       { src: "/images/work/crm-admin-regions.webp", caption: "Risk by region" },

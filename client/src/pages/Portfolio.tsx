@@ -12,6 +12,7 @@ import {
 } from "../data/sections";
 import FluidSurface from "../components/portfolio/FluidSurface";
 import FlipBook from "../components/portfolio/FlipBook";
+import PersonaCards from "../components/portfolio/PersonaCards";
 import { Arrow, ListBlock, WorkCard, WorksGrid, WorksLabel, useReveal } from "../components/portfolio/WorkCards";
 
 function Body({ paragraphs }: { paragraphs: string[] }) {
@@ -179,6 +180,22 @@ export function PortfolioPage({ page }: { page: PageDefinition }) {
   return <ReminiscencePage page={page} />;
 }
 
+/* bold every figure in project copy: 520, 2,000, 8, 90%, Rs 20 crore. "CRC 1" stays plain. */
+const FIGURE = /(?:₹|Rs\s)?\d[\d,]*(?:\.\d+)?(?:\s?(?:%|crore|lakh))?/g;
+function emph(text: string): React.ReactNode {
+  const out: React.ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(FIGURE)) {
+    const at = m.index ?? 0;
+    if (text.slice(Math.max(0, at - 4), at) === "CRC ") continue;
+    if (at > last) out.push(text.slice(last, at));
+    out.push(<strong key={at}>{m[0]}</strong>);
+    last = at + m[0].length;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 export function ProjectPage({ project }: { project: Project }) {
   const i = projects.findIndex(p => p.slug === project.slug);
   const next = [projects[(i + 1) % projects.length], projects[(i + 2) % projects.length]].filter(
@@ -207,7 +224,7 @@ export function ProjectPage({ project }: { project: Project }) {
         <span className="label">Goal</span>
         <div className="goal">
           {project.goal.map((paragraph, k) => (
-            <p key={k}>{paragraph}</p>
+            <p key={k}>{emph(paragraph)}</p>
           ))}
           {project.demoUrl && (
             <div className="project-demo">
@@ -223,31 +240,23 @@ export function ProjectPage({ project }: { project: Project }) {
             <span className="label">{section.title}</span>
             <div className="goal">
               {section.body.map((paragraph, k) => (
-                <p key={k}>{paragraph}</p>
+                <p key={k}>{emph(paragraph)}</p>
               ))}
               {section.bullets && section.bullets.length > 0 && (
                 <ul className="goal-list">
                   {section.bullets.map((item, k) => (
-                    <li key={k}>{item}</li>
+                    <li key={k}>{emph(item)}</li>
                   ))}
                 </ul>
               )}
+              {section.personas && section.personas.length > 0 && <PersonaCards personas={section.personas} />}
             </div>
           </React.Fragment>
         ))}
-        {(project.role || project.impact || project.contribution !== undefined) && (
+        {(project.role || project.impact) && (
           <>
             <span className="label">Overview</span>
             <div className="project-meta">
-              {project.contribution !== undefined && (
-                <div className="contrib">
-                  <span>My contribution</span>
-                  <span className="contrib-bar" role="img" aria-label={`${project.contribution} percent of the project`}>
-                    <i style={{ width: `${project.contribution}%` }} />
-                  </span>
-                  <span className="contrib-value">{project.contribution}%</span>
-                </div>
-              )}
               {project.role && (
                 <div>
                   <span>Role</span>

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Persona cards: a shuffling deck in the bookshelf yellow, orange and blue,
+   each card with a white stroke. Imported by index.css.
+   ========================================================================== */
+.persona-deck { margin: 8px 0 4px; max-width: 520px; }
+.persona-stack {
+  position: relative;
+  height: 300px;
+  cursor: pointer;
+  padding-right: 56px;
+  padding-bottom: 36px;
+}
+.persona-card {
+  --shift: 0;
+  position: absolute;
+  inset: 0 56px 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 26px 28px;
+  border-radius: 22px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 18px 40px -22px rgba(23, 25, 29, 0.55), 0 2px 0 rgba(255, 255, 255, 0.4) inset;
+  transform-origin: 50% 100%;
+  transition:
+    transform 1s cubic-bezier(0.65, 0, 0.35, 1),
+    opacity 1s cubic-bezier(0.65, 0, 0.35, 1),
+    box-shadow 0.6s ease;
+  will-change: transform;
+}
+.persona-card.tone-yellow { background: #f5ca62; color: #17191d; }
+.persona-card.tone-orange { background: #df5c2c; color: #17191d; }
+.persona-card.tone-blue { background: #3f59c3; color: #ffffff; }
+
+.persona-card.pos-0 { transform: translate(0, 0) rotate(0deg); z-index: 3; }
+.persona-card.pos-1 { transform: translate(26px, 18px) rotate(3.5deg) scale(0.97); z-index: 2; }
+.persona-card.pos-2 { transform: translate(52px, 36px) rotate(7deg) scale(0.94); z-index: 1; }
+
+/* the card that just left the front arcs out to the left, then sinks behind */
+.persona-card.is-leaving { animation: persona-shuffle 1.05s cubic-bezier(0.65, 0, 0.35, 1) both; }
+@keyframes persona-shuffle {
+  0% { transform: translate(0, 0) rotate(0deg); z-index: 4; }
+  42% { transform: translate(-62%, -6%) rotate(-11deg); z-index: 4; }
+  55% { z-index: 0; }
+  100% { transform: translate(52px, 36px) rotate(7deg) scale(0.94); z-index: 1; }
+}
+
+.persona-kicker {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.persona-card h3 {
+  margin: 2px 0 0;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+}
+.persona-line { margin: 0; font-size: 15px; line-height: 1.45; opacity: 0.85; }
+.persona-needs-label {
+  margin-top: auto;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+.persona-needs { margin: 0; font-size: 16px; line-height: 1.5; font-weight: 500; }
+.project-copy .goal .persona-card p { color: inherit; font-size: 16px; margin: 0; }
+.project-copy .goal .persona-card .persona-line { font-size: 15px; }
+
+.persona-dots { display: flex; gap: 10px; margin-top: 4px; }
+.persona-dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px var(--line);
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.persona-dot.tone-yellow { background: #f5ca62; }
+.persona-dot.tone-orange { background: #df5c2c; }
+.persona-dot.tone-blue { background: #3f59c3; }
+.persona-dot.is-on { opacity: 1; transform: scale(1.25); }
+.persona-dot:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+
+/* reduced motion: three cards in a row, no deck */
+.persona-deck.is-still { max-width: none; }
+.persona-deck.is-still .persona-stack {
+  height: auto;
+  padding: 0;
+  cursor: default;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.persona-deck.is-still .persona-card { position: relative; inset: auto; transform: none; min-height: 240px; }
+
+@media (max-width: 600px) {
+  .persona-stack { height: 300px; padding-right: 40px; padding-bottom: 28px; }
+  .persona-card { inset: 0 40px 28px 0; padding: 22px 22px; }
+  .persona-card.pos-1 { transform: translate(18px, 14px) rotate(3deg) scale(0.97); }
+  .persona-card.pos-2 { transform: translate(36px, 28px) rotate(6deg) scale(0.94); }
+  @keyframes persona-shuffle {
+    0% { transform: translate(0, 0) rotate(0deg); z-index: 4; }
+    42% { transform: translate(-40%, -6%) rotate(-9deg); z-index: 4; }
+    55% { z-index: 0; }
+    100% { transform: translate(36px, 28px) rotate(6deg) scale(0.94); z-index: 1; }
+  }
+  .persona-card h3 { font-size: 26px; }
+}
