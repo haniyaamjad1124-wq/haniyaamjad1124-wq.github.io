@@ -13,6 +13,11 @@ export interface Persona {
   slow, liquid loop. Hover or focus pauses it; a dot or a click on the
   deck brings the next card forward. Reduced motion: three cards in a row.
 */
+/* bold the figures inside a card, same rule as the rest of the page */
+function figures(text: string): React.ReactNode {
+  return text.split(/(\d[\d,]*)/).map((part, i) => (/^\d/.test(part) ? <strong key={i}>{part}</strong> : part));
+}
+
 export default function PersonaCards({ personas }: { personas: Persona[] }) {
   const n = personas.length;
   const [front, setFront] = useState(0);
@@ -67,7 +72,7 @@ export default function PersonaCards({ personas }: { personas: Persona[] }) {
               <h3>{p.name}</h3>
               <p className="persona-line">{p.line}</p>
               <span className="persona-needs-label">Needs</span>
-              <p className="persona-needs">{p.needs}</p>
+              <p className="persona-needs">{figures(p.needs)}</p>
             </article>
           );
         })}
