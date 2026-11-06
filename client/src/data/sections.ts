@@ -129,7 +129,7 @@ export const projects: Project[] = [
     demoUrl: "https://mikids-crc-demo.vercel.app/",
     demoNote: "Made-up data. Pick a name on the sign-in page; entries reset from time to time.",
     goal: [
-      "Show each school evidential progress on the programme by comparing its beginning-of-year (BOY) and end-of-year (EOY) scores. School management uses this report as a testimonial when deciding whether to renew the programme for the next academic year, which is how it retains our business with them.",
+      "Show each school evidential progress on the programme by comparing its beginning-of-year (BOY) and end-of-year (EOY) scores. School management uses this report as a testimonial when deciding whether to renew the programme for the next academic year, so it helps us retain their business.",
     ],
     sections: [
       {
@@ -145,7 +145,7 @@ export const projects: Project[] = [
       {
         title: "The solution",
         body: [
-          "Working from first principles, we removed the workbook altogether instead of making it faster to fill. The CRC is now recorded on a phone-first app, with every input made in the app itself. The app calculates the scores and lays out the report on its own, generates it school by school, and exports the averages as a portable Excel file. The back-end team presses Download, and the files sit with them for compliance.",
+          "Working from first principles, we removed the workbook altogether. The CRC is now recorded on a phone-first app, with every input made in the app itself. The app calculates the scores and lays out the report on its own, generates it school by school, and exports the averages as a portable Excel file. The back-end team presses Download, and the files sit with them for compliance.",
         ],
       },
       {
