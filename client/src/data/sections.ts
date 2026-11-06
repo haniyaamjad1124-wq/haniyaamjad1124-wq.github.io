@@ -79,7 +79,7 @@ export const projects: Project[] = [
       {
         title: "For the PDO",
         body: [
-          "Parallel reporting to managers is gone, and risk levels are reported transparently. Each PDO has a clear dashboard of the services done for every school:",
+          "PDOs no longer send separate reports to each manager. A PDO rates a school's risk once, and everyone above sees that same rating. Each PDO's dashboard shows the services done for every school:",
         ],
         bullets: ["Renewal risk", "Reading test", "Initial training", "CRC 1 and 2", "Retraining", "Maximization"],
       },
