@@ -129,40 +129,41 @@ export const projects: Project[] = [
     demoUrl: "https://mikids-crc-demo.vercel.app/",
     demoNote: "Made-up data. Pick a name on the sign-in page; entries reset from time to time.",
     goal: [
-      "Twice a year each school gets a classroom review: a trainer rates every teacher and class level, then re-types it all into Excel and formats a report by hand. I replaced the workbook with a phone-first app used in the classroom. Every rating is one tap, the class levels appear on their own from the classes typed, and the two-to-three page report builds itself with the workbook's exact maths. Each trainer downloads their region's consolidated Excel in the head-office layout, so nobody copies averages by hand any more.",
+      "The same curriculum software, the same 520 partner schools. Twice a year each PDO runs a classroom review, called the CRC, in every school they look after. They observe each teacher, rate them on 12 criteria, rate what the students in each class can do, and send the principal a report. Head office then collects every school's averages in one consolidated workbook.",
     ],
     sections: [
       {
-        title: "Customer discovery",
+        title: "The problem",
         body: [
-          "Same users, the programme delivery officers, during the classroom review each school gets twice a year. Watching one: the trainer rates six to twelve teachers and every class level in notes, types it all into the review workbook in the evening, fixes the formulas, and formats a report for the principal by hand. Head office then copies each trainer's averages into a consolidated workbook.",
-          "Three re-entries of the same ratings, and the report reaches the school days after the visit.",
+          "The review lived in an Excel workbook. PDOs noted ratings in the classroom, re-typed everything into the workbook in the evening, fixed the formulas, and formatted the principal's report by hand. A back-end team then opened each PDO's file and copied the averages into the head-office workbook. The same ratings were entered three times.",
         ],
       },
       {
-        title: "Competitive analysis",
+        title: "For the PDO",
         body: [
-          "Vendors in this segment rarely tool their post-sale service; a structured classroom review is a differentiator very few ship. Survey builders capture ratings but not the workbook's scoring maths, the class-level structure or the printed report. Classroom observation platforms built for teacher evaluation abroad are priced and designed for school districts, not for a vendor's trainer on a phone in an LKG classroom.",
+          "Every rating is one tap on the phone, in the classroom. Each review moves through the same steps:",
+        ],
+        bullets: ["General info", "Teachers", "Students", "Recommendations", "Scores", "Report"],
+      },
+      {
+        title: "The solution",
+        body: [
+          "A phone-first app that replaces the workbook with the same fields, ratings and maths. Class levels appear on their own from the classes typed for each teacher, and the 2 to 3 page report builds itself, checked against the original workbook. It serves three personas with specific needs.",
+        ],
+        personas: [
+          { name: "PDO", tone: "yellow", line: "Runs the review in the classroom.", needs: "One-tap ratings for each teacher and class, and a report that builds itself before they leave the school." },
+          { name: "Principal", tone: "orange", line: "Receives the review.", needs: "A 2 to 3 page report with teacher and student scores, focus areas and good practices observed." },
+          { name: "Retention head", tone: "blue", line: "Owns the review across regions.", needs: "Every school's averages in the head-office consolidated workbook, by region, without anyone copying them by hand." },
         ],
       },
       {
-        title: "Product design and UX",
-        body: [
-          "A phone-first web app used inside the classroom. Every rating is one tap on a four-way toggle; Set all fills a card so the trainer changes only the exceptions. Class levels appear on their own from the classes typed for each teacher.",
-          "The two-to-three page report builds itself from the workbook's exact maths and was checked against the original Excel. Each trainer downloads their region's consolidated Excel in the head-office layout.",
-        ],
-      },
-      {
-        title: "Product and tech execution",
-        body: [
-          "Shipped. Flask and SQLite behind the same login and role rules as the CRM; the whole client is one HTML file, so it loads on any phone. Report maths verified against a real workbook, 36 access-rule tests, and a public demo on made-up data that you can tap through from this page.",
-        ],
-      },
-      {
-        title: "Product-market validation",
-        body: [
-          "Internal, so validation is usage, not sales. Twice-yearly reviews across 520 schools mean about a thousand reports a year that no longer pass through Excel.",
-          "The addressable base is the same 3.3 lakh private unaided schools counted by UDISE+ 2023-24, each of which buys programmes that need a service visit, and the same India edtech market that industry estimates put near USD 8.9 billion in 2025.",
+        title: "Impact",
+        body: [],
+        bullets: [
+          "About 1,040 reviews a year, 2 per school across 520 schools, no longer pass through Excel",
+          "Each PDO downloads their region's consolidated workbook in the head-office layout",
+          "Report averages match the workbook's maths, checked against a real school's file",
+          "A live demo on made-up data, linked above",
         ],
       },
     ],
