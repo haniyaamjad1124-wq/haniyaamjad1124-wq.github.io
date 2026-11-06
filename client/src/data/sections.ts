@@ -95,7 +95,7 @@ export const projects: Project[] = [
         personas: [
           { name: "PDO", tone: "yellow", line: "Visits the schools and rates their risk.", needs: "Their own schools, the services done for each, and the renewal risk they have rated." },
           { name: "Manager", tone: "orange", line: "Leads a region's PDOs.", needs: "Their region's schools, the revenue at risk, and where each PDO stands on services and targets." },
-          { name: "Head office", tone: "blue", line: "Owns the retained business value.", needs: "Retained business value across all 520 schools and 8 states, risk by region over time, and the maximization pipeline." },
+          { name: "Retention head", tone: "blue", line: "Owns the retained business value.", needs: "Retained business value across all 520 schools and 8 states, risk by region over time, and the maximization pipeline." },
         ],
       },
       {
