@@ -151,7 +151,7 @@ export const projects: Project[] = [
       {
         title: "Who uses it",
         body: [
-          "Four personas, each with one use case.",
+          "Built for four personas: PDO, Manager, Retention head and Channel support officer.",
         ],
         personas: [
           { name: "PDO", tone: "yellow", line: "Records the review in the classroom.", needs: "Enter every rating once, on the phone, and have the report build itself." },
@@ -171,9 +171,9 @@ export const projects: Project[] = [
       },
     ],
     images: [
-      { src: "/images/work/crc-report-p1.webp", caption: "Generated report, page 1: summary" },
-      { src: "/images/work/crc-report-p2.webp", caption: "Generated report, page 2: student scores by level" },
-      { src: "/images/work/crc-report-p3.webp", caption: "Generated report, page 3: teacher scores by parameter" },
+      { src: "/images/work/crc-boy-eoy.webp", caption: "BOY vs EOY for the same school: teachers 4.14 to 4.61, students 3.77 to 4.29" },
+      { src: "/images/work/crc-report-p2.webp", caption: "Generated report, page 2: student scores by level (BOY)" },
+      { src: "/images/work/crc-report-p3.webp", caption: "Generated report, page 3: teacher scores by parameter (BOY)" },
       { src: "/images/work/crc-report.jpg", caption: "The report tab on the phone" },
     ],
   },
