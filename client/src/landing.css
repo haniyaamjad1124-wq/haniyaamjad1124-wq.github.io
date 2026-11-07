@@ -109,10 +109,11 @@ html.lenis body { height: auto; }
 .feed-post.is-shown { opacity: 1; transform: none; }
 .feed-post:last-child { border-bottom: 0; }
 .feed-post .small-label { color: var(--muted); padding-top: 8px; }
+/* same type as the lede in the hero, so the three paragraphs read as one voice */
 .feed-post p {
-  font-size: clamp(18px, 1.75vw, 24px);
-  line-height: 1.6;
-  letter-spacing: -0.01em;
+  max-width: 560px;
+  font-size: clamp(16px, 1.4vw, 19px);
+  line-height: 1.7;
   color: var(--ink);
 }
 .feed-post p + p { margin-top: 1em; }
@@ -144,7 +145,6 @@ html.lenis body { height: auto; }
 @media (max-width: 600px) {
   .feed-hero-copy h1 { font-size: 73px; margin-top: 20px; }
   .feed-hero-axis i { width: 9px; height: 9px; }
-  .feed-post p { font-size: 18px; }
   .feed-end { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
