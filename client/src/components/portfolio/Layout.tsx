@@ -75,9 +75,10 @@ const footerSpines: [string, number][] = [
   ["#8798d4", 30], ["#3f59c3", 36], ["#2b409a", 33], ["#f5ca62", 28],
 ];
 
-export function Footer() {
+export function Footer({ children }: { children?: React.ReactNode }) {
   return (
     <footer className="site-footer">
+      {children}
       <a href="/">Haniya Amjad</a>
       <span className="footer-spines" aria-hidden="true">
         {footerSpines.map(([color, height], i) => (

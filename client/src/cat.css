@@ -98,6 +98,19 @@
 .cat-cta:focus-visible .cat-bubble { background: var(--yellow); border-color: var(--yellow); }
 .cat-cta:focus-visible .cat-bubble { outline: 2px solid var(--blue); outline-offset: 2px; }
 
+/* docked (About): a clipped box sitting on the footer; the cat peeks up from the footer's top line */
+.site-footer { position: relative; }
+.cat-dock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 230px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.cat-dock .cat-cta { position: absolute; right: 0; bottom: 0; }
+
 @media (max-width: 600px) {
   /* small corner cat on phones, no bubble, never over the text column */
   .cat-cta { width: 58px; height: 50px; right: 2px; }

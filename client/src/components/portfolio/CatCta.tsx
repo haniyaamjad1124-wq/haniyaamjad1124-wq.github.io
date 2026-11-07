@@ -9,7 +9,7 @@ import CatFigure from "./CatFigure";
   up, with a small cream bubble. Hover or focus brings it all the way up.
   Clicking opens the Work page. Reduced motion: it simply sits there.
 */
-export default function CatCta({ hidden = false }: { hidden?: boolean }) {
+export default function CatCta({ hidden = false, docked = false }: { hidden?: boolean; docked?: boolean }) {
   const [stage, setStage] = useState<"hidden" | "paw" | "peek">("hidden");
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -24,7 +24,7 @@ export default function CatCta({ hidden = false }: { hidden?: boolean }) {
     };
   }, []);
   if (hidden) return null;
-  return (
+  const cat = (
     <a
       className={`cat-cta is-${stage}`}
       href="/work"
@@ -36,4 +36,6 @@ export default function CatCta({ hidden = false }: { hidden?: boolean }) {
       <CatFigure />
     </a>
   );
+  /* docked: the cat sits on the footer line at the end of the page instead of floating over the viewport */
+  return docked ? <div className="cat-dock">{cat}</div> : cat;
 }

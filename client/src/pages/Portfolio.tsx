@@ -108,16 +108,20 @@ function AboutPage({ page }: { page: PageDefinition }) {
             />
           </div>
         </figure>
-        <a className={`feed-scroll-cue${scrolled ? " is-hidden" : ""}`} href="#feed" aria-label="Scroll to read more">
-          <i aria-hidden="true" />
-          Scroll
-        </a>
+        {posts.length > 0 && (
+          <a className={`feed-scroll-cue${scrolled ? " is-hidden" : ""}`} href="#feed" aria-label="Scroll to read more">
+            <i aria-hidden="true" />
+            Scroll
+          </a>
+        )}
       </header>
-      <div id="feed" className="feed" aria-label="About Haniya Amjad">
-        {posts.map((paragraph, i) => (
-          <FeedPost key={i} paragraph={paragraph} />
-        ))}
-      </div>
+      {posts.length > 0 && (
+        <div id="feed" className="feed" aria-label="About Haniya Amjad">
+          {posts.map((paragraph, i) => (
+            <FeedPost key={i} paragraph={paragraph} />
+          ))}
+        </div>
+      )}
       <div className="feed-end">
         <span className="small-label">NEXT</span>
         <a className="pill" href="/work">

@@ -16,7 +16,7 @@ html.lenis body { height: auto; }
 .feed-hero {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 420px);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: clamp(28px, 6vw, 96px);
   align-items: center;
   min-height: calc(100svh - 98px - 64px);
@@ -48,7 +48,8 @@ html.lenis body { height: auto; }
 .feed-hero-axis i { width: 13px; height: 13px; background: var(--blue); }
 .feed-hero-axis i:nth-child(2) { background: var(--orange); }
 .feed-hero-axis i:nth-child(3) { background: var(--yellow); }
-.feed-portrait { margin: 0; }
+/* the portrait sits in the middle of the right half, level with the copy */
+.feed-portrait { margin: 0; width: 100%; max-width: 420px; justify-self: center; align-self: center; }
 .feed-portrait .portrait-frame {
   background: linear-gradient(145deg, #e2dfd6, #d3d1c8 58%, #e9e6de);
 }
@@ -125,11 +126,13 @@ html.lenis body { height: auto; }
   padding: 40px 0 72px;
   border-top: 1px solid var(--line);
 }
+/* room for the cat, which sits on the footer line at the end of this page */
+.about-feed .feed-end { padding-bottom: 150px; }
 .feed-end .small-label { color: var(--muted); }
 .feed-end .pill { font-size: 14px; }
 
 @media (max-width: 1024px) {
-  .feed-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 340px); }
+  .feed-portrait { max-width: 340px; }
 }
 @media (max-width: 800px) {
   .feed-hero {
