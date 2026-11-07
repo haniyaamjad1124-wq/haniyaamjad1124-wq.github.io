@@ -208,3 +208,40 @@ export interface BookPage {
 }
 export const aboutBook: BookPage[] = [];
 // e.g. { kicker: "I", title: "F1", image: "/images/book/01.jpg", caption: "..." }
+
+// Play: a pin board of photos that make the user "me". Each pin is a photo
+// with a caption. A pin with a `story` is a card: click it and it flips to
+// the story on a coloured back (the persona-card colours).
+// Photos go in client/public/images/play/. The entries below are placeholders
+// until the user's photos arrive; replace image, alt and caption for each.
+// A pin with a `video` is a short clip (10 to 20 s, MP4 H.264, muted). It
+// plays on loop while it is on screen and pauses when scrolled away; `image`
+// is then its poster frame, shown until the clip starts. See images/play/README.txt.
+export interface PlayPin {
+  image: string;
+  alt: string;
+  caption?: string;   // optional; the board shows no captions at the moment
+  video?: string;
+  story?: { title: string; text: string; tone: "yellow" | "orange" | "blue" | "cream" };
+}
+export const playBoard: PlayPin[] = [
+// Reading order: the board lays pins out left to right, row by row, three across (two on narrow screens).
+  { image: "/images/play/img-6693-poster.webp", video: "/images/play/img-6693.mp4", alt: "Clip IMG 6693" },
+  { image: "/images/play/web-937d6cdb.webp", alt: "HYROX Delhi, at the finish" },
+  { image: "/images/play/cat-with-medal.webp", alt: "Cat with a medal" },
+  { image: "/images/play/img-6670-poster.webp", video: "/images/play/img-6670.mp4", alt: "A classroom, on a visit" },
+  { image: "/images/play/my-first-students.webp", alt: "My first students" },
+  { image: "/images/play/volunteering-1.webp", alt: "Best teacher of the month, Teach For India Chennai" },
+  { image: "/images/play/img-3607.webp", alt: "Under a banyan tree" },
+  { image: "/images/play/img-6234.webp", alt: "With a street dog on the temple steps" },
+  { image: "/images/play/img-2822.webp", alt: "Headstand practice" },
+  { image: "/images/play/img-4771.webp", alt: "A courtyard" },
+  { image: "/images/play/img-3683.webp", alt: "An empty amphitheatre" },
+  { image: "/images/play/img-3979.webp", alt: "A fresco" },
+  { image: "/images/play/web-e4692b3a.webp", alt: "A classroom in session" },
+  { image: "/images/play/img-3974.webp", alt: "Chepauk under the lights" },
+  { image: "/images/play/volunteering.webp", alt: "The volunteering crew" },
+  { image: "/images/play/working-with-students.webp", alt: "Working with students" },
+  { image: "/images/play/img-6698-poster.webp", video: "/images/play/img-6698.mp4", alt: "A field in the morning fog" },
+  { image: "/images/play/mushi.webp", alt: "Mushi" },
+];

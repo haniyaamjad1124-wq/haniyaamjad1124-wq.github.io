@@ -83,8 +83,8 @@ export default function App({ pathname }: { pathname?: string }) {
           </section>
         )}
       </main>
-      <Footer>{path === "/about" && <CatCta docked />}</Footer>
-      {path !== "/about" && <CatCta hidden={path === "/work"} />}
+      <Footer>{(path === "/about" || path === "/play") && <CatCta docked />}</Footer>
+      {path !== "/about" && path !== "/play" && <CatCta hidden={path === "/work"} />}
     </div>
   );
 }

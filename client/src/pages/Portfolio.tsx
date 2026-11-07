@@ -4,8 +4,8 @@ import {
   aboutBook,
   aboutPortrait,
   community,
+  playBoard,
   projects,
-  rumiArtwork,
   sideProjects,
   type PageDefinition,
   type Project,
@@ -13,6 +13,7 @@ import {
 import FluidSurface from "../components/portfolio/FluidSurface";
 import FlipBook from "../components/portfolio/FlipBook";
 import PersonaCards from "../components/portfolio/PersonaCards";
+import PlayBoard from "../components/portfolio/PlayBoard";
 import { Arrow, ListBlock, WorkCard, WorksGrid, WorksLabel, useReveal } from "../components/portfolio/WorkCards";
 
 function Body({ paragraphs }: { paragraphs: string[] }) {
@@ -143,9 +144,10 @@ function AboutPage({ page }: { page: PageDefinition }) {
   );
 }
 
-function ReminiscencePage({ page }: { page: PageDefinition }) {
+/* Play: a pin board of the user's photos. Pins with a story turn over like the persona cards. */
+function PlayPage({ page }: { page: PageDefinition }) {
   return (
-    <section className="editorial-page rumi-page">
+    <section className="editorial-page play-page">
       <header className="editorial-heading">
         <span className="small-label">02 / PLAY</span>
         <h1>
@@ -157,23 +159,10 @@ function ReminiscencePage({ page }: { page: PageDefinition }) {
           <i />
         </span>
       </header>
-      <FluidSurface className="rumi-hero">
-        <figure className="india-landscape">
-          <img
-            className="rumi-material"
-            src={rumiArtwork}
-            alt="Illustration of a train journey through a green Indian landscape"
-          />
-          <figcaption className="small-label">
-            INDIA · AN EDITORIAL ILLUSTRATION
-          </figcaption>
-        </figure>
-      </FluidSurface>
-      {page.body.length > 0 && (
-        <div className="remi-content">
-          <Body paragraphs={page.body} />
-        </div>
-      )}
+      {page.body.map((paragraph, i) => (
+        <p key={i} className="play-intro">{paragraph}</p>
+      ))}
+      <PlayBoard pins={playBoard} />
     </section>
   );
 }
@@ -181,7 +170,7 @@ function ReminiscencePage({ page }: { page: PageDefinition }) {
 export function PortfolioPage({ page }: { page: PageDefinition }) {
   if (page.path === "/work") return <WorkPage page={page} />;
   if (page.path === "/about") return <AboutPage page={page} />;
-  return <ReminiscencePage page={page} />;
+  return <PlayPage page={page} />;
 }
 
 /* bold every figure in project copy: 520, 2,000, 8, 90%, Rs 20 crore. "CRC 1" stays plain. */
