@@ -140,7 +140,3 @@
     100% { transform: translate(54px, 42px) rotate(9deg) scale(0.91); z-index: 0; }
   }
 }
-/* report pages are portrait sheets: keep them readable, not full width */
-.project-figure img[src*="crc-report-p"] { max-width: 760px; margin: 0 auto; border: 1px solid var(--line); background: #fff; }
-
-.project-figure img[src*="crc-boy-eoy"] { background: #e9eaee; }

@@ -169,10 +169,8 @@ export const projects: Project[] = [
       },
     ],
     images: [
-      { src: "/images/work/crc-boy-eoy.webp", caption: "BOY vs EOY for the same school: teachers 4.14 to 4.61, students 3.77 to 4.29" },
-      { src: "/images/work/crc-report-p2.webp", caption: "Generated report, page 2: student scores by level (BOY)" },
-      { src: "/images/work/crc-report-p3.webp", caption: "Generated report, page 3: teacher scores by parameter (BOY)" },
-      { src: "/images/work/crc-report.jpg", caption: "The report tab on the phone" },
+      { src: "/images/work/crc-report.jpg", caption: "Report tab: page 1 of the generated report" },
+      { src: "/images/work/crc-dashboard.jpg", caption: "Home dashboard" },
     ],
   },
 ];
