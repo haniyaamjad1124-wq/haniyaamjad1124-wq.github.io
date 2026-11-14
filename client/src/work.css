@@ -300,6 +300,9 @@
 .project-meta div span:first-child { color: var(--muted); }
 .project-meta div span:last-child { color: var(--ink); }
 .project-images { display: grid; gap: 32px; }
+/* phone screenshots: one row at the top of the page, each canvas cropped close to the phone */
+.project-images.phones { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; align-items: start; }
+.project-images.phones .project-figure img { aspect-ratio: 2 / 3; object-fit: cover; }
 .project-next { margin-top: 96px; }
 .project-next .works-label { justify-content: space-between; }
 .project-next .works-label a { color: var(--muted); text-decoration: none; display: inline-flex; gap: 6px; align-items: center; }
@@ -312,6 +315,9 @@
   .list-text .work-dot { display: none; }
   .project-copy { grid-template-columns: 1fr; gap: 12px 0; padding: 40px 0; }
   .project-copy .label { margin-top: 20px; }
+}
+@media (max-width: 900px) {
+  .project-images.phones { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 16px; }
 }
 @media (max-width: 600px) {
   .work-card { gap: 16px; }

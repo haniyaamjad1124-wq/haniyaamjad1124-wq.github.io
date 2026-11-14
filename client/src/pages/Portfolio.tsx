@@ -195,6 +195,7 @@ export function ProjectPage({ project }: { project: Project }) {
     (p, k, arr) => p && p.slug !== project.slug && arr.indexOf(p) === k
   );
   const images = project.images ?? [];
+  const phones = project.imagesLayout === "phones";
   return (
     <section className="editorial-page project-page">
       <div className="project-top">
@@ -210,9 +211,20 @@ export function ProjectPage({ project }: { project: Project }) {
       <div className="project-head">
         <h1>{project.title ?? `${project.client}, ${project.project}`}</h1>
       </div>
-      <figure className="project-hero">
-        <img src={project.cover} alt="" width={1920} height={1440} />
-      </figure>
+      {phones && images.length > 0 ? (
+        <div className="project-images phones">
+          {images.map(image => (
+            <figure className="project-figure" key={image.src}>
+              <img src={image.src} alt={image.caption} width={1920} height={1440} decoding="async" />
+              <figcaption>{image.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      ) : (
+        <figure className="project-hero">
+          <img src={project.cover} alt="" width={1920} height={1440} />
+        </figure>
+      )}
       <div className="project-copy">
         <span className="label">Goal</span>
         <div className="goal">
@@ -266,7 +278,7 @@ export function ProjectPage({ project }: { project: Project }) {
           </>
         )}
       </div>
-      {images.length > 0 && (
+      {!phones && images.length > 0 && (
         <div className="project-images">
           {images.map(image => (
             <figure className="project-figure" key={image.src}>

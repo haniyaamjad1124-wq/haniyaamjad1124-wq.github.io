@@ -54,6 +54,7 @@ export interface Project {
     personas?: { name: string; line: string; needs: string; tone: "yellow" | "orange" | "blue" | "cream" }[];
   }[];
   images?: { src: string; caption: string }[]; // further images on the project page, in order
+  imagesLayout?: "phones"; // phone screenshots: the images sit in one row at the top in place of the hero, each canvas cropped close to the phone
   caseStudyUrl?: string; // "Full case study" pill, opens in a new tab
   demoUrl?: string;      // "Try the live demo" pill under the Goal, opens in a new tab
   demoNote?: string;     // muted line under that pill
@@ -168,7 +169,9 @@ export const projects: Project[] = [
         ],
       },
     ],
+    imagesLayout: "phones",
     images: [
+      { src: "/images/work/crc-teachers.jpg", caption: "Teachers tab: one teacher's ratings" },
       { src: "/images/work/crc-report.jpg", caption: "Report tab: page 1 of the generated report" },
       { src: "/images/work/crc-compare.jpg", caption: "CRC 1 vs CRC 2 for the same school, BOY to EOY: teachers 3.99 to 4.47, students 3.82 to 4.45" },
       { src: "/images/work/crc-dashboard.jpg", caption: "Home dashboard" },
