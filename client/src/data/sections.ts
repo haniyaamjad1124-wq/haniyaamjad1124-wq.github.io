@@ -170,6 +170,7 @@ export const projects: Project[] = [
     ],
     images: [
       { src: "/images/work/crc-report.jpg", caption: "Report tab: page 1 of the generated report" },
+      { src: "/images/work/crc-compare.jpg", caption: "CRC 1 vs CRC 2 for the same school, BOY to EOY: teachers 3.99 to 4.47, students 3.82 to 4.45" },
       { src: "/images/work/crc-dashboard.jpg", caption: "Home dashboard" },
     ],
   },
