@@ -1,9 +1,79 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowLeft, ArrowUpRight, Menu, X } from "lucide-react";
 import { resumeUrl } from "../../data/sections";
+import { NAV_CAT_HTML, mountNavShelf } from "./navShelf";
+import { mountPageCat } from "./pageCat";
+
+type NavShelf = { refresh(): void; destroy(): void };
+type NavShelfOptions = { navigate(path: string, origin: { x: number; y: number }): void };
+const mountShelf = mountNavShelf as (header: HTMLElement, options: NavShelfOptions) => NavShelf;
+type PageCat = { refresh(): void; destroy(): void };
+type PageCatOptions = { dividers: string; peekable: string; frame: string; books: string; host: string };
+const mountCat = mountPageCat as (header: HTMLElement, options: PageCatOptions) => PageCat;
+// What the cat lands on as it comes down a page: the hairline rules that close a page (the
+// rule above a grid of cards is not one: it would land above the cards, not under them).
+// What it peeks out of, and the picture box inside each of those that it peeks from.
+const PAGE_CAT: PageCatOptions = {
+  dividers: ".feed-end, .site-footer",
+  peekable: ".work-card, .pin, .portrait-frame, .project-figure, .project-hero",
+  frame: ".work-frame, .pin-image, img, video",
+  books: ".navbook",
+  // the call-to-action cat at the foot of a page: the header cat hands over to it there
+  host: ".cat-cta",
+};
+
+// One object for the life of the page. React writes the markup again whenever it is handed a
+// new object here, which would replace the cat the script is animating.
+const navCat = { __html: NAV_CAT_HTML };
+
+// the four books on the header shelf: spine colour, title colour and height, and, where the
+// usual orange bookmark would vanish against the spine, a bookmark colour of its own
+const shelfBooks = [
+  { href: "/work", label: "Work", color: "#3f59c3", text: "#f1ebda", height: 60 },
+  { href: "/play", label: "Play", color: "#f5ca62", text: "#3a2c08", height: 66 },
+  { href: "/about", label: "About", color: "#df5c2c", text: "#fff4e6", height: 57, ribbon: "#2b409a" },
+];
+const resumeBook = { color: "#8798d4", text: "#17191d", height: 70 };
+const spine = (book: { color: string; text: string; height: number; ribbon?: string }) =>
+  ({ "--c": book.color, "--t": book.text, "--h": `${book.height}px`, "--r": book.ribbon }) as React.CSSProperties;
 
 export function Header({ path }: { path: string }) {
   const [open, setOpen] = useState(false);
+  const header = useRef<HTMLElement>(null);
+  const shelf = useRef<NavShelf | null>(null);
+  const pageCat = useRef<PageCat | null>(null);
+  const inner = path !== "/";
+
+  // The header shelf and its cat, on the inner pages. On phones its styles hide it and the
+  // menu button below is used instead.
+  useEffect(() => {
+    if (!inner || !header.current) return;
+    const mounted = mountShelf(header.current, {
+      navigate(to, origin) {
+        const handled = !window.dispatchEvent(
+          new CustomEvent("portfolio:navigate", { cancelable: true, detail: { path: to, origin } })
+        );
+        if (!handled) window.location.assign(to);
+      },
+    });
+    shelf.current = mounted;
+    // the cat's trips down the page work on a copy of the header cat, so they come second
+    const cat = mountCat(header.current, PAGE_CAT);
+    pageCat.current = cat;
+    return () => {
+      cat.destroy();
+      mounted.destroy();
+      shelf.current = null;
+      pageCat.current = null;
+    };
+  }, [inner]);
+  // after a page change a different book is the current one, a knocked book is back, and the
+  // cat is home in the header
+  useEffect(() => {
+    shelf.current?.refresh();
+    pageCat.current?.refresh();
+  }, [path]);
+
   const links = [
     { href: "/work", label: "Work" },
     { href: "/play", label: "Play" },
@@ -12,13 +82,42 @@ export function Header({ path }: { path: string }) {
 
   return (
     <header
-      className={path === "/" ? "site-header entry-header" : "site-header"}
+      ref={header}
+      className={path === "/" ? "site-header entry-header" : "site-header has-shelf"}
     >
       <a className="brand" href="/">
         Haniya Amjad
       </a>
       {path !== "/" && (
         <>
+      <nav className="shelfnav" aria-label="Main navigation">
+        {shelfBooks.map(book => {
+          const active = path === book.href || path.startsWith(`${book.href}/`);
+          return (
+            <a
+              key={book.href}
+              className="navbook"
+              href={book.href}
+              aria-current={active ? "page" : undefined}
+              style={spine(book)}
+            >
+              <span>{book.label}</span>
+            </a>
+          );
+        })}
+        {resumeUrl && (
+          <a
+            className="navbook"
+            href={resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={spine(resumeBook)}
+          >
+            <span>Resume</span>
+          </a>
+        )}
+      </nav>
+      <div className="navcat" aria-hidden="true" dangerouslySetInnerHTML={navCat} />
       <button
         className="menu-toggle"
         type="button"

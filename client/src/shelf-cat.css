@@ -91,7 +91,24 @@
   to { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
 
-/* the pushed book tips and falls off the shelf */
+/* the swat: the cat leans in, its paw comes out and winds back, then lands on the book's top edge.
+   the paw is hidden on the shelf cat the rest of the time (cat.css), so it is only shown here */
+.shelf-cat.is-pushing .cat { transform-origin: 50% 100%; animation: cat-lean 0.34s cubic-bezier(0.3, 0, 0.2, 1) both; }
+.shelf-cat.is-pushing .cat-paw { animation: cat-swat 0.34s cubic-bezier(0.3, 0, 0.2, 1) both; }
+@keyframes cat-lean {
+  0% { transform: scaleX(var(--face, -1)) rotate(0deg); }
+  30% { transform: scaleX(var(--face, -1)) rotate(-3deg); }
+  58%, 100% { transform: scaleX(var(--face, -1)) rotate(5deg); }
+}
+@keyframes cat-swat {
+  0% { transform: rotate(0deg); opacity: 0; }
+  14% { opacity: 1; }
+  30% { transform: rotate(-24deg); }
+  56% { transform: rotate(92deg); }
+  100% { transform: rotate(84deg); opacity: 1; }
+}
+
+/* the pushed book tips away from the cat and falls off the shelf */
 .entry-book.pushed {
   transform-origin: 50% 100%;
   animation: book-fall 0.62s cubic-bezier(0.5, 0, 0.9, 0.4) both;
@@ -99,8 +116,8 @@
 }
 @keyframes book-fall {
   0% { transform: translateY(0) rotate(var(--tilt)); }
-  30% { transform: translateY(2px) rotate(calc(var(--tilt) - 40deg)); }
-  100% { transform: translateY(160px) rotate(calc(var(--tilt) - 110deg)); opacity: 0.2; }
+  30% { transform: translateY(2px) rotate(calc(var(--tilt) + var(--fall, -1) * 40deg)); }
+  100% { transform: translateY(160px) rotate(calc(var(--tilt) + var(--fall, -1) * 110deg)); opacity: 0.2; }
 }
 .spine-collection.is-entering .entry-book:not(.pushed) { opacity: 0.35; transition-duration: 0.18s; }
 

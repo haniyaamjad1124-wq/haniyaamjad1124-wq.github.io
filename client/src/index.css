@@ -7,6 +7,9 @@
 @import "./cat.css";
 @import "./play.css";
 @import "./shelf-cat.css";
+@import "./wall-scene.css";
+@import "./nav-shelf.css";
+@import "./page-cat.css";
 @import "tailwindcss";
 
 :root {

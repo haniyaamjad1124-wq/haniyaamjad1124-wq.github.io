@@ -38,19 +38,24 @@ const shelves = [
 ];
 
 const FALL_MS = 620;
+const SWAT_HIT_MS = 190; // when the paw lands, measured from the start of the swat
+const PAW_REACH = 0.52; // how far the lowered paw reaches from the cat's centre, in cat widths
 const clamp = (v: number, lo: number, hi: number) => Math.min(hi, Math.max(lo, v));
 
 /*
   The cat lives at the collection level and is moved every frame, easing
   toward a target: the cursor while it is over the shelves, otherwise a
   spot it picks for itself. It can stand on any shelf, and a little beyond
-  either end. Tapping a shelf knocks off the book under the cat on that
-  shelf (or the tapped book); the page opens from where the book fell.
+  either end. Tapping a shelf sends the cat to stand beside the book under
+  it on that shelf (or the tapped book); it swats the book off with its paw
+  and the page opens from where the book fell.
 */
 export default function Bookshelf() {
   const [selected, setSelected] = useState<string | null>(null);
   const [wave, setWave] = useState<{ row: number; position: number } | null>(null);
   const [walking, setWalking] = useState(false);
+  const [pushing, setPushing] = useState(false);
+  const [fall, setFall] = useState(1); // 1 tips the book to the right, -1 to the left
   const [face, setFace] = useState(-1); // -1 faces left, 1 faces right
   const collection = useRef<HTMLDivElement>(null);
   const catEl = useRef<HTMLSpanElement>(null);
@@ -61,6 +66,7 @@ export default function Bookshelf() {
   const target = useRef({ x: 0, y: 0 });
   const walkingRef = useRef(false);
   const faceRef = useRef(-1);
+  const onArrive = useRef<(() => void) | null>(null);
 
   const later = (fn: () => void, ms: number) => {
     timers.current.push(window.setTimeout(fn, ms));
@@ -106,6 +112,8 @@ export default function Bookshelf() {
       timers.current.forEach(t => window.clearTimeout(t));
       timers.current = [];
       navigating.current = false;
+      onArrive.current = null;
+      setPushing(false);
       setSelected(null);
       setWave(null);
     };
@@ -142,6 +150,11 @@ export default function Bookshelf() {
           faceRef.current = f;
           setFace(f);
         }
+      }
+      if (!moving && onArrive.current) {
+        const arrived = onArrive.current;
+        onArrive.current = null;
+        arrived();
       }
       frame = window.requestAnimationFrame(loop);
     };
@@ -194,13 +207,24 @@ export default function Bookshelf() {
       go();
       return;
     }
-    // the cat runs to the book, then shoves it
+    // the cat runs up beside the book, turns to it, and swats it off with its paw
     const box = rowBox(row);
     const n = rows[row].length;
-    standOn(row, box.left + ((column + 0.5) / n) * box.width);
-    const run = Math.min(900, 200 + Math.abs(target.current.x - cur.current.x) * 1.2 + Math.abs(target.current.y - cur.current.y) * 1.2);
-    later(() => setSelected(id), run);
-    later(go, run + FALL_MS);
+    const bookX = box.left + ((column + 0.5) / n) * box.width;
+    const reach = (catEl.current?.offsetWidth ?? 0) * PAW_REACH;
+    const edge = 18; // matches how far past either end the cat may stand
+    let side = cur.current.x <= bookX ? -1 : 1; // -1: the cat stands left of the book
+    if (side < 0 && bookX - reach < box.left - edge) side = 1;
+    if (side > 0 && bookX + reach > box.left + box.width + edge) side = -1;
+    standOn(row, bookX + side * reach);
+    onArrive.current = () => {
+      faceRef.current = -side;
+      setFace(-side);
+      setFall(-side);
+      setPushing(true);
+      later(() => setSelected(id), SWAT_HIT_MS);
+      later(go, SWAT_HIT_MS + FALL_MS);
+    };
   }
 
   function onRowClick(event: React.MouseEvent, row: number) {
@@ -255,6 +279,7 @@ export default function Bookshelf() {
                       {
                         "--spine-color": color,
                         "--tilt": `${tilts[id] || 0}deg`,
+                        "--fall": selected === id ? fall : undefined,
                         "--wave": `${wave?.row === row ? Math.max(0, 1 - Math.abs(column - wave.position) / 3) * 8 : 0}px`,
                       } as React.CSSProperties
                     }
@@ -270,7 +295,7 @@ export default function Bookshelf() {
       })}
       <span
         ref={catEl}
-        className={`shelf-cat${walking ? " is-walking" : ""}`}
+        className={`shelf-cat${walking ? " is-walking" : ""}${pushing ? " is-pushing" : ""}`}
         style={{ ["--face" as string]: face }}
         aria-hidden="true"
       >

@@ -1,0 +1,231 @@
+/* ==========================================================================
+   The header shelf: on the inner pages the menu is four books on a short plank
+   that sits on the header rule, and a cat lives on that rule. Wide screens only;
+   phones keep the menu button and its drop-down.
+
+   Ported from the approved prototype. Scoped under .site-header.has-shelf, with
+   every animation name prefixed ns-. Behaviour: components/portfolio/navShelf.ts.
+   The same rules are repeated under .pc-layer, for the copy of the cat that goes down the
+   page (see page-cat.css and pageCat.ts).
+   ========================================================================== */
+
+  /* the menu: four books standing on a short plank that sits on the rule */
+  .site-header.has-shelf .shelfnav, .pc-layer .shelfnav {
+    position: absolute; right: 0; bottom: 0; z-index: 2;
+    display: flex; align-items: flex-end; gap: 5px; padding: 0 16px 5px;
+  }
+  .site-header.has-shelf .shelfnav::after, .pc-layer .shelfnav::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 5px; border-radius: 1px;
+    background: linear-gradient(180deg, #b0714a 0 1.5px, #8f5636 1.5px 3.5px, #6b3e26 3.5px);
+    box-shadow: -3px 3px 4px rgba(74, 52, 24, .22);
+  }
+  .site-header.has-shelf .navbook, .pc-layer .navbook {
+    position: relative; flex: none; width: 31px; height: var(--h); border-radius: 2px 2px 0 0;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--c); color: var(--t); text-decoration: none; cursor: pointer;
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.18), inset -1px 0 0 rgba(0,0,0,.1), inset 0 1px 0 rgba(255,255,255,.16), -3px 3px 4px rgba(74, 52, 24, .2);
+    transform-origin: 50% 100%; transition: transform .22s cubic-bezier(.22, 1, .36, 1);
+    outline: none; -webkit-tap-highlight-color: transparent;
+  }
+  /* the title runs up the spine, as on a real book */
+  .site-header.has-shelf .navbook span, .pc-layer .navbook span {
+    writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap;
+    font-size: 12.5px; font-weight: 600; letter-spacing: .5px;
+  }
+  .site-header.has-shelf .navbook small, .pc-layer .navbook small { position: absolute; top: 3px; left: 0; right: 0; text-align: center; font-size: 9.5px; font-weight: 700; opacity: .8; }
+  .site-header.has-shelf .navbook:hover, .pc-layer .navbook:hover, .site-header.has-shelf .navbook:focus-visible, .pc-layer .navbook:focus-visible { transform: translateY(-5px); }
+  .site-header.has-shelf .navbook:focus-visible, .pc-layer .navbook:focus-visible { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px #3f59c3; }
+  /* the page you are on: its book has slumped against the next one, and carries a ribbon */
+  .site-header.has-shelf .navbook[aria-current], .pc-layer .navbook[aria-current] { --lean: 11deg; transform-origin: 100% 100%; transform: rotate(var(--lean)); margin-right: 13px; }
+  .site-header.has-shelf .navbook[aria-current]::before, .pc-layer .navbook[aria-current]::before {
+    content: ""; position: absolute; left: 50%; bottom: 100%; width: 9px; height: 13px; margin-left: -4.5px;
+    background: var(--r, #df5c2c); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 72%, 0 100%); transform: translateY(5px);
+  }
+  .site-header.has-shelf .navbook[aria-current], .pc-layer .navbook[aria-current] { cursor: default; }
+  .site-header.has-shelf .navbook[aria-current]:hover, .pc-layer .navbook[aria-current]:hover, .site-header.has-shelf .navbook[aria-current]:focus-visible, .pc-layer .navbook[aria-current]:focus-visible { transform: rotate(var(--lean)); }
+  .site-header.has-shelf .navbook.stay, .pc-layer .navbook.stay { animation: ns-stay .36s ease-in-out; }
+  .site-header.has-shelf .navbook.pushed, .pc-layer .navbook.pushed { animation: ns-book-fall .62s cubic-bezier(.5, 0, .9, .4) both; z-index: 1; }
+
+  /* ---------- the cat ---------- */
+  .site-header.has-shelf .wcat, .pc-layer .wcat {
+    pointer-events: none; position: absolute; left: 0; top: 0; z-index: 6;
+    width: calc(var(--cat-h) * 1.22); height: var(--cat-h);
+    will-change: transform; --cat-ink: #2c2f36;
+  }
+  .site-header.has-shelf .wcat .cat, .pc-layer .wcat .cat {
+    display: block; width: 100%; height: 100%; overflow: visible;
+    transform: scaleX(var(--face, -1));
+    filter: drop-shadow(0 0 8px rgba(245, 202, 98, .22)) drop-shadow(-6px 6px 6px rgba(0, 0, 0, .5));
+  }
+  /* two drawings of the cat: sitting and facing you, and side-on for walking and jumping */
+  /* the side-on drawing is long and low, so it is drawn larger to match the sitting cat's presence;
+     it grows upwards and outwards from its feet */
+  .site-header.has-shelf .wcat .pose-walk, .pc-layer .wcat .pose-walk {
+    display: none; width: 134%; height: 134%;
+    margin: calc(var(--cat-h) * -.34) 0 0 calc(var(--cat-h) * 1.22 * -.17);
+  }
+  .site-header.has-shelf .wcat.pose-walking .pose-walk, .pc-layer .wcat.pose-walking .pose-walk { display: block; }
+  .site-header.has-shelf .wcat.pose-walking .pose-sit, .pc-layer .wcat.pose-walking .pose-sit { display: none; }
+  /* turning between the two: the outgoing drawing narrows as the cat swings round, the incoming
+     one widens, and the sitting cat's head arrives last, from the side it was walking towards */
+  .site-header.has-shelf .wcat.turn-out .pose-sit, .pc-layer .wcat.turn-out .pose-sit, .site-header.has-shelf .wcat.turn-out .pose-loaf, .pc-layer .wcat.turn-out .pose-loaf { animation: ns-sit-out .13s ease-in forwards; }
+  .site-header.has-shelf .wcat.turn-out .pose-walk, .pc-layer .wcat.turn-out .pose-walk { animation: ns-walk-out .13s ease-in forwards !important; }
+  .site-header.has-shelf .wcat.turn-in .pose-sit, .pc-layer .wcat.turn-in .pose-sit, .site-header.has-shelf .wcat.turn-in .pose-loaf, .pc-layer .wcat.turn-in .pose-loaf { animation: ns-sit-in .2s cubic-bezier(.2, .8, .3, 1); }
+  .site-header.has-shelf .wcat.turn-in .pose-walk, .pc-layer .wcat.turn-in .pose-walk { animation: ns-walk-in .16s ease-out !important; }
+  .site-header.has-shelf .wcat.turn-in .cat-head, .pc-layer .wcat.turn-in .cat-head { animation: ns-head-settle .34s cubic-bezier(.2, .8, .3, 1); }
+  .site-header.has-shelf .sit-paw-l, .pc-layer .sit-paw-l, .site-header.has-shelf .sit-paw-r, .pc-layer .sit-paw-r { transition: opacity .12s; }
+  /* the paw doing the pushing is that side's front paw, so it leaves the floor: two paws, not three */
+  .site-header.has-shelf .wcat.is-pushing .sit-paw-r, .pc-layer .wcat.is-pushing .sit-paw-r { opacity: 0; }
+  /* to push, the cat is behind the row: its paw goes down behind the book and shoves it from the back */
+  .site-header.has-shelf .cast, .pc-layer .cast { z-index: 1; }
+  .site-header.has-shelf .wcat.is-pushing, .pc-layer .wcat.is-pushing { z-index: 0; }
+  .site-header.has-shelf .wcat.is-licking .sit-paw-l, .pc-layer .wcat.is-licking .sit-paw-l { opacity: 0; }   /* that paw is the one being licked */
+  .site-header.has-shelf .walk-tail, .pc-layer .walk-tail { transform-box: fill-box; transform-origin: 100% 100%; animation: ns-cat-tail 1.1s ease-in-out infinite; }
+  .site-header.has-shelf .leg, .pc-layer .leg { transform-box: fill-box; transform-origin: 50% 8%; }
+  .site-header.has-shelf .wcat.is-walking .leg, .pc-layer .wcat.is-walking .leg { animation: ns-leg-step .42s ease-in-out infinite; }
+  .site-header.has-shelf .wcat.is-walking .leg.b, .pc-layer .wcat.is-walking .leg.b { animation-delay: -.21s; }
+  /* in the air: legs stretched out, nose up; on landing a quick squash */
+  .site-header.has-shelf .wcat.is-jumping .leg.front, .pc-layer .wcat.is-jumping .leg.front { transform: rotate(-42deg); }
+  .site-header.has-shelf .wcat.is-jumping .leg.back, .pc-layer .wcat.is-jumping .leg.back { transform: rotate(40deg); }
+  .site-header.has-shelf .wcat.is-jumping .pose-walk, .pc-layer .wcat.is-jumping .pose-walk { transform: scaleX(var(--face, 1)) rotate(-9deg); }
+  .site-header.has-shelf .wcat.is-crouching .pose-walk, .pc-layer .wcat.is-crouching .pose-walk { transform-origin: 50% 100%; transform: scaleX(var(--face, 1)) scaleY(.84); }
+  .site-header.has-shelf .wcat.just-landed .pose-walk, .pc-layer .wcat.just-landed .pose-walk { transform-origin: 50% 100%; animation: ns-land .18s ease-out !important; }
+  /* sitting still for a while, it licks a front paw */
+  .site-header.has-shelf .cat-head, .pc-layer .cat-head { transform-box: fill-box; transform-origin: 50% 80%; transition: transform .25s; }
+  .site-header.has-shelf .cat-lick, .pc-layer .cat-lick { opacity: 0; transform: translateY(26px); transition: opacity .2s, transform .3s; }
+  .site-header.has-shelf .wcat.is-licking .cat-lick, .pc-layer .wcat.is-licking .cat-lick { opacity: 1; transform: none; animation: ns-lick .46s ease-in-out .3s infinite alternate; }
+  .site-header.has-shelf .wcat.is-licking .cat-head, .pc-layer .wcat.is-licking .cat-head { transform: rotate(5deg) translateY(4px); }
+  .site-header.has-shelf .cat-tail, .pc-layer .cat-tail { transform-box: fill-box; transform-origin: 0% 100%; animation: ns-cat-tail 2.6s ease-in-out infinite; }
+  .site-header.has-shelf .cat-eyes, .pc-layer .cat-eyes { transform-box: fill-box; transform-origin: 50% 50%; animation: ns-cat-blink 5.2s ease-in-out infinite; }
+  .site-header.has-shelf .cat-paw, .pc-layer .cat-paw { transform-box: fill-box; transform-origin: 20% 100%; opacity: 0; }
+  .site-header.has-shelf .wcat.is-walking .cat, .pc-layer .wcat.is-walking .cat { animation: ns-cat-walk .38s ease-in-out infinite; }
+  .site-header.has-shelf .wcat.is-pushing .cat, .pc-layer .wcat.is-pushing .cat { transform-origin: 50% 100%; animation: ns-cat-lean .34s cubic-bezier(.3, 0, .2, 1) both; }
+  .site-header.has-shelf .wcat.is-pushing .cat-paw, .pc-layer .wcat.is-pushing .cat-paw { animation: ns-cat-swat .34s cubic-bezier(.3, 0, .2, 1) both; }
+
+  /* What the cat is thinking: one small cloud, with a trail of two puffs down to the cat.
+     The cloud is a single drawn shape stretched behind the text, with a loose stroke of
+     outline set slightly off it. It pops in, then drifts a little while it is up. The text
+     wraps onto at most three lines. */
+  .site-header.has-shelf .say, .pc-layer .say {
+    position: absolute; left: 50%; bottom: calc(100% + 27px); z-index: 1; isolation: isolate;
+    padding: 15px 21px 16px; color: #17191d;
+    transform-origin: 50% 100%; transform: translateX(-50%) scale(.55);
+    opacity: 0; transition: opacity .16s, transform .34s cubic-bezier(.3, 1.55, .5, 1);
+    filter: drop-shadow(0 5px 7px rgba(74, 52, 24, .22));
+  }
+  .site-header.has-shelf .say.show, .pc-layer .say.show { opacity: 1; transform: translateX(-50%) scale(1); animation: ns-say-drift 3.6s ease-in-out .35s infinite; }
+  .site-header.has-shelf .say .cloud, .pc-layer .say .cloud { position: absolute; left: -3px; top: -5px; width: calc(100% + 6px); height: calc(100% + 9px); z-index: -1; overflow: visible; }
+  .site-header.has-shelf .say .cloud .fill, .pc-layer .say .cloud .fill { fill: #fff; }
+  .site-header.has-shelf .say .cloud .line, .pc-layer .say .cloud .line {
+    fill: none; stroke: #2b409a; stroke-width: 1.7; stroke-linecap: round; vector-effect: non-scaling-stroke;
+    stroke-dasharray: 64 34 104 58 44 50 80 120; transform: translate(-3px, -2.5px);
+  }
+  .site-header.has-shelf .say-text, .pc-layer .say-text {
+    display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; overflow: hidden;
+    width: max-content; max-width: 150px; white-space: normal; text-align: center; text-wrap: balance;
+    font-size: 12px; font-weight: 600; line-height: 1.3; letter-spacing: -.1px;
+  }
+  .site-header.has-shelf .say .spark, .pc-layer .say .spark {
+    position: absolute; right: 4px; top: -9px; width: 9px; height: 9px; background: #2b409a;
+    clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+    animation: ns-say-twinkle 2.2s ease-in-out infinite;
+  }
+  .site-header.has-shelf .say .spot, .pc-layer .say .spot { position: absolute; left: -1px; bottom: 5px; width: 7px; height: 7px; border-radius: 50%; background: #f5ca62; }
+  .site-header.has-shelf .say .dot, .pc-layer .say .dot { position: absolute; left: 50%; border-radius: 50%; background: #fff; animation: ns-say-puff 1.5s ease-in-out infinite alternate; }
+  .site-header.has-shelf .say .d1, .pc-layer .say .d1 { width: 12px; height: 9px; bottom: -13px; margin-left: -8px; }
+  .site-header.has-shelf .say .d2, .pc-layer .say .d2 { width: 7px; height: 5.5px; bottom: -22px; margin-left: -2px; animation-delay: .35s; }
+  /* where there is no room above the cat, the cloud sits beside it and the trail runs sideways */
+  .site-header.has-shelf .wcat.say-side .say, .pc-layer .wcat.say-side .say { left: auto; right: calc(100% + 24px); bottom: 14%; transform-origin: 100% 70%; transform: scale(.55); }
+  .site-header.has-shelf .wcat.say-side-r .say, .pc-layer .wcat.say-side-r .say { left: calc(100% + 24px); bottom: 14%; transform-origin: 0% 70%; transform: scale(.55); }
+  .site-header.has-shelf .wcat.say-side .say.show, .pc-layer .wcat.say-side .say.show, .site-header.has-shelf .wcat.say-side-r .say.show, .pc-layer .wcat.say-side-r .say.show { transform: scale(1); }
+  .site-header.has-shelf .wcat.say-low .say, .pc-layer .wcat.say-low .say { bottom: auto; top: 8px; }
+  .site-header.has-shelf .wcat.say-side .dot, .pc-layer .wcat.say-side .dot, .site-header.has-shelf .wcat.say-side-r .dot, .pc-layer .wcat.say-side-r .dot { bottom: auto; margin: 0; }
+  .site-header.has-shelf .wcat.say-side .dot, .pc-layer .wcat.say-side .dot { left: auto; }
+  .site-header.has-shelf .wcat.say-side .d1, .pc-layer .wcat.say-side .d1 { right: -15px; top: 58%; } .site-header.has-shelf .wcat.say-side .d2, .pc-layer .wcat.say-side .d2 { right: -24px; top: 70%; }
+  .site-header.has-shelf .wcat.say-side-r .d1, .pc-layer .wcat.say-side-r .d1 { left: -15px; top: 58%; } .site-header.has-shelf .wcat.say-side-r .d2, .pc-layer .wcat.say-side-r .d2 { left: -24px; top: 70%; }
+  @media (prefers-reduced-motion: reduce) { .site-header.has-shelf .say, .pc-layer .say, .site-header.has-shelf .say.show, .pc-layer .say.show, .site-header.has-shelf .say .spark, .pc-layer .say .spark, .site-header.has-shelf .say .dot, .pc-layer .say .dot { animation: none; transition: none; }
+}
+
+  /* ===== this page: a black cat on a light page ===== */
+  .site-header.has-shelf .wcat, .pc-layer .wcat { z-index: 3; --cat-ink: #1b1d22; }
+  .site-header.has-shelf .wcat.is-pushing, .pc-layer .wcat.is-pushing { z-index: 1; }       /* behind the books, so the paw goes down behind the spine */
+  .site-header.has-shelf .wcat .pose-sit, .pc-layer .wcat .pose-sit, .site-header.has-shelf .wcat .pose-loaf, .pc-layer .wcat .pose-loaf, .site-header.has-shelf .wcat .pose-walk, .pc-layer .wcat .pose-walk { filter: none; }
+
+  /* ---------- how the cat rests ----------
+     Three ways to rest, chosen by what is under it: an upright sit on a narrow perch, a
+     crouch with one paw hanging over when it has stopped at an edge, and, once it has been
+     still a while on something wide and level, a loaf with its paws tucked in. Whichever it
+     is in, it settles as it sits, breathes, leans with a sloping surface, and its eyes
+     follow the pointer. */
+  .site-header.has-shelf .wcat .pose-sit, .pc-layer .wcat .pose-sit, .site-header.has-shelf .wcat .pose-loaf, .pc-layer .wcat .pose-loaf {
+    transform-origin: 50% 100%;
+    transform: scaleX(var(--sitflip, 1)) rotate(calc(var(--lean, 0deg) * var(--sitflip, 1)));
+  }
+  .site-header.has-shelf .wcat .pose-loaf, .pc-layer .wcat .pose-loaf { display: none; }
+  .site-header.has-shelf .wcat.is-loaf .pose-loaf, .pc-layer .wcat.is-loaf .pose-loaf { display: block; }
+  .site-header.has-shelf .wcat.is-loaf .pose-sit, .pc-layer .wcat.is-loaf .pose-sit, .site-header.has-shelf .wcat.pose-walking .pose-loaf, .pc-layer .wcat.pose-walking .pose-loaf { display: none; }
+  .site-header.has-shelf .cat-breath, .pc-layer .cat-breath { transform-box: fill-box; transform-origin: 50% 100%; animation: ns-breathe 3.8s ease-in-out infinite; }
+  .site-header.has-shelf .wcat.turn-in .cat-breath, .pc-layer .wcat.turn-in .cat-breath, .site-header.has-shelf .wcat.settling .cat-breath, .pc-layer .wcat.settling .cat-breath { animation: ns-settle .38s cubic-bezier(.3, 1.5, .5, 1); }
+  .site-header.has-shelf .wcat.is-pushing .cat-breath, .pc-layer .wcat.is-pushing .cat-breath { animation: none; }
+  .site-header.has-shelf .pupil, .pc-layer .pupil { transform: translate(var(--look-x, 0px), var(--look-y, 0px)); transition: transform .14s ease-out; }
+  .site-header.has-shelf .cat-dangle, .pc-layer .cat-dangle { opacity: 0; transition: opacity .2s; transform-box: fill-box; transform-origin: 30% 0%; }
+  .site-header.has-shelf .wcat.at-edge .cat-dangle, .pc-layer .wcat.at-edge .cat-dangle { opacity: 1; animation: ns-dangle 2.8s ease-in-out infinite; }
+  .site-header.has-shelf .wcat.at-edge .sit-paw-r, .pc-layer .wcat.at-edge .sit-paw-r { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) { .site-header.has-shelf .cat-breath, .pc-layer .cat-breath, .site-header.has-shelf .cat-dangle, .pc-layer .cat-dangle, .site-header.has-shelf .pupil, .pc-layer .pupil { animation: none !important; transition: none; }
+}
+  .site-header.has-shelf .wcat g[stroke="#f1ebda"], .pc-layer .wcat g[stroke="#f1ebda"] { stroke: #a39b8c; }
+  @media (prefers-reduced-motion: reduce) { .site-header.has-shelf .navbook, .pc-layer .navbook, .site-header.has-shelf .navbook.pushed, .pc-layer .navbook.pushed, .site-header.has-shelf .navbook.stay, .pc-layer .navbook.stay { transition: none; animation: none !important; }
+}
+
+/* ---------- animations ---------- */
+@keyframes ns-stay { 0%, 100% { transform: rotate(var(--lean, 0deg)); } 25% { transform: rotate(calc(var(--lean, 0deg) - 5deg)); } 60% { transform: rotate(calc(var(--lean, 0deg) + 1deg)); } 82% { transform: rotate(calc(var(--lean, 0deg) - 2deg)); } }
+@keyframes ns-book-fall {
+    0% { transform: translateY(0) rotate(0deg); }
+    30% { transform: translateY(2px) rotate(calc(var(--fall, 1) * 40deg)); }
+    100% { transform: translateY(170px) rotate(calc(var(--fall, 1) * 110deg)); opacity: .12; }
+  }
+@keyframes ns-sit-out { to { transform: scaleX(calc(var(--sitflip, 1) * .28)); } }
+@keyframes ns-sit-in { from { transform: scaleX(calc(var(--sitflip, 1) * .28)); } to { transform: scaleX(var(--sitflip, 1)) rotate(calc(var(--lean, 0deg) * var(--sitflip, 1))); } }
+@keyframes ns-walk-out { from { transform: scaleX(var(--face, 1)); } to { transform: scaleX(calc(var(--face, 1) * .28)); } }
+@keyframes ns-walk-in { from { transform: scaleX(calc(var(--face, 1) * .28)); } to { transform: scaleX(var(--face, 1)); } }
+@keyframes ns-head-settle { from { transform: translateX(calc(var(--face, 1) * 16px)) rotate(calc(var(--face, 1) * 8deg)); } to { transform: none; } }
+@keyframes ns-leg-step { 0%, 100% { transform: rotate(27deg); } 50% { transform: rotate(-27deg); } }
+@keyframes ns-land { from { transform: scaleX(var(--face, 1)) scaleY(.8); } to { transform: scaleX(var(--face, 1)) scaleY(1); } }
+@keyframes ns-lick { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+@keyframes ns-cat-tail { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-14deg); } }
+@keyframes ns-cat-blink { 0%, 92%, 100% { transform: scaleY(1); } 96% { transform: scaleY(.1); } }
+@keyframes ns-cat-walk {
+    0%, 100% { transform: scaleX(var(--face, -1)) translateY(0) rotate(0deg); }
+    50% { transform: scaleX(var(--face, -1)) translateY(-3px) rotate(-3deg); }
+  }
+@keyframes ns-cat-lean {
+    0% { transform: scaleX(var(--face, -1)) rotate(0deg); }
+    30% { transform: scaleX(var(--face, -1)) rotate(-3deg); }
+    58%, 100% { transform: scaleX(var(--face, -1)) rotate(5deg); }
+  }
+@keyframes ns-cat-swat {
+    0% { transform: rotate(0deg); opacity: 0; }
+    14% { opacity: 1; }
+    30% { transform: rotate(-24deg); }
+    56% { transform: rotate(104deg); }
+    100% { transform: rotate(98deg); opacity: 1; }
+  }
+@keyframes ns-say-drift { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -3px; rotate: -1.1deg; } }
+@keyframes ns-say-twinkle { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(.55) rotate(45deg); } }
+@keyframes ns-say-puff { from { transform: scale(.72); } to { transform: scale(1.08); } }
+@keyframes ns-breathe { 0%, 100% { transform: scale(1, 1); } 50% { transform: scale(.992, 1.024); } }
+@keyframes ns-settle { 0% { transform: scale(1.07, .86); } 100% { transform: scale(1, 1); } }
+@keyframes ns-dangle { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(6deg); } }
+
+/* ---------- how it sits in the site header ---------- */
+.site-header.has-shelf { --cat-h: 42px; }
+/* the cat's markup is injected into this zero-size holder at the header's top-left corner */
+.site-header.has-shelf .navcat { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+@media (min-width: 601px) {
+  /* taller than before, so a cat sitting on the tallest book still fits */
+  .site-header.has-shelf { height: 124px; align-items: flex-end; padding-bottom: 27px; }
+  .site-header.has-shelf .nav, .site-header.has-shelf .menu-toggle { display: none; }
+}
+@media (max-width: 600px) {
+  .site-header.has-shelf .shelfnav, .site-header.has-shelf .navcat { display: none; }
+}

@@ -1,0 +1,83 @@
+/* ==========================================================================
+   The cat on the inner pages, away from the header: once the page has carried
+   it out of view it comes down the right-hand margin, claws in, to a divider;
+   hovered a while, a picture gets a cat peeking out of it. Wide screens only.
+
+   Ported from the approved prototype. The cat itself is a copy of the header
+   cat and is styled by nav-shelf.css (its rules are repeated under .pc-layer);
+   this file adds its third drawing, the slide, the scratches and the peek.
+   Behaviour: components/portfolio/pageCat.ts.
+   ========================================================================== */
+.pc-layer { --cat-h: 42px; z-index: 30 !important; }
+  /* ---------- the cat away from the header ---------- */
+  /* Everything it does on the page is drawn in one layer laid over the document, so no page
+     element is touched: the cat itself, its scratch marks, and its peek out of a picture. The
+     cat on the page is a copy of the header cat, so it walks, jumps, turns and sits the same way. */
+  .pc-layer { position: absolute; left: 0; top: 0; width: 100%; height: 0; pointer-events: none; z-index: 4; }
+  .pc-layer .pcat { display: none; z-index: 2; }
+  .pc-layer .pcat.on { display: block; }
+  .pc-layer .pcat .cat { clip-path: inset(-90px -90px -30px -90px); transition: translate .2s ease-in, clip-path .2s ease-in; }
+  .pc-layer .wcat .pose-back { filter: none; }
+  /* the third drawing: from behind, front claws in the page, back legs and tail hanging */
+  /* (drawn a little larger, from its feet, to match the side-on cat) */
+  .pc-layer .pcat .pose-back { display: none; transform: none; width: 120%; height: 120%; margin: -20% 0 0 -10%; }
+  .pc-layer .pcat.climbing .pose-back { display: block; }
+  .pc-layer .pcat.climbing .pose-sit, .pc-layer .pcat.climbing .pose-walk, .pc-layer .pcat.climbing .pose-loaf { display: none; }
+  .pc-layer .pcat.turn-out .pose-back { animation: pc-back-out .12s ease-in forwards; }
+  .pc-layer .pcat.turn-in .pose-back { animation: pc-back-in .17s ease-out; }
+  @keyframes pc-back-out { to { transform: scaleX(.28); } }
+  @keyframes pc-back-in { from { transform: scaleX(.28); } to { transform: none; } }
+  .pcb-body { transform-box: fill-box; transform-origin: 50% 0; }
+  .pc-layer .pcat.sliding .pcb-body { animation: pc-cling .6s ease-in-out infinite alternate; }
+  @keyframes pc-cling { from { transform: rotate(-1.6deg); } to { transform: rotate(1.6deg); } }
+  .pcb-legs { transform-box: fill-box; transform-origin: 50% 0; animation: pc-dangle 1.3s ease-in-out infinite alternate; }
+  @keyframes pc-dangle { from { transform: rotate(-3deg); } to { transform: rotate(3deg); } }
+  .pcb-tail { transform-box: fill-box; transform-origin: 0 0; animation: pc-tail 1.1s ease-in-out infinite alternate; }
+  @keyframes pc-tail { from { transform: rotate(-14deg); } to { transform: rotate(12deg); } }
+  /* going up: paw over paw, the back legs following */
+  .climb-up .pcb-arm-l { animation: pc-reach .42s ease-in-out infinite alternate; }
+  .climb-up .pcb-arm-r { animation: pc-reach .42s ease-in-out infinite alternate-reverse; }
+  .climb-up .pcb-leg-l { animation: pc-step .42s ease-in-out infinite alternate-reverse; }
+  .climb-up .pcb-leg-r { animation: pc-step .42s ease-in-out infinite alternate; }
+  .climb-up .pcb-legs { animation: none; }
+  @keyframes pc-reach { from { transform: translateY(6px); } to { transform: translateY(-8px); } }
+  @keyframes pc-step { from { transform: translateY(3px); } to { transform: translateY(-7px); } }
+  .pc-layer .pcat.climb-up .pcb-body { animation: pc-haul .42s ease-in-out infinite alternate; }
+  @keyframes pc-haul { from { transform: rotate(-2.5deg); } to { transform: rotate(2.5deg); } }
+  /* falling: the side-on drawing, legs reaching down for the landing, nose tipped down */
+  .pc-layer .pcat.falling .pose-walk { transform: scaleX(var(--face, 1)) rotate(11deg); }
+  .pc-layer .pcat.falling .leg.front { transform: rotate(-24deg); } .pc-layer .pcat.falling .leg.back { transform: rotate(18deg); }
+  /* coming out from behind the header rule, from the top edge of the window, or out of a picture */
+  .pc-layer .pcat.emerge .cat { translate: 0 -100%; clip-path: inset(100% -90px -30px -90px); transition: none; }
+  /* ducking out of sight where it stands: it sinks behind the line it is on */
+  .pc-layer .pcat.ducked .cat { translate: 0 100%; clip-path: inset(-90px -90px 100% -90px); }
+  .site-header .wcat.ducked .cat { translate: 0 100%; clip-path: inset(-60px -60px 100% -60px); }
+  .site-header .wcat .cat { clip-path: inset(-60px -60px 0 -60px); transition: translate .2s ease-in, clip-path .2s ease-in; }
+  .site-header .wcat.ducked .say { opacity: 0; }
+  .site-header .wcat.away { visibility: hidden; }
+  /* the marks its front claws leave on the way down: two fine lines under each paw, fading out */
+  .pc-scratch {
+    position: absolute; opacity: 1; transition: opacity 2.6s ease-out .5s; --mark: rgba(23, 25, 29, .12);
+    background:
+      linear-gradient(90deg, var(--mark) 0 1.2px, transparent 1.2px 3.2px, var(--mark) 3.2px 4.4px, transparent 4.4px) left / 5px 100% no-repeat,
+      linear-gradient(90deg, var(--mark) 0 1.2px, transparent 1.2px 3.2px, var(--mark) 3.2px 4.4px, transparent 4.4px) right / 5px 100% no-repeat;
+    -webkit-mask-image: linear-gradient(180deg, transparent, #000 18px, #000 calc(100% - 4px), transparent);
+    mask-image: linear-gradient(180deg, transparent, #000 18px, #000 calc(100% - 4px), transparent);
+  }
+  .pc-scratch.fade { opacity: 0; }
+  /* the peek: only its head and eyes come up over the bottom edge of the picture */
+  .pc-peek { position: absolute; left: 0; top: 0; overflow: hidden; --cat-ink: #1b1d22; }
+  /* a pale rim, so a black cat still reads against a dark picture */
+  .pc-peek svg { display: block; width: 100%; overflow: visible; translate: 0 105%; transition: translate .2s ease-in; filter: drop-shadow(0 0 1px rgba(241, 235, 218, .95)) drop-shadow(0 0 1.5px rgba(241, 235, 218, .7)); }
+  .pc-peek.up svg { translate: 0 0; transition: translate .34s cubic-bezier(.3, 1.45, .5, 1); }
+  @media (prefers-reduced-motion: reduce) { .pc-layer .pcat .cat, .pc-peek svg, .site-header .wcat .cat { transition: none; } .pcb-body, .pcb-legs, .pcb-tail { animation: none !important; } }
+/* phones keep the menu button and no cat */
+@media (max-width: 600px) { .pc-layer { display: none; } }
+/* One cat on screen at a time. The call-to-action cat at the foot of a page stays down until
+   the cat from the header arrives there and hands over to it (pageCat.ts adds pc-arrived).
+   Only while that cat is running: on phones, and with reduced motion, it shows as before. */
+@media (min-width: 601px) {
+  body.pc-on .cat-cta:not(.pc-arrived) { pointer-events: none !important; }
+  body.pc-on .cat-cta:not(.pc-arrived) .cat { transform: translateY(104%) !important; transition-duration: .3s; }
+  body.pc-on .cat-cta:not(.pc-arrived) .cat-bubble { opacity: 0 !important; transition-delay: 0s !important; }
+}
